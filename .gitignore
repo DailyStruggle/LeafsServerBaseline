@@ -1,0 +1,44 @@
+# Minecraft server runtime files
+world/
+world_nether/
+world_the_end/
+*.log
+logs/
+crash-reports/
+cache/
+generated/
+
+# Server runtime
+server.jar
+eula.txt
+usercache.json
+whitelist.json
+banned-ips.json
+banned-players.json
+ops.json
+session.lock
+
+# Plugin data directories (runtime state, not source)
+plugins/*/data/
+plugins/*/cache/
+
+# Compiled plugin jars (build output)
+*.jar
+
+# Scripts output / temp
+scripts/out/
+scripts/tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.idea/workspace.xml
+.idea/tasks.xml
+*.iml
+*.bak
+
+# Node (if any tooling scripts use it)
+node_modules/
