@@ -1,0 +1,148 @@
+{
+  "name": "vanilla/flower_forest",
+  "rarity": 1,
+  "derivative": "FLOWER_FOREST",
+  "vanillaDerivative": "FLOWER_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.12,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchM1",
+        "trees/vanilla-birch/birchM2",
+        "trees/vanilla-birch/birchM3",
+        "trees/vanilla-birch/birchM4",
+        "trees/vanilla-birch/birchM5",
+        "trees/vanilla-birch/birchM6",
+        "trees/vanilla-birch/birchM7",
+        "trees/vanilla-birch/birchM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.35,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.45,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:azure_bluet",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:oxeye_daisy",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:cornflower",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:red_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:orange_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:white_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:pink_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:allium",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:lily_of_the_valley",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:lilac",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:rose_bush",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:peony",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

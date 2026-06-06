@@ -1,0 +1,128 @@
+{
+  "name": "vanilla/meadow__giant",
+  "rarity": 9,
+  "derivative": "MEADOW",
+  "vanillaDerivative": "MEADOW",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakL1",
+        "trees/vanilla-oak/oakL2",
+        "trees/vanilla-oak/oakL3",
+        "trees/vanilla-oak/oakL4",
+        "trees/vanilla-oak/oakL5",
+        "trees/vanilla-oak/oakL6",
+        "trees/vanilla-oak/oakL7",
+        "trees/vanilla-oak/oakL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.55,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 22
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:azure_bluet",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:oxeye_daisy",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:cornflower",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:red_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:orange_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:white_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:pink_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:allium",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}

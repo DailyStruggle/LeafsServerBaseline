@@ -1,0 +1,81 @@
+{
+  "name": "vanilla/old_growth_birch_forest",
+  "rarity": 1,
+  "derivative": "OLD_GROWTH_BIRCH_FOREST",
+  "vanillaDerivative": "OLD_GROWTH_BIRCH_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.32,
+      "density": 6,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchXL1",
+        "trees/vanilla-birch/birchXL2",
+        "trees/vanilla-birch/birchXL3",
+        "trees/vanilla-birch/birchXL4",
+        "trees/vanilla-birch/birchXL5",
+        "trees/vanilla-birch/birchXL6",
+        "trees/vanilla-birch/birchXL7",
+        "trees/vanilla-birch/birchXL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:lily_of_the_valley",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:dandelion",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

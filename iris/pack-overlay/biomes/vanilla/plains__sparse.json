@@ -1,0 +1,101 @@
+{
+  "name": "vanilla/plains__sparse",
+  "rarity": 1,
+  "derivative": "PLAINS",
+  "vanillaDerivative": "PLAINS",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.015,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.55,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 22
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:azure_bluet",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:oxeye_daisy",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:cornflower",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:red_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:orange_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:white_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:pink_tulip",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

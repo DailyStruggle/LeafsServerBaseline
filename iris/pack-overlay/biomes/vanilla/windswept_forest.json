@@ -1,0 +1,107 @@
+{
+  "name": "vanilla/windswept_forest",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_FOREST",
+  "vanillaDerivative": "WINDSWEPT_FOREST",
+  "category": "extreme_hills",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.08,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceS1",
+        "trees/vanilla-spruce/spruceS2",
+        "trees/vanilla-spruce/spruceS3",
+        "trees/vanilla-spruce/spruceS4",
+        "trees/vanilla-spruce/spruceS5",
+        "trees/vanilla-spruce/spruceS6",
+        "trees/vanilla-spruce/spruceS7",
+        "trees/vanilla-spruce/spruceS8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceM1",
+        "trees/vanilla-spruce/spruceM2",
+        "trees/vanilla-spruce/spruceM3",
+        "trees/vanilla-spruce/spruceM4",
+        "trees/vanilla-spruce/spruceM5",
+        "trees/vanilla-spruce/spruceM6",
+        "trees/vanilla-spruce/spruceM7",
+        "trees/vanilla-spruce/spruceM8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:fern",
+          "weight": 60
+        },
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:large_fern",
+          "weight": 18
+        }
+      ]
+    }
+  ]
+}

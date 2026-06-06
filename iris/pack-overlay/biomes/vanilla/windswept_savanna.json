@@ -1,0 +1,57 @@
+{
+  "name": "vanilla/windswept_savanna",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_SAVANNA",
+  "vanillaDerivative": "WINDSWEPT_SAVANNA",
+  "category": "savanna",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.03,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-acacia/acaciaS1",
+        "trees/vanilla-acacia/acaciaS2",
+        "trees/vanilla-acacia/acaciaS3",
+        "trees/vanilla-acacia/acaciaS4",
+        "trees/vanilla-acacia/acaciaS5",
+        "trees/vanilla-acacia/acaciaS6",
+        "trees/vanilla-acacia/acaciaS7",
+        "trees/vanilla-acacia/acaciaS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.4,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 14
+        }
+      ]
+    }
+  ]
+}

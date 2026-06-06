@@ -1,0 +1,80 @@
+{
+  "name": "vanilla/windswept_gravelly_hills",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_GRAVELLY_HILLS",
+  "vanillaDerivative": "WINDSWEPT_GRAVELLY_HILLS",
+  "category": "extreme_hills",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.02,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceS1",
+        "trees/vanilla-spruce/spruceS2",
+        "trees/vanilla-spruce/spruceS3",
+        "trees/vanilla-spruce/spruceS4",
+        "trees/vanilla-spruce/spruceS5",
+        "trees/vanilla-spruce/spruceS6",
+        "trees/vanilla-spruce/spruceS7",
+        "trees/vanilla-spruce/spruceS8"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.15,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}

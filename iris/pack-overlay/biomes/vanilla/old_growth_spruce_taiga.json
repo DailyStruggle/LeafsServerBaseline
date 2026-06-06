@@ -1,0 +1,91 @@
+{
+  "name": "vanilla/old_growth_spruce_taiga",
+  "rarity": 1,
+  "derivative": "OLD_GROWTH_SPRUCE_TAIGA",
+  "vanillaDerivative": "OLD_GROWTH_SPRUCE_TAIGA",
+  "category": "taiga",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.34,
+      "density": 6,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceXL1",
+        "trees/vanilla-spruce/spruceXL2",
+        "trees/vanilla-spruce/spruceXL3",
+        "trees/vanilla-spruce/spruceXL4",
+        "trees/vanilla-spruce/spruceXL5",
+        "trees/vanilla-spruce/spruceXL6",
+        "trees/vanilla-spruce/spruceXL7",
+        "trees/vanilla-spruce/spruceXL8"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/mushroom/redgeneric1",
+        "trees/mushroom/redgeneric2",
+        "trees/mushroom/redgeneric3",
+        "trees/mushroom/redgeneric4",
+        "trees/mushroom/redgeneric5",
+        "trees/mushroom/redgeneric6",
+        "trees/mushroom/redgeneric7",
+        "trees/mushroom/redgeneric8",
+        "trees/mushroom/browngeneric1",
+        "trees/mushroom/browngeneric2",
+        "trees/mushroom/smolshroom1",
+        "trees/mushroom/smolshroom2",
+        "trees/mushroom/smolshroom3",
+        "trees/mushroom/smolshroom4",
+        "trees/mushroom/smolshroom5"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.32,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:fern",
+          "weight": 60
+        },
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:large_fern",
+          "weight": 18
+        }
+      ]
+    }
+  ]
+}

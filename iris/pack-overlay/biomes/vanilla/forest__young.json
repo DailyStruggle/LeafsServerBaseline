@@ -1,0 +1,121 @@
+{
+  "name": "vanilla/forest__young",
+  "rarity": 1,
+  "derivative": "FOREST",
+  "vanillaDerivative": "FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.22,
+      "density": 5,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchS1",
+        "trees/vanilla-birch/birchS2",
+        "trees/vanilla-birch/birchS3",
+        "trees/vanilla-birch/birchS4",
+        "trees/vanilla-birch/birchS5",
+        "trees/vanilla-birch/birchS6",
+        "trees/vanilla-birch/birchS7",
+        "trees/vanilla-birch/birchS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:poppy"
+        }
+      ]
+    }
+  ]
+}

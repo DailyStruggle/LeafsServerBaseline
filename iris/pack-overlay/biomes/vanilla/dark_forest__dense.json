@@ -1,0 +1,191 @@
+{
+  "name": "vanilla/dark_forest__dense",
+  "rarity": 1,
+  "derivative": "DARK_FOREST",
+  "vanillaDerivative": "DARK_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-dark_oak/dark_oakS1",
+        "trees/vanilla-dark_oak/dark_oakS2",
+        "trees/vanilla-dark_oak/dark_oakS3",
+        "trees/vanilla-dark_oak/dark_oakS4",
+        "trees/vanilla-dark_oak/dark_oakS5",
+        "trees/vanilla-dark_oak/dark_oakS6",
+        "trees/vanilla-dark_oak/dark_oakS7",
+        "trees/vanilla-dark_oak/dark_oakS8"
+      ]
+    },
+    {
+      "chance": 0.18,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-dark_oak/dark_oakM1",
+        "trees/vanilla-dark_oak/dark_oakM2",
+        "trees/vanilla-dark_oak/dark_oakM3",
+        "trees/vanilla-dark_oak/dark_oakM4",
+        "trees/vanilla-dark_oak/dark_oakM5",
+        "trees/vanilla-dark_oak/dark_oakM6",
+        "trees/vanilla-dark_oak/dark_oakM7",
+        "trees/vanilla-dark_oak/dark_oakM8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-dark_oak/dark_oakL1",
+        "trees/vanilla-dark_oak/dark_oakL2",
+        "trees/vanilla-dark_oak/dark_oakL3",
+        "trees/vanilla-dark_oak/dark_oakL4",
+        "trees/vanilla-dark_oak/dark_oakL5",
+        "trees/vanilla-dark_oak/dark_oakL6",
+        "trees/vanilla-dark_oak/dark_oakL7",
+        "trees/vanilla-dark_oak/dark_oakL8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchM1",
+        "trees/vanilla-birch/birchM2",
+        "trees/vanilla-birch/birchM3",
+        "trees/vanilla-birch/birchM4",
+        "trees/vanilla-birch/birchM5",
+        "trees/vanilla-birch/birchM6",
+        "trees/vanilla-birch/birchM7",
+        "trees/vanilla-birch/birchM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.25,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:lily_of_the_valley",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:rose_bush",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:peony",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:lilac",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    }
+  ]
+}

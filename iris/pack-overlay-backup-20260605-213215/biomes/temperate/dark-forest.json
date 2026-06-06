@@ -5,6 +5,13 @@
   "derivative": "DARK_FOREST",
   "vanillaDerivative": "DARK_FOREST",
   "category": "forest",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 4,
+      "max": 18
+    }
+  ],
   "objects": [
     {
       "chance": 0.06,

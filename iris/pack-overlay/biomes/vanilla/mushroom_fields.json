@@ -1,0 +1,62 @@
+{
+  "name": "vanilla/mushroom_fields",
+  "rarity": 1,
+  "derivative": "MUSHROOM_FIELDS",
+  "vanillaDerivative": "MUSHROOM_FIELDS",
+  "category": "mushroom",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.12,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/mushroom/redgeneric1",
+        "trees/mushroom/redgeneric2",
+        "trees/mushroom/redgeneric3",
+        "trees/mushroom/redgeneric4",
+        "trees/mushroom/redgeneric5",
+        "trees/mushroom/redgeneric6",
+        "trees/mushroom/redgeneric7",
+        "trees/mushroom/redgeneric8",
+        "trees/mushroom/browngeneric1",
+        "trees/mushroom/browngeneric2",
+        "trees/mushroom/smolshroom1",
+        "trees/mushroom/smolshroom2",
+        "trees/mushroom/smolshroom3",
+        "trees/mushroom/smolshroom4",
+        "trees/mushroom/smolshroom5"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    }
+  ]
+}

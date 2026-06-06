@@ -1,0 +1,42 @@
+{
+  "name": "Mushroom",
+  "color": "#C87EC8",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/mushroom_fields",
+    "vanilla/mushroom_fields",
+    "vanilla/mushroom_fields",
+    "vanilla/mushroom_fields",
+    "vanilla/mushroom_fields",
+    "mushroom/forest",
+    "mushroom/plains",
+    "mushroom/crimson-forest",
+    "mushroom/warped-forest"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/dark-depth-ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.025
+}

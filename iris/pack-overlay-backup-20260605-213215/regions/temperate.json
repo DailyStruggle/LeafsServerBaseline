@@ -1,0 +1,59 @@
+{
+  "name": "Temperate",
+  "color": "#7EC850",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/forest",
+    "vanilla/forest",
+    "vanilla/forest",
+    "vanilla/birch_forest",
+    "vanilla/birch_forest",
+    "vanilla/plains",
+    "vanilla/plains",
+    "vanilla/plains",
+    "vanilla/flower_forest",
+    "vanilla/flower_forest",
+    "vanilla/dark_forest",
+    "vanilla/dark_forest",
+    "temperate/birch-forest",
+    "temperate/oak-forest",
+    "temperate/flower-forest",
+    "temperate/birch-tall",
+    "temperate/sakura-forest",
+    "tundra/maple-forest",
+    "temperate/longtree-forest",
+    "temperate/dark-forest",
+    "temperate/cherry-grove",
+    "temperate/old-growth-birch-forest",
+    "temperate/reaching-forest",
+    "temperate/reaching-forest-violet",
+    "temperate/spiral-crown-forest"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/ocean",
+    "ocean/rich-oceans"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.025
+}

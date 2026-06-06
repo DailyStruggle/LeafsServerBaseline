@@ -1,0 +1,71 @@
+{
+  "name": "vanilla/bamboo_jungle",
+  "rarity": 1,
+  "derivative": "BAMBOO_JUNGLE",
+  "vanillaDerivative": "BAMBOO_JUNGLE",
+  "category": "jungle",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.26,
+      "density": 5,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-jungle/jungleL1",
+        "trees/vanilla-jungle/jungleL2",
+        "trees/vanilla-jungle/jungleL3",
+        "trees/vanilla-jungle/jungleL4",
+        "trees/vanilla-jungle/jungleL5",
+        "trees/vanilla-jungle/jungleL6",
+        "trees/vanilla-jungle/jungleL7",
+        "trees/vanilla-jungle/jungleL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.35,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:bamboo"
+        }
+      ],
+      "stackMin": 2,
+      "stackMax": 12,
+      "scaleStack": true
+    }
+  ]
+}

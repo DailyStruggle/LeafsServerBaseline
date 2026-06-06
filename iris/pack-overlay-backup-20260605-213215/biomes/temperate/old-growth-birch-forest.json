@@ -5,6 +5,13 @@
   "derivative": "BIRCH_FOREST",
   "vanillaDerivative": "BIRCH_FOREST",
   "category": "forest",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 4,
+      "max": 18
+    }
+  ],
   "objects": [
     {
       "chance": 0.05,

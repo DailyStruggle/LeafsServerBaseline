@@ -1,0 +1,142 @@
+{
+  "name": "vanilla/swamp",
+  "rarity": 1,
+  "derivative": "SWAMP",
+  "vanillaDerivative": "SWAMP",
+  "category": "swamp",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    },
+    {
+      "chance": 0.12,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.01,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/mushroom/redgeneric1",
+        "trees/mushroom/redgeneric2",
+        "trees/mushroom/redgeneric3",
+        "trees/mushroom/redgeneric4",
+        "trees/mushroom/redgeneric5",
+        "trees/mushroom/redgeneric6",
+        "trees/mushroom/redgeneric7",
+        "trees/mushroom/redgeneric8",
+        "trees/mushroom/browngeneric1",
+        "trees/mushroom/browngeneric2",
+        "trees/mushroom/smolshroom1",
+        "trees/mushroom/smolshroom2",
+        "trees/mushroom/smolshroom3",
+        "trees/mushroom/smolshroom4",
+        "trees/mushroom/smolshroom5"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.2,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "chance": 0.04,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:blue_orchid"
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dead_bush"
+        }
+      ]
+    }
+  ]
+}

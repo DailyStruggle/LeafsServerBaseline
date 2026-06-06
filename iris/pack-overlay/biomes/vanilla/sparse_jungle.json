@@ -1,0 +1,57 @@
+{
+  "name": "vanilla/sparse_jungle",
+  "rarity": 1,
+  "derivative": "SPARSE_JUNGLE",
+  "vanillaDerivative": "SPARSE_JUNGLE",
+  "category": "jungle",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.14,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-jungle/jungleM1",
+        "trees/vanilla-jungle/jungleM2",
+        "trees/vanilla-jungle/jungleM3",
+        "trees/vanilla-jungle/jungleM4",
+        "trees/vanilla-jungle/jungleM5",
+        "trees/vanilla-jungle/jungleM6",
+        "trees/vanilla-jungle/jungleM7",
+        "trees/vanilla-jungle/jungleM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

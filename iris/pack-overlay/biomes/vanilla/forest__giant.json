@@ -1,0 +1,121 @@
+{
+  "name": "vanilla/forest__giant",
+  "rarity": 9,
+  "derivative": "FOREST",
+  "vanillaDerivative": "FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakL1",
+        "trees/vanilla-oak/oakL2",
+        "trees/vanilla-oak/oakL3",
+        "trees/vanilla-oak/oakL4",
+        "trees/vanilla-oak/oakL5",
+        "trees/vanilla-oak/oakL6",
+        "trees/vanilla-oak/oakL7",
+        "trees/vanilla-oak/oakL8"
+      ]
+    },
+    {
+      "chance": 0.08,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakXL1",
+        "trees/vanilla-oak/oakXL2",
+        "trees/vanilla-oak/oakXL3",
+        "trees/vanilla-oak/oakXL4",
+        "trees/vanilla-oak/oakXL5",
+        "trees/vanilla-oak/oakXL6",
+        "trees/vanilla-oak/oakXL7",
+        "trees/vanilla-oak/oakXL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:poppy"
+        }
+      ]
+    }
+  ]
+}

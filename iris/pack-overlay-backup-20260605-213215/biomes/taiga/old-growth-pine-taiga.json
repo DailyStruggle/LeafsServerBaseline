@@ -5,6 +5,13 @@
   "derivative": "OLD_GROWTH_SPRUCE_TAIGA",
   "vanillaDerivative": "OLD_GROWTH_SPRUCE_TAIGA",
   "category": "taiga",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 4,
+      "max": 18
+    }
+  ],
   "objects": [
     {
       "chance": 0.04,

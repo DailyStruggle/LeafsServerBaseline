@@ -5,6 +5,13 @@
   "derivative": "TAIGA",
   "vanillaDerivative": "TAIGA",
   "category": "taiga",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 4,
+      "max": 18
+    }
+  ],
   "objects": [
     {
       "chance": 0.06,

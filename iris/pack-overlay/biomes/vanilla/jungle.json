@@ -1,0 +1,118 @@
+{
+  "name": "vanilla/jungle",
+  "rarity": 1,
+  "derivative": "JUNGLE",
+  "vanillaDerivative": "JUNGLE",
+  "category": "jungle",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.36,
+      "density": 6,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-jungle/jungleL1",
+        "trees/vanilla-jungle/jungleL2",
+        "trees/vanilla-jungle/jungleL3",
+        "trees/vanilla-jungle/jungleL4",
+        "trees/vanilla-jungle/jungleL5",
+        "trees/vanilla-jungle/jungleL6",
+        "trees/vanilla-jungle/jungleL7",
+        "trees/vanilla-jungle/jungleL8"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-jungle/jungleXL1",
+        "trees/vanilla-jungle/jungleXL2",
+        "trees/vanilla-jungle/jungleXL3",
+        "trees/vanilla-jungle/jungleXL4",
+        "trees/vanilla-jungle/jungleXL5",
+        "trees/vanilla-jungle/jungleXL6",
+        "trees/vanilla-jungle/jungleXL7",
+        "trees/vanilla-jungle/jungleXL8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.4,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 20
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:melon"
+        }
+      ]
+    }
+  ]
+}

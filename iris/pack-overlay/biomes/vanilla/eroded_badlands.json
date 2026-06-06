@@ -1,0 +1,41 @@
+{
+  "name": "vanilla/eroded_badlands",
+  "rarity": 1,
+  "derivative": "ERODED_BADLANDS",
+  "vanillaDerivative": "ERODED_BADLANDS",
+  "category": "mesa",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dead_bush"
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:cactus"
+        }
+      ],
+      "stackMin": 1,
+      "stackMax": 2,
+      "scaleStack": true
+    }
+  ]
+}

@@ -47,6 +47,17 @@ Get-ChildItem $iobSrc -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue | F
 $iobCount = (Get-ChildItem "$staging\objects" -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue).Count
 Write-Output "  custom .iob files staged: $iobCount"
 
+# Strip UTF-8 BOM from all staged JSON files (Iris region/object loaders reject a
+# leading BOM with "A JSONObject text must begin with '{'"). Editors/PowerShell
+# can reintroduce a BOM when files are rewritten, so normalize here before deploy.
+Get-ChildItem $staging -Recurse -Filter '*.json' | ForEach-Object {
+    $bytes = [System.IO.File]::ReadAllBytes($_.FullName)
+    if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+        [System.IO.File]::WriteAllBytes($_.FullName, $bytes[3..($bytes.Length-1)])
+        Write-Output "  BOM stripped: $($_.Name)"
+    }
+}
+
 Write-Output '=== Staging ready ==='
 
 # ── 2. Deploy staging to server ─────────────────────────────────────────────

@@ -1,0 +1,104 @@
+{
+  "name": "vanilla/birch_forest__tall",
+  "rarity": 4,
+  "derivative": "BIRCH_FOREST",
+  "vanillaDerivative": "BIRCH_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.16,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchM1",
+        "trees/vanilla-birch/birchM2",
+        "trees/vanilla-birch/birchM3",
+        "trees/vanilla-birch/birchM4",
+        "trees/vanilla-birch/birchM5",
+        "trees/vanilla-birch/birchM6",
+        "trees/vanilla-birch/birchM7",
+        "trees/vanilla-birch/birchM8"
+      ]
+    },
+    {
+      "chance": 0.12,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchL1",
+        "trees/vanilla-birch/birchL2",
+        "trees/vanilla-birch/birchL3",
+        "trees/vanilla-birch/birchL4",
+        "trees/vanilla-birch/birchL5",
+        "trees/vanilla-birch/birchL6",
+        "trees/vanilla-birch/birchL7",
+        "trees/vanilla-birch/birchL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:lily_of_the_valley",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:dandelion",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

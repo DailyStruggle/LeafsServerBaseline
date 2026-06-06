@@ -1,0 +1,53 @@
+{
+  "name": "Hot",
+  "color": "#E8C840",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/desert",
+    "vanilla/desert",
+    "vanilla/desert",
+    "vanilla/savanna",
+    "vanilla/savanna",
+    "vanilla/badlands",
+    "vanilla/badlands",
+    "vanilla/eroded_badlands",
+    "vanilla/eroded_badlands",
+    "hot/desert-dunes",
+    "hot/desert-dunes-red",
+    "hot/oasis",
+    "hot/mountain",
+    "terralost/ancient-sands",
+    "savanna/savanna",
+    "mesa/mesa",
+    "mesa/red",
+    "mesa/blue",
+    "mesa/bryce-spires",
+    "mesa/cinnabar-mesa"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/warm",
+    "ocean/warm-bottom",
+    "ocean/ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 2,
+  "riverThickness": 0.018
+}

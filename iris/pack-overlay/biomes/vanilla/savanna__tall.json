@@ -1,0 +1,80 @@
+{
+  "name": "vanilla/savanna__tall",
+  "rarity": 4,
+  "derivative": "SAVANNA",
+  "vanillaDerivative": "SAVANNA",
+  "category": "savanna",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.05,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-acacia/acaciaM1",
+        "trees/vanilla-acacia/acaciaM2",
+        "trees/vanilla-acacia/acaciaM3",
+        "trees/vanilla-acacia/acaciaM4",
+        "trees/vanilla-acacia/acaciaM5",
+        "trees/vanilla-acacia/acaciaM6",
+        "trees/vanilla-acacia/acaciaM7",
+        "trees/vanilla-acacia/acaciaM8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-acacia/acaciaL1",
+        "trees/vanilla-acacia/acaciaL2",
+        "trees/vanilla-acacia/acaciaL3",
+        "trees/vanilla-acacia/acaciaL4",
+        "trees/vanilla-acacia/acaciaL5",
+        "trees/vanilla-acacia/acaciaL6",
+        "trees/vanilla-acacia/acaciaL7",
+        "trees/vanilla-acacia/acaciaL8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.65,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 30
+        }
+      ]
+    }
+  ]
+}

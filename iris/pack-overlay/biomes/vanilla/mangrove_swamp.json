@@ -1,0 +1,64 @@
+{
+  "name": "vanilla/mangrove_swamp",
+  "rarity": 1,
+  "derivative": "MANGROVE_SWAMP",
+  "vanillaDerivative": "MANGROVE_SWAMP",
+  "category": "swamp",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.22,
+      "density": 5,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-mangrove/mangroveM1",
+        "trees/vanilla-mangrove/mangroveM2",
+        "trees/vanilla-mangrove/mangroveM3",
+        "trees/vanilla-mangrove/mangroveM4",
+        "trees/vanilla-mangrove/mangroveM5",
+        "trees/vanilla-mangrove/mangroveM6",
+        "trees/vanilla-mangrove/mangroveM7",
+        "trees/vanilla-mangrove/mangroveM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.25,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "chance": 0.03,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:mangrove_propagule"
+        }
+      ]
+    }
+  ]
+}

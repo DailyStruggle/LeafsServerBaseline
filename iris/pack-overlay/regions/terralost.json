@@ -1,50 +1,63 @@
 {
-  "name": "Terralost",
-  "color": "#9B7EC8",
-  "rarity": 1,
-  "landBiomes": [
-    "vanilla/badlands",
-    "vanilla/badlands",
-    "vanilla/badlands",
-    "vanilla/eroded_badlands",
-    "vanilla/eroded_badlands",
-    "vanilla/windswept_hills",
-    "vanilla/windswept_hills",
-    "terralost/ancient-sands",
-    "mesa/blue",
-    "mesa/dark",
-    "mesa/bryce-spires",
-    "mountain/calcite-base",
-    "mountain/cliffs",
-    "terralost/amethyst-canyon",
-    "terralost/amethyst-rainforest",
-    "mountain/floating-islands",
-    "mountain/ashcrown"
-  ],
-  "landBiomeZoom": 3.5,
-  "shoreBiomes": [
-    "temperate/shore/beach"
-  ],
-  "shoreBiomeZoom": 0.15,
-  "shoreHeightMin": 1,
-  "shoreHeightMax": 5.2,
-  "shoreHeightZoom": 1.14,
-  "seaBiomes": [
-    "ocean/deep",
-    "ocean/dark-depth-ocean"
-  ],
-  "seaBiomeZoom": 6,
-  "caveBiomes": [
-    "carving/rocky-cavebiome",
-    "carving/mountain-caves"
-  ],
-  "caveBiomeZoom": 3.3,
-  "entitySpawners": [
-    "temperate/passive",
-    "temperate/hostile",
-    "temperate/cave",
-    "temperate/water"
-  ],
-  "riverRarity": 2,
-  "riverThickness": 0.018
+    "name":  "Terralost",
+    "color":  "#446600",
+    "rarity":  2,
+    "landBiomes":  [
+                       "terralost/amethyst-rainforest",
+                       "terralost/ancient-sands",
+                       "terralost/amethyst-canyon",
+                       "terralost/alpine-grove",
+                       "terralost/alpine-highlands",
+                       "vanilla/badlands",
+                       "vanilla/eroded_badlands",
+                       "vanilla/wooded_badlands",
+                       "vanilla/windswept_hills",
+                       "vanilla/windswept_gravelly_hills",
+                       "vanilla/stony_peaks",
+                       "vanilla/jagged_peaks"
+                   ],
+    "landBiomeZoom":  3,
+    "shoreBiomes":  [
+                        "tundra/shore/beach"
+                    ],
+    "seaBiomes":  [
+                      "mountain/sea/river"
+                  ],
+    "entitySpawners":  [
+                           "tundra/passive",
+                           "tundra/hostile",
+                           "tundra/cave"
+                       ],
+    "shoreHeightMin":  2.2,
+    "shoreHeightMax":  5.2,
+    "carving":  {
+                    "ravines":  [
+                                    {
+                                        "rarity":  25,
+                                        "ravine":  "calcite/main"
+                                    }
+                                ],
+                    "caves":  [
+                                  {
+                                      "breakSurface":  true,
+                                      "cave":  "rocky/main",
+                                      "rarity":  50,
+                                      "caveStartHeight":  {
+                                                              "max":  400,
+                                                              "min":  15,
+                                                              "style":  {
+                                                                            "style":  "STATIC"
+                                                                        }
+                                                          }
+                                  }
+                              ]
+                },
+    "shoreHeightZoom":  1.14,
+    "riverThickness":  0.025,
+    "loot":  {
+                 "mode":  "FALLBACK",
+                 "tables":  [
+                                "tropical/dungeon"
+                            ]
+             }
 }

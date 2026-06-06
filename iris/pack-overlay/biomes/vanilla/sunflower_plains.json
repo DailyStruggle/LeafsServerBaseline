@@ -1,0 +1,82 @@
+{
+  "name": "vanilla/sunflower_plains",
+  "rarity": 1,
+  "derivative": "SUNFLOWER_PLAINS",
+  "vanillaDerivative": "SUNFLOWER_PLAINS",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.45,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        }
+      ]
+    },
+    {
+      "chance": 0.18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:sunflower"
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:poppy"
+        }
+      ]
+    }
+  ]
+}

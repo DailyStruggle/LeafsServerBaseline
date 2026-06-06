@@ -1,0 +1,68 @@
+{
+  "name": "vanilla/wooded_badlands",
+  "rarity": 1,
+  "derivative": "WOODED_BADLANDS",
+  "vanillaDerivative": "WOODED_BADLANDS",
+  "category": "mesa",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.05,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakS1",
+        "trees/vanilla-oak/oakS2",
+        "trees/vanilla-oak/oakS3",
+        "trees/vanilla-oak/oakS4",
+        "trees/vanilla-oak/oakS5",
+        "trees/vanilla-oak/oakS6",
+        "trees/vanilla-oak/oakS7",
+        "trees/vanilla-oak/oakS8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.1,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 6
+        }
+      ]
+    },
+    {
+      "chance": 0.03,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dead_bush"
+        }
+      ]
+    }
+  ]
+}
