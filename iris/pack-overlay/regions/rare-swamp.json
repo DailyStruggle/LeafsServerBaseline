@@ -1,0 +1,41 @@
+{
+  "name": "Rare Swamp",
+  "color": "#3A6B3A",
+  "rarity": 2,
+  "landBiomes": [
+    "swamp/creaks",
+    "swamp/handy-willow-forest",
+    "swamp/cambian-drift",
+    "swamp/denmyre",
+    "swamp/marsh-rotten",
+    "swamp/swamp-forest",
+    "tundra/ether",
+    "terralost/amethyst-rainforest"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.025
+}

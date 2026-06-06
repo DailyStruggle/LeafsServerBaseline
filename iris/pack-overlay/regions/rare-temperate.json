@@ -1,0 +1,45 @@
+{
+  "name": "Rare Temperate",
+  "color": "#5A9E3A",
+  "rarity": 2,
+  "landBiomes": [
+    "temperate/reaching-forest",
+    "temperate/reaching-forest-violet",
+    "temperate/spiral-crown-forest",
+    "temperate/osaka-violet-forest",
+    "temperate/lush-plains",
+    "temperate/meadows",
+    "temperate/highlands",
+    "temperate/forest",
+    "temperate/combo-forest",
+    "temperate/osaka-red-forest",
+    "terralost/amethyst-canyon"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/ocean",
+    "ocean/rich-oceans"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.025
+}

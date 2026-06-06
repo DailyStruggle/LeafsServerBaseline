@@ -1,0 +1,44 @@
+{
+  "name": "Rare Hot",
+  "color": "#C8A020",
+  "rarity": 2,
+  "landBiomes": [
+    "mesa/cinnabar-mesa",
+    "savanna/ashen-plains",
+    "mountain/floating-islands",
+    "mountain/ashcrown",
+    "hot/mountain-plains",
+    "hot/small-valley",
+    "savanna/acacia-denmyre",
+    "tropical/wilds",
+    "tropical/jungle-denmyre",
+    "tropical/highlands",
+    "mesa/cliffs"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/warm",
+    "ocean/warm-bottom",
+    "ocean/ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 2,
+  "riverThickness": 0.018
+}

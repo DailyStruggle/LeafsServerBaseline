@@ -1,0 +1,50 @@
+{
+  "name": "Terralost",
+  "color": "#9B7EC8",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/badlands",
+    "vanilla/badlands",
+    "vanilla/badlands",
+    "vanilla/eroded_badlands",
+    "vanilla/eroded_badlands",
+    "vanilla/windswept_hills",
+    "vanilla/windswept_hills",
+    "terralost/ancient-sands",
+    "mesa/blue",
+    "mesa/dark",
+    "mesa/bryce-spires",
+    "mountain/calcite-base",
+    "mountain/cliffs",
+    "terralost/amethyst-canyon",
+    "terralost/amethyst-rainforest",
+    "mountain/floating-islands",
+    "mountain/ashcrown"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/dark-depth-ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/mountain-caves"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 2,
+  "riverThickness": 0.018
+}

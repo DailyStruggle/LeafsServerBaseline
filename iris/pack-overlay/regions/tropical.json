@@ -1,0 +1,56 @@
+{
+  "name": "Tropical",
+  "color": "#3DB84A",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/jungle",
+    "vanilla/jungle",
+    "vanilla/jungle",
+    "vanilla/jungle",
+    "vanilla/sparse_jungle",
+    "vanilla/sparse_jungle",
+    "vanilla/bamboo_jungle",
+    "vanilla/bamboo_jungle",
+    "tropical/rainforest",
+    "tropical/rainforest-hills",
+    "tropical/rainforest-wicked",
+    "tropical/bamboo-forest",
+    "tropical/plains",
+    "tropical/plains-hills",
+    "tropical/mountain",
+    "swamp/swamp-mangrove-lake",
+    "hot/jungle",
+    "tropical/cinderfall",
+    "terralost/amethyst-rainforest"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "tropical/beach",
+    "tropical/beach-bamboo"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/warm",
+    "ocean/warm-bottom",
+    "ocean/rich-oceans",
+    "ocean/mirage-isles",
+    "ocean/embertide"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.03
+}

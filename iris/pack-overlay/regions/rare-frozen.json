@@ -1,0 +1,43 @@
+{
+  "name": "Rare Frozen",
+  "color": "#A0D0FF",
+  "rarity": 2,
+  "landBiomes": [
+    "frozen/vander",
+    "frozen/pine-plains",
+    "frozen/spruce-plains",
+    "tundra/magic-forest",
+    "tundra/ether",
+    "tundra/bonsai-forest",
+    "frozen/boreal-shield",
+    "terralost/alpine-grove",
+    "terralost/alpine-highlands",
+    "mountain/hills"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/dark-depth-ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/mountain-caves"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.025
+}

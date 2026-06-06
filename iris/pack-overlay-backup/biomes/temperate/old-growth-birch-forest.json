@@ -1,0 +1,98 @@
+{
+  "name": "Ancient Birch Forest",
+  "color": "#C8E89A",
+  "rarity": 5,
+  "derivative": "BIRCH_FOREST",
+  "vanillaDerivative": "BIRCH_FOREST",
+  "category": "forest",
+  "objects": [
+    {
+      "chance": 0.05,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/birch/smallgeneric1",
+        "trees/birch/smallgeneric3",
+        "trees/birch/smallgeneric5",
+        "trees/birch/smallgeneric7",
+        "trees/birch/smallgeneric9",
+        "trees/birch/smallgeneric11"
+      ]
+    },
+    {
+      "chance": 0.055,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/birch/generic1",
+        "trees/birch/generic5",
+        "trees/birch/generic9",
+        "trees/birch/generic13",
+        "trees/birch/generic17",
+        "trees/birch/generic21",
+        "trees/birch/generic25",
+        "trees/birch/generic29"
+      ]
+    },
+    {
+      "chance": 0.05,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/birch/largegeneric1",
+        "trees/birch/largegeneric4",
+        "trees/birch/largegeneric7",
+        "trees/birch/largegeneric10",
+        "trees/birch/largegeneric13",
+        "trees/birch/largegeneric16",
+        "trees/birch/largegeneric19"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/birch/largeponderosa1",
+        "trees/birch/largeponderosa4",
+        "trees/birch/largeponderosa7",
+        "trees/birch/largeponderosa10",
+        "trees/birch/largeponderosa13",
+        "trees/birch/largeponderosa16",
+        "trees/birch/largeponderosa19"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 # LeafsServerBaseline
 
-A baseline repository for Minecraft server development. Contains scripts, datapacks, plugins, configs, and documentation following a docs-first development cycle.
+A working repository for designing and operating Leaf's Minecraft server. It stores server-specific scripts, datapacks, configs, and documentation following a docs-first development cycle.
+
+> **Plugin policy:** Any plugin developed here that is generally applicable (not specific to this server) must be extracted into its own repository. Only server-specific plugin configuration or thin wrappers belong here.
 
 ## Repository Structure
 

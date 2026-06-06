@@ -1,0 +1,8 @@
+{
+  "name": "Desert",
+  "color": "#FA9418",
+  "rarity": 1,
+  "derivative": "DESERT",
+  "vanillaDerivative": "DESERT",
+  "category": "desert"
+}

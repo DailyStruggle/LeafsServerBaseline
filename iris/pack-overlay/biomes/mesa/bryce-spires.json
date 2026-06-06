@@ -1,0 +1,97 @@
+{
+    "name": "Bryce Spires",
+    "color": "#D4845A",
+    "rarity": 4,
+    "derivative": "BADLANDS",
+    "vanillaDerivative": "BADLANDS",
+    "customDerivitives": [{
+        "category": "mesa",
+        "id": "bryce_spires",
+        "grassColor": "#90814D",
+        "foliageColor": "#9E8148",
+        "waterColor": "#3F76E4",
+        "downfallType": "none"
+    }],
+    "generators": [
+        {
+            "min": 50,
+            "max": 60,
+            "generator": "plain"
+        },
+        {
+            "min": 60,
+            "max": 100,
+            "generator": "canyon-steep"
+        },
+        {
+            "min": 100,
+            "max": 130,
+            "generator": "mountain"
+        }
+    ],
+    "wall": {
+        "style": {"style": "NOWHERE"},
+        "palette": [
+            {"block": "minecraft:orange_terracotta"},
+            {"block": "minecraft:red_terracotta"},
+            {"block": "minecraft:yellow_terracotta"},
+            {"block": "minecraft:white_terracotta"},
+            {"block": "minecraft:terracotta"}
+        ]
+    },
+    "layers": [
+        {
+            "style": {"style": "FLAT"},
+            "palette": [{"block": "minecraft:orange_terracotta"}]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 3,
+            "style": {"style": "STATIC"},
+            "palette": [{"block": "minecraft:red_terracotta"}]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 3,
+            "style": {"style": "STATIC"},
+            "palette": [{"block": "minecraft:yellow_terracotta"}]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 3,
+            "style": {"style": "STATIC"},
+            "palette": [{"block": "minecraft:white_terracotta"}]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 4,
+            "style": {"style": "STATIC"},
+            "palette": [{"block": "minecraft:terracotta"}]
+        }
+    ],
+    "decorators": [
+        {
+            "chance": 0.03,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:dead_bush"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.01,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:cactus"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.002,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.2,
+            "palette": [{"block": "minecraft:bone_block"}],
+            "style": {"style": "STATIC"}
+        },
+        "snippet/decorator/dry_grass"
+    ],
+    "lockLayers": true
+}

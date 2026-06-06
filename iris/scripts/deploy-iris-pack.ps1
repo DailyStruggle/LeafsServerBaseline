@@ -1,0 +1,85 @@
+param(
+    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11',
+    [switch]$SkipCacheClear
+)
+
+$repo        = 'C:\Users\lxgol\IdeaProjects\LeafsServerBaseline'
+$irisDir     = "$repo\iris"
+$basePackSrc = "$irisDir\pack-base"
+$overlaySrc  = "$irisDir\pack-overlay"
+$iobSrc      = "$irisDir\output"
+$staging     = "$irisDir\staging"
+
+# ── 1. Build staging ────────────────────────────────────────────────────────
+Write-Output '=== Building staging ==='
+
+# Wipe and recreate staging
+if (Test-Path $staging) { Remove-Item $staging -Recurse -Force }
+New-Item -ItemType Directory -Path $staging -Force | Out-Null
+
+# Layer 1: base pack (vanilla Iris pack downloaded by server)
+if (Test-Path $basePackSrc) {
+    Copy-Item "$basePackSrc\*" $staging -Recurse -Force
+    Write-Output '  base pack copied'
+} else {
+    Write-Output '  WARNING: iris/pack-base is empty - run sync-base-pack.ps1 first'
+}
+
+# Layer 2: our overlay (custom biomes, regions, dimensions, etc.)
+if (Test-Path $overlaySrc) {
+    Copy-Item "$overlaySrc\*" $staging -Recurse -Force
+    Write-Output '  overlay copied'
+}
+
+# Layer 3: custom .iob files from iris/output into staging/objects/trees/
+# Each output subfolder must have a matching entry in $iobFolderMap to specify
+# the correct objects/trees/<dest> subfolder. Unmapped folders default to their own name.
+$iobFolderMap = @{
+    'spiral-crown-forest' = 'darkoak'
+}
+Get-ChildItem $iobSrc -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue | ForEach-Object {
+    $rel    = $_.DirectoryName.Substring($iobSrc.Length).TrimStart('\')
+    $mapped = if ($iobFolderMap.ContainsKey($rel)) { $iobFolderMap[$rel] } else { $rel }
+    $target = "$staging\objects\trees\$mapped"
+    New-Item -ItemType Directory -Path $target -Force | Out-Null
+    Copy-Item $_.FullName $target -Force
+}
+$iobCount = (Get-ChildItem "$staging\objects" -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue).Count
+Write-Output "  custom .iob files staged: $iobCount"
+
+Write-Output '=== Staging ready ==='
+
+# ── 2. Deploy staging to server ─────────────────────────────────────────────
+$destinations = @(
+    "$ServerBase\test\iris\pack",
+    "$ServerBase\plugins\Iris\packs\overworld"
+)
+
+foreach ($dest in $destinations) {
+    Write-Output "Deploying to $dest ..."
+    New-Item -ItemType Directory -Path $dest -Force | Out-Null
+    Copy-Item "$staging\*" $dest -Recurse -Force
+    Write-Output '  Done.'
+}
+
+# ── 3. Clear caches ──────────────────────────────────────────────────────────
+if (-not $SkipCacheClear) {
+    Write-Output 'Clearing caches...'
+    $caches = @(
+        "$ServerBase\test\region",
+        "$ServerBase\test\entities",
+        "$ServerBase\test\poi",
+        "$ServerBase\test\iris\engine-data",
+        "$ServerBase\test\iris\cache",
+        "$ServerBase\plugins\Iris\cache"
+    )
+    foreach ($c in $caches) {
+        if (Test-Path $c) {
+            Remove-Item "$c\*" -Recurse -Force -ErrorAction SilentlyContinue
+            $cnt = (Get-ChildItem $c -Recurse -File -ErrorAction SilentlyContinue).Count
+            Write-Output "  $c -> $cnt files remaining"
+        }
+    }
+}
+
+Write-Output 'Deploy complete.'

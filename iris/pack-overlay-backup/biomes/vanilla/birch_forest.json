@@ -1,0 +1,8 @@
+{
+  "name": "Birch Forest",
+  "color": "#307444",
+  "rarity": 1,
+  "derivative": "BIRCH_FOREST",
+  "vanillaDerivative": "BIRCH_FOREST",
+  "category": "forest"
+}

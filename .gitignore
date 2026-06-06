@@ -28,6 +28,7 @@ plugins/*/cache/
 # Scripts output / temp
 scripts/out/
 scripts/tmp/
+scripts/output/
 
 # OS
 .DS_Store
@@ -42,3 +43,8 @@ desktop.ini
 
 # Node (if any tooling scripts use it)
 node_modules/
+
+staging/
+iris/pack-base/
+iris/staging/
+iris/output/

@@ -1,0 +1,160 @@
+{
+    "name": "Boreal Shield",
+    "color": "#8A9E8A",
+    "rarity": 4,
+    "derivative": "SNOWY_TAIGA",
+    "vanillaDerivative": "SNOWY_TAIGA",
+    "customDerivitives": [
+                              {
+                                  "category": "icy",
+                                  "id": "boreal_shield",
+                                  "grassColor": "#8DAF7A",
+                                  "foliageColor": "#6A9460",
+                                  "waterColor": "#3F76E4",
+                                  "downfallType": "snow"
+                              }
+                          ],
+    "generators": [
+                       {
+                           "min": 62,
+                           "max": 72,
+                           "generator": "plain"
+                       }
+                   ],
+    "wall": {
+                 "style": {
+                               "style": "STATIC"
+                           },
+                 "palette": [
+                                 {
+                                     "block": "minecraft:granite"
+                                 },
+                                 {
+                                     "block": "minecraft:stone"
+                                 },
+                                 {
+                                     "block": "minecraft:granite"
+                                 }
+                             ]
+             },
+    "layers": [
+                   {
+                       "style": {
+                                     "style": "FLAT"
+                                 },
+                       "palette": [
+                                       {
+                                           "weight": 6,
+                                           "block": "minecraft:granite"
+                                       },
+                                       {
+                                           "weight": 3,
+                                           "block": "minecraft:stone"
+                                       },
+                                       {
+                                           "weight": 1,
+                                           "block": "minecraft:podzol"
+                                       }
+                                   ]
+                   },
+                   {
+                       "minHeight": 1,
+                       "maxHeight": 2,
+                       "palette": [
+                                       {
+                                           "block": "minecraft:gravel"
+                                       }
+                                   ]
+                   },
+                   {
+                       "minHeight": 4,
+                       "maxHeight": 12,
+                       "style": {
+                                     "style": "STATIC"
+                                 },
+                       "palette": [
+                                       {
+                                           "block": "minecraft:stone"
+                                       },
+                                       {
+                                           "block": "minecraft:granite"
+                                       },
+                                       {
+                                           "block": "minecraft:stone"
+                                       }
+                                   ]
+                   }
+               ],
+    "objects": [
+                    {
+                        "place": ["trees/spruce/levergreen1"],
+                        "chance": 0.015
+                    },
+                    {
+                        "place": ["trees/spruce/levergreen2"],
+                        "chance": 0.015
+                    },
+                    {
+                        "place": ["trees/spruce/levergreen3"],
+                        "chance": 0.015
+                    },
+                    {
+                        "place": ["trees/spruce/pine1"],
+                        "chance": 0.015
+                    },
+                    {
+                        "place": ["trees/spruce/pine2"],
+                        "chance": 0.015
+                    }
+                ],
+    "decorators": [
+                       {
+                           "chance": 0.05,
+                           "variance": {
+                                            "style": "STATIC"
+                                        },
+                           "zoom": 0.4,
+                           "palette": [
+                                           {
+                                               "block": "minecraft:glow_lichen"
+                                           }
+                                       ],
+                           "style": {
+                                         "style": "STATIC"
+                                     }
+                       },
+                       {
+                           "chance": 0.003,
+                           "variance": {
+                                            "style": "STATIC"
+                                        },
+                           "zoom": 0.2,
+                           "palette": [
+                                           {
+                                               "block": "minecraft:iron_ore"
+                                           },
+                                           {
+                                               "block": "minecraft:copper_ore"
+                                           }
+                                       ],
+                           "style": {
+                                         "style": "STATIC"
+                                     }
+                       },
+                       {
+                           "chance": 0.008,
+                           "variance": {
+                                            "style": "STATIC"
+                                        },
+                           "zoom": 0.3,
+                           "palette": [
+                                           {
+                                               "block": "minecraft:dead_bush"
+                                           }
+                                       ],
+                           "style": {
+                                         "style": "STATIC"
+                                     }
+                       }
+                   ]
+}

@@ -1,0 +1,153 @@
+{
+    "name": "Mirage Isles",
+    "color": "#00E5FF",
+    "rarity": 9,
+    "derivative": "BEACH",
+    "vanillaDerivative": "BEACH",
+    "customDerivitives": [
+                              {
+                                  "category": "ocean",
+                                  "id": "mirage_isles",
+                                  "grassColor": "#91BD59",
+                                  "foliageColor": "#77AB2F",
+                                  "waterColor": "#00E5FF",
+                                  "waterFogColor": "#00B8D4",
+                                  "skyColor": "#77CDFF",
+                                  "downfallType": "rain"
+                              }
+                          ],
+    "generators": [
+                       {
+                           "min": 62,
+                           "max": 72,
+                           "generator": "plain"
+                       }
+                   ],
+    "wall": {
+                 "style": {
+                               "style": "STATIC"
+                           },
+                 "palette": [
+                                 {
+                                     "block": "minecraft:sandstone"
+                                 },
+                                 {
+                                     "block": "minecraft:sand"
+                                 },
+                                 {
+                                     "block": "minecraft:sandstone"
+                                 }
+                             ]
+             },
+    "layers": [
+                   {
+                       "style": {
+                                     "style": "FLAT"
+                                 },
+                       "palette": [
+                                       {
+                                           "weight": 6,
+                                           "block": "minecraft:white_concrete_powder"
+                                       },
+                                       {
+                                           "weight": 3,
+                                           "block": "minecraft:calcite"
+                                       },
+                                       {
+                                           "weight": 1,
+                                           "block": "minecraft:sand"
+                                       }
+                                   ]
+                   },
+                   {
+                       "minHeight": 1,
+                       "maxHeight": 2,
+                       "palette": [
+                                       {
+                                           "block": "minecraft:sand"
+                                       }
+                                   ]
+                   },
+                   {
+                       "minHeight": 2,
+                       "maxHeight": 12,
+                       "style": {
+                                     "style": "STATIC"
+                                 },
+                       "palette": [
+                                       {
+                                           "block": "minecraft:sandstone"
+                                       },
+                                       {
+                                           "block": "minecraft:sand"
+                                       },
+                                       {
+                                           "block": "minecraft:sandstone"
+                                       }
+                                   ]
+                   }
+               ],
+    "objects": [
+                    {
+                        "place": ["trees/jungle/palm1"],
+                        "chance": 0.4
+                    },
+                    {
+                        "place": ["trees/jungle/palm2"],
+                        "chance": 0.4
+                    },
+                    {
+                        "place": ["trees/jungle/palm3"],
+                        "chance": 0.4
+                    },
+                    {
+                        "place": ["trees/jungle/palm9"],
+                        "chance": 0.4
+                    },
+                    {
+                        "place": ["trees/jungle/palm10"],
+                        "chance": 0.4
+                    }
+                ],
+    "decorators": [
+                       {
+                           "chance": 0.02,
+                           "variance": {
+                                            "style": "STATIC"
+                                        },
+                           "zoom": 0.3,
+                           "palette": [
+                                           {
+                                               "block": "minecraft:sea_pickle"
+                                           },
+                                           {
+                                               "block": "minecraft:dead_bush"
+                                           }
+                                       ],
+                           "style": {
+                                         "style": "STATIC"
+                                     }
+                       },
+                       {
+                           "chance": 0.008,
+                           "variance": {
+                                            "style": "STATIC"
+                                        },
+                           "zoom": 0.2,
+                           "palette": [
+                                           {
+                                               "block": "minecraft:pink_tulip"
+                                           },
+                                           {
+                                               "block": "minecraft:white_tulip"
+                                           },
+                                           {
+                                               "block": "minecraft:oxeye_daisy"
+                                           }
+                                       ],
+                           "style": {
+                                         "style": "STATIC"
+                                     }
+                       }
+                   ]
+}

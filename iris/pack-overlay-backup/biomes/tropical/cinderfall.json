@@ -1,0 +1,98 @@
+{
+  "name": "Cinderfall",
+  "color": "#8C1E1E",
+  "rarity": 20,
+  "derivative": "JUNGLE",
+  "vanillaDerivative": "BADLANDS",
+  "category": "mesa",
+  "children": [
+    "tropical/cinderfall-lava",
+    "tropical/cinderfall-springs"
+  ],
+  "generators": [
+    {
+      "generator": "mountain",
+      "max": 180,
+      "min": 30
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:basalt"
+        }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 2,
+      "palette": [
+        {
+          "block": "minecraft:blackstone"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 6,
+      "palette": [
+        {
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "block": "minecraft:orange_terracotta"
+        }
+      ]
+    },
+    {
+      "minHeight": 7,
+      "maxHeight": 10,
+      "palette": [
+        {
+          "block": "minecraft:tuff"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "place": [
+        "clutter/magmaspire1"
+      ],
+      "chance": 0.008
+    },
+    {
+      "place": [
+        "clutter/magmaspire2"
+      ],
+      "chance": 0.006
+    },
+    {
+      "place": [
+        "clutter/magmaspire3"
+      ],
+      "chance": 0.004
+    }
+  ],
+  "effects": [
+    {
+      "particleAltX": 0.001,
+      "particleAltY": 0.13885,
+      "particleAltZ": 0.001,
+      "chance": 1,
+      "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
+      "particleOffset": 0,
+      "interval": 300,
+      "particleCount": 0
+    }
+  ],
+  "childStyle": {
+    "style": "GLOB",
+    "zoom": 0.2,
+    "exponent": 4
+  },
+  "childShrinkFactor": 1
+}

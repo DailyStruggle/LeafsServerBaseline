@@ -1,0 +1,177 @@
+{
+  "name": "Tall Forest",
+  "color": "#3A7D3A",
+  "rarity": 4,
+  "derivative": "FOREST",
+  "vanillaDerivative": "FOREST",
+  "category": "forest",
+  "objects": [
+    {
+      "chance": 0.06,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/smoak1",
+        "trees/oak/smoak3",
+        "trees/oak/smoak5",
+        "trees/oak/smoak7",
+        "trees/oak/smoak9",
+        "trees/oak/smoak11",
+        "trees/oak/smoak13",
+        "trees/oak/smoak15"
+      ]
+    },
+    {
+      "chance": 0.055,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/truegeneric1",
+        "trees/oak/truegeneric4",
+        "trees/oak/truegeneric7",
+        "trees/oak/truegeneric10",
+        "trees/oak/truegeneric13",
+        "trees/oak/truegeneric16",
+        "trees/oak/truegeneric19",
+        "trees/oak/truegeneric22"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/hoakgeneric1",
+        "trees/oak/hoakgeneric3",
+        "trees/oak/hoakgeneric5",
+        "trees/oak/hoakgeneric7",
+        "trees/oak/hoakgeneric9"
+      ]
+    },
+    {
+      "chance": 0.03,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/toak1",
+        "trees/oak/toak3",
+        "trees/oak/toak5",
+        "trees/oak/toak7",
+        "trees/oak/toak9",
+        "trees/oak/toak11"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/croak1",
+        "trees/oak/croak4",
+        "trees/oak/croak7",
+        "trees/oak/croak10",
+        "trees/oak/croak13",
+        "trees/oak/croak16",
+        "trees/oak/croak19"
+      ]
+    },
+    {
+      "chance": 0.018,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/oakFancy1",
+        "trees/oak/oakFancy3",
+        "trees/oak/oakFancy5",
+        "trees/oak/oakFancy7",
+        "trees/oak/oakFancy9"
+      ]
+    },
+    {
+      "chance": 0.012,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/lponderosa1",
+        "trees/oak/lponderosa4",
+        "trees/oak/lponderosa7",
+        "trees/oak/lponderosa10",
+        "trees/oak/lponderosa13"
+      ]
+    },
+    {
+      "chance": 0.004,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/oak/massivegeneric1",
+        "trees/oak/massivegeneric2",
+        "trees/oak/massivegeneric3"
+      ]
+    }
+  ]
+}

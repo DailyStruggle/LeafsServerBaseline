@@ -1,0 +1,48 @@
+{
+  "name": "Swamp",
+  "color": "#4A6741",
+  "rarity": 1,
+  "landBiomes": [
+    "vanilla/swamp",
+    "vanilla/swamp",
+    "vanilla/swamp",
+    "vanilla/swamp",
+    "vanilla/dark_forest",
+    "vanilla/dark_forest",
+    "vanilla/dark_forest",
+    "swamp/marsh",
+    "swamp/willow-forest",
+    "swamp/roofed-forest",
+    "swamp/roofed-wayward",
+    "swamp/swamp-mangrove-lake",
+    "swamp/swamp-puddle",
+    "swamp/creaks",
+    "swamp/handy-willow-forest"
+  ],
+  "landBiomeZoom": 3.5,
+  "shoreBiomes": [
+    "temperate/shore/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 4.0,
+  "shoreHeightZoom": 1.14,
+  "seaBiomes": [
+    "ocean/deep",
+    "ocean/dark-depth-ocean"
+  ],
+  "seaBiomeZoom": 6,
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/lush"
+  ],
+  "caveBiomeZoom": 3.3,
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "riverRarity": 1,
+  "riverThickness": 0.03
+}

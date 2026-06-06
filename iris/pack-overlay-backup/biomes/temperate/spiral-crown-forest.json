@@ -1,0 +1,137 @@
+{
+  "name": "Spiral Crown Forest",
+  "color": "#1F4A1F",
+  "rarity": 8,
+  "derivative": "DARK_FOREST",
+  "vanillaDerivative": "DARK_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 63,
+      "max": 80,
+      "generator": "plain"
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.015,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.04,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/spiral_large_1",
+        "trees/darkoak/spiral_large_2",
+        "trees/darkoak/spiral_large_3",
+        "trees/darkoak/spiral_large_4",
+        "trees/darkoak/spiral_large_5"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/titan_large_1",
+        "trees/darkoak/titan_large_2",
+        "trees/darkoak/titan_large_3",
+        "trees/darkoak/titan_large_4",
+        "trees/darkoak/titan_large_5"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/twisted_small_1",
+        "trees/darkoak/twisted_small_2",
+        "trees/darkoak/twisted_small_3",
+        "trees/darkoak/twisted_small_4",
+        "trees/darkoak/twisted_small_5"
+      ]
+    },
+    {
+      "chance": 0.055,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/talldrift1",
+        "trees/darkoak/talldrift2",
+        "trees/darkoak/talldrift3",
+        "trees/darkoak/talldrift4",
+        "trees/darkoak/talldrift5",
+        "trees/darkoak/talldrift6",
+        "trees/darkoak/talldrift7",
+        "trees/darkoak/talldrift8",
+        "trees/darkoak/talldrift9"
+      ]
+    },
+    {
+      "chance": 0.03,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/tallgeneric1",
+        "trees/darkoak/tallgeneric2",
+        "trees/darkoak/large-10",
+        "trees/darkoak/large-3"
+      ]
+    }
+  ]
+}

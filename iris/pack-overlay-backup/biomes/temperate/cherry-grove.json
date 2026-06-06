@@ -1,0 +1,108 @@
+{
+  "name": "Towering Cherry Grove",
+  "color": "#F4A0C0",
+  "rarity": 5,
+  "derivative": "FOREST",
+  "vanillaDerivative": "FOREST",
+  "category": "forest",
+  "objects": [
+    {
+      "chance": 0.055,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/sakura/genericsak1",
+        "trees/sakura/genericsak2",
+        "trees/sakura/genericsak3",
+        "trees/sakura/genericsak4",
+        "trees/sakura/genericsak5"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/sakura/mlarge1",
+        "trees/sakura/mlarge2",
+        "trees/sakura/mlarge3",
+        "trees/sakura/mlarge4",
+        "trees/sakura/mlarge5",
+        "trees/sakura/mlarge6",
+        "trees/sakura/mlarge7",
+        "trees/sakura/mlarge8",
+        "trees/sakura/mlarge9",
+        "trees/sakura/mlarge10",
+        "trees/sakura/mlarge11"
+      ]
+    },
+    {
+      "chance": 0.01,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/sakura/vlarge1",
+        "trees/sakura/vlarge2",
+        "trees/sakura/vlarge3"
+      ]
+    },
+    {
+      "chance": 0.005,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/sakura/ogbase1",
+        "trees/sakura/ogbase2"
+      ]
+    },
+    {
+      "chance": 0.002,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/sakura/ogabsurd1",
+        "trees/sakura/ogabsurd2"
+      ]
+    }
+  ]
+}

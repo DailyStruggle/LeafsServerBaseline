@@ -1,0 +1,88 @@
+{
+    "name": "Cinderfall Springs",
+    "color": "#5FAF6A",
+    "rarity": 3,
+    "derivative": "JUNGLE",
+    "vanillaDerivative": "JUNGLE",
+    "customDerivitives": [{
+        "category": "jungle",
+        "id": "cinderfall_springs",
+        "grassColor": "#59C93C",
+        "foliageColor": "#30BB0B",
+        "waterColor": "#77E0F7",
+        "downfallType": "rain"
+    }],
+    "generators": [
+        {
+            "min": 60,
+            "max": 75,
+            "generator": "plain"
+        }
+    ],
+    "wall": {
+        "style": {"style": "STATIC"},
+        "palette": [
+            {"block": "minecraft:calcite"},
+            {"block": "minecraft:tuff"},
+            {"block": "minecraft:calcite"}
+        ]
+    },
+    "layers": [
+        {
+            "style": {"style": "FLAT"},
+            "palette": [
+                {"weight": 6, "block": "minecraft:calcite"},
+                {"weight": 3, "block": "minecraft:white_terracotta"},
+                {"weight": 1, "block": "minecraft:coarse_dirt"}
+            ]
+        },
+        {
+            "minHeight": 1,
+            "maxHeight": 2,
+            "palette": [{"block": "minecraft:tuff"}]
+        },
+        {
+            "minHeight": 3,
+            "maxHeight": 8,
+            "palette": [{"block": "minecraft:stone"}]
+        }
+    ],
+    "objects": [
+        {
+            "chance": 0.01,
+            "density": 1,
+            "rotation": {
+                "yAxis": {"min": 0, "max": 270, "interval": 90, "enabled": true},
+                "enabled": true
+            },
+            "place": [
+                "trees/spruce/levergreen1",
+                "trees/spruce/pine1"
+            ],
+            "translate": {"x": 0, "y": -1, "z": 0}
+        }
+    ],
+    "decorators": [
+        {
+            "chance": 0.008,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.2,
+            "palette": [{"block": "minecraft:calcite"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.003,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.15,
+            "palette": [{"block": "minecraft:yellow_concrete_powder"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.3,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.4,
+            "palette": [{"block": "minecraft:fern"}],
+            "style": {"style": "STATIC"}
+        }
+    ]
+}

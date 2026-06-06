@@ -1,0 +1,8 @@
+{
+  "name": "Mushroom Fields",
+  "color": "#FF00FF",
+  "rarity": 1,
+  "derivative": "MUSHROOM_FIELDS",
+  "vanillaDerivative": "MUSHROOM_FIELDS",
+  "category": "mushroom"
+}

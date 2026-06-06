@@ -1,0 +1,115 @@
+{
+  "name": "Deep Dark Forest",
+  "color": "#1A3A1A",
+  "rarity": 4,
+  "derivative": "DARK_FOREST",
+  "vanillaDerivative": "DARK_FOREST",
+  "category": "forest",
+  "objects": [
+    {
+      "chance": 0.06,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/smolgeneric1",
+        "trees/darkoak/smolgeneric5",
+        "trees/darkoak/smolgeneric10",
+        "trees/darkoak/smolgeneric15",
+        "trees/darkoak/smolgeneric20",
+        "trees/darkoak/smolgeneric25"
+      ]
+    },
+    {
+      "chance": 0.055,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/medgeneric1",
+        "trees/darkoak/medgeneric3",
+        "trees/darkoak/medgeneric5",
+        "trees/darkoak/medgeneric7",
+        "trees/darkoak/medgeneric9"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/generic1",
+        "trees/darkoak/generic3",
+        "trees/darkoak/generic5",
+        "trees/darkoak/generic7",
+        "trees/darkoak/generic9",
+        "trees/darkoak/generic11"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/talldrift1",
+        "trees/darkoak/talldrift2",
+        "trees/darkoak/talldrift3",
+        "trees/darkoak/talldrift4",
+        "trees/darkoak/talldrift5",
+        "trees/darkoak/talldrift6",
+        "trees/darkoak/talldrift7",
+        "trees/darkoak/talldrift8",
+        "trees/darkoak/talldrift9"
+      ]
+    },
+    {
+      "chance": 0.012,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/large-3",
+        "trees/darkoak/large-10",
+        "trees/darkoak/tallgeneric1",
+        "trees/darkoak/tallgeneric2"
+      ]
+    }
+  ]
+}

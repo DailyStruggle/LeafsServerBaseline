@@ -10,7 +10,9 @@ Files are named `ADR-NNN-<short-slug>.md` with sequential numbering starting at 
 
 | ADR | Title | Status |
 |-----|-------|--------|
-| - | (none yet) | - |
+| [ADR-001](ADR-001-repo-scope-and-plugin-policy.md) | Repository Scope and Plugin Policy | Accepted |
+| [ADR-002](ADR-002-tree-generation-script-approach.md) | Tree Generation Script Approach | Proposed |
+| [ADR-003](ADR-003-custom-biome-design-goals.md) | Custom Biome Design Goals - Elegant Builds and Concept Sharing | Accepted |
 
 ## Template
 

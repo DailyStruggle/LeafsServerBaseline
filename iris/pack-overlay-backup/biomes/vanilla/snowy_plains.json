@@ -1,0 +1,8 @@
+{
+  "name": "Snowy Plains",
+  "color": "#FFFFFF",
+  "rarity": 1,
+  "derivative": "SNOWY_PLAINS",
+  "vanillaDerivative": "SNOWY_PLAINS",
+  "category": "icy"
+}

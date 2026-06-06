@@ -1,0 +1,99 @@
+{
+  "name": "Towering Jungle",
+  "color": "#1A5C1A",
+  "rarity": 4,
+  "derivative": "JUNGLE",
+  "vanillaDerivative": "JUNGLE",
+  "category": "jungle",
+  "objects": [
+    {
+      "chance": 0.055,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/jungle/vgeneric1",
+        "trees/jungle/vgeneric4",
+        "trees/jungle/vgeneric7",
+        "trees/jungle/vgeneric10",
+        "trees/jungle/vgeneric13",
+        "trees/jungle/vgeneric16",
+        "trees/jungle/vgeneric19",
+        "trees/jungle/vgeneric22"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/jungle/lgeneric1",
+        "trees/jungle/lgeneric2",
+        "trees/jungle/lgeneric3",
+        "trees/jungle/lgeneric4",
+        "trees/jungle/lgeneric5",
+        "trees/jungle/lgeneric6",
+        "trees/jungle/lgeneric7",
+        "trees/jungle/lgeneric8",
+        "trees/jungle/lgeneric9"
+      ]
+    },
+    {
+      "chance": 0.025,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/jungle/largegeneric1",
+        "trees/jungle/largegeneric2",
+        "trees/jungle/largegeneric3",
+        "trees/jungle/largegeneric4",
+        "trees/jungle/largegeneric5"
+      ]
+    },
+    {
+      "chance": 0.012,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/jungle/spire1",
+        "trees/jungle/spire2",
+        "trees/jungle/spire3",
+        "trees/jungle/spire4",
+        "trees/jungle/spire5",
+        "trees/jungle/spire6",
+        "trees/jungle/spire7"
+      ]
+    }
+  ]
+}

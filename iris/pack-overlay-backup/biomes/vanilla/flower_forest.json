@@ -1,0 +1,8 @@
+{
+  "name": "Flower Forest",
+  "color": "#77AB59",
+  "rarity": 1,
+  "derivative": "FLOWER_FOREST",
+  "vanillaDerivative": "FLOWER_FOREST",
+  "category": "forest"
+}

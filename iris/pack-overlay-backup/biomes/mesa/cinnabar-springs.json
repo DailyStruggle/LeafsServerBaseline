@@ -1,0 +1,80 @@
+{
+    "name": "Cinnabar Springs",
+    "color": "#C8906A",
+    "rarity": 3,
+    "derivative": "BADLANDS",
+    "vanillaDerivative": "BADLANDS",
+    "customDerivitives": [{
+        "category": "mesa",
+        "id": "cinnabar_springs",
+        "grassColor": "#90814D",
+        "foliageColor": "#9E8148",
+        "waterColor": "#77E0F7",
+        "downfallType": "none"
+    }],
+    "generators": [
+        {
+            "min": 60,
+            "max": 72,
+            "generator": "plain"
+        }
+    ],
+    "wall": {
+        "style": {"style": "NOWHERE"},
+        "palette": [
+            {"block": "minecraft:orange_terracotta"},
+            {"block": "minecraft:calcite"},
+            {"block": "minecraft:white_terracotta"}
+        ]
+    },
+    "layers": [
+        {
+            "style": {"style": "FLAT"},
+            "palette": [
+                {"weight": 5, "block": "minecraft:calcite"},
+                {"weight": 3, "block": "minecraft:white_terracotta"},
+                {"weight": 2, "block": "minecraft:orange_terracotta"}
+            ]
+        },
+        {
+            "minHeight": 1,
+            "maxHeight": 2,
+            "palette": [{"block": "minecraft:tuff"}]
+        },
+        {
+            "minHeight": 3,
+            "maxHeight": 8,
+            "style": {"style": "STATIC"},
+            "palette": [
+                {"block": "minecraft:orange_terracotta"},
+                {"block": "minecraft:red_terracotta"},
+                {"block": "minecraft:terracotta"}
+            ]
+        }
+    ],
+    "decorators": [
+        {
+            "chance": 0.008,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.2,
+            "palette": [{"block": "minecraft:calcite"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.003,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.15,
+            "palette": [{"block": "minecraft:yellow_concrete_powder"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.015,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:dead_bush"}],
+            "style": {"style": "STATIC"}
+        },
+        "snippet/decorator/dry_grass"
+    ],
+    "lockLayers": true
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Windswept Forest",
+  "color": "#507050",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_HILLS",
+  "vanillaDerivative": "WINDSWEPT_HILLS",
+  "category": "extreme_hills"
+}
