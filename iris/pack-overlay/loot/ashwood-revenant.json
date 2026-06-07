@@ -1,0 +1,15 @@
+{
+    "name": "Ashwood Revenant Reward",
+    "rarity": 1,
+    "maxPicked": 1,
+    "minPicked": 1,
+    "loot": [
+        {
+            "type": "netherite_ingot",
+            "minAmount": 1,
+            "maxamount": 1,
+            "rarity": 1,
+            "slottypes": "STORAGE"
+        }
+    ]
+}

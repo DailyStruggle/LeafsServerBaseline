@@ -1,0 +1,21 @@
+{
+    "type": "CAVE_SPIDER",
+    "customName": "&cAshfang Spider",
+    "customNameVisible": false,
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "ashfang-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 4,
+            "maxAmount": 8
+        },
+        {
+            "attribute": "MOVEMENT_SPEED",
+            "name": "ashfang-speed",
+            "operation": "ADD_SCALAR",
+            "minAmount": 0.1,
+            "maxAmount": 0.2
+        }
+    ]
+}

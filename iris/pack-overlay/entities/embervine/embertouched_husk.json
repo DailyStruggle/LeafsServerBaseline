@@ -1,0 +1,14 @@
+{
+    "type": "HUSK",
+    "customName": "&6Ember-touched Husk",
+    "customNameVisible": false,
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "ember-husk-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 4,
+            "maxAmount": 6
+        }
+    ]
+}

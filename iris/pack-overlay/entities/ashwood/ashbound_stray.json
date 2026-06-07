@@ -1,0 +1,21 @@
+{
+    "type": "WITHER_SKELETON",
+    "customName": "&fAshbound Stray",
+    "customNameVisible": false,
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "ashbound-stray-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 4,
+            "maxAmount": 8
+        },
+        {
+            "attribute": "MOVEMENT_SPEED",
+            "name": "ashbound-stray-speed",
+            "operation": "ADD_SCALAR",
+            "minAmount": 0.05,
+            "maxAmount": 0.15
+        }
+    ]
+}

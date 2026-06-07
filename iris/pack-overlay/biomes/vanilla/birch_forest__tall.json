@@ -1,6 +1,6 @@
 {
   "name": "vanilla/birch_forest__tall",
-  "rarity": 4,
+  "rarity": 12,
   "derivative": "BIRCH_FOREST",
   "vanillaDerivative": "BIRCH_FOREST",
   "category": "forest",
@@ -13,7 +13,7 @@
   ],
   "objects": [
     {
-      "chance": 0.16,
+      "chance": 0.28,
       "density": 4,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.12,
+      "chance": 0.22,
       "density": 3,
       "rotation": {
         "yAxis": {

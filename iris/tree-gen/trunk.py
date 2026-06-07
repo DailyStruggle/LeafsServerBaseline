@@ -7,21 +7,25 @@ import random
 # Width shaping functions: t in [0,1] -> multiplier applied to trunk_width
 
 def _shape_constant(t: float, params: dict) -> float:
+    """Constant width: same multiplier at every height."""
     return 1.0
 
 
 def _shape_linear(t: float, params: dict) -> float:
+    """Width ramps straight from start (base) to end (top)."""
     start = params.get("start", 1.0)
     end = params.get("end", 1.0)
     return start + (end - start) * t
 
 
 def _shape_sigmoid(t: float, params: dict) -> float:
+    """S-curve taper: wide near the base, narrowing through the middle to the top."""
     steepness = params.get("steepness", 5.0)
     return 1.0 / (1.0 + math.exp(steepness * (t - 0.5)))
 
 
 def _shape_log(t: float, params: dict) -> float:
+    """Logarithmic taper: quick narrowing low down that flattens out higher up."""
     base = params.get("base", math.e)
     if t <= 0.0:
         return 1.0
@@ -29,13 +33,15 @@ def _shape_log(t: float, params: dict) -> float:
 
 
 def _shape_sine(t: float, params: dict) -> float:
+    """Wavy width: a sine ripple added along the trunk for a knobbly look."""
     period = params.get("period", 1.0)
     amplitude = params.get("amplitude", 0.2)
     return 1.0 + amplitude * math.sin(2.0 * math.pi * t / period)
 
 
 def _shape_parabolic(t: float, params: dict) -> float:
-    # Waist at peak_offset; floor prevents the waist from going below half base width.
+    """Pinched waist: narrowest at peak_offset, widening toward both ends."""
+    # floor keeps the waist from dropping below half the base width.
     peak_offset = params.get("peak_offset", 0.5)
     floor_val = params.get("floor", 0.5)
     denom = max(peak_offset, 1.0 - peak_offset) ** 2
@@ -54,6 +60,7 @@ _SHAPE_FNS = {
 
 
 def width_at(y: int, height: int, trunk_width: int, shape: str, shape_params: dict) -> int:
+    """Trunk width (in blocks) at layer y, applying the chosen shape function."""
     fn = _SHAPE_FNS.get(shape, _shape_constant)
     t = y / max(height - 1, 1)
     multiplier = fn(t, shape_params)
@@ -62,6 +69,7 @@ def width_at(y: int, height: int, trunk_width: int, shape: str, shape_params: di
 
 # Azimuth functions: t in [0,1] -> azimuth in degrees
 def _noise_azimuth(t: float, params: dict) -> float:
+    """Pseudo-random lean direction at height t, from a hash so output stays deterministic."""
     scale = params.get("scale", 1.0)
     seed = params.get("seed", 0)
     h1 = hash((seed, int(t * scale * 100))) & 0xFFFFFFFF
@@ -114,9 +122,9 @@ def _lean_offset(y: int, height: int, lean_azimuth_deg: float,
 
 
 def _log_axis(dx: float, dy: float, dz: float, rng: random.Random = None) -> str:
-    """Pick log axis from direction vector, biased toward y (phototropism)."""
+    """Pick the log axis (x/y/z) from a direction vector, leaning toward vertical so trunks read as upright."""
     ax, ay, az = abs(dx), abs(dy), abs(dz)
-    # Gaussian upward bias: boost y component by ~1.5 sigma preference
+    # Weight the vertical component so near-vertical segments stay axis=y.
     ay_biased = ay * 1.8
     if ay_biased >= ax and ay_biased >= az:
         return "y"
@@ -138,6 +146,7 @@ _LOG_TO_WOOD = {
 
 
 def _log_to_wood(trunk_block: str) -> str:
+    """Map a log block to its all-bark wood variant (used for exposed trunk ends)."""
     base = trunk_block.split("[")[0]
     return _LOG_TO_WOOD.get(base, base)
 

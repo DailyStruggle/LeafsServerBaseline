@@ -6,9 +6,9 @@
   "category": "mesa",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 70,
+      "max": 98,
+      "generator": "cracked-cliffs"
     }
   ],
   "decorators": [

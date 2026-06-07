@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/soulforge-ruin"
+  ],
+  "overrideYRange": {
+    "max": -25,
+    "min": -64,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

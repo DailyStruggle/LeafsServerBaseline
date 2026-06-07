@@ -1,0 +1,371 @@
+{
+  "_comment": "Deep Forge - a magma-lit ore vault for the Mantle Caves biome. Hand-reviewable source; compile with scripts/json_to_iob.py.",
+  "size": {
+    "w": 5,
+    "h": 4,
+    "d": 5
+  },
+  "centered": false,
+  "blocks": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:magma_block"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:magma_block"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:gilded_blackstone"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:polished_blackstone_brick_wall"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:polished_blackstone_brick_wall"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:chest[facing=south,type=single,waterlogged=false]"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:deepslate_diamond_ore"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:deepslate_bricks"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:polished_blackstone_brick_wall"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:polished_blackstone_brick_wall"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "state": "minecraft:lantern[hanging=true]"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "state": "minecraft:lantern[hanging=true]"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:polished_deepslate"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:blast_furnace[facing=east,lit=false]"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:deepslate_gold_ore"
+    }
+  ]
+}

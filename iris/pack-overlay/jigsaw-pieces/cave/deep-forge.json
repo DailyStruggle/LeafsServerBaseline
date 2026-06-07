@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/deep-forge",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/ruined_portal"
+      }
+    ]
+  }
+}

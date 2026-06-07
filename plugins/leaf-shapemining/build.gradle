@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group = 'net.leaf'
+version = '0.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+}
+
+// Match the Maven finalName (LeafShapeMining-0.1.0.jar) so deploy docs stay accurate.
+tasks.named('jar') {
+    archiveBaseName = 'LeafShapeMining'
+    archiveVersion = '0.1.0'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}

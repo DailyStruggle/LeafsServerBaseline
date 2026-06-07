@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/frozen-adventurers-camp"
+  ],
+  "overrideYRange": {
+    "max": 65,
+    "min": 15,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

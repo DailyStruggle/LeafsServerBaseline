@@ -18,6 +18,7 @@ from roots import build_roots
 
 
 def _sanitize(s: str) -> str:
+    """Turn a block id or name into a safe filename fragment (drops the namespace, keeps alnum/underscore)."""
     s = s.split(":")[-1]
     return "".join(c if c.isalnum() or c == "_" else "_" for c in s)
 
@@ -43,6 +44,7 @@ def output_filename(entry: dict, height: int, ext: str = "iob", index: int = 0) 
 
 
 def _heights_for_entry(entry: dict, count_override: int | None) -> list:
+    """Pick the trunk height for each variant of an entry, spread evenly between height_min and height_max."""
     h_min = int(entry.get("height_min", 8))
     h_max = int(entry.get("height_max", 12))
     count = count_override if count_override is not None else int(entry.get("count", 1))
@@ -151,6 +153,7 @@ def generate_tree(entry: dict, height: int) -> dict:
 
 
 def parse_args():
+    """Define and parse the command-line flags (--config, --out, --format, --count)."""
     parser = argparse.ArgumentParser(
         description="Generate Sponge Schematic v3 tree files for Iris."
     )
@@ -161,7 +164,7 @@ def parse_args():
     parser.add_argument(
         "--out", default=None,
         help="Output directory for output files (overrides per-entry 'out' field). "
-             "Defaults to scripts/output/ relative to repo root."
+             "Defaults to an 'output/' folder next to the config file."
     )
     parser.add_argument(
         "--format", default="iob", choices=["iob", "schem", "both"],
@@ -175,6 +178,7 @@ def parse_args():
 
 
 def resolve_out_dir(cli_out: str | None, config_path: str) -> str:
+    """Choose the output directory: the --out value if given, else an 'output/' folder next to the config."""
     if cli_out:
         return os.path.abspath(cli_out)
     config_dir = os.path.dirname(os.path.abspath(config_path))
@@ -182,6 +186,7 @@ def resolve_out_dir(cli_out: str | None, config_path: str) -> str:
 
 
 def main():
+    """Read the config, generate every tree variant, and write the requested object files."""
     args = parse_args()
 
     with open(args.config, "r", encoding="utf-8") as f:

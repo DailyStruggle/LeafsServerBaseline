@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/soulforge-ruin",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/nether_bridge"
+      }
+    ]
+  }
+}

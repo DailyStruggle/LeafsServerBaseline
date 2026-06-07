@@ -6,14 +6,55 @@
   "category": "swamp",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": -7,
+      "max": 3,
+      "generator": "mountain"
+    }
+  ],
+  "layers": [
+    {
+      "style": {
+        "style": "NOWHERE"
+      },
+      "palette": [
+        {
+          "block": "minecraft:mud",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:muddy_mangrove_roots",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:dirt",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:mud",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
     }
   ],
   "objects": [
     {
-      "chance": 0.22,
+      "chance": 0.36,
       "density": 5,
       "rotation": {
         "yAxis": {

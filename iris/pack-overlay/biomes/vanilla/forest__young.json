@@ -13,7 +13,7 @@
   ],
   "objects": [
     {
-      "chance": 0.22,
+      "chance": 0.4,
       "density": 5,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.1,
+      "chance": 0.18,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "chance": 0.06,
+      "chance": 0.1,
       "density": 2,
       "rotation": {
         "yAxis": {

@@ -1,0 +1,118 @@
+{
+  "name": "vanilla/meadow__cloud",
+  "rarity": 30,
+  "derivative": "MEADOW",
+  "vanillaDerivative": "MEADOW",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/cloudcap/cloudcap_small_1",
+        "trees/cloudcap/cloudcap_small_2",
+        "trees/cloudcap/cloudcap_small_3"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/cloudcap/cloudcap_large_1",
+        "trees/cloudcap/cloudcap_large_2",
+        "trees/cloudcap/cloudcap_large_3"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.55,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 22
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dandelion",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:poppy",
+          "weight": 10
+        },
+        {
+          "block": "minecraft:azure_bluet",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:oxeye_daisy",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:cornflower",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:red_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:orange_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:white_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:pink_tulip",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:allium",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}

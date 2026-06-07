@@ -6,14 +6,14 @@
   "category": "forest",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 6,
+      "max": 28,
+      "generator": "mountain"
     }
   ],
   "objects": [
     {
-      "chance": 0.16,
+      "chance": 0.32,
       "density": 4,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.08,
+      "chance": 0.16,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "chance": 0.05,
+      "chance": 0.1,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -84,7 +84,7 @@
   ],
   "decorators": [
     {
-      "chance": 0.35,
+      "chance": 0.2,
       "style": {
         "style": "STATIC"
       },
@@ -94,28 +94,40 @@
           "weight": 100
         },
         {
-          "block": "minecraft:tall_grass",
-          "weight": 18
-        },
-        {
           "block": "minecraft:fern",
-          "weight": 8
+          "weight": 6
         }
       ]
     },
     {
-      "chance": 0.45,
+      "chance": 0.55,
       "style": {
         "style": "STATIC"
       },
       "palette": [
         {
+          "block": "minecraft:red_tulip",
+          "weight": 12
+        },
+        {
+          "block": "minecraft:orange_tulip",
+          "weight": 12
+        },
+        {
+          "block": "minecraft:white_tulip",
+          "weight": 12
+        },
+        {
+          "block": "minecraft:pink_tulip",
+          "weight": 12
+        },
+        {
           "block": "minecraft:dandelion",
-          "weight": 10
+          "weight": 8
         },
         {
           "block": "minecraft:poppy",
-          "weight": 10
+          "weight": 8
         },
         {
           "block": "minecraft:azure_bluet",
@@ -130,22 +142,6 @@
           "weight": 6
         },
         {
-          "block": "minecraft:red_tulip",
-          "weight": 4
-        },
-        {
-          "block": "minecraft:orange_tulip",
-          "weight": 4
-        },
-        {
-          "block": "minecraft:white_tulip",
-          "weight": 4
-        },
-        {
-          "block": "minecraft:pink_tulip",
-          "weight": 4
-        },
-        {
           "block": "minecraft:allium",
           "weight": 6
         },
@@ -154,16 +150,13 @@
           "weight": 6
         },
         {
-          "block": "minecraft:lilac",
-          "weight": 2
+          "block": "minecraft:lilac"
         },
         {
-          "block": "minecraft:rose_bush",
-          "weight": 2
+          "block": "minecraft:rose_bush"
         },
         {
-          "block": "minecraft:peony",
-          "weight": 2
+          "block": "minecraft:peony"
         }
       ]
     }

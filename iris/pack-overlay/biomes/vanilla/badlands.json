@@ -6,9 +6,9 @@
   "category": "mesa",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 50,
+      "max": 70,
+      "generator": "highplains"
     }
   ],
   "decorators": [

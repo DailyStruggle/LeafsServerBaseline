@@ -190,12 +190,13 @@ The Gemini research proposed 8 additive overworld biomes. This table maps each t
 
 | Gemini Concept | Closest Iris Cave Biome | Notes |
 |---|---|---|
-| Andesite Caves | `carving/deepslate.json` or `carving/rocky-cavebiome.json` | Check palette for andesite/polished andesite |
-| Ice Caves | `carving/ice.json`, `carving/glacial.json` | Ice cave variants exist in carving category |
-| Crystal Caves | `carving/amethyst.json`, `prismatics/*.json` | Amethyst carving biome + 16 prismatic deep variants |
-| Frostfire Caves | `carving/frost-shards.json` | Name matches; verify soul fire palette |
-| Mantle Caves | `carving/volcanic.json`, `carving/ember-rifts.json` | Volcanic + ember rift variants for deep lava zones |
-| Sulfur Caves | No direct match | `carving/volcanic.json` is closest; sulfur/cinnabar palette would need custom biome |
+| Andesite Caves | Implemented as `carving/andesite-caves.json` | New overlay biome (andesite/polished andesite/diorite); wired into `temperate` + `forests` |
+| Ice Caves | Implemented as `carving/ice-caves.json` | New overlay biome (packed/blue ice, snow); wired into `frozen` + `tundra` |
+| Crystal Caves | Implemented as `prismatics/crystal-caves.json` | Repurposed name: now a rainbow stained-glass biome; wired into `temperate` |
+| Amethyst Caves | Implemented as `prismatics/amethyst-caves.json` | Amethyst reward biome (was the old "Crystal Caves" concept); wired into `temperate` |
+| Frostfire Caves | Implemented as `magnetics/frostfire-caves.json` | New overlay biome; ice + soul fire palette, low-grade `SLOW` cold via Iris `effects`; wired into `frozen` (ties to Frostpeak via `carvingBiome` once that volcano deploys) |
+| Mantle Caves | Implemented as `prismatics/mantle-caves.json` | New overlay biome (magma/blackstone + deepslate gold/diamond ore); wired into `hot` |
+| Sulfur Caves | Implemented as `carving/sulfur-caves.json` | Forked from `carving/volcanic.json`; sulfur palette (yellow terracotta/concrete) added and toxic gas done via Iris `effects` low-grade Poison; wired into the tropical region `caveBiomes` |
 
 ---
 
@@ -243,7 +244,7 @@ All variants: rarity 20 (Hidden tier), `vanillaDerivative: minecraft:badlands`, 
 | Orchid Swamp | Marsh exists but lacks orchid density and stilt silhouette | Low (extend marsh) |
 | Canopied Rainforest | Rainforest exists but lacks 75-block mahogany tree objects | Medium (custom tree schematics) |
 | Blooming Plateau | Flower forest exists but lacks plateau terrain | Low (swap generator) |
-| Sulfur Caves | Volcanic cave is closest but lacks sulfur/cinnabar palette and toxic gas mechanic | High (new cave biome) |
+| Sulfur Caves | DONE - `carving/sulfur-caves.json`; sulfur palette + toxic gas via Iris `effects` (low-grade Poison). Custom Sulfur Cube mob still optional/future | Done |
 
 ---
 

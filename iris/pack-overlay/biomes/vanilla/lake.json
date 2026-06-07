@@ -1,0 +1,58 @@
+{
+  "name": "vanilla/lake",
+  "color": "#3F76E4",
+  "rarity": 1,
+  "derivative": "RIVER",
+  "vanillaDerivative": "RIVER",
+  "generators": [
+    {
+      "min": -14,
+      "max": -4,
+      "generator": "mountain"
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "style": {
+        "style": "CELLULAR_IRIS_DOUBLE"
+      },
+      "zoom": 0.5,
+      "palette": [
+        {"block": "minecraft:gravel"},
+        {"block": "minecraft:sand"},
+        {"block": "minecraft:clay"},
+        {"block": "minecraft:dirt"},
+        {"block": "minecraft:gravel"}
+      ]
+    },
+    {"palette": [{"block": "minecraft:dirt"}]},
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {"block": "minecraft:dirt", "weight": 2},
+        {"block": "minecraft:coarse_dirt"}
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.08,
+      "variance": {"style": "STATIC"},
+      "zoom": 5,
+      "palette": [{"block": "minecraft:seagrass"}],
+      "style": {"style": "STATIC"},
+      "partOf": "SEA_FLOOR"
+    },
+    {
+      "chance": 0.02,
+      "variance": {"style": "STATIC"},
+      "zoom": 4,
+      "palette": [{"block": "minecraft:clay"}],
+      "style": {"style": "STATIC"},
+      "partOf": "SEA_FLOOR"
+    }
+  ]
+}

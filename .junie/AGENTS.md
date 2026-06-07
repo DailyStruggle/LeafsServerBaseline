@@ -2,6 +2,8 @@
 
 Operational guide for AI agents and human contributors working in the LeafsServerBaseline repository. Keep this file thin -- it is a **router**, not an encyclopaedia. Detailed rationale and engineering lore live in the canonical sources listed below.
 
+> **Project status: private, non-commercial.** This repository backs a private, non-commercial server. Restricted-source assets (e.g. CC BY-NC-ND structure packs) may be extracted/converted for our own use, but **derivatives are never redistributed**: only the "flat" Iris world-gen adjustment is shippable in-repo, and restricted-source-derived assets stay quarantined in the git-ignored `iris/thirdparty-derived/`. See [`docs/design/adr/ADR-004-third-party-derived-structure-assets.md`](../docs/design/adr/ADR-004-third-party-derived-structure-assets.md).
+
 > New here? Start at [`docs/README.md`](../docs/README.md).
 
 ---
@@ -16,6 +18,31 @@ Operational guide for AI agents and human contributors working in the LeafsServe
 6. **Maintain a task checklist** for any multi-step task, and tick items off as you complete them -- this preserves state if the session is interrupted (see *Checklist-Based State Tracking*).
 7. **Write markdown as UTF-8; never emit mojibake.** If you see sequences like `â€"`, `â€™`, `âœ…`, `Â§`, `Ã©`, or the replacement character `?` in a diff you're about to write, stop and re-encode (see *Markdown Encoding Hygiene*).
 8. **Never run destructive git operations** (`git stash`, `git checkout -- <path>`, `git reset --hard`, `git restore`, `git revert`, `git clean -fd`, `git rebase`, `git push --force`) on the user's working tree. See *Git Safety* below.
+9. **Never edit the Iris `pack-base`.** It is the upstream vanilla pack and is git-ignored. To change any base biome/region/etc., add or edit a same-path file under `pack-overlay` instead. See *Iris Pack Layering* below.
+10. **Never boot the test server yourself.** Server starts are user-triggered (no agent console/stdin, rcon disabled). When a step needs a running server, pause and `ask_user` to boot it. See *Server Boots Are User-Triggered* below.
+
+---
+
+## Iris Pack Layering (never touch `pack-base`)
+
+The Iris world-gen pack is assembled by `iris/scripts/deploy-iris-pack.ps1` in layers into `iris/staging`:
+
+1. `iris/pack-base` -- the upstream/vanilla Iris pack (git-ignored, re-synced by `sync-base-pack.ps1`). **Treat as read-only.**
+2. `iris/pack-overlay` -- our customisations.
+3. `iris/output` -- custom `.iob` objects.
+
+The deploy copies `pack-base` then `pack-overlay` over it with `-Force`, so **an overlay file completely replaces the base file at the same relative path** (whole-file override, not a deep JSON merge).
+
+Rules:
+
+- **Do NOT modify any file under `iris/pack-base`.** Edits there are transient (overwritten by the next `sync-base-pack.ps1`) and violate the layering contract.
+- To change a base biome/region/dimension/etc., create or edit the file at the **same relative path** under `iris/pack-overlay`. Example: override `pack-base/biomes/tropical/volcanic-plains.json` by adding `pack-overlay/biomes/tropical/volcanic-plains.json`.
+- Because the override is whole-file, copy the full base file into the overlay and apply your changes there; keep the rest identical.
+- Never edit `iris/staging` directly -- it is wiped and rebuilt on every deploy.
+
+### Known red herring: `prototype/rivers` generator (do NOT chase it)
+
+When debugging Iris biome-sampling NPEs (e.g. `Failed to sample hi/lo biome ... NullPointerException`, an unresolved generator gen-link key in `getGenLinkMax`), a naive scan flags `pack-base/biomes/frozen/fields/hilly-plains.json` referencing `"generator": "prototype/rivers"` as "missing". It is NOT missing and NOT the cause. The generator exists at `iris/pack-base/generators/prototype/rivers.json`; it is a **subfoldered** generator key. The false positive comes from comparing generator references against generator **base filenames** instead of their full relative keys. Always key generators (and biomes) by their path relative to the `generators/` (or `biomes/`) folder, slash-separated, without the `.json` extension. This has been mistaken for the root cause four times -- stop re-deriving it.
 
 ---
 
@@ -158,6 +185,19 @@ Rules:
 - **Search**: use `search_project` with short keywords. Never `grep`/`find`. For file listings: `Get-ChildItem -Recurse <path>`.
 - **Blank-output trap on directory listings**: a bare `Get-ChildItem ... | Select-Object FullName` frequently comes back with **no visible output** even when the directory is full. Treat an empty listing as **"unknown"**, never as **"the directory is empty"**. Force rows through a real sink: `(Get-ChildItem -Recurse <path> -File | Select-Object -ExpandProperty FullName) -join "``n" | Write-Output`.
 - **Never overwrite or delete a file based on an apparently-empty directory listing.**
+
+---
+
+## Server Boots Are User-Triggered (pause and notify)
+
+Starting the Minecraft test server is the **user's** job, not the agent's. The agent cannot drive a live console (no stdin, rcon is disabled), so an agent-launched boot cannot be interacted with, `/iris pregen` / `/locate` cannot be run, and in-game verification is impossible. Agent-triggered boots also leave orphaned `java` processes and waste session time.
+
+Rules:
+
+- **Do NOT launch the server yourself** (`start.bat`, `java -jar paper*.jar`, or any wrapper) to verify generation/structures/in-game behavior.
+- When a step needs a running server, **stop and `ask_user`**: state exactly what you changed, that it is deploy-ready, and ask the user to boot the server (and, if needed, run the in-game command) and report back.
+- If you already started a server in this session, **stop the `java` process** before handing back so no orphan survives.
+- Headless boots are acceptable **only** for non-interactive checks the user explicitly asked for (e.g. "confirm the pack parses without errors"), and even then prefer asking first.
 
 ---
 

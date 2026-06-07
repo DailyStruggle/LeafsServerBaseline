@@ -15,6 +15,7 @@ import random
 
 
 def _log_y(trunk_block: str) -> str:
+    """Return the trunk log block forced to vertical orientation (axis=y) for root columns."""
     base = trunk_block.split("[")[0]
     return base + "[axis=y]"
 

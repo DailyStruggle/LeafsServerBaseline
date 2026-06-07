@@ -1,6 +1,6 @@
 {
   "name": "vanilla/forest__giant",
-  "rarity": 9,
+  "rarity": 30,
   "derivative": "FOREST",
   "vanillaDerivative": "FOREST",
   "category": "forest",
@@ -13,7 +13,7 @@
   ],
   "objects": [
     {
-      "chance": 0.06,
+      "chance": 0.12,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.1,
+      "chance": 0.18,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "chance": 0.08,
+      "chance": 0.14,
       "density": 2,
       "rotation": {
         "yAxis": {

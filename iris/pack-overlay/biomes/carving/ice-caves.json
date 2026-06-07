@@ -1,0 +1,63 @@
+{
+    "name": "Ice Caves",
+    "color": "#9FD6E8",
+    "generators": [{"generator": "rare-hills", "min": 1, "max": 1}],
+    "wall": {"palette": [
+        {
+            "block": "minecraft:packed_ice",
+            "weight": 7
+        },
+        {
+            "block": "minecraft:blue_ice",
+            "weight": 3
+        },
+        {
+            "block": "minecraft:ice",
+            "weight": 2
+        },
+        {"block": "minecraft:snow_block"}
+    ]},
+    "layers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:packed_ice",
+                "weight": 5
+            },
+            {
+                "block": "minecraft:ice",
+                "weight": 3
+            },
+            {
+                "block": "minecraft:blue_ice",
+                "weight": 2
+            },
+            {"block": "minecraft:snow_block"}
+        ]
+    }],
+    "caveCeilingLayers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:packed_ice",
+                "weight": 6
+            },
+            {"block": "minecraft:blue_ice"}
+        ]
+    }],
+    "effects": [
+        {
+            "particleAltX": 0.001,
+            "particleAltY": 0.04,
+            "particleAltZ": 0.001,
+            "chance": 2,
+            "particleEffect": "SNOWFLAKE",
+            "particleOffset": 0,
+            "interval": 240,
+            "particleCount": 0
+        }
+    ],
+    "entitySpawners": []
+}

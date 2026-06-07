@@ -1,0 +1,14 @@
+{
+    "type": "ZOMBIFIED_PIGLIN",
+    "customName": "&6Cinderborn",
+    "customNameVisible": false,
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "cinderborn-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 6,
+            "maxAmount": 10
+        }
+    ]
+}

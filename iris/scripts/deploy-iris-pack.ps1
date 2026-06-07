@@ -9,6 +9,9 @@ $basePackSrc = "$irisDir\pack-base"
 $overlaySrc  = "$irisDir\pack-overlay"
 $iobSrc      = "$irisDir\output"
 $staging     = "$irisDir\staging"
+$patchesDir  = "$irisDir\pack-patches"        # private "special structures" overlay
+$patchAssets = "$patchesDir\assets"            # additive files (objects, jigsaw-*)
+$patchSpecs  = "$patchesDir\patches"           # *.patch.json amend files
 
 # ── 1. Build staging ────────────────────────────────────────────────────────
 Write-Output '=== Building staging ==='
@@ -47,6 +50,23 @@ Get-ChildItem $iobSrc -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue | F
 $iobCount = (Get-ChildItem "$staging\objects" -Recurse -Filter '*.iob' -ErrorAction SilentlyContinue).Count
 Write-Output "  custom .iob files staged: $iobCount"
 
+# Layer 2.5: private "special structures" additive overlay (NOT shipped to
+# consumers - see iris/pack-patches/README.md and ADR-004). First merge the
+# purely-additive assets (derived jigsaw objects/pieces/pools/structures), then
+# apply *.patch.json files that AMEND staged biome JSON (add/remove syntax)
+# instead of whole-file overriding them via pack-overlay.
+if (Test-Path $patchAssets) {
+    Copy-Item "$patchAssets\*" $staging -Recurse -Force
+    Write-Output '  special-structure assets merged'
+}
+if (Test-Path $patchSpecs) {
+    Write-Output '  applying pack patches...'
+    python "$irisDir\scripts\apply-pack-patches.py" --staging $staging --patches $patchSpecs
+    if ($LASTEXITCODE -ne 0) { throw "apply-pack-patches.py failed (exit $LASTEXITCODE)" }
+} else {
+    Write-Output '  no pack-patches/patches dir - skipping patch layer'
+}
+
 # Strip UTF-8 BOM from all staged JSON files (Iris region/object loaders reject a
 # leading BOM with "A JSONObject text must begin with '{'"). Editors/PowerShell
 # can reintroduce a BOM when files are rewritten, so normalize here before deploy.
@@ -80,9 +100,15 @@ if (-not $SkipCacheClear) {
         "$ServerBase\test\region",
         "$ServerBase\test\entities",
         "$ServerBase\test\poi",
+        "$ServerBase\test\mantle",
         "$ServerBase\test\iris\engine-data",
         "$ServerBase\test\iris\cache",
-        "$ServerBase\plugins\Iris\cache"
+        "$ServerBase\plugins\Iris\cache",
+        # Iris precompiles a per-dimension prefetch of jigsaw structures/pools/
+        # pieces (*.ipfch). If left stale it pins the OLD structure set (e.g. the
+        # pack would keep loading "17 prefetch jigsaw-structures" and ignore a
+        # newly added one), so it MUST be cleared whenever the pack changes.
+        "$ServerBase\plugins\Iris\prefetch"
     )
     foreach ($c in $caches) {
         if (Test-Path $c) {

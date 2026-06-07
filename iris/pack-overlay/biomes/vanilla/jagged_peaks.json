@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/jagged_peaks",
+  "rarity": 1,
+  "derivative": "JAGGED_PEAKS",
+  "vanillaDerivative": "JAGGED_PEAKS",
+  "category": "extreme_hills",
+  "generators": [
+    {
+      "min": 60,
+      "max": 110,
+      "generator": "mountain-aggro"
+    }
+  ]
+}

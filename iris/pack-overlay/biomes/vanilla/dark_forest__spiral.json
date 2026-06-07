@@ -1,0 +1,174 @@
+{
+  "name": "vanilla/dark_forest__spiral",
+  "rarity": 30,
+  "derivative": "DARK_FOREST",
+  "vanillaDerivative": "DARK_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.4,
+      "density": 6,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/spiral_large_1",
+        "trees/darkoak/spiral_large_2",
+        "trees/darkoak/spiral_large_3",
+        "trees/darkoak/spiral_large_4",
+        "trees/darkoak/spiral_large_5"
+      ]
+    },
+    {
+      "chance": 0.14,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/titan_large_1",
+        "trees/darkoak/titan_large_2",
+        "trees/darkoak/titan_large_3",
+        "trees/darkoak/titan_large_4",
+        "trees/darkoak/titan_large_5"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/darkoak/twisted_small_1",
+        "trees/darkoak/twisted_small_2",
+        "trees/darkoak/twisted_small_3",
+        "trees/darkoak/twisted_small_4",
+        "trees/darkoak/twisted_small_5"
+      ]
+    },
+    {
+      "chance": 0.05,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glowcap/glowcap_small_1",
+        "trees/glowcap/glowcap_small_2",
+        "trees/glowcap/glowcap_small_3",
+        "trees/glowcap/glowcap_small_4"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glowcap/glowcap_large_1",
+        "trees/glowcap/glowcap_large_2",
+        "trees/glowcap/glowcap_large_3",
+        "trees/glowcap/glowcap_large_4"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.25,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 18
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 8
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:lily_of_the_valley",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:rose_bush",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:peony",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:lilac",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    }
+  ]
+}

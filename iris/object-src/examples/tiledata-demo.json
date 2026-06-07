@@ -1,0 +1,16 @@
+{
+    "size": { "w": 3, "h": 3, "d": 3 },
+    "centered": false,
+    "blocks": [
+        { "x": 0, "y": 0, "z": 0, "state": "minecraft:oak_planks" },
+        { "x": 1, "y": 0, "z": 0, "state": "minecraft:oak_fence" },
+        { "x": 2, "y": 0, "z": 0, "state": "minecraft:rail[shape=north_south]" },
+        { "x": 1, "y": 1, "z": 1, "state": "minecraft:spawner" }
+    ],
+    "tiles": [
+        { "x": 1, "y": 1, "z": 1, "encoding": "legacy", "type": "spawner",
+          "entityTypeOrdinal": 20 },
+        { "x": 0, "y": 0, "z": 0, "encoding": "modern",
+          "material": "minecraft:chest", "properties": {} }
+    ]
+}

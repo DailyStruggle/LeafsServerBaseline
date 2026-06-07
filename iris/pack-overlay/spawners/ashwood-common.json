@@ -1,0 +1,30 @@
+{
+    "group": "NORMAL",
+    "maximumRate": {
+        "amount": 12,
+        "per": {"seconds": 20}
+    },
+    "timeBlock": {
+        "startHour": 19,
+        "endHour": 5
+    },
+    "maxEntitiesPerChunk": 6,
+    "energyMultiplier": 1,
+    "weather": "ANY",
+    "spawns": [
+        {
+            "entity": "ashwood/ashbound_stray",
+            "energyMultiplier": 1,
+            "rarity": 1,
+            "maxSpawns": 4,
+            "minSpawns": 1
+        },
+        {
+            "entity": "ashwood/ashveil_spider",
+            "energyMultiplier": 1,
+            "rarity": 2,
+            "maxSpawns": 3,
+            "minSpawns": 1
+        }
+    ]
+}

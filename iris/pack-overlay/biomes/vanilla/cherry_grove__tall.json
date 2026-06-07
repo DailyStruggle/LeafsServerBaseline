@@ -1,6 +1,6 @@
 {
   "name": "vanilla/cherry_grove__tall",
-  "rarity": 4,
+  "rarity": 12,
   "derivative": "CHERRY_GROVE",
   "vanillaDerivative": "CHERRY_GROVE",
   "category": "forest",
@@ -13,7 +13,7 @@
   ],
   "objects": [
     {
-      "chance": 0.12,
+      "chance": 0.22,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.14,
+      "chance": 0.26,
       "density": 3,
       "rotation": {
         "yAxis": {

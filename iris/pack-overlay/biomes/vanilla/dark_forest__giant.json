@@ -1,6 +1,6 @@
 {
   "name": "vanilla/dark_forest__giant",
-  "rarity": 9,
+  "rarity": 30,
   "derivative": "DARK_FOREST",
   "vanillaDerivative": "DARK_FOREST",
   "category": "forest",
@@ -13,8 +13,8 @@
   ],
   "objects": [
     {
-      "chance": 0.08,
-      "density": 2,
+      "chance": 0.7,
+      "density": 6,
       "rotation": {
         "yAxis": {
           "min": 0,
@@ -25,19 +25,19 @@
         "enabled": true
       },
       "place": [
-        "trees/vanilla-dark_oak/dark_oakM1",
-        "trees/vanilla-dark_oak/dark_oakM2",
-        "trees/vanilla-dark_oak/dark_oakM3",
-        "trees/vanilla-dark_oak/dark_oakM4",
-        "trees/vanilla-dark_oak/dark_oakM5",
-        "trees/vanilla-dark_oak/dark_oakM6",
-        "trees/vanilla-dark_oak/dark_oakM7",
-        "trees/vanilla-dark_oak/dark_oakM8"
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM1",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM2",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM3",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM4",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM5",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM6",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM7",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideM8"
       ]
     },
     {
-      "chance": 0.14,
-      "density": 3,
+      "chance": 0.85,
+      "density": 7,
       "rotation": {
         "yAxis": {
           "min": 0,
@@ -48,19 +48,19 @@
         "enabled": true
       },
       "place": [
-        "trees/vanilla-dark_oak/dark_oakL1",
-        "trees/vanilla-dark_oak/dark_oakL2",
-        "trees/vanilla-dark_oak/dark_oakL3",
-        "trees/vanilla-dark_oak/dark_oakL4",
-        "trees/vanilla-dark_oak/dark_oakL5",
-        "trees/vanilla-dark_oak/dark_oakL6",
-        "trees/vanilla-dark_oak/dark_oakL7",
-        "trees/vanilla-dark_oak/dark_oakL8"
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL1",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL2",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL3",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL4",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL5",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL6",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL7",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideL8"
       ]
     },
     {
-      "chance": 0.1,
-      "density": 2,
+      "chance": 0.55,
+      "density": 5,
       "rotation": {
         "yAxis": {
           "min": 0,
@@ -71,14 +71,14 @@
         "enabled": true
       },
       "place": [
-        "trees/vanilla-dark_oak/dark_oakXL1",
-        "trees/vanilla-dark_oak/dark_oakXL2",
-        "trees/vanilla-dark_oak/dark_oakXL3",
-        "trees/vanilla-dark_oak/dark_oakXL4",
-        "trees/vanilla-dark_oak/dark_oakXL5",
-        "trees/vanilla-dark_oak/dark_oakXL6",
-        "trees/vanilla-dark_oak/dark_oakXL7",
-        "trees/vanilla-dark_oak/dark_oakXL8"
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL1",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL2",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL3",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL4",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL5",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL6",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL7",
+        "trees/vanilla-dark_oak_wide/dark_oak_wideXL8"
       ]
     }
   ],

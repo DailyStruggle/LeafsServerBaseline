@@ -1,0 +1,371 @@
+{
+  "_comment": "Soulforge Ruin - a soul-fire smithy for the Frostfire Caves biome. Hand-reviewable source; compile with scripts/json_to_iob.py.",
+  "size": {
+    "w": 5,
+    "h": 4,
+    "d": 5
+  },
+  "centered": false,
+  "blocks": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:soul_soil"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:soul_soil"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:basalt"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:soul_soil"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:blackstone_wall"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:blackstone_wall"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:chest[facing=south,type=single,waterlogged=false]"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:cracked_polished_blackstone_bricks"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:blackstone"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:blackstone_wall"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:blackstone_wall"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "state": "minecraft:soul_lantern[hanging=true]"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "state": "minecraft:soul_lantern[hanging=true]"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:polished_blackstone"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:anvil[facing=east]"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:soul_campfire[lit=true,facing=west]"
+    }
+  ]
+}

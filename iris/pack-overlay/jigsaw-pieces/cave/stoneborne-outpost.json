@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/stoneborne-outpost",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/abandoned_mineshaft"
+      }
+    ]
+  }
+}

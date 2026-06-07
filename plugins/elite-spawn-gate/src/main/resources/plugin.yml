@@ -1,0 +1,7 @@
+name: EliteSpawnGate
+version: 0.1.0
+main: net.leaf.elitegate.EliteSpawnGatePlugin
+api-version: '1.21'
+author: Leaf
+description: Server-specific anti-farm spawn gate for Iris elite mobs.
+softdepend: [Iris]

@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/toxic-prospectors-dig"
+  ],
+  "overrideYRange": {
+    "max": 55,
+    "min": 0,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

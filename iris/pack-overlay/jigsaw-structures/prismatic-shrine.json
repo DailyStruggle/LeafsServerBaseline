@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/prismatic-shrine"
+  ],
+  "overrideYRange": {
+    "max": -15,
+    "min": -55,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

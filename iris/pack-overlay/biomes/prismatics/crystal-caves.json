@@ -1,0 +1,67 @@
+{
+    "name": "Crystal Caves",
+    "color": "#7FE6D8",
+    "generators": [{"generator": "rare-hills", "min": 1, "max": 1}],
+    "wall": {"palette": [
+        {
+            "block": "minecraft:calcite",
+            "weight": 4
+        },
+        {
+            "block": "minecraft:light_blue_stained_glass",
+            "weight": 2
+        },
+        {
+            "block": "minecraft:cyan_stained_glass",
+            "weight": 2
+        },
+        {
+            "block": "minecraft:magenta_stained_glass",
+            "weight": 2
+        },
+        {
+            "block": "minecraft:lime_stained_glass",
+            "weight": 2
+        },
+        {
+            "block": "minecraft:pink_stained_glass",
+            "weight": 2
+        },
+        {"block": "minecraft:tinted_glass"}
+    ]},
+    "layers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:calcite",
+                "weight": 5
+            },
+            {
+                "block": "minecraft:light_blue_stained_glass",
+                "weight": 2
+            },
+            {
+                "block": "minecraft:yellow_stained_glass",
+                "weight": 2
+            },
+            {"block": "minecraft:purple_stained_glass"}
+        ]
+    }],
+    "caveCeilingLayers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:cyan_stained_glass",
+                "weight": 3
+            },
+            {
+                "block": "minecraft:magenta_stained_glass",
+                "weight": 2
+            },
+            {"block": "minecraft:calcite"}
+        ]
+    }],
+    "entitySpawners": []
+}

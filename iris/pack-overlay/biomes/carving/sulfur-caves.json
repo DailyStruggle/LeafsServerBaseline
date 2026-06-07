@@ -1,0 +1,74 @@
+{
+    "name": "Sulfur Caves",
+    "color": "#D6C13B",
+    "generators": [{"generator": "rare-hills", "min": 1, "max": 1}],
+    "wall": {"palette": [
+        {
+            "block": "minecraft:smooth_basalt",
+            "weight": 6
+        },
+        {
+            "block": "minecraft:yellow_terracotta",
+            "weight": 4
+        },
+        {
+            "block": "minecraft:calcite",
+            "weight": 2
+        },
+        {"block": "minecraft:magma_block"}
+    ]},
+    "layers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:yellow_terracotta",
+                "weight": 5
+            },
+            {
+                "block": "minecraft:yellow_concrete_powder",
+                "weight": 2
+            },
+            {
+                "block": "minecraft:smooth_basalt",
+                "weight": 3
+            },
+            {"block": "minecraft:magma_block"}
+        ]
+    }],
+    "caveCeilingLayers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:smooth_basalt",
+                "weight": 6
+            },
+            {
+                "block": "minecraft:yellow_terracotta",
+                "weight": 3
+            },
+            {"block": "minecraft:magma_block"}
+        ]
+    }],
+    "effects": [
+        {
+            "potionEffect": "POISON",
+            "potionStrength": 0,
+            "potionTicksMin": 40,
+            "potionTicksMax": 80,
+            "chance": 900,
+            "interval": 300
+        },
+        {
+            "particleAltX": 0.001,
+            "particleAltY": 0.05885,
+            "particleAltZ": 0.001,
+            "chance": 2,
+            "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
+            "particleOffset": 0,
+            "interval": 260,
+            "particleCount": 0
+        }
+    ]
+}

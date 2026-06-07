@@ -6,14 +6,14 @@
   "category": "extreme_hills",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 12,
+      "max": 35,
+      "generator": "small-cliffs"
     }
   ],
   "objects": [
     {
-      "chance": 0.1,
+      "chance": 0.2,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.06,
+      "chance": 0.12,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "chance": 0.06,
+      "chance": 0.12,
       "density": 2,
       "rotation": {
         "yAxis": {

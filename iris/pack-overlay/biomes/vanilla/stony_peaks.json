@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/stony_peaks",
+  "rarity": 1,
+  "derivative": "STONY_PEAKS",
+  "vanillaDerivative": "STONY_PEAKS",
+  "category": "extreme_hills",
+  "generators": [
+    {
+      "min": 55,
+      "max": 95,
+      "generator": "mountain-aggro"
+    }
+  ]
+}

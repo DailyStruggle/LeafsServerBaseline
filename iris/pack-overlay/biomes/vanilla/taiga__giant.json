@@ -1,19 +1,19 @@
 {
   "name": "vanilla/taiga__giant",
-  "rarity": 9,
+  "rarity": 30,
   "derivative": "TAIGA",
   "vanillaDerivative": "TAIGA",
   "category": "taiga",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
     }
   ],
   "objects": [
     {
-      "chance": 0.06,
+      "chance": 0.12,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.12,
+      "chance": 0.22,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "chance": 0.1,
+      "chance": 0.18,
       "density": 2,
       "rotation": {
         "yAxis": {

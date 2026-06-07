@@ -1,0 +1,42 @@
+{
+    "type": "WITHER_SKELETON",
+    "customName": "&8&lAshwood Revenant",
+    "customNameVisible": true,
+    "helmet": {"type": "netherite_helmet", "rarity": 1},
+    "chestplate": {"type": "netherite_chestplate", "rarity": 1},
+    "mainHand": {"type": "netherite_axe", "rarity": 1},
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "revenant-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 60,
+            "maxAmount": 80
+        },
+        {
+            "attribute": "KNOCKBACK_RESISTANCE",
+            "name": "revenant-knockback",
+            "operation": "ADD_NUMBER",
+            "minAmount": 0.6,
+            "maxAmount": 0.8
+        },
+        {
+            "attribute": "MOVEMENT_SPEED",
+            "name": "revenant-speed",
+            "operation": "ADD_SCALAR",
+            "minAmount": 0.15,
+            "maxAmount": 0.25
+        },
+        {
+            "attribute": "ATTACK_DAMAGE",
+            "name": "revenant-damage",
+            "operation": "ADD_NUMBER",
+            "minAmount": 5,
+            "maxAmount": 8
+        }
+    ],
+    "loot": {
+        "mode": "ADD",
+        "tables": ["ashwood-revenant"]
+    }
+}

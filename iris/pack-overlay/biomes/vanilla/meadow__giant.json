@@ -1,14 +1,14 @@
 {
   "name": "vanilla/meadow__giant",
-  "rarity": 9,
+  "rarity": 30,
   "derivative": "MEADOW",
   "vanillaDerivative": "MEADOW",
   "category": "plains",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
     }
   ],
   "objects": [

@@ -1,0 +1,41 @@
+{
+  "name": "vanilla/puddle",
+  "color": "#4A6FD4",
+  "rarity": 1,
+  "derivative": "RIVER",
+  "vanillaDerivative": "RIVER",
+  "generators": [
+    {
+      "min": -3,
+      "max": -1,
+      "generator": "plain"
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 2,
+      "style": {
+        "style": "CELLULAR_IRIS_DOUBLE"
+      },
+      "zoom": 0.5,
+      "palette": [
+        {"block": "minecraft:dirt", "weight": 3},
+        {"block": "minecraft:clay"},
+        {"block": "minecraft:gravel"},
+        {"block": "minecraft:sand"}
+      ]
+    },
+    {"palette": [{"block": "minecraft:dirt"}]}
+  ],
+  "decorators": [
+    {
+      "chance": 0.06,
+      "variance": {"style": "STATIC"},
+      "zoom": 4,
+      "palette": [{"block": "minecraft:seagrass"}],
+      "style": {"style": "STATIC"},
+      "partOf": "SEA_FLOOR"
+    }
+  ]
+}

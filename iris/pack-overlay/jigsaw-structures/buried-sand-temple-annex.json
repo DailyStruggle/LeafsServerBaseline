@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/buried-sand-temple-annex"
+  ],
+  "overrideYRange": {
+    "max": 65,
+    "min": 25,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

@@ -9,11 +9,13 @@ from trunk import _log_axis
 
 
 def _value_noise_1d(x: float, seed: int) -> float:
+    """Deterministic noise value in [0,1] for a 1D coordinate (hash-based, no dependencies)."""
     h = hash((seed, int(x * 1000))) & 0xFFFFFFFF
     return (h ^ (h >> 16)) / 0xFFFFFFFF
 
 
 def _value_noise_3d(x: int, y: int, z: int, seed: int) -> float:
+    """Deterministic noise value in [0,1] for a 3D coordinate, used to thin out leaves."""
     h = hash((seed, x, y, z)) & 0xFFFFFFFF
     return (h ^ (h >> 16)) / 0xFFFFFFFF
 
@@ -113,6 +115,13 @@ _PROFILE_RADIUS_SCALE = {
     "jungle":   0.45,
     "acacia":   0.6,
     "dark_oak": 1.0,
+    # Flat, wide umbrella crown for vanilla dark oak (kept separate from the
+    # generic "dark_oak" profile so glowcap/blightroot, which reuse "dark_oak",
+    # are unaffected).
+    "dark_oak_flat": 1.25,
+    # Extra-wide flat umbrella for the giant roofed-forest variant: crowns this
+    # broad overlap into a continuous closed canopy roof.
+    "dark_oak_flat_wide": 1.8,
     "cherry":   1.0,
 }
 
@@ -163,6 +172,22 @@ _PRESETS = {
         (0.91, 0.6),
         (0.97, 0.3),
     ],
+    # Flat umbrella: layers compressed into the top ~25% so the crown reads as a
+    # wide, shallow slab (vanilla dark oak) rather than a sphere.
+    "dark_oak_flat": [
+        (0.74, 0.62),
+        (0.83, 1.0),
+        (0.92, 1.0),
+        (1.0, 0.6),
+    ],
+    # Same shallow-slab shape as dark_oak_flat (wider radius comes from the
+    # radius scale above), used by the giant roofed-forest variant.
+    "dark_oak_flat_wide": [
+        (0.74, 0.62),
+        (0.83, 1.0),
+        (0.92, 1.0),
+        (1.0, 0.62),
+    ],
     "cherry": [
         (0.5, 0.5),
         (0.62, 0.9),
@@ -209,6 +234,7 @@ def generate_volume_canopy(height: int, layers: list, leaf_block: str,
                            existing: dict,
                            trunk_offsets: list = None,
                            secondary_leaves=None, secondary_fraction: float = 0.0) -> dict:
+    """Build the solid leaf volume by stacking dome-shaped leaf discs at each preset layer."""
     blocks = {}
     if trunk_offsets and len(trunk_offsets) > 0:
         tip_cx, tip_cz = trunk_offsets[-1]
@@ -246,33 +272,39 @@ def generate_volume_canopy(height: int, layers: list, leaf_block: str,
 
 
 def _prob_constant(t: float, params: dict) -> float:
+    """Same branch chance at every height."""
     return params.get("p", 0.5)
 
 
 def _prob_linear(t: float, params: dict) -> float:
+    """Branch chance ramps straight from base_p at the bottom to crown_p at the top."""
     base_p = params.get("base_p", 0.0)
     crown_p = params.get("crown_p", 1.0)
     return base_p + (crown_p - base_p) * t
 
 
 def _prob_sigmoid(t: float, params: dict) -> float:
+    """Branch chance follows an S-curve, switching on around the midpoint height."""
     steepness = params.get("steepness", 10.0)
     midpoint = params.get("midpoint", 0.7)
     return 1.0 / (1.0 + math.exp(-steepness * (t - midpoint)))
 
 
 def _prob_top_heavy(t: float, params: dict) -> float:
+    """Branch chance rises with height raised to a power, so branches cluster near the crown."""
     exponent = params.get("exponent", 2.0)
     return t ** exponent
 
 
 def _prob_gaussian(t: float, params: dict) -> float:
+    """Branch chance peaks in a band around mean height and falls off above and below it."""
     mean = params.get("mean", 0.7)
     std = params.get("std", 0.15)
     return math.exp(-0.5 * ((t - mean) / max(std, 1e-6)) ** 2)
 
 
 def _prob_noise(t: float, params: dict) -> float:
+    """Branch chance varies irregularly with height using deterministic noise."""
     scale = params.get("scale", 1.0)
     nseed = params.get("seed", 0)
     return _value_noise_1d(t * scale, nseed)
@@ -297,12 +329,14 @@ _LENGTH_FNS = {
 
 
 def _branch_length(t: float, length_fn: str, length_params: dict) -> float:
+    """Branch length at height t from the chosen length function (never below 1 block)."""
     fn = _LENGTH_FNS.get(length_fn, _LENGTH_FNS["linear"])
     return max(1.0, fn(t, length_params))
 
 
 def _branch_endpoint(ox: int, oy: int, oz: int,
                      azimuth_deg: float, elevation_deg: float, length: float):
+    """Project a branch tip from origin given a compass azimuth, upward elevation, and length."""
     az_rad = math.radians(azimuth_deg)
     el_rad = math.radians(elevation_deg)
     dx = length * math.cos(el_rad) * math.sin(az_rad)

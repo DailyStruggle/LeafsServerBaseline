@@ -19,12 +19,14 @@ TAG_INT_ARRAY = 11
 
 
 def _name(b: bytearray, s: str) -> None:
+    """Append an NBT tag name: big-endian unsigned-short length followed by the UTF-8 bytes."""
     raw = s.encode("utf-8")
     b += struct.pack(">H", len(raw))
     b += raw
 
 
 def _payload(b: bytearray, tag: int, value) -> None:
+    """Append the binary payload for one NBT tag of the given type (recurses for lists/compounds)."""
     if tag == TAG_BYTE:
         b += struct.pack(">b", value)
     elif tag == TAG_SHORT:
@@ -61,6 +63,7 @@ def _payload(b: bytearray, tag: int, value) -> None:
 
 
 def varint(n: int) -> bytes:
+    """Encode a non-negative integer as a little-endian LEB128 varint (Sponge block-data format)."""
     out = bytearray()
     while True:
         byte = n & 0x7F

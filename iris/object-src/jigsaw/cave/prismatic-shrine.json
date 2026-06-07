@@ -1,0 +1,371 @@
+{
+  "_comment": "Prismatic Shrine - a rainbow stained-glass reward room for the Crystal Caves biome. Hand-reviewable source; compile with scripts/json_to_iob.py.",
+  "size": {
+    "w": 5,
+    "h": 4,
+    "d": 5
+  },
+  "centered": false,
+  "blocks": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:magenta_stained_glass"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:cyan_stained_glass"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:cyan_stained_glass"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:chest[facing=south,type=single,waterlogged=false]"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:light_blue_stained_glass"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:calcite"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:cyan_stained_glass"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:cyan_stained_glass"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "state": "minecraft:sea_lantern"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "state": "minecraft:sea_lantern"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:tinted_glass"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "state": "minecraft:lime_stained_glass"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 3,
+      "state": "minecraft:pink_stained_glass"
+    }
+  ]
+}

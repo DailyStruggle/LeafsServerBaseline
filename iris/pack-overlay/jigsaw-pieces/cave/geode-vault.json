@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/geode-vault",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/buried_treasure"
+      }
+    ]
+  }
+}

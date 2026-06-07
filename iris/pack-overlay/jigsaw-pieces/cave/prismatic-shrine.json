@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/prismatic-shrine",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/end_city_treasure"
+      }
+    ]
+  }
+}

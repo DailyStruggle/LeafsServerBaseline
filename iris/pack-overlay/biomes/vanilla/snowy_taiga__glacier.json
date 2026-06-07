@@ -1,0 +1,89 @@
+{
+  "name": "vanilla/snowy_taiga__glacier",
+  "rarity": 12,
+  "derivative": "SNOWY_TAIGA",
+  "vanillaDerivative": "SNOWY_TAIGA",
+  "category": "taiga",
+  "generators": [
+    {
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.16,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glacierpine/glacierpine_small_1",
+        "trees/glacierpine/glacierpine_small_2",
+        "trees/glacierpine/glacierpine_small_3"
+      ]
+    },
+    {
+      "chance": 0.1,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glacierpine/glacierpine_medium_1",
+        "trees/glacierpine/glacierpine_medium_2",
+        "trees/glacierpine/glacierpine_medium_3"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glacierpine/glacierpine_large_1",
+        "trees/glacierpine/glacierpine_large_2",
+        "trees/glacierpine/glacierpine_large_3",
+        "trees/glacierpine/glacierpine_large_4"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}

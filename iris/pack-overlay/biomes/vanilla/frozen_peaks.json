@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/frozen_peaks",
+  "rarity": 1,
+  "derivative": "FROZEN_PEAKS",
+  "vanillaDerivative": "FROZEN_PEAKS",
+  "category": "icy",
+  "generators": [
+    {
+      "min": 65,
+      "max": 105,
+      "generator": "mountain-large"
+    }
+  ]
+}

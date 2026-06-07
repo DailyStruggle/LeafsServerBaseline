@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/toxic-prospectors-dig",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/abandoned_mineshaft"
+      }
+    ]
+  }
+}

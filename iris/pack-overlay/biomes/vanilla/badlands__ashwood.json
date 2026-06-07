@@ -1,0 +1,101 @@
+{
+  "name": "vanilla/badlands__ashwood",
+  "rarity": 30,
+  "derivative": "BADLANDS",
+  "vanillaDerivative": "BADLANDS",
+  "category": "mesa",
+  "entitySpawners": [
+    "ashwood-common",
+    "ashwood-elite"
+  ],
+  "generators": [
+    {
+      "min": 50,
+      "max": 70,
+      "generator": "highplains"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.05,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/ashwood/ashwood_small_1",
+        "trees/ashwood/ashwood_small_2",
+        "trees/ashwood/ashwood_small_3"
+      ]
+    },
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/ashwood/ashwood_medium_1",
+        "trees/ashwood/ashwood_medium_2",
+        "trees/ashwood/ashwood_medium_3"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/ashwood/ashwood_large_1",
+        "trees/ashwood/ashwood_large_2",
+        "trees/ashwood/ashwood_large_3"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:dead_bush"
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:cactus"
+        }
+      ],
+      "stackMin": 1,
+      "stackMax": 2,
+      "scaleStack": true
+    }
+  ]
+}

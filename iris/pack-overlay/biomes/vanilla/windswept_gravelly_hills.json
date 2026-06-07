@@ -6,9 +6,9 @@
   "category": "extreme_hills",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 20,
+      "max": 50,
+      "generator": "plain-cliffs"
     }
   ],
   "objects": [

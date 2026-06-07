@@ -6,14 +6,14 @@
   "category": "taiga",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
     }
   ],
   "objects": [
     {
-      "chance": 0.18,
+      "chance": 0.34,
       "density": 5,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.1,
+      "chance": 0.18,
       "density": 3,
       "rotation": {
         "yAxis": {

@@ -1,0 +1,21 @@
+{
+    "type": "SPIDER",
+    "customName": "&8Ashveil Spider",
+    "customNameVisible": false,
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "ashveil-spider-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 4,
+            "maxAmount": 8
+        },
+        {
+            "attribute": "MOVEMENT_SPEED",
+            "name": "ashveil-spider-speed",
+            "operation": "ADD_SCALAR",
+            "minAmount": 0.1,
+            "maxAmount": 0.2
+        }
+    ]
+}

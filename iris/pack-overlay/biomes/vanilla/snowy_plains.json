@@ -1,0 +1,39 @@
+{
+  "name": "vanilla/snowy_plains",
+  "rarity": 1,
+  "derivative": "SNOWY_PLAINS",
+  "vanillaDerivative": "SNOWY_PLAINS",
+  "category": "icy",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceS1",
+        "trees/vanilla-spruce/spruceS2",
+        "trees/vanilla-spruce/spruceS3",
+        "trees/vanilla-spruce/spruceS4",
+        "trees/vanilla-spruce/spruceS5",
+        "trees/vanilla-spruce/spruceS6",
+        "trees/vanilla-spruce/spruceS7",
+        "trees/vanilla-spruce/spruceS8"
+      ]
+    }
+  ]
+}

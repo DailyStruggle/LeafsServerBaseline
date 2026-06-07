@@ -1,0 +1,19 @@
+name: LeafShapeMining
+version: 0.1.0
+main: net.leaf.shapemining.LeafShapeMiningPlugin
+api-version: '1.21'
+author: Leaf
+description: Vanilla/Folia-safe shape-mining (Excavate / tunnel-bore style) tool.
+folia-supported: true
+commands:
+  shapemine:
+    description: Give a shape-mining tool; /shapemine give [player] for admins.
+    usage: /shapemine give [player]
+    permission: leafshapemining.admin
+permissions:
+  leafshapemining.admin:
+    description: Use the /shapemine management command.
+    default: op
+  leafshapemining.use:
+    description: Use shape-mining tools.
+    default: true

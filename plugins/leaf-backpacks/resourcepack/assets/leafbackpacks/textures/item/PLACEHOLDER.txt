@@ -1,0 +1,9 @@
+Drop backpack.png (16x16) here to provide the custom backpack icon.
+
+The plugin references item model id `leafbackpacks:backpack` (configurable per tier
+via config.yml custom-icon.per-tier-models). This pack maps that to
+models/item/backpack.json -> textures/item/backpack.png.
+
+This is a player-optional pack: clients that decline it still get a fully
+functional backpack, but it will render with the missing-model look when
+custom-icon is enabled in config.yml.

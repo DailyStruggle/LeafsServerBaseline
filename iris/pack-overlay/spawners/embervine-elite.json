@@ -1,0 +1,23 @@
+{
+    "group": "NORMAL",
+    "maximumRate": {
+        "amount": 1,
+        "per": {"minutes": 2}
+    },
+    "timeBlock": {
+        "startHour": 0,
+        "endHour": 24
+    },
+    "maxEntitiesPerChunk": 2,
+    "energyMultiplier": 1,
+    "weather": "ANY",
+    "spawns": [
+        {
+            "entity": "embervine/embervine_warden",
+            "energyMultiplier": 1,
+            "rarity": 1,
+            "maxSpawns": 1,
+            "minSpawns": 1
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "pieces": [
+        "mineshaft/way_1",
+        "mineshaft/way_2",
+        "mineshaft/way_chest",
+        "mineshaft/intersection",
+        "mineshaft/way_empty",
+        "mineshaft/way_rails",
+        "mineshaft/intersection_empty",
+        "mineshaft/way_spawner",
+        "mineshaft/way_1b",
+        "mineshaft/way_1c",
+        "mineshaft/way_2b",
+        "mineshaft/way_2c",
+        "mineshaft/way_chestb",
+        "mineshaft/way_chestc",
+        "mineshaft/way_railsb",
+        "mineshaft/way_railsc",
+        "mineshaft/way_emptyb",
+        "mineshaft/way_emptyc"
+    ]
+}

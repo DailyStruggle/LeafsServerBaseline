@@ -1,19 +1,19 @@
 {
   "name": "vanilla/taiga__tall",
-  "rarity": 4,
+  "rarity": 12,
   "derivative": "TAIGA",
   "vanillaDerivative": "TAIGA",
   "category": "taiga",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 5,
+      "max": 22,
+      "generator": "rare-hills"
     }
   ],
   "objects": [
     {
-      "chance": 0.14,
+      "chance": 0.26,
       "density": 4,
       "rotation": {
         "yAxis": {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "chance": 0.16,
+      "chance": 0.28,
       "density": 4,
       "rotation": {
         "yAxis": {

@@ -1,0 +1,18 @@
+name: LeafBackpacks
+version: 0.1.0
+main: net.leaf.backpacks.LeafBackpacksPlugin
+api-version: '1.21'
+author: Leaf
+description: Sophisticated-lite backpacks (container item + tier-gated upgrades).
+commands:
+  backpack:
+    description: Give, tier-up and add upgrades to backpacks.
+    usage: /backpack <give|tierup|upgrade> [args]
+    permission: leafbackpacks.admin
+permissions:
+  leafbackpacks.admin:
+    description: Use the /backpack management command.
+    default: op
+  leafbackpacks.use:
+    description: Open and use backpacks.
+    default: true

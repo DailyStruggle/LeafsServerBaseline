@@ -6,14 +6,14 @@
   "category": "mesa",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 50,
+      "max": 70,
+      "generator": "highplains"
     }
   ],
   "objects": [
     {
-      "chance": 0.05,
+      "chance": 0.12,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -33,6 +33,29 @@
         "trees/vanilla-oak/oakS6",
         "trees/vanilla-oak/oakS7",
         "trees/vanilla-oak/oakS8"
+      ]
+    },
+    {
+      "chance": 0.06,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
       ]
     }
   ],

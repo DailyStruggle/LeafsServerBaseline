@@ -1,0 +1,68 @@
+{
+    "name": "Mantle Caves",
+    "color": "#7A2E12",
+    "generators": [{"generator": "rare-hills", "min": 1, "max": 1}],
+    "wall": {"palette": [
+        {
+            "block": "minecraft:blackstone",
+            "weight": 6
+        },
+        {
+            "block": "minecraft:smooth_basalt",
+            "weight": 3
+        },
+        {
+            "block": "minecraft:magma_block",
+            "weight": 2
+        },
+        {"block": "minecraft:deepslate_gold_ore"}
+    ]},
+    "layers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:magma_block",
+                "weight": 4
+            },
+            {
+                "block": "minecraft:basalt",
+                "data": {"axis": "y"},
+                "weight": 4
+            },
+            {
+                "block": "minecraft:blackstone",
+                "weight": 3
+            },
+            {"block": "minecraft:deepslate_diamond_ore"}
+        ]
+    }],
+    "caveCeilingLayers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:blackstone",
+                "weight": 6
+            },
+            {
+                "block": "minecraft:smooth_basalt",
+                "weight": 3
+            },
+            {"block": "minecraft:magma_block"}
+        ]
+    }],
+    "effects": [
+        {
+            "particleAltX": 0.001,
+            "particleAltY": 0.04,
+            "particleAltZ": 0.001,
+            "chance": 2,
+            "particleEffect": "LAVA",
+            "particleOffset": 0,
+            "interval": 280,
+            "particleCount": 0
+        }
+    ],
+    "entitySpawners": []
+}

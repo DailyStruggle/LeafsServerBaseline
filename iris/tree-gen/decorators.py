@@ -86,6 +86,36 @@ def _apply_canopy_top(blocks: dict, existing: dict, decorator: dict,
     return result
 
 
+def _apply_canopy_bottom(blocks: dict, existing: dict, decorator: dict,
+                         trunk_positions: set, rng: random.Random) -> dict:
+    """Place decorator one block below the lowest canopy (non-trunk) block in each
+    (x,z) column, when that space is air. Forms a single glowing underside layer
+    on the cap that is viewable from below, leaving the cap itself solid."""
+    result = {}
+    chance = float(decorator.get("chance", 0.85))
+    block_base = decorator.get("block", "")
+    trunk = trunk_positions or set()
+    all_pos = set(existing.keys()) | set(blocks.keys())
+
+    # Lowest canopy (leaf) block per (x,z), ignoring trunk columns/blocks.
+    col_bottom = {}
+    for (x, y, z) in existing.keys():
+        if (x, y, z) in trunk:
+            continue
+        key = (x, z)
+        if key not in col_bottom or y < col_bottom[key]:
+            col_bottom[key] = y
+
+    for (x, z), bot_y in col_bottom.items():
+        below = (x, bot_y - 1, z)
+        if below in all_pos:
+            continue
+        if rng.random() > chance:
+            continue
+        result[below] = _expand_block(block_base)
+    return result
+
+
 def _apply_trunk_base(blocks: dict, existing: dict, decorator: dict,
                       trunk_positions: set, rng: random.Random) -> dict:
     """Place decorator around the base of the trunk (y=0 ring)."""
@@ -142,6 +172,9 @@ def apply_decorators(all_blocks: dict, decorator_cfgs: list, seed: int,
                 result.update(new)
         elif target == "canopy_top":
             new = _apply_canopy_top(result, all_blocks, dec, rng)
+            result.update(new)
+        elif target == "canopy_bottom":
+            new = _apply_canopy_bottom(result, all_blocks, dec, trunk_positions, rng)
             result.update(new)
         elif target == "trunk_base":
             if trunk_positions:

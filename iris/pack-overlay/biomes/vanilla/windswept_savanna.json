@@ -6,9 +6,9 @@
   "category": "savanna",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 15,
+      "max": 45,
+      "generator": "plain-cliffs"
     }
   ],
   "objects": [

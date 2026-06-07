@@ -29,7 +29,10 @@ New work always starts with a requirements doc. No implementation begins without
 - [`design/BIOMES.md`](design/BIOMES.md) - vanilla biome ID reference (Java Edition 1.21)
 - [`design/CUSTOM-BIOMES.md`](design/CUSTOM-BIOMES.md) - custom biome catalog, Iris schema, and build palette reference
 - [`design/IRIS-BIOME-RESEARCH.md`](design/IRIS-BIOME-RESEARCH.md) - preexisting Iris overworld biomes evaluated against ADR-003 criteria, with Gemini concept mapping
+- [`design/IOB-FILE-FORMAT.md`](design/IOB-FILE-FORMAT.md) - binary spec for Iris `.iob` objects, derived from our `nbt_to_iris.py` / `iob_inspect.py` / `recenter-iob.py` tooling
+- [`design/TILEDATA-FORMAT.md`](design/TILEDATA-FORMAT.md) - binary spec for the Iris `TileData` tile-entity records that follow the `.iob` block list (modern key+JSON and legacy ordinal encodings)
 - [`design/adr/`](design/adr/) - Architecture Decision Records
 - [`scratch/LESSONS_LEARNED.md`](scratch/LESSONS_LEARNED.md) - engineering pitfalls and notes
 - [`scratch/POTENTIAL_BUGS.md`](scratch/POTENTIAL_BUGS.md) - incidental findings backlog
 - [`world-design/IRIS-WORLD-BUILDING.md`](world-design/IRIS-WORLD-BUILDING.md) - end-to-end Iris biome authoring walkthrough
+- [`usage/TREE-GENERATION.md`](usage/TREE-GENERATION.md) - tree-generation pipeline guide: how it works, the JSON config schema, and outputs

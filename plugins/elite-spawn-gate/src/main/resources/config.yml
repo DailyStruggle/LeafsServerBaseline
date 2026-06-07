@@ -1,0 +1,75 @@
+# EliteSpawnGate - anti-farm spawn gate for Iris elite mobs (biome-agnostic).
+#
+# The gate ONLY inspects spawns whose entity type is listed under `gated-types`.
+# Everything else (Tier-1 farmable custom mobs, all vanilla mobs) is ignored,
+# so ordinary farms keep working - only the rare loot-bearing elites are gated.
+
+# Worlds the gate applies to. Leave empty to apply to every world.
+worlds:
+  - world
+
+# Entity types treated as gated elites. Wither skeletons do not spawn naturally
+# in the overworld, so in the Iris overworld this uniquely identifies our
+# loot-bearing elites (Embervine Warden and Ashwood Revenant), both of which are
+# WITHER_SKELETON; their per-mob loot is set on the Iris entity, not the type.
+gated-types:
+  - WITHER_SKELETON
+
+# --- Validity predicate (v1) ---------------------------------------------------
+# A gated spawn is REJECTED (cancelled) if it fails any enabled rule below.
+
+# Rule 1: the block directly beneath the spawn must be a natural ground material.
+# Most mob farms spawn entities on slabs, glass, trapdoors, etc. - requiring
+# natural ground beneath defeats the common designs.
+require-natural-ground: true
+natural-ground:
+  - GRASS_BLOCK
+  - DIRT
+  - COARSE_DIRT
+  - ROOTED_DIRT
+  - PODZOL
+  - MUD
+  - MOSS_BLOCK
+  - STONE
+  - DEEPSLATE
+  - TUFF
+  - ANDESITE
+  - DIORITE
+  - GRANITE
+  - SAND
+  - RED_SAND
+  - GRAVEL
+  - CLAY
+  # Badlands / mesa surface (Ashwood Badlands elites spawn on these).
+  - TERRACOTTA
+  - WHITE_TERRACOTTA
+  - ORANGE_TERRACOTTA
+  - YELLOW_TERRACOTTA
+  - BROWN_TERRACOTTA
+  - RED_TERRACOTTA
+  - LIGHT_GRAY_TERRACOTTA
+
+# Rule 2: reject if too many artificial blocks are found within `scan-radius`.
+reject-artificial-nearby: true
+scan-radius: 4
+max-artificial-blocks: 0
+artificial-blocks:
+  - GLASS
+  - GLASS_PANE
+  - HOPPER
+  - DISPENSER
+  - DROPPER
+  - OBSERVER
+  - PISTON
+  - STICKY_PISTON
+  - SLIME_BLOCK
+  - HONEY_BLOCK
+  - RAIL
+  - POWERED_RAIL
+  - DETECTOR_RAIL
+  - ACTIVATOR_RAIL
+  - WATER
+  - LAVA
+
+# Log each rejection (useful while tuning; set false in production).
+log-rejections: true

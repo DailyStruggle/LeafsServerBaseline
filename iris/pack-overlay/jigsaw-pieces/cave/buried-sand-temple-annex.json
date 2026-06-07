@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/buried-sand-temple-annex",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/desert_pyramid"
+      }
+    ]
+  }
+}

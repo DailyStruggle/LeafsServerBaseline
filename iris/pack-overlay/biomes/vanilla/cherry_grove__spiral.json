@@ -1,6 +1,6 @@
 {
   "name": "vanilla/cherry_grove__spiral",
-  "rarity": 4,
+  "rarity": 12,
   "derivative": "CHERRY_GROVE",
   "vanillaDerivative": "CHERRY_GROVE",
   "category": "forest",
@@ -13,7 +13,53 @@
   ],
   "objects": [
     {
-      "chance": 0.14,
+      "chance": 0.32,
+      "density": 4,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-cherry_spiral/cherry_spiralS1",
+        "trees/vanilla-cherry_spiral/cherry_spiralS2",
+        "trees/vanilla-cherry_spiral/cherry_spiralS3",
+        "trees/vanilla-cherry_spiral/cherry_spiralS4",
+        "trees/vanilla-cherry_spiral/cherry_spiralS5",
+        "trees/vanilla-cherry_spiral/cherry_spiralS6",
+        "trees/vanilla-cherry_spiral/cherry_spiralS7",
+        "trees/vanilla-cherry_spiral/cherry_spiralS8"
+      ]
+    },
+    {
+      "chance": 0.22,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-cherry_spiral/cherry_spiralM1",
+        "trees/vanilla-cherry_spiral/cherry_spiralM2",
+        "trees/vanilla-cherry_spiral/cherry_spiralM3",
+        "trees/vanilla-cherry_spiral/cherry_spiralM4",
+        "trees/vanilla-cherry_spiral/cherry_spiralM5",
+        "trees/vanilla-cherry_spiral/cherry_spiralM6",
+        "trees/vanilla-cherry_spiral/cherry_spiralM7",
+        "trees/vanilla-cherry_spiral/cherry_spiralM8"
+      ]
+    },
+    {
+      "chance": 0.12,
       "density": 3,
       "rotation": {
         "yAxis": {
@@ -36,7 +82,7 @@
       ]
     },
     {
-      "chance": 0.08,
+      "chance": 0.05,
       "density": 2,
       "rotation": {
         "yAxis": {
@@ -56,29 +102,6 @@
         "trees/vanilla-cherry_spiral/cherry_spiralXL6",
         "trees/vanilla-cherry_spiral/cherry_spiralXL7",
         "trees/vanilla-cherry_spiral/cherry_spiralXL8"
-      ]
-    },
-    {
-      "chance": 0.06,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-cherry/cherryM1",
-        "trees/vanilla-cherry/cherryM2",
-        "trees/vanilla-cherry/cherryM3",
-        "trees/vanilla-cherry/cherryM4",
-        "trees/vanilla-cherry/cherryM5",
-        "trees/vanilla-cherry/cherryM6",
-        "trees/vanilla-cherry/cherryM7",
-        "trees/vanilla-cherry/cherryM8"
       ]
     }
   ],

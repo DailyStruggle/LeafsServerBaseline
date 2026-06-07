@@ -1,0 +1,12 @@
+{
+    "maxDepth": 1,
+    "pieces": ["dungeon/skeleton"],
+    "overrideYRange": {
+        "max": 50,
+        "min": -50,
+        "style": {
+            "style": "STATIC"
+        }
+    },
+    "feature": {"entitySpawners": ["skeleton"]}
+}

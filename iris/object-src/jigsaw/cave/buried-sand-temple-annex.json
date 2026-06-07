@@ -1,0 +1,371 @@
+{
+  "_comment": "Buried Sand Temple Annex - a sandstone vault for the Desert Caves biome. Hand-reviewable source; compile with scripts/json_to_iob.py.",
+  "size": {
+    "w": 5,
+    "h": 4,
+    "d": 5
+  },
+  "centered": false,
+  "blocks": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:chiseled_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:chiseled_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 4,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:chiseled_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:sandstone_wall"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "state": "minecraft:sandstone_wall"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:chest[facing=south,type=single,waterlogged=false]"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:cut_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "state": "minecraft:sandstone"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:sandstone_wall"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "state": "minecraft:sandstone_wall"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "state": "minecraft:lantern[hanging=true]"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "state": "minecraft:lantern[hanging=true]"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "state": "minecraft:smooth_sandstone"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:blue_terracotta"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 2,
+      "state": "minecraft:orange_terracotta"
+    }
+  ]
+}

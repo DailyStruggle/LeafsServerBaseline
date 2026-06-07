@@ -1,0 +1,47 @@
+{
+    "name": "Andesite Caves",
+    "color": "#9A9A98",
+    "generators": [{"generator": "rare-hills", "min": 1, "max": 1}],
+    "wall": {"palette": [
+        {
+            "block": "minecraft:andesite",
+            "weight": 7
+        },
+        {
+            "block": "minecraft:polished_andesite",
+            "weight": 4
+        },
+        {
+            "block": "minecraft:diorite",
+            "weight": 2
+        },
+        {"block": "minecraft:stone"}
+    ]},
+    "layers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:andesite",
+                "weight": 6
+            },
+            {
+                "block": "minecraft:polished_andesite",
+                "weight": 3
+            },
+            {"block": "minecraft:gravel"}
+        ]
+    }],
+    "caveCeilingLayers": [{
+        "maxHeight": 2,
+        "minHeight": 1,
+        "palette": [
+            {
+                "block": "minecraft:andesite",
+                "weight": 7
+            },
+            {"block": "minecraft:stone"}
+        ]
+    }],
+    "entitySpawners": []
+}

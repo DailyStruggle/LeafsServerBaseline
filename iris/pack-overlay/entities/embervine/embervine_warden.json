@@ -1,0 +1,42 @@
+{
+    "type": "WITHER_SKELETON",
+    "customName": "&c&lEmbervine Warden",
+    "customNameVisible": true,
+    "helmet": {"type": "netherite_helmet", "rarity": 1},
+    "chestplate": {"type": "netherite_chestplate", "rarity": 1},
+    "mainHand": {"type": "netherite_sword", "rarity": 1},
+    "attributes": [
+        {
+            "attribute": "MAX_HEALTH",
+            "name": "warden-health",
+            "operation": "ADD_NUMBER",
+            "minAmount": 60,
+            "maxAmount": 80
+        },
+        {
+            "attribute": "KNOCKBACK_RESISTANCE",
+            "name": "warden-knockback",
+            "operation": "ADD_NUMBER",
+            "minAmount": 0.6,
+            "maxAmount": 0.8
+        },
+        {
+            "attribute": "MOVEMENT_SPEED",
+            "name": "warden-speed",
+            "operation": "ADD_SCALAR",
+            "minAmount": 0.15,
+            "maxAmount": 0.25
+        },
+        {
+            "attribute": "ATTACK_DAMAGE",
+            "name": "warden-damage",
+            "operation": "ADD_NUMBER",
+            "minAmount": 4,
+            "maxAmount": 7
+        }
+    ],
+    "loot": {
+        "mode": "ADD",
+        "tables": ["embervine-warden"]
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "maxDepth": 1,
+  "pieces": [
+    "cave/deep-forge"
+  ],
+  "overrideYRange": {
+    "max": -45,
+    "min": -64,
+    "style": {
+      "style": "STATIC"
+    }
+  }
+}

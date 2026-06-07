@@ -44,7 +44,26 @@ desktop.ini
 # Node (if any tooling scripts use it)
 node_modules/
 
+# Third-party derived structure assets (e.g. Towns & Towers).
+# Source packs are CC BY-NC-ND 4.0: private, non-commercial use is permitted,
+# but the extracted/converted derivatives MUST NOT be redistributed or published.
+# Keep the quarantine README/NOTICE tracked so the policy is documented in-repo;
+# exclude every extracted .nbt / converted Iris object underneath it.
+iris/thirdparty-derived/**
+!iris/thirdparty-derived/
+!iris/thirdparty-derived/README.md
+
 staging/
 iris/pack-base/
 iris/staging/
 iris/output/
+
+# Private "special structures" additive overlay (patch layer).
+# Holds additive assets (e.g. Towns & Towers-derived jigsaw objects) and
+# *.patch.json files that AMEND staged biome files at deploy time. Same policy
+# as iris/thirdparty-derived: private, non-commercial use only - NOT supplied to
+# consumers / never redistributed. Keep the README tracked so the format is
+# documented; exclude the actual assets and patch content underneath.
+iris/pack-patches/**
+!iris/pack-patches/
+!iris/pack-patches/README.md

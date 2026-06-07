@@ -6,9 +6,9 @@
   "category": "desert",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": 8,
+      "max": 24,
+      "generator": "smooth-dunes"
     }
   ],
   "decorators": [

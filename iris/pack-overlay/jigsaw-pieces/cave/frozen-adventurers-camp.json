@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/cave/frozen-adventurers-camp",
+  "placementOptions": {
+    "bore": true,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/igloo_chest"
+      }
+    ]
+  }
+}

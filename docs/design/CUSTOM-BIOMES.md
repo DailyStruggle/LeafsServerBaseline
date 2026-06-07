@@ -184,14 +184,44 @@ Underground biomes use Iris's `carving`, `magnetics`, and `prismatics` category 
 
 | Biome | Iris category | Depth range | Signature hazard | Key materials |
 |---|---|---|---|---|
-| Andesite Caves | `carving` | Y=0 to Y=-20 | None - safe exploration | Polished andesite, reflective mineral veins |
-| Ice Caves | `carving` | Y=20 to Y=60 (cold biomes only) | Slippery ice floor, hidden crevasses | Packed ice, blue ice, hanging icicles |
-| Desert Caves | `carving` | Y=30 to Y=60 (hot biomes only) | Collapsing sand ceiling | Sand, sandstone, buried loot |
-| Crystal Caves | `prismatics` | Y=-20 to Y=-50 | None - rare reward zone | Amethyst clusters, glowing crystal objects |
-| Frostfire Caves | `magnetics` | Y=-30 to Y=-60 | Sub-zero damage (cold effect) | Soul fire, ice-bound rare ores |
-| Mantle Caves | `prismatics` | Y=-50 to Y=-64 | Lava rivers, geothermal vents | Rich ore veins (gold, diamond, netherite analog) |
+| Andesite Caves | `carving` | Y=0 to Y=-20 | None - safe exploration | Polished andesite, diorite, mineral veins |
+| Ice Caves | `carving` | Y=20 to Y=60 (cold biomes only) | Slippery ice floor (palette-driven) | Packed ice, blue ice, ice, snow |
+| Desert Caves | `carving` | Y=30 to Y=60 (hot biomes only) | None expressible (collapsing-ceiling not vanilla) | Sand, sandstone, smooth/red sandstone |
+| Crystal Caves | `prismatics` | Y=-20 to Y=-50 | None - rare reward zone | Rainbow stained glass + tinted glass over calcite |
+| Amethyst Caves | `prismatics` | Y=-20 to Y=-50 | None - rare reward zone | Amethyst/budding amethyst, calcite, smooth basalt |
+| Frostfire Caves | `magnetics` | Y=-30 to Y=-60 | Sub-zero cold (low-grade `SLOW` via Iris `effects`) + soul fire | Blue/packed ice, basalt, soul soil, soul fire |
+| Mantle Caves | `prismatics` | Y=-50 to Y=-64 | Lava/magma (palette-driven) | Magma, blackstone, basalt, deepslate gold/diamond ore |
+| Sulfur Caves | `carving` | Mid-level (hot regions) | Toxic gas (low-grade Poison via Iris `effects`) | Yellow terracotta/concrete sulfur deposits, smooth basalt, calcite, magma |
 
-> **Geothermal Sulfur Caves** - removed. Requires custom mob (Sulfur Cubes) and toxic gas mechanic; not achievable in vanilla Iris.
+### Sulfur Caves (revisited)
+
+Previously cut as "requires a custom mob and a toxic-gas mechanic not achievable in vanilla Iris". Re-added once we confirmed Iris `effects` blocks support `potionEffect` (same mechanism as the CONFUSION effect in the hot region and the smoke particles in `tropical/volcanic-plains`). The toxic gas is now a low-grade `POISON` (strength 0) applied on an interval, with `CAMPFIRE_SIGNAL_SMOKE` particles for the venting-gas visual.
+
+- **File:** `iris/pack-overlay/biomes/carving/sulfur-caves.json` (overlay only; never edit `pack-base`).
+- **Wiring:** added to the `caveBiomes` list of the `tropical` region (`iris/pack-overlay/regions/tropical.json`). Iris assigns cave biomes per-region, not per-biome, so this is the closest achievable "tie" to the volcanic biomes - it gives the hot/volcanic tropical region a sulfur-cave underground instead of plain lava and magma. A true per-volcano-only scope is not expressible in vanilla Iris (`IrisBiome` has no cave-biome field).
+- **Hazard:** low-grade Poison. A poison-immunity helmet enchantment is a planned future complement.
+- **Mob:** no Sulfur Cube spawner in this pass - terrain + gas only.
+- **Version note (1.21.11 early testing):** the block palette uses current vanilla blocks (`yellow_terracotta`, `yellow_concrete_powder`, `smooth_basalt`, `calcite`, `magma_block`). If a dedicated sulfur block (or sulfur mob) ships in a later game version, revisit this palette and the mob list to use the native content.
+
+### Cave biomes implemented this pass
+
+All seven cave biomes above now exist as overlay files (overlay only; never edit `pack-base`) and are wired into region `caveBiomes` lists. Iris assigns cave biomes per-region (not per-biome), so wiring is by climate region. Each biome carries an empty `entitySpawners: []` array as a placeholder hook for future custom mob spawners (no spawners or new structures in this pass). Hazards are only added where expressible in vanilla Iris.
+
+| Biome | File | Wired into region(s) |
+|---|---|---|
+| Andesite Caves | `carving/andesite-caves.json` | `temperate`, `forests` |
+| Ice Caves | `carving/ice-caves.json` | `frozen`, `tundra` |
+| Desert Caves | `carving/desert-caves.json` | `hot` |
+| Crystal Caves (rainbow glass) | `prismatics/crystal-caves.json` | `temperate` |
+| Amethyst Caves | `prismatics/amethyst-caves.json` | `temperate` |
+| Frostfire Caves | `magnetics/frostfire-caves.json` | `frozen` |
+| Mantle Caves | `prismatics/mantle-caves.json` | `hot` |
+
+**Naming note:** "Crystal Caves" is reserved for the rainbow stained-glass biome; the amethyst-crystal reward concept is now **Amethyst Caves**.
+
+**Frostfire / ice-volcano tie:** the intent is for Frostfire Caves to sit specifically under the Frostpeak ice volcano. Iris exposes `IrisBiome.carvingBiome` ("the biome used when under a carving instead of this current biome"), which would let the Frostpeak land biome point directly at `magnetics/frostfire-caves`. Frostpeak is not in the current overlay, so for now Frostfire is wired into the `frozen` region's `caveBiomes`; switch it to the `carvingBiome` approach on Frostpeak once that biome is deployed.
+
+**Version note (1.21.11 early testing):** all palettes use current vanilla blocks. If later game versions add native crystal/sulfur/ice blocks or dedicated cave mobs, revisit palettes and the `entitySpawners` hooks to use the native content.
 
 > **Abyssal Ocean Trench** - removed. Requires 3 custom mobs (Deepworms, Abyssal Clams, The Gleaming); not achievable in vanilla Iris.
 

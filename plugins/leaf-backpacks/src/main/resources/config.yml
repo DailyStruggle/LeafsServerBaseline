@@ -1,0 +1,50 @@
+# LeafBackpacks configuration.
+# Backpacks are 27-slot container items. Tiers gate how many *upgrade* slots
+# (functions) a backpack has; they do not change the 27-slot main grid.
+
+# Number of upgrade slots unlocked per tier (tier 1..5).
+tiers:
+  1: 1   # leather
+  2: 2   # iron
+  3: 3   # gold
+  4: 4   # diamond
+  5: 5   # netherite
+
+# Cost, in ingots of the next tier's material, to raise a backpack one tier.
+tier-up-cost: 4
+
+# Stack upgrade: maximum stack size applied to items stored inside the backpack.
+# Vanilla's hard engine ceiling is 99. Items normalise to vanilla stack rules
+# when withdrawn (parity with backpack mods).
+stack-upgrade:
+  max-stack-size: 99
+
+# Magnet upgrade: radius (blocks) around the holder that dropped items are pulled toward.
+magnet:
+  radius: 6.0
+
+# Feeding upgrade: auto-eat from the backpack when the holder's food level is at/below this.
+feeding:
+  food-threshold: 16
+
+# Upgrade modules. Like Sophisticated Backpacks, each function module is crafted
+# from a recipe of rare materials, then installed by dropping it into one of the
+# backpack's (tier-gated) upgrade slots.
+upgrades:
+  # Register the crafting recipes on enable. Disable to hand out modules only via
+  # /backpack upgrade <type>.
+  craftable: true
+  # Render upgrade modules as glinting enchanted books ("upgrade enchantment books").
+  # When false, each module uses its plain icon material instead.
+  as-book: true
+
+# Optional custom icon. When disabled the backpack uses 'base-item' with no model override,
+# so players who decline the server resource pack still see a normal item.
+# When enabled the item_model component points at a pack-only model; clients without the
+# pack will show the missing-model look (the backpack still works).
+custom-icon:
+  enabled: false
+  base-item: SHULKER_BOX
+  model: leafbackpacks:backpack
+  # Optional per-tier model overrides, e.g. 2: leafbackpacks:backpack_iron
+  per-tier-models: {}

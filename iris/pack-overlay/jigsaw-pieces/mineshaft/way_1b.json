@@ -1,0 +1,42 @@
+{
+    "object": "jigsaw/mineshaft/way_1",
+    "placementOptions": {
+        "bore": true
+    },
+    "connectors": [
+        {
+            "name": "",
+            "targetName": "*",
+            "innerConnector": false,
+            "pools": [
+                "mineshaft/generic"
+            ],
+            "keepEntity": false,
+            "entityCount": 1,
+            "position": {
+                "x": -3,
+                "y": 1,
+                "z": 0
+            },
+            "direction": "WEST_NEGATIVE_X",
+            "lockY": true
+        },
+        {
+            "name": "",
+            "targetName": "*",
+            "innerConnector": false,
+            "pools": [
+                "mineshaft/generic"
+            ],
+            "keepEntity": false,
+            "entityCount": 1,
+            "position": {
+                "x": 2,
+                "y": 1,
+                "z": 0
+            },
+            "direction": "EAST_POSITIVE_X",
+            "lockY": true
+        }
+    ]
+}
