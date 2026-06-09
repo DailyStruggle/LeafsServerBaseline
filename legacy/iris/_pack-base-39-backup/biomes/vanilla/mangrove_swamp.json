@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/mangrove_swamp",
+  "rarity": 1,
+  "derivative": "MANGROVE_SWAMP",
+  "vanillaDerivative": "MANGROVE_SWAMP",
+  "category": "swamp",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

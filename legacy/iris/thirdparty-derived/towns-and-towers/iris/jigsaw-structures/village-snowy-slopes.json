@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:village_snowy_slopes",
+    "pieces": [
+        "village/snowy_slopes_inn/town_centers/snowy_slopes_meeting_point_1"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "maxDepth": 5,
+    "terminate": true,
+    "structureKey": "minecraft:village_sparse_jungle",
+    "pieces": [
+        "village/sparse_jungle_polynesian/town_centers/sparse_jungle_meeting_point_1"
+    ]
+}

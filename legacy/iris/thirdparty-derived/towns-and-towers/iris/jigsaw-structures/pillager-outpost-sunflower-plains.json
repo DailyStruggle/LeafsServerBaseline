@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_sunflower_plains",
+    "pieces": [
+        "outpost/towers/sunflower_plains/base_plate"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "startPool": "outpost/towers/sunflower_plains/base_plate",
+    "maxDepth": 7,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

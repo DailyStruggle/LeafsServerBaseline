@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_snowy_taiga",
+    "pieces": [
+        "outpost/towers/snowy_taiga/base_plate"
+    ]
+}

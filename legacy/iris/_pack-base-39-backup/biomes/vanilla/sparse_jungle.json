@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/sparse_jungle",
+  "rarity": 1,
+  "derivative": "SPARSE_JUNGLE",
+  "vanillaDerivative": "SPARSE_JUNGLE",
+  "category": "jungle",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

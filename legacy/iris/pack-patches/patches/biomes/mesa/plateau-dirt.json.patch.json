@@ -1,0 +1,33 @@
+{
+    "target": "biomes/mesa/plateau-dirt.json",
+    "patches": [
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "village-wooded-badlands"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 60877
+            }
+        },
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "pillager-outpost-wooded-badlands"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 48,
+                "separation": 12,
+                "salt": 35290
+            }
+        }
+    ]
+}

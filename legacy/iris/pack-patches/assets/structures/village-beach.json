@@ -1,0 +1,6 @@
+{
+    "startPool": "village/beach_lighthouse/town_centers",
+    "maxDepth": 6,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

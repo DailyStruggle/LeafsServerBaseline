@@ -1,0 +1,8 @@
+{
+    "maxDepth": 6,
+    "terminate": true,
+    "structureKey": "minecraft:village_beach",
+    "pieces": [
+        "village/beach_lighthouse/town_centers/beach_meeting_point_1"
+    ]
+}

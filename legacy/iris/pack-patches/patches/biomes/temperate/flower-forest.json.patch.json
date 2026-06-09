@@ -1,0 +1,33 @@
+{
+    "target": "biomes/temperate/flower-forest.json",
+    "patches": [
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "village-flower-forest"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 20388
+            }
+        },
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "pillager-outpost-flower-forest"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 48,
+                "separation": 12,
+                "salt": 42797
+            }
+        }
+    ]
+}

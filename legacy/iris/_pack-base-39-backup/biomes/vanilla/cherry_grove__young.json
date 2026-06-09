@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/cherry_grove__young",
+  "rarity": 1,
+  "derivative": "CHERRY_GROVE",
+  "vanillaDerivative": "CHERRY_GROVE",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

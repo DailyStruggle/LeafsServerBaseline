@@ -1,0 +1,239 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -1,
+                "z": -6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/decor"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -1,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/gates"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -4,
+                "y": -1,
+                "z": 3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/lamps"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 0,
+                "y": -1,
+                "z": -5
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/gates"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 0,
+                "y": -1,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/gates"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 4,
+                "y": -1,
+                "z": -3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/lamps"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -1,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/gates"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -1,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/decor"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -1,
+                "z": -6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/flower_forest_japanese/decor"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": -8,
+                "y": 0,
+                "z": 0
+            },
+            "direction": "WEST_NEGATIVE_X",
+            "pools": [
+                "village/flower_forest_japanese/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": -8
+            },
+            "direction": "NORTH_NEGATIVE_Z",
+            "pools": [
+                "village/flower_forest_japanese/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 7
+            },
+            "direction": "SOUTH_POSITIVE_Z",
+            "pools": [
+                "village/flower_forest_japanese/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 7,
+                "y": 0,
+                "z": 0
+            },
+            "direction": "EAST_POSITIVE_X",
+            "pools": [
+                "village/flower_forest_japanese/streets"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/village/flower_forest_japanese/streets/crossroad_02"
+}

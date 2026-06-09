@@ -1,0 +1,6 @@
+{
+    "startPool": "village/sunflower_plains_farm/town_centers",
+    "maxDepth": 5,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

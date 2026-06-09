@@ -157,7 +157,7 @@ Planned custom biomes for the overworld. Each entry includes the Iris category, 
 
 ## Seasonal Biome Framework
 
-Rather than static biomes, four seasonal profiles can be implemented as region-level biome sets that share the same geographic footprint but swap surface palettes, decorators, and mob spawners. Each season maps to a distinct Iris region with a `seasonalGroup` tag.
+Rather than static biomes, four seasonal profiles can be implemented as region-level biome sets that share the same geographic footprint but swap surface palettes, decorators, and mob spawners. Each season maps to a distinct Iris region (one `regions/season_*.json` file per season). The grouping is identified by the region filename; an earlier `seasonalGroup` JSON tag was removed because the current Iris build rejects it as an unknown field.
 
 | Season | Iris region tag | Key surface features | Signature mob | Status |
 |---|---|---|---|---|
@@ -168,7 +168,7 @@ Rather than static biomes, four seasonal profiles can be implemented as region-l
 
 **Implementation note:** Seasonal biomes share the same `derivative` as their base climate biome. The season is a decorator/palette swap, not a separate biome ID from the client's perspective.
 
-**All four seasonal profiles are now implemented.** Each is a distinct region (`seasonalGroup` tag, rarity 2) wired into `iris/pack-overlay/dimensions/overworld.json` `regions`, with one signature biome under `biomes/seasonal/` and a dedicated spawner under `spawners/seasonal/`.
+**All four seasonal profiles are now implemented.** Each is a distinct region (one `regions/season_*.json` file, rarity 2) wired into `iris/pack-overlay/dimensions/overworld.json` `regions`, with one signature biome under `biomes/seasonal/` and a dedicated spawner under `spawners/seasonal/`.
 
 | Season | Region | Signature biome (derivative) | Spawner (vanilla mobs) |
 |---|---|---|---|

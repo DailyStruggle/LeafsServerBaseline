@@ -1,0 +1,46 @@
+{
+  "name": "kaisyn:village/common/decor/decor_grass_patches",
+  "fallback": "kaisyn:village/common/decor/decor_grass_patches",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+          "projection": "rigid",
+          "element_type": "minecraft:feature_pool_element",
+          "feature": {
+              "feature": "minecraft:patch_grass",
+              "placement": 
+              [
+                {
+                  "type": "minecraft:count",
+                  "count": 25
+                },
+                {
+                  "type": "minecraft:in_square"
+                }
+              ]
+          }
+      }
+  },
+  {
+    "weight": 1,
+    "element": {
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element",
+        "feature": {
+            "feature": "minecraft:patch_tall_grass",
+            "placement": 
+            [
+              {
+                "type": "minecraft:count",
+                "count": 10
+              },
+              {
+                "type": "minecraft:in_square"
+              }
+            ]
+        }
+    }
+}
+  ]
+}

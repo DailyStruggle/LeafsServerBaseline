@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/windswept_hills",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_HILLS",
+  "vanillaDerivative": "WINDSWEPT_HILLS",
+  "category": "extreme_hills",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

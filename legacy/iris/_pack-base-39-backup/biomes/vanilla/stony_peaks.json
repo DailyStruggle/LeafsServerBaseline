@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/stony_peaks",
+  "rarity": 1,
+  "derivative": "STONY_PEAKS",
+  "vanillaDerivative": "STONY_PEAKS",
+  "category": "extreme_hills",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

@@ -1,0 +1,62 @@
+{
+    "fill": {"block": "minecraft:cave_air"},
+    "verticalRange": {
+        "max": 250,
+        "min": 8
+    },
+    "fork": {
+        "caves": [
+            {
+                "breakSurface": false,
+                "cave": "vanilla/spaghetti-small",
+                "rarity": 5
+            },
+            {
+                "breakSurface": false,
+                "cave": "vanilla/cheese",
+                "rarity": 28
+            }
+        ],
+        "elipsoids": [{
+            "fill": {"block": "minecraft:cave_air"},
+            "rarity": 45,
+            "baseWidth": {
+                "min": 4,
+                "max": 9,
+                "style": {"style": "STATIC"}
+            }
+        }]
+    },
+    "worm": {
+        "girth": {
+            "max": 4,
+            "min": 2,
+            "style": {"style": "NOWHERE"}
+        },
+        "maxDistance": 110,
+        "yStyle": {
+            "min": -4,
+            "max": 4,
+            "generator": {
+                "zoom": 2,
+                "style": "NOWHERE"
+            }
+        },
+        "xStyle": {
+            "min": -11,
+            "max": 11,
+            "generator": {
+                "zoom": 0.55,
+                "style": "NOWHERE"
+            }
+        },
+        "zStyle": {
+            "min": -11,
+            "max": 11,
+            "generator": {
+                "zoom": 0.55,
+                "style": "NOWHERE"
+            }
+        }
+    }
+}

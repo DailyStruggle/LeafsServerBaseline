@@ -1,0 +1,8 @@
+{
+    "maxDepth": 4,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_savanna_plateau",
+    "pieces": [
+        "outpost/camps/savanna_plateau/base_plate"
+    ]
+}

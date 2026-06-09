@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/wooded_badlands",
+  "rarity": 1,
+  "derivative": "WOODED_BADLANDS",
+  "vanillaDerivative": "WOODED_BADLANDS",
+  "category": "mesa",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

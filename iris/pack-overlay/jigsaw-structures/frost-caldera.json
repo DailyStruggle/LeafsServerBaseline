@@ -1,7 +1,0 @@
-{
-  "_comment": "Emergent lava caldera. The bowl is NOT a predefined object - it is assembled at gen time by the jigsaw: a root lava cell (obsidian floor + flat lava top) spreads to neighbouring lava cells through the clutter/lava-spread pool, all connectors lockY=true so every lava tile stays on ONE level Y, and the spread terminates in solid-obsidian cap pieces ('obsidian ends'). maxDepth bounds the overall caldera size. No overrideYRange = it places at the terrain surface of the flat Frostpeak Caldera biome.",
-  "maxDepth": 5,
-  "pieces": [
-    "clutter/lava-cell"
-  ]
-}

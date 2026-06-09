@@ -1,0 +1,6 @@
+{
+    "startPool": "outpost/camps/savanna_plateau/base_plate",
+    "maxDepth": 4,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

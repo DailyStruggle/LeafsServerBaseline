@@ -1,0 +1,6 @@
+{
+    "startPool": "village/savanna_plateau_ramshackled/town_centers",
+    "maxDepth": 3,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

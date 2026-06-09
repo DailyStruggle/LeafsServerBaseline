@@ -1,0 +1,8 @@
+{
+    "maxDepth": 4,
+    "terminate": true,
+    "structureKey": "minecraft:village_meadow",
+    "pieces": [
+        "village/meadow_swiss/town_centers/meadow_meeting_point_1"
+    ]
+}

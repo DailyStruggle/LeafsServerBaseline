@@ -1,0 +1,136 @@
+{
+    "name": "Cold Food",
+    "rarity": 1,
+    "maxPicked": 3,
+    "minPicked": 1,
+    "maxTries": 20,
+    "loot": [
+        {
+            "type": "rabbit_stew",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "baked_potato",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "potato",
+            "minAmount": 1,
+            "maxAmount": 5,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "sweet_berries",
+            "minAmount": 1,
+            "maxAmount": 5,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "beetroot_soup",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_salmon",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "pumpkin_pie",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "suspicious_stew",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 8,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_chicken",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "honey_bottle",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "golden_carrot",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 10,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 34,
+            "slotTypes": "STORAGE",
+            "enchantments": [
+                {
+                    "enchantment": "frost_walker",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                }
+            ]
+        },
+        {
+            "type": "crossbow",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 20,
+            "slotTypes": "STORAGE",
+            "displayName": "Odd Relic: Misfire Repeater",
+            "lore": [
+                "Reloads before you think",
+                "Aims after you regret",
+                "Recovered from cold/food"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "quick_charge",
+                    "minLevel": 2,
+                    "maxLevel": 3,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "piercing",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "binding_curse",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                }
+            ],
+            "minDurability": 0.2,
+            "maxDurability": 0.8
+        }
+    ]
+}

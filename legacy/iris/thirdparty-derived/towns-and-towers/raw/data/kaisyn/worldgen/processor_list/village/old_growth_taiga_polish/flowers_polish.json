@@ -1,0 +1,48 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:sweet_berry_bush",
+            "probability": 0.25
+          },
+          "output_state": {
+            "Name": "minecraft:red_tulip"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:sweet_berry_bush",
+            "probability": 0.25
+          },
+          "output_state": {
+            "Name": "minecraft:poppy"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:sweet_berry_bush",
+            "probability": 0.25
+          },
+          "output_state": {
+            "Name": "minecraft:fern"
+          }
+        }
+      ]
+    }
+  ]
+}

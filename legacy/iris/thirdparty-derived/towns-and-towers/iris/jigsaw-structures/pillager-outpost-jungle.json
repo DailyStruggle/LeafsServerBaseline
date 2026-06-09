@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_jungle",
+    "pieces": [
+        "outpost/forts/jungle/base_plate"
+    ]
+}

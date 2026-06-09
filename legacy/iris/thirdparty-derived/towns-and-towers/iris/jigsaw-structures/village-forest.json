@@ -1,0 +1,9 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:village_forest",
+    "pieces": [
+        "village/forest_ruins/town_centers/forest_meeting_point_1",
+        "village/forest_ruins/town_centers/forest_meeting_point_2"
+    ]
+}

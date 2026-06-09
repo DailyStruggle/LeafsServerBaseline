@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/old_growth_birch_forest",
+  "rarity": 1,
+  "derivative": "OLD_GROWTH_BIRCH_FOREST",
+  "vanillaDerivative": "OLD_GROWTH_BIRCH_FOREST",
+  "category": "forest",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

@@ -1,0 +1,389 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:empty",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:empty",
+            "position": {
+                "x": -6,
+                "y": -5,
+                "z": -8
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -5,
+                "z": -6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -5,
+                "z": -9
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:empty",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:empty",
+            "position": {
+                "x": -5,
+                "y": -5,
+                "z": -5
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -5,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -4,
+                "y": -5,
+                "z": 12
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/decor/decor_grass_patches"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -3,
+                "y": -5,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/modded/waystones/waystone_default"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -2,
+                "y": -5,
+                "z": -9
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/decor/decor_grass_patches"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -2,
+                "y": -5,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -1,
+                "y": -5,
+                "z": -6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -1,
+                "y": -5,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/decor/decor_grass_patches"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 1,
+                "y": -5,
+                "z": -9
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 1,
+                "y": -5,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 4,
+                "y": -5,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -5,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -5,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/iron_golem"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -5,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 7,
+                "y": -5,
+                "z": -10
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/decor/decor_grass_patches"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 7,
+                "y": -5,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/decor/decor_grass_patches"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": -9,
+                "y": -4,
+                "z": 0
+            },
+            "direction": "WEST_NEGATIVE_X",
+            "pools": [
+                "village/sunflower_plains_farm/side/windmill"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 2,
+                "y": -4,
+                "z": -12
+            },
+            "direction": "NORTH_NEGATIVE_Z",
+            "pools": [
+                "village/sunflower_plains_farm/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 6,
+                "y": -4,
+                "z": 12
+            },
+            "direction": "SOUTH_POSITIVE_Z",
+            "pools": [
+                "village/sunflower_plains_farm/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 8,
+                "y": -4,
+                "z": -1
+            },
+            "direction": "EAST_POSITIVE_X",
+            "pools": [
+                "village/sunflower_plains_farm/streets"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/village/sunflower_plains_farm/town_centers/sunflower_plains_meeting_point_1"
+}

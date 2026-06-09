@@ -1,0 +1,33 @@
+{
+    "target": "biomes/mesa/red.json",
+    "patches": [
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "village-badlands"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 31247
+            }
+        },
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "pillager-outpost-badlands"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 48,
+                "separation": 12,
+                "salt": 50028
+            }
+        }
+    ]
+}

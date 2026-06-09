@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/dark_forest",
+  "rarity": 1,
+  "derivative": "DARK_FOREST",
+  "vanillaDerivative": "DARK_FOREST",
+  "category": "forest",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

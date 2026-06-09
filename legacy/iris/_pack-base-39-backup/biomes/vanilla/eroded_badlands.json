@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/eroded_badlands",
+  "rarity": 1,
+  "derivative": "ERODED_BADLANDS",
+  "vanillaDerivative": "ERODED_BADLANDS",
+  "category": "mesa",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

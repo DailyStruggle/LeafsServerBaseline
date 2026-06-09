@@ -1,0 +1,33 @@
+{
+    "target": "biomes/tundra/taiga.json",
+    "patches": [
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "village-old-growth-taiga"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 1372
+            }
+        },
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "pillager-outpost-old-growth-taiga"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 48,
+                "separation": 12,
+                "salt": 47399
+            }
+        }
+    ]
+}

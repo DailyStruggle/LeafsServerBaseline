@@ -1,0 +1,33 @@
+{
+    "target": "biomes/temperate/birch-forest.json",
+    "patches": [
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "village-birch-forest"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 36343
+            }
+        },
+        {
+            "op": "addUnique",
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": [
+                    "pillager-outpost-birch-forest"
+                ],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 48,
+                "separation": 12,
+                "salt": 60475
+            }
+        }
+    ]
+}

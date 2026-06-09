@@ -1,0 +1,44 @@
+{
+    "fill": {"block": "minecraft:cave_air"},
+    "verticalRange": {
+        "max": 230,
+        "min": 8
+    },
+    "fork": {"caves": [{
+        "breakSurface": false,
+        "cave": "vanilla/spaghetti-small",
+        "rarity": 40
+    }]},
+    "worm": {
+        "girth": {
+            "max": 3,
+            "min": 1,
+            "style": {"style": "NOWHERE"}
+        },
+        "maxDistance": 60,
+        "yStyle": {
+            "min": -16,
+            "max": 16,
+            "generator": {
+                "zoom": 0.9,
+                "style": "NOWHERE"
+            }
+        },
+        "xStyle": {
+            "min": -6,
+            "max": 6,
+            "generator": {
+                "zoom": 0.5,
+                "style": "NOWHERE"
+            }
+        },
+        "zStyle": {
+            "min": -6,
+            "max": 6,
+            "generator": {
+                "zoom": 0.5,
+                "style": "NOWHERE"
+            }
+        }
+    }
+}

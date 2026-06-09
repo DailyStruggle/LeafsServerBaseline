@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_snowy_slopes",
+    "pieces": [
+        "outpost/towers/snowy_slopes/base_plate"
+    ]
+}

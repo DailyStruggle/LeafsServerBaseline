@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/savanna",
+  "rarity": 1,
+  "derivative": "SAVANNA",
+  "vanillaDerivative": "SAVANNA",
+  "category": "savanna",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/forest__young",
+  "rarity": 1,
+  "derivative": "FOREST",
+  "vanillaDerivative": "FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

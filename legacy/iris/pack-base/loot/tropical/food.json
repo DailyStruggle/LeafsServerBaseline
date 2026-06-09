@@ -1,0 +1,134 @@
+{
+    "name": "Tropical Food",
+    "rarity": 1,
+    "maxPicked": 3,
+    "minPicked": 1,
+    "maxTries": 20,
+    "loot": [
+        {
+            "type": "melon_slice",
+            "minAmount": 2,
+            "maxAmount": 8,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cookie",
+            "minAmount": 1,
+            "maxAmount": 6,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "dried_kelp",
+            "minAmount": 1,
+            "maxAmount": 6,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cocoa_beans",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "glow_berries",
+            "minAmount": 1,
+            "maxAmount": 5,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_cod",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "sweet_berries",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "suspicious_stew",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 8,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_chicken",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "beetroot_soup",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "honey_bottle",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 34,
+            "slotTypes": "STORAGE",
+            "enchantments": [
+                {
+                    "enchantment": "respiration",
+                    "minLevel": 2,
+                    "maxLevel": 3,
+                    "chance": 1.0
+                }
+            ]
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 26,
+            "slotTypes": "STORAGE",
+            "displayName": "Odd Relic: Paradox Notes",
+            "lore": [
+                "Confidently contradictory",
+                "Scholars call it art",
+                "Recovered from tropical/food"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "channeling",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "silk_touch",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "vanishing_curse",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                }
+            ]
+        }
+    ]
+}

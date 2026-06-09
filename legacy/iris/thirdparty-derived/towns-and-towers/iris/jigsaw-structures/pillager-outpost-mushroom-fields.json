@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_mushroom_fields",
+    "pieces": [
+        "outpost/towers/mushroom_fields/base_plate"
+    ]
+}

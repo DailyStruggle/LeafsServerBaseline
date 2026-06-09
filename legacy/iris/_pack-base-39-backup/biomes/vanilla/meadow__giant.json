@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/meadow__giant",
+  "rarity": 9,
+  "derivative": "MEADOW",
+  "vanillaDerivative": "MEADOW",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

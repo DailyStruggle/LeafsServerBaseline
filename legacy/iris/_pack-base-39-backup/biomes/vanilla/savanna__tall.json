@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/savanna__tall",
+  "rarity": 4,
+  "derivative": "SAVANNA",
+  "vanillaDerivative": "SAVANNA",
+  "category": "savanna",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

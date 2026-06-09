@@ -1,0 +1,8 @@
+{
+    "maxDepth": 4,
+    "terminate": true,
+    "structureKey": "minecraft:village_mushroom_fields",
+    "pieces": [
+        "village/mushroom_fields_fantasy/town_centers/mushroom_meeting_point_1"
+    ]
+}

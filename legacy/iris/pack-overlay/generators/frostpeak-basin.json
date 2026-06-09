@@ -1,0 +1,13 @@
+{
+    "interpolator": {
+        "function": "BILINEAR_STARCAST_9",
+        "horizontalScale": 6
+    },
+    "seed": 318841,
+    "composite": [{
+        "seed": 318841,
+        "style": {
+            "style": "FLAT"
+        }
+    }]
+}

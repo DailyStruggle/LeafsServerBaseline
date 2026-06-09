@@ -1,0 +1,8 @@
+{
+    "maxDepth": 5,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_sparse_jungle",
+    "pieces": [
+        "outpost/camps/sparse_jungle/base_plate"
+    ]
+}

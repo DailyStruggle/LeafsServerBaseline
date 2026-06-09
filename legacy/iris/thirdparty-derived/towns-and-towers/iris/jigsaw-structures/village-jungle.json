@@ -1,0 +1,10 @@
+{
+    "maxDepth": 6,
+    "terminate": true,
+    "structureKey": "minecraft:village_jungle",
+    "pieces": [
+        "village/jungle_tribal/town_centers/jungle_meeting_point_1",
+        "village/jungle_tribal/town_centers/jungle_meeting_point_2",
+        "village/jungle_tribal/town_centers/jungle_meeting_point_3"
+    ]
+}

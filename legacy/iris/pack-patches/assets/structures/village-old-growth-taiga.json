@@ -1,0 +1,6 @@
+{
+    "startPool": "village/old_growth_taiga_polish/town_centers",
+    "maxDepth": 4,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

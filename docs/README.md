@@ -2,6 +2,8 @@
 
 Central hub for all project documentation.
 
+> **Worldgen direction change (see [ADR-005](design/adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md)):** The Iris Dimension Engine has been retired in favor of vanilla datapack worldgen. The Iris pack is archived (read-only) under `legacy/iris/`; the tree generator is now an active tool at `tools/tree-gen/`. Iris-specific design/usage docs below describe the retired system and are kept for reference and asset salvage.
+
 ## Sections
 
 | Folder | Purpose |
@@ -34,6 +36,7 @@ New work always starts with a requirements doc. No implementation begins without
 - [`design/IRIS-V4-STRUCTURES.md`](design/IRIS-V4-STRUCTURES.md) - how Iris 4.0 loads and places structures (`importedStructures`, `structures`/`IrisStructurePlacement`, jigsaw pools/pieces) and the legacy `jigsawStructures` migration gap
 - [`design/IRIS-NETHER-GENERATION.md`](design/IRIS-NETHER-GENERATION.md) - methodology and research for authoring an Iris-generated Nether (dimension, regions, biomes, structures)
 - [`design/VANILLA-TERRAIN-SHAPE.md`](design/VANILLA-TERRAIN-SHAPE.md) - intended vanilla terrain shape per biome archetype and the Iris v4 levers (height band, interpolation, composite octaves, cliffs) to stop over-smoothing
+- [`design/adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md`](design/adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md) - retire Iris in favor of vanilla datapack worldgen
 - [`design/adr/`](design/adr/) - Architecture Decision Records
 - [`scratch/LESSONS_LEARNED.md`](scratch/LESSONS_LEARNED.md) - engineering pitfalls and notes
 - [`scratch/POTENTIAL_BUGS.md`](scratch/POTENTIAL_BUGS.md) - incidental findings backlog

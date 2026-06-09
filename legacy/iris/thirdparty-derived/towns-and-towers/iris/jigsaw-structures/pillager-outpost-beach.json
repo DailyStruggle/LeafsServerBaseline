@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_beach",
+    "pieces": [
+        "outpost/camps/beach/base_plate"
+    ]
+}

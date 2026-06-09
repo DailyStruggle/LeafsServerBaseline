@@ -1,0 +1,6 @@
+{
+    "startPool": "village/snowy_slopes_inn/town_centers",
+    "maxDepth": 7,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

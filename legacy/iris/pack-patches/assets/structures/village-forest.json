@@ -1,0 +1,6 @@
+{
+    "startPool": "village/forest_ruins/town_centers",
+    "maxDepth": 7,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

@@ -1,0 +1,147 @@
+{
+    "name": "Ocean Clutter",
+    "rarity": 1,
+    "maxPicked": 3,
+    "minPicked": 1,
+    "maxTries": 20,
+    "loot": [
+        {
+            "type": "kelp",
+            "minAmount": 1,
+            "maxAmount": 8,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "prismarine_shard",
+            "minAmount": 1,
+            "maxAmount": 6,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "prismarine_crystals",
+            "minAmount": 1,
+            "maxAmount": 5,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "fishing_rod",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 3,
+            "slotTypes": "STORAGE",
+            "minDurability": 0.2,
+            "maxDurability": 0.9
+        },
+        {
+            "type": "pufferfish",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "tropical_fish",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "nautilus_shell",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 11,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "wet_sponge",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 10,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "trident",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 28,
+            "slotTypes": "STORAGE",
+            "minDurability": 0.25,
+            "maxDurability": 0.95
+        },
+        {
+            "type": "paper",
+            "minAmount": 1,
+            "maxAmount": 7,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "glass_bottle",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "lantern",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 9,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 30,
+            "slotTypes": "STORAGE",
+            "enchantments": [
+                {
+                    "enchantment": "lure",
+                    "minLevel": 2,
+                    "maxLevel": 3,
+                    "chance": 1.0
+                }
+            ]
+        },
+        {
+            "type": "trident",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 26,
+            "slotTypes": "STORAGE",
+            "displayName": "Odd Relic: Stormsplit Trident",
+            "lore": [
+                "Wants to return and launch",
+                "It cannot choose which",
+                "Recovered from ocean/clutter"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "riptide",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "loyalty",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "vanishing_curse",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                }
+            ],
+            "minDurability": 0.2,
+            "maxDurability": 0.75
+        }
+    ]
+}

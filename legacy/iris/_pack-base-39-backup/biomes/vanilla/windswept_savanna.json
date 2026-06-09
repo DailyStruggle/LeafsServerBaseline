@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/windswept_savanna",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_SAVANNA",
+  "vanillaDerivative": "WINDSWEPT_SAVANNA",
+  "category": "savanna",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

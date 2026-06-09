@@ -1,0 +1,179 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -1,
+                "y": -1,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/sparse_jungle_polynesian/decor"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": -4,
+                "y": 0,
+                "z": 0
+            },
+            "direction": "WEST_NEGATIVE_X",
+            "pools": [
+                "village/sparse_jungle_polynesian/streets"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": -1,
+                "y": 0,
+                "z": -1
+            },
+            "direction": "NORTH_NEGATIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": -1,
+                "y": 0,
+                "z": 1
+            },
+            "direction": "SOUTH_POSITIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": -1
+            },
+            "direction": "NORTH_NEGATIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "direction": "SOUTH_POSITIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": 1,
+                "y": 0,
+                "z": -1
+            },
+            "direction": "NORTH_NEGATIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:building_entrance",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:building_entrance",
+            "position": {
+                "x": 1,
+                "y": 0,
+                "z": 1
+            },
+            "direction": "SOUTH_POSITIVE_Z",
+            "pools": [
+                "village/sparse_jungle_polynesian/houses"
+            ]
+        },
+        {
+            "targetName": "minecraft:street",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:street",
+            "position": {
+                "x": 4,
+                "y": 0,
+                "z": 0
+            },
+            "direction": "EAST_POSITIVE_X",
+            "pools": [
+                "village/sparse_jungle_polynesian/streets"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/village/sparse_jungle_polynesian/streets/straight_01"
+}

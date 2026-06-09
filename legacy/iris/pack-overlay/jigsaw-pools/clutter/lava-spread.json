@@ -1,0 +1,8 @@
+{
+  "pieces": [
+    "clutter/lava-cell",
+    "clutter/lava-cellb",
+    "clutter/lava-cellc",
+    "clutter/lava-edge"
+  ]
+}

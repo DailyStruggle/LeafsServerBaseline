@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/snowy_slopes",
+  "rarity": 1,
+  "derivative": "SNOWY_SLOPES",
+  "vanillaDerivative": "SNOWY_SLOPES",
+  "category": "icy",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

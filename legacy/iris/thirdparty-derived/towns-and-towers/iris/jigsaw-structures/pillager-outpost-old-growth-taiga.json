@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_old_growth_taiga",
+    "pieces": [
+        "outpost/forts/old_growth_taiga/base_plate"
+    ]
+}

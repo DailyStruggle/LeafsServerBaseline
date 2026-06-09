@@ -1,0 +1,6 @@
+{
+    "startPool": "village/sparse_jungle_polynesian/town_centers",
+    "maxDepth": 5,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/plains__sparse",
+  "rarity": 1,
+  "derivative": "PLAINS",
+  "vanillaDerivative": "PLAINS",
+  "category": "plains",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

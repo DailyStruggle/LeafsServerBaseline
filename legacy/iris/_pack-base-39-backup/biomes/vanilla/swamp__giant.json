@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/swamp__giant",
+  "rarity": 9,
+  "derivative": "SWAMP",
+  "vanillaDerivative": "SWAMP",
+  "category": "swamp",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

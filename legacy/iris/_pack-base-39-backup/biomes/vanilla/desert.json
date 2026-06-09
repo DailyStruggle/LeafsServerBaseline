@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/desert",
+  "rarity": 1,
+  "derivative": "DESERT",
+  "vanillaDerivative": "DESERT",
+  "category": "desert",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

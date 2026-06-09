@@ -1,0 +1,6 @@
+{
+    "startPool": "village/snowy_taiga_viking/town_centers",
+    "maxDepth": 6,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

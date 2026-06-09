@@ -1,0 +1,8 @@
+{
+    "maxDepth": 3,
+    "terminate": true,
+    "structureKey": "minecraft:village_savanna_plateau",
+    "pieces": [
+        "village/savanna_plateau_ramshackled/town_centers/savanna_plateau_meeting_point_1"
+    ]
+}

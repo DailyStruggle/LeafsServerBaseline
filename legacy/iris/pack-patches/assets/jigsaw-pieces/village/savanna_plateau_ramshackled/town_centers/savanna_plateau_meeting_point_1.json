@@ -1,0 +1,269 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -7,
+                "y": -14,
+                "z": 6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -14,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -14,
+                "z": -6
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/tower_pieces"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -14,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/professions_misc"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -14,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -3,
+                "y": -14,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -3,
+                "y": -14,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -1,
+                "y": -14,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 0,
+                "y": -14,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/professions_misc"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 0,
+                "y": -14,
+                "z": 7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/professions_misc"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 2,
+                "y": -14,
+                "z": -7
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/tower_pieces"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -14,
+                "z": 5
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/tower_pieces"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -14,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 0,
+                "y": -10,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/tower_pieces"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 3,
+                "y": -10,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/savanna_plateau_ramshackled/tower_pieces"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/village/savanna_plateau_ramshackled/town_centers/savanna_plateau_meeting_point_1"
+}

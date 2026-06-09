@@ -1,0 +1,67 @@
+{
+  "name": "Spring",
+  "color": "#F3A6CE",
+  "rarity": 2,
+  "landBiomes": [
+    "seasonal/spring-meadow",
+    "seasonal/spring-meadow",
+    "vanilla/cherry_grove",
+    "vanilla/flower_forest",
+    "vanilla/meadow",
+    "vanilla/birch_forest",
+    "vanilla/flower_forest__young",
+    "vanilla/lake",
+    "vanilla/puddle"
+  ],
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/andesite-caves"
+  ],
+  "shoreBiomes": [
+    "temperate/shore/beach",
+    "temperate/shore/oak-beach"
+  ],
+  "seaBiomeZoom": 8,
+  "seaBiomes": [
+    "temperate/sea/ocean",
+    "ocean/ocean",
+    "ocean/deep"
+  ],
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "deposits": [
+    {
+      "minHeight": 15,
+      "maxPerChunk": 26,
+      "maxHeight": 410,
+      "minPerChunk": 4,
+      "minSize": 3,
+      "maxSize": 8,
+      "palette": [
+        {
+          "block": "minecraft:iron_ore"
+        },
+        {
+          "block": "minecraft:coal_ore"
+        }
+      ],
+      "varience": 4
+    }
+  ],
+  "landBiomeZoom": 4.9,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "loot": {
+    "mode": "FALLBACK",
+    "tables": [
+      "temperate/clutter",
+      "temperate/food"
+    ]
+  }
+}

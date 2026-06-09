@@ -1,0 +1,52 @@
+{
+    "name": "Calcite Peaks",
+    "color": "#6E7D85",
+    "rarity": 1,
+    "derivative": "minecraft:windswept_hills",
+    "vanillaDerivative": "minecraft:windswept_hills",
+    "generators": [
+        {
+            "min": 143,
+            "max": 345,
+            "generator": "mountain"
+        }
+    ],
+    "wall": {
+        "style": {
+            "style": "STATIC"
+        },
+        "palette": [
+            {
+                "block": "minecraft:stone"
+            }
+        ]
+    },
+    "layers": [
+        {
+            "minHeight": 2,
+            "maxHeight": 2,
+            "slopeCondition": {
+                "minimumSlope": 0,
+                "maximumSlope": 3.6
+            },
+            "palette": [
+                {
+                    "block": "minecraft:grass_block"
+                }
+            ]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 2,
+            "slopeCondition": {
+                "minimumSlope": 3.6,
+                "maximumSlope": 13.6
+            },
+            "palette": [
+                {
+                    "block": "minecraft:calcite"
+                }
+            ]
+        }
+    ]
+}

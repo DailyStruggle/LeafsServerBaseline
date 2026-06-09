@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/old_growth_pine_taiga",
+  "rarity": 1,
+  "derivative": "OLD_GROWTH_PINE_TAIGA",
+  "vanillaDerivative": "OLD_GROWTH_PINE_TAIGA",
+  "category": "taiga",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

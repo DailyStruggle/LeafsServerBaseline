@@ -1,0 +1,461 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -32,
+                "z": 0
+            },
+            "direction": "DOWN_NEGATIVE_Y"
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -12,
+                "y": -29,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/butcher_animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -10,
+                "y": -29,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/butcher_animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 5,
+                "y": -29,
+                "z": -4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -29,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 17,
+                "y": -29,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 17,
+                "y": -29,
+                "z": 3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 20,
+                "y": -29,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/plains/villagers"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -14,
+                "y": -28,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/butcher_animals"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -27,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -27,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -2,
+                "y": -27,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 21,
+                "y": -26,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/outpost_captain"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -14,
+                "y": -22,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -22,
+                "z": -4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -6,
+                "y": -22,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 3,
+                "y": -22,
+                "z": -4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 4,
+                "y": -22,
+                "z": 3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 11,
+                "y": -22,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 13,
+                "y": -22,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 16,
+                "y": -22,
+                "z": -3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 21,
+                "y": -21,
+                "z": -1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 10,
+                "y": -18,
+                "z": -4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 10,
+                "y": -18,
+                "z": 4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 23,
+                "y": -18,
+                "z": 0
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/outpost_captain"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -14,
+                "y": -17,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "village/common/cats"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 16,
+                "y": -17,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 21,
+                "y": -14,
+                "z": -2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/ships/pillager_outpost_ocean/variant/base_plate"
+}

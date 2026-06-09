@@ -1,0 +1,6 @@
+{
+    "startPool": "village/wooded_badlands_tipi/town_centers",
+    "maxDepth": 5,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

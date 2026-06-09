@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/ice_spikes",
+  "rarity": 1,
+  "derivative": "ICE_SPIKES",
+  "vanillaDerivative": "ICE_SPIKES",
+  "category": "icy",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

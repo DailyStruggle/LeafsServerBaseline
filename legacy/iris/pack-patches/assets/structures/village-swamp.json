@@ -1,0 +1,6 @@
+{
+    "startPool": "village/swamp_boat/town_centers",
+    "maxDepth": 4,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

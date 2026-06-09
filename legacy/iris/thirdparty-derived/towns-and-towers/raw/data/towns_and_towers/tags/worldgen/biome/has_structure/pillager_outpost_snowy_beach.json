@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:snowy_beach",
+        {
+            "id": "biomeswevegone:shattered_glacier",
+            "required": false
+        },
+        {
+            "id": "biomeswevegone:glacial_chasm",
+            "required": false
+        }
+    ]
+}

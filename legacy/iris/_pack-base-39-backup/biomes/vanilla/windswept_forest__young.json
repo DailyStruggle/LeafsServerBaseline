@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/windswept_forest__young",
+  "rarity": 1,
+  "derivative": "WINDSWEPT_FOREST",
+  "vanillaDerivative": "WINDSWEPT_FOREST",
+  "category": "extreme_hills",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

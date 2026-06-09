@@ -1,0 +1,6 @@
+{
+    "startPool": "village/meadow_swiss/town_centers",
+    "maxDepth": 4,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

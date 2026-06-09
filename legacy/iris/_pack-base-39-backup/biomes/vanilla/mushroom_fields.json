@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/mushroom_fields",
+  "rarity": 1,
+  "derivative": "MUSHROOM_FIELDS",
+  "vanillaDerivative": "MUSHROOM_FIELDS",
+  "category": "mushroom",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

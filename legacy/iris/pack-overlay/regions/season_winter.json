@@ -1,0 +1,65 @@
+{
+  "name": "Winter",
+  "color": "#CFE6F2",
+  "rarity": 2,
+  "landBiomes": [
+    "seasonal/winter-waste",
+    "seasonal/winter-waste",
+    "vanilla/snowy_taiga",
+    "vanilla/snowy_plains",
+    "vanilla/snowy_slopes",
+    "vanilla/grove",
+    "vanilla/ice_spikes"
+  ],
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/ice-caves"
+  ],
+  "shoreBiomes": [
+    "temperate/shore/beach",
+    "temperate/shore/oak-beach"
+  ],
+  "seaBiomeZoom": 8,
+  "seaBiomes": [
+    "temperate/sea/ocean",
+    "ocean/ocean",
+    "ocean/deep"
+  ],
+  "entitySpawners": [
+    "frozen/passive",
+    "frozen/hostile",
+    "frozen/cave",
+    "frozen/water"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "deposits": [
+    {
+      "minHeight": 15,
+      "maxPerChunk": 26,
+      "maxHeight": 410,
+      "minPerChunk": 4,
+      "minSize": 3,
+      "maxSize": 8,
+      "palette": [
+        {
+          "block": "minecraft:iron_ore"
+        },
+        {
+          "block": "minecraft:coal_ore"
+        }
+      ],
+      "varience": 4
+    }
+  ],
+  "landBiomeZoom": 4.9,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "loot": {
+    "mode": "FALLBACK",
+    "tables": [
+      "temperate/clutter",
+      "temperate/food"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/snowy_taiga__glacier",
+  "rarity": 4,
+  "derivative": "SNOWY_TAIGA",
+  "vanillaDerivative": "SNOWY_TAIGA",
+  "category": "taiga",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+    "connectors": [
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -8,
+                "y": -19,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -5,
+                "y": -19,
+                "z": 8
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 6,
+                "y": -19,
+                "z": -4
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 8,
+                "y": -19,
+                "z": 8
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": 1,
+                "y": -18,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -2,
+                "y": -10,
+                "z": 2
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -3,
+                "y": -6,
+                "z": -3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -2,
+                "y": -6,
+                "z": 1
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/grunt"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -7,
+                "y": -2,
+                "z": -3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/captive_snow"
+            ]
+        },
+        {
+            "targetName": "minecraft:bottom",
+            "innerConnector": false,
+            "rotateConnector": false,
+            "name": "minecraft:bottom",
+            "position": {
+                "x": -3,
+                "y": -2,
+                "z": -3
+            },
+            "direction": "UP_POSITIVE_Y",
+            "pools": [
+                "outpost/pillagers/outpost_captain"
+            ]
+        }
+    ],
+    "placementOptions": {
+        "overStilt": 0,
+        "chance": 1,
+        "meld": false,
+        "density": 1,
+        "bottom": false,
+        "translateCenter": false,
+        "rotation": {
+            "yAxis": {
+                "min": 0,
+                "max": 270,
+                "interval": 90,
+                "enabled": true
+            },
+            "xAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "zAxis": {
+                "min": 0,
+                "max": 0,
+                "interval": 0,
+                "enabled": false
+            },
+            "enabled": true
+        },
+        "boreExtendMinY": -1,
+        "smartBore": false,
+        "waterloggable": false,
+        "bore": false,
+        "mode": "PAINT",
+        "carvingSupport": "SURFACE_ONLY",
+        "snow": 0,
+        "underwater": false,
+        "boreExtendMaxY": 0,
+        "onwater": false
+    },
+    "object": "jigsaw/outpost/towers/snowy_plains/base_plate"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/cherry_grove__spiral",
+  "rarity": 4,
+  "derivative": "CHERRY_GROVE",
+  "vanillaDerivative": "CHERRY_GROVE",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

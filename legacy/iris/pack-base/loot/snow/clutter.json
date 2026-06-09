@@ -1,0 +1,129 @@
+{
+    "name": "Snow Clutter",
+    "rarity": 1,
+    "maxPicked": 3,
+    "minPicked": 1,
+    "maxTries": 20,
+    "loot": [
+        {
+            "type": "snowball",
+            "minAmount": 2,
+            "maxAmount": 16,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "packed_ice",
+            "minAmount": 1,
+            "maxAmount": 6,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "blue_ice",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 5,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "ice",
+            "minAmount": 1,
+            "maxAmount": 6,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "soul_torch",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "snow_block",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "powder_snow_bucket",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 13,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "paper",
+            "minAmount": 1,
+            "maxAmount": 7,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "glass_bottle",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "lantern",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 9,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 30,
+            "slotTypes": "STORAGE",
+            "enchantments": [
+                {
+                    "enchantment": "protection",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "chance": 1.0
+                }
+            ]
+        },
+        {
+            "type": "trident",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 26,
+            "slotTypes": "STORAGE",
+            "displayName": "Odd Relic: Stormsplit Trident",
+            "lore": [
+                "Wants to return and launch",
+                "It cannot choose which",
+                "Recovered from snow/clutter"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "riptide",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "loyalty",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "vanishing_curse",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                }
+            ],
+            "minDurability": 0.2,
+            "maxDurability": 0.75
+        }
+    ]
+}

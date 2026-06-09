@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/swamp",
+  "rarity": 1,
+  "derivative": "SWAMP",
+  "vanillaDerivative": "SWAMP",
+  "category": "swamp",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/flower_forest__young",
+  "rarity": 1,
+  "derivative": "FLOWER_FOREST",
+  "vanillaDerivative": "FLOWER_FOREST",
+  "category": "forest",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

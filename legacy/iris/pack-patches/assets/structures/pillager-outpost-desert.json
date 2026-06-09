@@ -1,0 +1,6 @@
+{
+    "startPool": "outpost/forts/desert/base_plate",
+    "maxDepth": 7,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

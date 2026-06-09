@@ -1,0 +1,8 @@
+{
+    "maxDepth": 4,
+    "terminate": true,
+    "structureKey": "minecraft:village_badlands",
+    "pieces": [
+        "village/badlands_pueblo/town_centers/badlands_meeting_point_1"
+    ]
+}

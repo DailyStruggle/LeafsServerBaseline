@@ -1,0 +1,6 @@
+{
+    "startPool": "outpost/forts/old_growth_taiga/base_plate",
+    "maxDepth": 7,
+    "maxSizeChunks": 8,
+    "placeMode": "STRUCTURE_PIECE"
+}

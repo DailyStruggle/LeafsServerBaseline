@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_flower_forest",
+    "pieces": [
+        "outpost/towers/flower_forest/base_plate"
+    ]
+}

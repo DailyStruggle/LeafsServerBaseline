@@ -1,0 +1,114 @@
+{
+  "name": "kaisyn:village/swamp_boat/streets",
+  "fallback": "kaisyn:village/swamp_boat/terminators",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/corner_01",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/corner_02",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/corner_03",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/straight_01",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/straight_02",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "rigid",
+        "location": "kaisyn:village/swamp_boat/streets/crossroad_01",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/crossroad_02",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "rigid",
+        "location": "kaisyn:village/swamp_boat/streets/crossroad_03",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/crossroad_04",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/crossroad_05",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/turn_01",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "projection": "terrain_matching",
+        "location": "kaisyn:village/swamp_boat/streets/turn_02",
+        "processors": "kaisyn:village/swamp_boat/street_swamp"
+      }
+    }
+  ]
+}

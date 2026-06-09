@@ -1,0 +1,8 @@
+{
+    "maxDepth": 7,
+    "terminate": true,
+    "structureKey": "minecraft:pillager_outpost_snowy_beach",
+    "pieces": [
+        "outpost/camps/snowy_beach/base_plate"
+    ]
+}

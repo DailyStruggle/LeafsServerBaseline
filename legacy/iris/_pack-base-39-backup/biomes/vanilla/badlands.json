@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/badlands",
+  "rarity": 1,
+  "derivative": "BADLANDS",
+  "vanillaDerivative": "BADLANDS",
+  "category": "mesa",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

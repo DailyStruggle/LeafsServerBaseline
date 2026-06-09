@@ -1,0 +1,129 @@
+{
+    "name": "Swamp Food",
+    "rarity": 1,
+    "maxPicked": 3,
+    "minPicked": 1,
+    "maxTries": 20,
+    "loot": [
+        {
+            "type": "carrot",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "beetroot",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 1,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "potato",
+            "minAmount": 1,
+            "maxAmount": 4,
+            "rarity": 2,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "poisonous_potato",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 5,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "pumpkin_pie",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "suspicious_stew",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 7,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_cod",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 5,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "cooked_chicken",
+            "minAmount": 1,
+            "maxAmount": 3,
+            "rarity": 3,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "beetroot_soup",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 4,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "honey_bottle",
+            "minAmount": 1,
+            "maxAmount": 2,
+            "rarity": 6,
+            "slotTypes": "STORAGE"
+        },
+        {
+            "type": "enchanted_book",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 34,
+            "slotTypes": "STORAGE",
+            "enchantments": [
+                {
+                    "enchantment": "unbreaking",
+                    "minLevel": 2,
+                    "maxLevel": 3,
+                    "chance": 1.0
+                }
+            ]
+        },
+        {
+            "type": "wooden_hoe",
+            "minAmount": 1,
+            "maxAmount": 1,
+            "rarity": 22,
+            "slotTypes": "STORAGE",
+            "displayName": "Odd Relic: Bent Beetle Hoe",
+            "lore": [
+                "Too sharp for wheat",
+                "Too dull for war",
+                "Recovered from swamp/food"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "bane_of_arthropods",
+                    "minLevel": 3,
+                    "maxLevel": 5,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "knockback",
+                    "minLevel": 1,
+                    "maxLevel": 2,
+                    "chance": 1.0
+                },
+                {
+                    "enchantment": "binding_curse",
+                    "minLevel": 1,
+                    "maxLevel": 1,
+                    "chance": 1.0
+                }
+            ],
+            "minDurability": 0.08,
+            "maxDurability": 0.35
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/frozen_peaks",
+  "rarity": 1,
+  "derivative": "FROZEN_PEAKS",
+  "vanillaDerivative": "FROZEN_PEAKS",
+  "category": "icy",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

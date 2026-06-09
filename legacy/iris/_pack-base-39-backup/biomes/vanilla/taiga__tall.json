@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/taiga__tall",
+  "rarity": 4,
+  "derivative": "TAIGA",
+  "vanillaDerivative": "TAIGA",
+  "category": "taiga",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "maxDepth": 4,
+    "terminate": true,
+    "structureKey": "minecraft:village_swamp",
+    "pieces": [
+        "village/swamp_boat/town_centers/swamp_meeting_point_1"
+    ]
+}

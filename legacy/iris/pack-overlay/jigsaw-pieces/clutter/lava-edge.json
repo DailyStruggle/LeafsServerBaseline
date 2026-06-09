@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/clutter/lavaedge",
+  "placementOptions": {
+    "bore": true,
+    "translate": {
+      "x": 0,
+      "y": -1,
+      "z": 0
+    }
+  }
+}

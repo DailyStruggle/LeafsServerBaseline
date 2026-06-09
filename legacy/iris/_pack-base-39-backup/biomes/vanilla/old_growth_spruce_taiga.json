@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/old_growth_spruce_taiga",
+  "rarity": 1,
+  "derivative": "OLD_GROWTH_SPRUCE_TAIGA",
+  "vanillaDerivative": "OLD_GROWTH_SPRUCE_TAIGA",
+  "category": "taiga",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}

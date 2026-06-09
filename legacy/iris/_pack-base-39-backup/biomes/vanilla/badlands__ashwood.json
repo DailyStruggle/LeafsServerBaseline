@@ -1,0 +1,14 @@
+{
+  "name": "vanilla/badlands__ashwood",
+  "rarity": 9,
+  "derivative": "BADLANDS",
+  "vanillaDerivative": "BADLANDS",
+  "category": "mesa",
+  "generators": [
+    {
+      "min": 4,
+      "max": 10,
+      "generator": "plain"
+    }
+  ]
+}

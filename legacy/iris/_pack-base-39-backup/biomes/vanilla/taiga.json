@@ -1,0 +1,8 @@
+{
+  "name": "vanilla/taiga",
+  "rarity": 1,
+  "derivative": "TAIGA",
+  "vanillaDerivative": "TAIGA",
+  "category": "taiga",
+  "generators": [{"min": 4, "max": 10, "generator": "plain"}]
+}
