@@ -65,6 +65,9 @@
         },
         "thresholdBias": 0.12,
         "sampleStep": 2,
+        "adaptiveSampling": true,
+        "adaptiveSampleStep": 1,
+        "adaptiveThresholdMargin": 0.05,
         "surfaceClearance": 4,
         "allowSurfaceBreak": true,
         "surfaceBreakStyle": {

@@ -176,6 +176,9 @@
         },
         "thresholdBias": 0.14,
         "sampleStep": 3,
+        "adaptiveSampling": true,
+        "adaptiveSampleStep": 1,
+        "adaptiveThresholdMargin": 0.05,
         "surfaceClearance": 5,
         "allowSurfaceBreak": true,
         "surfaceBreakStyle": {
@@ -243,7 +246,7 @@
             "enabled": true,
             "biome": "carving/volcanic-caldera",
             "worldYRange": {
-                "min": 150,
+                "min": 190,
                 "max": 290
             }
         }

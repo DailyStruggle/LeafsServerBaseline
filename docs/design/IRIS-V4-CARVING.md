@@ -223,12 +223,15 @@ A first carved volcano is wired up as a worked example of the above:
 |-------|------|------|
 | Surface cone | `iris/pack-overlay/biomes/tropical/volcanic-peak.json` | Real `mountain` terrain (gen 30-200) in basalt/blackstone; the visible peak. Added to `regions/tropical.json` `landBiomes`. |
 | Caldera throat | `iris/pack-overlay/biomes/carving/volcanic-caldera.json` (+ `-child`) | v4 `caveProfile` with a dominant vertical `VASCULAR_THIN` module (tall `verticalRange` 60-290) = near-vertical chimney; `allowSurfaceBreak` opens the caldera mouth; `allowLava` + magma/lava `wall`/`layers`/`caveCeilingLayers` palettes give the lava throat; `CARVING_ONLY` magma-spire objects. |
-| Scoping band | `dimension.carving[]` entry `volcanic-caldera-band` | Applies the caldera biome only in world-Y 150-290, so the carve acts on tall summits. |
+| Scoping band | `dimension.carving[]` entry `volcanic-caldera-band` | Applies the caldera biome only in world-Y 190-290, so the carve acts on the genuine tall volcanic-peak summits (raised from 150 to avoid venting frozen-pine mountains). |
 
 Known limitations of this approach (carving is Y-band scoped, not biome-scoped):
 
-- The `volcanic-caldera-band` carves any terrain that reaches Y 150-290, not just the
-  `volcanic-peak` biome, so other very tall mountains in range can also get a vent.
+- The `volcanic-caldera-band` carves any terrain that reaches Y 190-290, not just the
+  `volcanic-peak` biome, so other very tall mountains in range can also get a vent. The
+  band min was raised from 150 to 190 so ordinary tall mountains (e.g. frozen-pine
+  summits, `mountain` generator) no longer qualify; only the volcanic peak (gen ~30-200)
+  reaches the band.
 - `caveLavaHeight` is left unset (dimension-wide); the visible lava is from the throat
   palettes, not a global flood. A true summit lava lake above normal cave-lava level
   still needs an object / `IrisCaveShape`.
