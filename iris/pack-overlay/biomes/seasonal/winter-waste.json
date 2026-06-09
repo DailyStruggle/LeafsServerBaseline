@@ -1,0 +1,103 @@
+{
+  "name": "Winter Waste",
+  "color": "#CFE6F2",
+  "rarity": 1,
+  "derivative": "minecraft:snowy_taiga",
+  "vanillaDerivative": "minecraft:snowy_taiga",
+  "entitySpawners": [
+    "seasonal/winter"
+  ],
+  "generators": [
+    {
+      "min": 4,
+      "max": 16,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.2,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/glacierpine/glacierpine_large_1",
+        "trees/glacierpine/glacierpine_large_2",
+        "trees/glacierpine/glacierpine_large_3",
+        "trees/glacierpine/glacierpine_large_4",
+        "trees/glacierpine/glacierpine_medium_1",
+        "trees/glacierpine/glacierpine_medium_2",
+        "trees/glacierpine/glacierpine_medium_3",
+        "trees/glacierpine/glacierpine_small_1",
+        "trees/glacierpine/glacierpine_small_2",
+        "trees/glacierpine/glacierpine_small_3"
+      ]
+    },
+    {
+      "chance": 0.12,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-spruce/spruceM1",
+        "trees/vanilla-spruce/spruceM2",
+        "trees/vanilla-spruce/spruceM3",
+        "trees/vanilla-spruce/spruceM4",
+        "trees/vanilla-spruce/spruceM5",
+        "trees/vanilla-spruce/spruceM6",
+        "trees/vanilla-spruce/spruceM7",
+        "trees/vanilla-spruce/spruceM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.4,
+      "zoom": 0.5,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:snow",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:powder_snow",
+          "weight": 14
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "zoom": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:packed_ice",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:blue_ice",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

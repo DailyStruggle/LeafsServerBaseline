@@ -1,5 +1,5 @@
-param(
-    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11'
+﻿param(
+    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Folia\26.1'
 )
 
 # Copies the server-downloaded vanilla Iris overworld pack into iris/pack-base/.
@@ -19,11 +19,17 @@ if (-not (Test-Path $src)) {
 
 Write-Output "Syncing base pack from $src ..."
 
-# Wipe and recreate pack-base (excluding objects/ - binary .iob files are not tracked)
+# Wipe and recreate pack-base. The whole pack-base/ tree is git-ignored, so the
+# binary objects/ folder is NOT committed - but it MUST still be synced locally.
+# The base Iris pack supplies thousands of vanilla objects (clutter/*, trees/*,
+# structures/*) that base biomes reference. If objects/ is omitted here, the
+# deploy's staging is incomplete and the deploy's wipe-then-copy step destroys
+# the server-downloaded base objects, producing mass "Couldn't find Object"
+# generation errors. Always include objects/.
 if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
 New-Item -ItemType Directory -Path $dst -Force | Out-Null
 
-Get-ChildItem $src -Directory | Where-Object { $_.Name -ne 'objects' } | ForEach-Object {
+Get-ChildItem $src -Directory | ForEach-Object {
     Copy-Item $_.FullName "$dst\$($_.Name)" -Recurse -Force
 }
 Get-ChildItem $src -File | ForEach-Object {
@@ -40,5 +46,6 @@ Get-ChildItem $dst -Recurse -Filter '*.json' | ForEach-Object {
 }
 
 $count = (Get-ChildItem $dst -Recurse -File).Count
-Write-Output "Done. $count files in iris/pack-base (objects/ excluded)."
+$iob   = (Get-ChildItem "$dst\objects" -Recurse -File -Filter '*.iob' -ErrorAction SilentlyContinue).Count
+Write-Output "Done. $count files in iris/pack-base ($iob base .iob objects included)."
 Write-Output "Review the diff, then commit iris/pack-base to lock in the vanilla baseline."

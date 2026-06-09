@@ -1,0 +1,84 @@
+{
+    "name": "Ashen Plains",
+    "color": "#6B6B6B",
+    "rarity": 5,
+    "derivative": "minecraft:badlands",
+    "vanillaDerivative": "minecraft:savanna",
+    "customDerivitives": [{
+        "id": "ashen_plains",
+        "grassColor": "#9E9E7A",
+        "foliageColor": "#8A8A6A",
+        "waterColor": "#3F76E4",
+        "downfallType": "none"
+    }],
+    "generators": [
+        {
+            "min": 60,
+            "max": 72,
+            "generator": "plain"
+        }
+    ],
+    "wall": {
+        "style": {"style": "STATIC"},
+        "palette": [
+            {"block": "minecraft:basalt"},
+            {"block": "minecraft:tuff"},
+            {"block": "minecraft:basalt"}
+        ]
+    },
+    "layers": [
+        {
+            "style": {"style": "FLAT"},
+            "palette": [
+                {"weight": 5, "block": "minecraft:basalt"},
+                {"weight": 3, "block": "minecraft:gray_terracotta"},
+                {"weight": 2, "block": "minecraft:gravel"}
+            ]
+        },
+        {
+            "minHeight": 1,
+            "maxHeight": 2,
+            "palette": [{"block": "minecraft:tuff"}]
+        },
+        {
+            "minHeight": 3,
+            "maxHeight": 10,
+            "style": {"style": "STATIC"},
+            "palette": [
+                {"block": "minecraft:andesite"},
+                {"block": "minecraft:tuff"},
+                {"block": "minecraft:andesite"}
+            ]
+        }
+    ],
+    "decorators": [
+        {
+            "chance": 0.01,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:gravel"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.002,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.2,
+            "palette": [{"block": "minecraft:magma_block"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.004,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:basalt"}],
+            "style": {"style": "STATIC"}
+        },
+        {
+            "chance": 0.008,
+            "variance": {"style": "STATIC"},
+            "zoom": 0.3,
+            "palette": [{"block": "minecraft:dead_bush"}],
+            "style": {"style": "STATIC"}
+        }
+    ]
+}

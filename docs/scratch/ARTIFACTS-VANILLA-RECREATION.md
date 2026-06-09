@@ -49,41 +49,41 @@ The "Resource-pack image/texture" column describes the texture to make/use. Plan
 
 Source key: `Boss` = drops from a biome Tier-2 elite/warden (see `CUSTOM-MOB-SPAWNS-PLAN.md`); `Structure` = injected into a structure loot table. Boss drops are thematically matched to the biome; structure drops use rarity-appropriate containers.
 
-| Artifact | Slot | Tier | Effect | Build viability | Value | Source (where to get it) | Resource-pack image/texture |
-|---|---|---|---|---|---|---|---|
-| Running Shoes | Boots | Mobility | Auto step-up (`STEP_HEIGHT`) + flat speed (`MOVEMENT_SPEED`) | Easy | Uncommon | Structure: mineshaft / abandoned-mineshaft chests | Worn sneaker/trainer with motion lines; warm palette |
-| Roller Skates | Boots | Mobility | Speed ramps with continuous movement, decays on stop/turn | Medium | Rare | Structure: trial chamber (reward vault) | Skate boot with wheels; small speed-streak accent |
-| Cloud in a Bottle | Belt/Charm | Mobility | Double jump | Medium | Epic | Boss: Caldera Tyrant (`terralost/volcanic-crater`) | Glass bottle with a swirling white cloud inside |
-| Helium Flamingo | Charm | Mobility | Timed air-swimming: forces the swim state in midair so you "swim" through the air (NOT gliding) | Hard | Rare | Structure: shipwreck / ocean ruins | Pink inflatable flamingo ring |
-| Flippers | Boots | Mobility | Swim speed boost (in water and, with Helium Flamingo, in air) | Medium | Uncommon | Structure: buried treasure / ocean ruins | Green/teal swim fins |
-| Umbrella | Off-hand | Early assist | Shield + early glide | Hard | Rare | Structure: woodland mansion | Folded/closed black umbrella |
-| Snorkel | Helmet | Early assist | Breathe underwater | Easy | Common | Structure: buried treasure / shipwreck | Mask + snorkel tube |
-| Charm of Sinking | Charm | Utility | Walk on underwater floor | Medium | Uncommon | Structure: ocean ruins / shipwreck | Anchor/weight charm on a chain |
-| Crystal Heart | Chest/Charm | Power | Persistent +max health | Easy | Epic | Boss: Sand Revenant (`terralost/ancient-sands`) | Faceted red/pink crystalline heart |
-| Cross Necklace | Charm | Defensive | Longer invuln frames | Medium | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Silver cross pendant on a chain |
-| Antidote Vessel | Charm | Defensive | Shorten negative effects | Medium | Rare | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Small green vial with cork |
-| Panic Necklace | Charm | Reactive | Speed when hurt | Easy | Uncommon | Structure: pillager outpost | Beaded amber necklace |
-| Obsidian Skull | Charm | Defensive | Passive fire immunity | Easy | Uncommon | Boss: Embervine Warden (`vanilla/jungle__ember`) | Carved black obsidian skull |
-| Steadfast Spikes | Boots | Defensive | Knockback immunity | Easy | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Spiked iron sabatons/cleats |
-| Power Glove | Hands | Combat | Always-on +attack damage | Easy | Rare | Structure: trial chamber (ominous vault) | Reinforced studded gauntlet |
-| Feral Claws | Hands | Combat | +Attack speed | Easy | Rare | Boss: The Creak (`swamp/creaks`) | Curved claw blades over knuckles |
-| Vampiric Glove | Hands | Combat | Melee lifesteal | Easy | Rare | Boss: Ashwood Revenant (`vanilla/badlands__ashwood`) | Dark red glove with fang motif |
-| Fire Gauntlet | Hands | Combat | +Melee + ignite on hit | Medium | Rare | Boss: Emberdeep elite (`carving/volcanic`) | Molten-cracked gauntlet, ember glow |
-| Flame Pendant | Charm | Stacking | Ignite on hit (off-weapon) | Easy | Uncommon | Boss: Caldera Tyrant (`terralost/caldera`) | Orange teardrop gem pendant |
-| Thorn Pendant | Charm | Stacking | Reflect melee, no durability cost | Medium | Uncommon | Boss: The Creak (`swamp/creaks`) | Green thorn/bramble pendant |
-| Shock Pendant | Charm | Combat | Lightning on hit (chance) | Easy | Uncommon | Structure: trial chamber | Yellow lightning-bolt pendant |
-| Pocket Piston | Hands | Combat | Knockback burst on hit | Medium | Rare | Structure: ancient city | Tiny redstone-piston trinket |
-| Digging Claws | Hands | Stacking | +Mining speed (stacks Efficiency) | Medium | Uncommon | Boss: Deep elite (`carving/deep`) | Iron mining-claw grips |
-| Superstitious Hat | Helmet | Stacking | +Mob loot (stacks Looting) | Medium | Uncommon | Structure: woodland mansion | Pointed witch-style hat |
-| Anglers Hat | Helmet | Stacking | +Fishing luck/lure | Medium | Uncommon | Structure: fishing loot / shipwreck | Fishing cap with hooks/lures |
-| Villager Hat | Helmet | Economy | Permanent trade discount | Hard | Epic | Structure: village (rare desert/savanna chest) | Wide-brim straw/village hat |
-| Night Vision Goggles | Helmet | QoL | Permanent night vision | Easy | Common | Boss: Deep elite (`carving/deep`) | Brass/leather goggles |
-| Scarf of Invisibility | Charm | QoL/PvP | Permanent invisibility | Easy | Epic | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Translucent flowing scarf |
-| Onion Ring | Charm | QoL | Mobile Haste after eating | Easy | Common | Boss: Lush cave elite (`carving/lush`) | Golden ring shaped like a battered onion ring |
-| Eternal Steak | Charm | QoL | Never hungry / auto-feed | Easy | Uncommon | Boss: Lush cave elite (`carving/lush`) | Perpetually sizzling steak |
-| Golden Hook | Charm | Boost | +XP from kills | Easy | Uncommon | Boss: Sand Revenant (`terralost/ancient-sands`) | Ornate golden fish-hook |
-| Lucky Scarf | Charm | Boost | Permanent +Luck | Easy | Uncommon | Structure: trial chamber / buried treasure | Green four-leaf-clover scarf |
-| Universal Attractor | Charm | Utility | Item magnet (toggle) | Medium | Rare | Boss: Deep elite (`carving/deep`) | Horseshoe magnet with sparkles |
+| Artifact | Slot | Tier | Effect | Build viability | Value | Source (where to get it) | Resource-pack image/texture | Implemented |
+|---|---|---|---|---|---|---|---|---|
+| Running Shoes | Boots | Mobility | Auto step-up (`STEP_HEIGHT`) + flat speed (`MOVEMENT_SPEED`) | Easy | Uncommon | Structure: mineshaft / abandoned-mineshaft chests | Worn sneaker/trainer with motion lines; warm palette | Yes |
+| Roller Skates | Boots | Mobility | Speed ramps with continuous movement, decays on stop/turn | Medium | Rare | Structure: trial chamber (reward vault) | Skate boot with wheels; small speed-streak accent | Yes |
+| Cloud in a Bottle | Belt/Charm | Mobility | Double jump | Medium | Epic | Boss: Caldera Tyrant (`terralost/volcanic-crater`) | Glass bottle with a swirling white cloud inside | Yes |
+| Helium Flamingo | Charm | Mobility | Timed air-swimming: forces the swim state in midair so you "swim" through the air (NOT gliding) | Hard | Rare | Structure: shipwreck / ocean ruins | Pink inflatable flamingo ring | Yes |
+| Flippers | Boots | Mobility | Swim speed boost (in water and, with Helium Flamingo, in air) | Medium | Uncommon | Structure: buried treasure / ocean ruins | Green/teal swim fins | Yes |
+| Umbrella | Off-hand | Early assist | Shield + early glide | Hard | Rare | Structure: woodland mansion | Folded/closed black umbrella | No |
+| Snorkel | Helmet | Early assist | Breathe underwater | Easy | Common | Structure: buried treasure / shipwreck | Mask + snorkel tube | Yes |
+| Charm of Sinking | Charm | Utility | Walk on underwater floor | Medium | Uncommon | Structure: ocean ruins / shipwreck | Anchor/weight charm on a chain | No |
+| Crystal Heart | Chest/Charm | Power | Persistent +max health | Easy | Epic | Boss: Sand Revenant (`terralost/ancient-sands`) | Faceted red/pink crystalline heart | Yes |
+| Cross Necklace | Charm | Defensive | Longer invuln frames | Medium | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Silver cross pendant on a chain | Yes |
+| Antidote Vessel | Charm | Defensive | Shorten negative effects | Medium | Rare | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Small green vial with cork | Yes |
+| Panic Necklace | Charm | Reactive | Speed when hurt | Easy | Uncommon | Structure: pillager outpost | Beaded amber necklace | Yes |
+| Obsidian Skull | Charm | Defensive | Passive fire immunity | Easy | Uncommon | Boss: Embervine Warden (`vanilla/jungle__ember`) | Carved black obsidian skull | Yes |
+| Steadfast Spikes | Boots | Defensive | Knockback immunity | Easy | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Spiked iron sabatons/cleats | Yes |
+| Power Glove | Hands | Combat | Always-on +attack damage | Easy | Rare | Structure: trial chamber (ominous vault) | Reinforced studded gauntlet | Yes |
+| Feral Claws | Hands | Combat | +Attack speed | Easy | Rare | Boss: The Creak (`swamp/creaks`) | Curved claw blades over knuckles | Yes |
+| Vampiric Glove | Hands | Combat | Melee lifesteal | Easy | Rare | Boss: Ashwood Revenant (`vanilla/badlands__ashwood`) | Dark red glove with fang motif | Yes |
+| Fire Gauntlet | Hands | Combat | +Melee + ignite on hit | Medium | Rare | Boss: Emberdeep elite (`carving/volcanic`) | Molten-cracked gauntlet, ember glow | Yes |
+| Flame Pendant | Charm | Stacking | Ignite on hit (off-weapon) | Easy | Uncommon | Boss: Caldera Tyrant (`terralost/caldera`) | Orange teardrop gem pendant | Yes |
+| Thorn Pendant | Charm | Stacking | Reflect melee, no durability cost | Medium | Uncommon | Boss: The Creak (`swamp/creaks`) | Green thorn/bramble pendant | Yes |
+| Shock Pendant | Charm | Combat | Lightning on hit (chance) | Easy | Uncommon | Structure: trial chamber | Yellow lightning-bolt pendant | Yes |
+| Pocket Piston | Hands | Combat | Knockback burst on hit | Medium | Rare | Structure: ancient city | Tiny redstone-piston trinket | No |
+| Digging Claws | Hands | Stacking | +Mining speed (stacks Efficiency) | Medium | Uncommon | Boss: Deep elite (`carving/deep`) | Iron mining-claw grips | No |
+| Superstitious Hat | Helmet | Stacking | +Mob loot (stacks Looting) | Medium | Uncommon | Structure: woodland mansion | Pointed witch-style hat | Yes |
+| Anglers Hat | Helmet | Stacking | +Fishing luck/lure | Medium | Uncommon | Structure: fishing loot / shipwreck | Fishing cap with hooks/lures | Yes |
+| Villager Hat | Helmet | Economy | Permanent trade discount | Hard | Epic | Structure: village (rare desert/savanna chest) | Wide-brim straw/village hat | Yes |
+| Night Vision Goggles | Helmet | QoL | Permanent night vision | Easy | Common | Boss: Deep elite (`carving/deep`) | Brass/leather goggles | Yes |
+| Scarf of Invisibility | Charm | QoL/PvP | Permanent invisibility | Easy | Epic | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Translucent flowing scarf | Yes |
+| Onion Ring | Charm | QoL | Mobile Haste after eating | Easy | Common | Boss: Lush cave elite (`carving/lush`) | Golden ring shaped like a battered onion ring | Yes |
+| Eternal Steak | Charm | QoL | Never hungry / auto-feed | Easy | Uncommon | Boss: Lush cave elite (`carving/lush`) | Perpetually sizzling steak | Yes |
+| Golden Hook | Charm | Boost | +XP from kills | Easy | Uncommon | Boss: Sand Revenant (`terralost/ancient-sands`) | Ornate golden fish-hook | Yes |
+| Lucky Scarf | Charm | Boost | Permanent +Luck | Easy | Uncommon | Structure: trial chamber / buried treasure | Green four-leaf-clover scarf | Yes |
+| Universal Attractor | Charm | Utility | Item magnet (toggle) | Medium | Rare | Boss: Deep elite (`carving/deep`) | Horseshoe magnet with sparkles | No |
 
 ## Source assignment: boss drops vs structure loot
 

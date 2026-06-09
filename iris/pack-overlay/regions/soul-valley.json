@@ -1,0 +1,11 @@
+{
+  "name": "Soul Sand Valley",
+  "color": "#3E2F23",
+  "rarity": 4,
+  "landBiomes": [
+    "nether/soul-sand-valley"
+  ],
+  "entitySpawners": [
+    "nether/hostile"
+  ]
+}

@@ -1,52 +1,13 @@
 {
   "name": "vanilla/meadow__cloud",
   "rarity": 30,
-  "derivative": "MEADOW",
-  "vanillaDerivative": "MEADOW",
-  "category": "plains",
+  "derivative": "minecraft:meadow",
+  "vanillaDerivative": "minecraft:meadow",
   "generators": [
     {
       "min": 5,
       "max": 22,
       "generator": "rare-hills"
-    }
-  ],
-  "objects": [
-    {
-      "chance": 0.04,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/cloudcap/cloudcap_small_1",
-        "trees/cloudcap/cloudcap_small_2",
-        "trees/cloudcap/cloudcap_small_3"
-      ]
-    },
-    {
-      "chance": 0.02,
-      "density": 1,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/cloudcap/cloudcap_large_1",
-        "trees/cloudcap/cloudcap_large_2",
-        "trees/cloudcap/cloudcap_large_3"
-      ]
     }
   ],
   "decorators": [
@@ -112,6 +73,44 @@
           "block": "minecraft:allium",
           "weight": 6
         }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.04,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/cloudcap/cloudcap_small_1",
+        "trees/cloudcap/cloudcap_small_2",
+        "trees/cloudcap/cloudcap_small_3"
+      ]
+    },
+    {
+      "chance": 0.02,
+      "density": 1,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/cloudcap/cloudcap_large_1",
+        "trees/cloudcap/cloudcap_large_2",
+        "trees/cloudcap/cloudcap_large_3"
       ]
     }
   ]

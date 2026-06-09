@@ -5,6 +5,7 @@ api-version: '1.21'
 author: Leaf
 description: Exploration artifacts (wearable trinkets) recreated with vanilla mechanics.
 folia-supported: true
+depend: [LeafCurios]
 commands:
   artifact:
     description: Open the artifact equipment menu; /artifact give <type> [player] for admins.

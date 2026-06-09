@@ -3,6 +3,8 @@
   "color": "#9CB0B9",
   "rarity": 4,
   "landBiomes": [
+    "mountain/ashcrown",
+    "tundra/maple-forest",
     "tundra/taiga",
     "tundra/redwood-forest",
     "tundra/sequia-redwoods",
@@ -39,83 +41,6 @@
     "carving/rocky-cavebiome",
     "carving/ice-caves"
   ],
-  "jigsawStructures": [
-    {
-      "structure": "ruined-portal",
-      "rarity": 1200
-    },
-    {
-      "structure": "dungeon-skeleton",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-spider",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-zombie",
-      "rarity": 800
-    },
-    {
-      "structure": "frozen-adventurers-camp",
-      "_rarityComment": "was 900 - too sparse to find; lowered for visibility",
-      "rarity": 90
-    }
-  ],
-  "objects": [
-    {
-      "heightmap": {
-        "seed": 1337,
-        "style": {
-          "style": "SIMPLEX",
-          "multiplier": 10
-        },
-        "offsetY": 5
-      },
-      "chance": 0.05,
-      "bottom": true,
-      "density": 1,
-      "place": [
-        "structures/amethyst1",
-        "structures/amethyst2",
-        "structures/amethyst3",
-        "structures/amethyst4",
-        "structures/amethyst5",
-        "structures/amethyst6"
-      ],
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:glass"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:void_air"
-              }
-            ]
-          }
-        }
-      ],
-      "enabled": true,
-      "xAxis": {
-        "interval": 90,
-        "max": 360,
-        "min": 0
-      },
-      "yAxis": {
-        "interval": 90,
-        "max": 360,
-        "min": 0
-      },
-      "translate": {
-        "yRandom": 10,
-        "y": 2
-      }
-    }
-  ],
   "shoreBiomes": [
     "tundra/shore/beach",
     "tundra/shore/beach-stone"
@@ -149,46 +74,7 @@
   "landBiomeZoom": 6.3,
   "shoreHeightMin": 2.2,
   "shoreHeightMax": 5.2,
-  "carving": {
-    "ravines": [
-      {
-        "rarity": 180,
-        "ravine": "calcite/main"
-      },
-      {
-        "rarity": 150,
-        "ravine": "rocky/main"
-      }
-    ],
-    "caves": [
-      {
-        "breakSurface": true,
-        "cave": "calcite/main",
-        "rarity": 20,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      },
-      {
-        "breakSurface": true,
-        "cave": "rocky/main",
-        "rarity": 10,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      }
-    ]
-  },
   "shoreHeightZoom": 1.14,
-  "riverThickness": 0.025,
   "loot": {
     "mode": "FALLBACK",
     "tables": [

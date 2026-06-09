@@ -319,33 +319,34 @@ def main():
                            {"pieces": pieces})
                 pools_written += 1
 
-    # --- structure: vanilla jigsaw structure -> iris jigsaw-structure ------
+    # --- structure: vanilla jigsaw structure -> iris 4.0 IrisStructure -----
+    # Iris 4.0 loads the flat `structures/` folder (IrisStructure), NOT the 3.x
+    # `jigsaw-structures/` folder. An IrisStructure seeds assembly from a single
+    # `startPool` (a jigsaw POOL key), so we carry the vanilla `start_pool`
+    # through directly (namespace stripped) instead of resolving it to pieces.
+    # See docs/design/IRIS-V4-STRUCTURES.md.
     with open(args.structure_json, encoding="utf-8") as f:
         vs = json.load(f)
-    start_pool = vs.get("start_pool")
-    start_pieces = []
-    sp_file = os.path.join(pool_src, start_pool.split("/")[-1] + ".json")
-    if os.path.isfile(sp_file):
-        with open(sp_file, encoding="utf-8") as f:
-            spj = json.load(f)
-        for el in spj.get("elements", []):
-            loc = el.get("element", {}).get("location")
-            if loc:
-                start_pieces.append(loc.split(":", 1)[-1])
+    start_pool = vs.get("start_pool", "")
+    # vanilla start_pool is "<ns>:<set>/town_centers" (or .../base_plate); the
+    # Iris pool key is the namespace-stripped path, matching our converted pools.
+    start_pool_key = start_pool.split(":", 1)[-1]
     iris_structure = {
-        "maxDepth": vs.get("size", 5),
-        "terminate": True,
-        "structureKey": "minecraft:" + args.structure_key.replace("-", "_"),
-        "pieces": start_pieces,
+        "startPool": start_pool_key,
+        "maxDepth": vs.get("size", 6),
+        "maxSizeChunks": 8,
+        # STRUCTURE_PIECE: each jigsaw piece anchors independently, mirroring the
+        # 4.0 base `structures/minecraft_village_plains.json`.
+        "placeMode": "STRUCTURE_PIECE",
     }
-    write_json(os.path.join(args.out, "jigsaw-structures",
+    write_json(os.path.join(args.out, "structures",
                             args.structure_key + ".json"), iris_structure)
 
     print(f"\nconverted pieces : {converted}")
     print(f"total connectors : {total_connectors}")
     print(f"pools written    : {pools_written}")
     print(f"structure written: {args.structure_key}.json "
-          f"(start pieces: {len(start_pieces)})")
+          f"(startPool: {start_pool_key})")
 
 
 if __name__ == "__main__":

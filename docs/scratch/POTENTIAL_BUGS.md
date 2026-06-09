@@ -53,3 +53,28 @@ Backlog of incidental findings discovered while working on other tasks. Each ent
 - **Symptom (NON-FATAL, INFO-level)**: village generation logs `[Iris]: Can't find jigsaw pool: <name>` for 16 distinct pools and skips them: `village/common/{animals,butcher_animals,cats,sheep,iron_golem,well_bottoms,decor/decor_grass_patches}`, `village/{plains,savanna,snowy,taiga,meadow_swiss}/villagers`, `village/plains/decor`, `village/beach_lighthouse/villager_lighthouse_master`, `village/sparse_jungle_polynesian/villager_village_chief`, `village/modded/waystones/waystone_default`.
 - **Impact**: villages still generate (no NPE, no failed chunks), but lack villagers/animals/iron golems/cats/decor and the modded waystone; `village/modded/waystones` requires the Waystones mod and is expected to be absent.
 - **Suggested next step**: port the missing `common` mob-spawn + `<biome>/villagers` + `decor` pools (and their pieces) from the source village pack into `pack-patches/assets/jigsaw-pools` (+ pieces), or remove the dangling pool references from the consuming pieces if these features are intentionally dropped. Not blocking generation.
+
+## 2026-06-07 | discovered-during: biome additions execution (Phases 1-4)
+
+- **Location**: iris/pack-overlay-backup* vs live iris/pack-overlay/biomes/; clutter/magmaspire1-3 object references in volcano-family biomes.
+- **Symptom / hypothesis**: The backup overlay sets and the design docs marked custom biomes as "Done" while they were absent from the live overlay; the backup volcano biomes referenced clutter/magmaspire1-3 objects that did not exist anywhere under iris/ (pack-base/output/staging). Divergent overlay sets (pack-overlay, pack-overlay-backup, pack-overlay-backup-20260605-213215) can mislead future audits.
+- **Impact**: Without the objects, the ported volcano biomes would fail object placement at gen time; the stale "Done" status risked masking missing live content. Both addressed this session (magmaspires generated via iris/scripts/build-magmaspires.py; biomes authored into live overlay).
+- **Suggested next step**: Consider pruning or clearly archiving the pack-overlay-backup* directories so they are not mistaken for the authoritative overlay; add a one-line README in each backup noting it is a historical snapshot.
+
+## 2026-06-07 | discovered-during: seasonal-biome (Spring) implementation
+
+- **Location**: `iris/pack-overlay/biomes/temperate/auroral-garden.json` lines 74-77 (`objects[].place`).
+- **Symptom / hypothesis**: Auroral Garden places `trees/birch/antioch1` and `trees/birch/antioch2`, but no `antioch*.iob` exists anywhere under `iris/` (output/staging/pack-base/pack-overlay). The valid birch objects are under `trees/vanilla-birch/birch*`.
+- **Impact**: The biome's birch-tree object placement silently fails at gen time, so Auroral Garden generates without its intended birch canopy (only the spruce object block places).
+- **Suggested next step**: Repoint the `antioch1/2` entries to existing objects (e.g. `trees/vanilla-birch/birchM1..M8`, as used by the new Spring Meadow biome), or restore/author the `antioch` birch objects if a distinct rainbow-birch asset was intended.
+
+---
+
+### 2026-06-08 - Two dangling object refs surviving a clean pack snapshot
+
+- **Discovered-during**: working remaining `Couldn't find Object` errors from `testServer/RTP-Paper/26.1/logs/latest.log` (460/462 were a stale frozen world snapshot, now fixed by wiping `test/iris/pack` + clean-deploy).
+- **Location**: `iris/pack-overlay/biomes/temperate/stranged-plains.json` lines 91-95 (`void/void` x3) and `iris/pack-overlay/biomes/ocean/deep.json` line 97 (`jigsaw/ocean-monument/ocean_monument`).
+- **Symptom / hypothesis**: Both keys exist in NO pack version (source pack 11090 .iob, pack-base, iris/output, pack-overlay) - genuine content gaps, not snapshot drift. `void/void` is also dead upstream in `pack-base` and has chance 2e-07. `jigsaw/ocean-monument` has no matching jigsaw object/piece/pool/structure.
+- **Impact**: `void/void` effectively never places (negligible). `ocean-monument` never generates, so deep oceans get no Iris-placed monuments.
+- **Suggested next step**: Drop the `void/void` placer from the stranged-plains overlay; for the monument, either remove the placer (no monuments) or supply a real `jigsaw/ocean-monument` asset.
+- **RESOLVED 2026-06-08 (ocean-monument)**: The `jigsaw/ocean-monument/ocean_monument` object exists in no pack version (incl. the Folia server pack and `_pack-base-39-backup`, which only has the jigsaw piece/structure JSON, not the `.iob`), so the placer only logged a "Couldn't find Object" error and never generated a monument. Removed the dead placer from `ocean/deep.json` (now `"objects": []`); real ocean monuments still generate via the dimension's vanilla `importedStructures` (ALL_ON). The `void/void` placer in `stranged-plains.json` remains (never appears in logs, chance 2e-07).

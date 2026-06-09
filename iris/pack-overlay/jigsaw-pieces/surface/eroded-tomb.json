@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/surface/eroded-tomb",
+  "placementOptions": {
+    "bore": false,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/desert_pyramid"
+      }
+    ]
+  }
+}

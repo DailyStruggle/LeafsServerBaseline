@@ -3,106 +3,11 @@
   "rarity": 1,
   "derivative": "DARK_FOREST",
   "vanillaDerivative": "DARK_FOREST",
-  "category": "forest",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
+      "min": 3,
+      "max": 16,
       "generator": "plain"
-    }
-  ],
-  "objects": [
-    {
-      "chance": 0.92,
-      "density": 5,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-dark_oak/dark_oakS1",
-        "trees/vanilla-dark_oak/dark_oakS2",
-        "trees/vanilla-dark_oak/dark_oakS3",
-        "trees/vanilla-dark_oak/dark_oakS4",
-        "trees/vanilla-dark_oak/dark_oakS5",
-        "trees/vanilla-dark_oak/dark_oakS6",
-        "trees/vanilla-dark_oak/dark_oakS7",
-        "trees/vanilla-dark_oak/dark_oakS8"
-      ]
-    },
-    {
-      "chance": 0.95,
-      "density": 6,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-dark_oak/dark_oakM1",
-        "trees/vanilla-dark_oak/dark_oakM2",
-        "trees/vanilla-dark_oak/dark_oakM3",
-        "trees/vanilla-dark_oak/dark_oakM4",
-        "trees/vanilla-dark_oak/dark_oakM5",
-        "trees/vanilla-dark_oak/dark_oakM6",
-        "trees/vanilla-dark_oak/dark_oakM7",
-        "trees/vanilla-dark_oak/dark_oakM8"
-      ]
-    },
-    {
-      "chance": 0.06,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-oak/oakM1",
-        "trees/vanilla-oak/oakM2",
-        "trees/vanilla-oak/oakM3",
-        "trees/vanilla-oak/oakM4",
-        "trees/vanilla-oak/oakM5",
-        "trees/vanilla-oak/oakM6",
-        "trees/vanilla-oak/oakM7",
-        "trees/vanilla-oak/oakM8"
-      ]
-    },
-    {
-      "chance": 0.05,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-birch/birchM1",
-        "trees/vanilla-birch/birchM2",
-        "trees/vanilla-birch/birchM3",
-        "trees/vanilla-birch/birchM4",
-        "trees/vanilla-birch/birchM5",
-        "trees/vanilla-birch/birchM6",
-        "trees/vanilla-birch/birchM7",
-        "trees/vanilla-birch/birchM8"
-      ]
     }
   ],
   "decorators": [
@@ -164,5 +69,675 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "fungi": [
+      {
+        "name": "pv-mushroom-red-mushroom-0",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:red_mushroom_block",
+        "stemHeightMin": 4,
+        "stemHeightMax": 8,
+        "stemWidth": 1,
+        "capRadiusMin": 2,
+        "capRadiusMax": 4,
+        "capThickness": 1,
+        "chance": 0.07,
+        "density": 1,
+        "seed": 1239393012
+      },
+      {
+        "name": "pv-mushroom-brown-mushroom-1",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:brown_mushroom_block",
+        "stemHeightMin": 3,
+        "stemHeightMax": 6,
+        "stemWidth": 1,
+        "capRadiusMin": 3,
+        "capRadiusMax": 5,
+        "capThickness": 1,
+        "chance": 0.07,
+        "density": 1,
+        "seed": 1441359626
+      }
+    ],
+    "trees": [
+      {
+        "name": "pv-dark_oak-S-h4",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 4,
+        "heightMax": 4,
+        "variants": 1,
+        "seed": 250650156,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.86
+            },
+            {
+              "yOffset": 4,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.8
+            }
+          ]
+        },
+        "chance": 0.3066666666666667,
+        "density": 5
+      },
+      {
+        "name": "pv-dark_oak-S-h5",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 5,
+        "heightMax": 5,
+        "variants": 1,
+        "seed": 2046275258,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.86
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.8
+            }
+          ]
+        },
+        "chance": 0.3066666666666667,
+        "density": 5
+      },
+      {
+        "name": "pv-dark_oak-S-h6",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1627324160,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.48
+            },
+            {
+              "yOffset": 6,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.4
+            }
+          ]
+        },
+        "chance": 0.3066666666666667,
+        "density": 5
+      },
+      {
+        "name": "pv-dark_oak-M-h6",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1984328058,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.48
+            },
+            {
+              "yOffset": 6,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.4
+            }
+          ]
+        },
+        "chance": 0.2375,
+        "density": 6
+      },
+      {
+        "name": "pv-dark_oak-M-h7",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 21053932,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 2.48
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.4
+            }
+          ]
+        },
+        "chance": 0.2375,
+        "density": 6
+      },
+      {
+        "name": "pv-dark_oak-M-h8",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 301882493,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 3.1
+            },
+            {
+              "yOffset": 7,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 9,
+              "radius": 3.0
+            }
+          ]
+        },
+        "chance": 0.2375,
+        "density": 6
+      },
+      {
+        "name": "pv-dark_oak-M-h9",
+        "trunk": "minecraft:dark_oak_log",
+        "leaves": "minecraft:dark_oak_leaves",
+        "profile": "DARK_OAK_FLAT",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1727622379,
+        "roots": false,
+        "trunkWidth": 2,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.28,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 3.1
+            },
+            {
+              "yOffset": 8,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 9,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 10,
+              "radius": 3.0
+            }
+          ]
+        },
+        "chance": 0.2375,
+        "density": 6
+      },
+      {
+        "name": "pv-oak-M-h6",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1199943401,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-oak-M-h7",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 813866623,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-oak-M-h8",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 540902382,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.6
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-oak-M-h9",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1463464824,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.6
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-birch-M-h6",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1087537703,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-birch-M-h7",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 936751793,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-birch-M-h8",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 661303072,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-birch-M-h9",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1349361590,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      }
+    ]
+  }
 }

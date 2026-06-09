@@ -1,0 +1,22 @@
+{
+    "_comment": "Frostpeak Caldera terrain: a copy of the base 'mountain' generator (FRACTAL_SMOKE cone, wide BILINEAR_STARCAST_9 interpolation) but terraced via cliffHeight* so the cone reads as LAYERED mesa-like shelves instead of a single noisy slope. We do NOT edit base 'mountain' (it is shared by other biomes); the caldera child points at this dedicated generator. The CELLULAR_HEIGHT generator quantises the cone's height into broad flat steps separated by sharp cliffs, matching the mesa look of the parent plateau.",
+    "interpolator": {
+        "horizontalScale": 52,
+        "function": "BILINEAR_STARCAST_9"
+    },
+    "seed": 53551,
+    "composite": [{
+        "style": {
+            "style": "FRACTAL_SMOKE",
+            "zoom": 1
+        },
+        "seed": 3356
+    }],
+    "cliffHeightMax": 170,
+    "cliffHeightMin": 20,
+    "cliffHeightGenerator": {
+        "seed": 53552,
+        "style": {"style": "CELLULAR_HEIGHT"},
+        "zoom": 0.3
+    }
+}

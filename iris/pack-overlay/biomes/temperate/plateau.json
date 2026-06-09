@@ -1,0 +1,358 @@
+{
+  "name": "Temperate Plateau",
+  "color": "#3C9D11",
+  "rarity": 4,
+  "derivative": "minecraft:deep_lukewarm_ocean",
+  "vanillaDerivative": "minecraft:forest",
+  "biomeScatter": [
+    "minecraft:forest"
+  ],
+  "customDerivitives": [
+    {
+      "id": "plateau",
+      "foliageColor": "#44A528",
+      "waterColor": "#2883A5",
+      "grassColor": "#21BF4C"
+    }
+  ],
+  "children": [
+    "temperate/plateau-extended"
+  ],
+  "generators": [
+    {
+      "min": 25,
+      "max": 37,
+      "generator": "small-cliffs"
+    }
+  ],
+  "biomeStyle": {
+    "style": "SIMPLEX"
+  },
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
+      },
+      {
+        "block": "minecraft:andesite"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        }
+      ]
+    },
+    {
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        },
+        {
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "chance": 1,
+      "mode": "PAINT",
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "edit": [
+        {
+          "find": [
+            {
+              "block": "minecraft:birch_wood"
+            },
+            {
+              "block": "minecraft:birch_log"
+            }
+          ],
+          "replace": {
+            "palette": [
+              {
+                "block": "minecraft:oak_wood"
+              }
+            ]
+          }
+        },
+        {
+          "find": [
+            {
+              "block": "minecraft:birch_leaves"
+            }
+          ],
+          "replace": {
+            "palette": [
+              {
+                "block": "minecraft:oak_leaves"
+              }
+            ]
+          }
+        }
+      ],
+      "place": [
+        "trees/birch/antioch3",
+        "trees/birch/antioch4",
+        "trees/birch/antioch5",
+        "trees/birch/antioch6",
+        "trees/birch/antioch7",
+        "trees/birch/antioch8",
+        "trees/birch/antioch9",
+        "trees/birch/antioch10",
+        "trees/birch/antioch11",
+        "trees/birch/antioch12",
+        "trees/birch/antioch13"
+      ],
+      "translate": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.5,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.2,
+      "palette": [
+        {
+          "chance": 7,
+          "block": "minecraft:short_grass"
+        }
+      ]
+    },
+    {
+      "chance": 0.025,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.2,
+      "palette": [
+        {
+          "block": "minecraft:oak_leaves"
+        },
+        {
+          "block": "minecraft:rose_bush"
+        },
+        {
+          "block": "minecraft:cobblestone_slab"
+        },
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:short_grass"
+        },
+        {
+          "block": "minecraft:poppy"
+        },
+        {
+          "block": "minecraft:blue_orchid"
+        },
+        {
+          "block": "minecraft:allium"
+        },
+        {
+          "block": "minecraft:azure_bluet"
+        },
+        {
+          "block": "minecraft:red_tulip"
+        },
+        {
+          "block": "minecraft:orange_tulip"
+        },
+        {
+          "block": "minecraft:white_tulip"
+        },
+        {
+          "block": "minecraft:pink_tulip"
+        },
+        {
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "block": "minecraft:cornflower"
+        },
+        {
+          "block": "minecraft:lily_of_the_valley"
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.2,
+      "palette": [
+        {
+          "block": "minecraft:tall_grass"
+        },
+        {
+          "chance": 3,
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "chance": 3,
+          "block": "minecraft:poppy"
+        }
+      ]
+    },
+    "snippet/decorator/bush"
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-oak-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 838078826,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.5675,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-1",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 1194413003,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.5675,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-2",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 11,
+        "variants": 3,
+        "seed": 1551803432,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 118,
+          "squish": 0.75,
+          "mode": "DENSITY",
+          "leafDensity": 0.85
+        },
+        "chance": 0.5675,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 13,
+        "heightMax": 18,
+        "variants": 3,
+        "seed": 716963465,
+        "trunkWidth": 2,
+        "trunkShape": "PARABOLIC",
+        "shapePeakOffset": 0.2,
+        "canopy": {
+          "startAngle": 122,
+          "squish": 0.95,
+          "mode": "DENSITY",
+          "leafDensity": 0.88,
+          "branches": {
+            "probabilityFunction": "TOP_HEAVY",
+            "probabilityExponent": 2.0,
+            "lengthFunction": "LINEAR",
+            "lengthBase": 2,
+            "lengthCrown": 4,
+            "azimuthMode": "RANDOM",
+            "elevation": 22,
+            "leafStartUp": true,
+            "clusterRadius": 2,
+            "clusterMode": "DENSITY",
+            "clusterDensity": 0.85
+          }
+        },
+        "chance": 0.5675,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

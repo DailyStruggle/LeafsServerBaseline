@@ -1,0 +1,11 @@
+{
+  "name": "Crimson Forest",
+  "color": "#9A1C2B",
+  "rarity": 3,
+  "landBiomes": [
+    "nether/crimson-forest"
+  ],
+  "entitySpawners": [
+    "nether/hostile"
+  ]
+}

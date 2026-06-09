@@ -1,5 +1,5 @@
-$base   = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld"
-$custom = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld-custom"
+﻿$base   = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld"
+$custom = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld-custom"
 
 $bBiomes  = (Get-ChildItem "$base\biomes"   -Recurse -Filter "*.json").Count
 $cBiomes  = (Get-ChildItem "$custom\biomes" -Recurse -Filter "*.json").Count

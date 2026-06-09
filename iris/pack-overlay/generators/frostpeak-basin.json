@@ -1,0 +1,14 @@
+{
+    "_comment": "Flat basin floor for the Frostpeak caldera plateau. The terrain VALUE is flat so the plateau top is level. horizontalScale trades off two failure modes: too WIDE and a small child patch can't ramp up to its full flat value (caps low, ~Y118); too SMALL (e.g. 4) and the rim shows NONE-like 1-block pillars. With a larger caldera patch (parent childShrinkFactor 1.6) scale 8 both reaches the flat top and blends the rim smoothly.",
+    "interpolator": {
+        "function": "BILINEAR_STARCAST_9",
+        "horizontalScale": 6
+    },
+    "seed": 318841,
+    "composite": [{
+        "seed": 318841,
+        "style": {
+            "style": "FLAT"
+        }
+    }]
+}

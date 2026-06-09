@@ -1,0 +1,34 @@
+{
+  "name": "Basalt Deltas",
+  "color": "#4A4A52",
+  "rarity": 1,
+  "derivative": "minecraft:basalt_deltas",
+  "vanillaDerivative": "minecraft:basalt_deltas",
+  "generators": [
+    {
+      "generator": "rare-hills",
+      "min": 32,
+      "max": 96
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 4,
+      "palette": [
+        {"block": "minecraft:basalt", "weight": 6},
+        {"block": "minecraft:blackstone", "weight": 4},
+        {"block": "minecraft:magma_block", "weight": 1}
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.03,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:basalt"}
+      ]
+    }
+  ]
+}

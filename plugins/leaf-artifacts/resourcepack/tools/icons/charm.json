@@ -1,0 +1,28 @@
+{
+  "name": "charm",
+  "size": 32,
+  "background": "light_gray_glass",
+  "palette": {
+    "c": "#4aa3e0",
+    "h": "#bfe6ff",
+    "o": "#2c6ba3"
+  },
+  "art": [
+    ".......o........",
+    ".......c........",
+    "......chc.......",
+    "......chc.......",
+    "o....chhhc....o.",
+    ".occhhhhhhhcco..",
+    "..ochhhhhhhco...",
+    "...chhhhhhhc....",
+    "...chhhhhhhc....",
+    "..ochhhhhhhco...",
+    ".occc.....ccco..",
+    "o..c.......c..o.",
+    "...c.......c....",
+    "................",
+    "................",
+    "................"
+  ]
+}

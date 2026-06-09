@@ -1,9 +1,8 @@
 {
   "name": "vanilla/frozen_peaks",
   "rarity": 1,
-  "derivative": "FROZEN_PEAKS",
-  "vanillaDerivative": "FROZEN_PEAKS",
-  "category": "icy",
+  "derivative": "minecraft:frozen_peaks",
+  "vanillaDerivative": "minecraft:frozen_peaks",
   "generators": [
     {
       "min": 65,

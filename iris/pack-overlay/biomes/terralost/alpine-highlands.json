@@ -1,0 +1,225 @@
+{
+  "name": "Alpine Highlands",
+  "color": "#8EDEE7",
+  "rarity": 1,
+  "derivative": "minecraft:taiga",
+  "vanillaDerivative": "minecraft:taiga",
+  "customDerivitives": [
+    {
+      "id": "terralost_alpine_highlands1",
+      "skyColor": "#78A7FF",
+      "fogColor": "#C0D8FF",
+      "humidity": 0.1,
+      "downfallType": "rain",
+      "temperature": 0.45,
+      "waterColor": "#3F76E4",
+      "grassColor": "#5AC410",
+      "waterFogColor": "#50533"
+    },
+    {
+      "id": "terralost_alpine_highlands2",
+      "skyColor": "#78A7FF",
+      "fogColor": "#C0D8FF",
+      "humidity": 0.1,
+      "downfallType": "rain",
+      "temperature": 0.45,
+      "grassColor": "#3DE232",
+      "waterColor": "#3F76E4",
+      "waterFogColor": "#50533"
+    }
+  ],
+  "generators": [
+    {
+      "min": 48,
+      "max": 60,
+      "generator": "mountain"
+    },
+    {
+      "min": 5,
+      "max": 15,
+      "generator": "rare-hills"
+    }
+  ],
+  "wall": {
+    "style": {
+      "style": "NOWHERE"
+    },
+    "palette": [
+      {
+        "block": "minecraft:diorite"
+      },
+      {
+        "block": "minecraft:stone",
+        "weight": 3
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "NOWHERE_SIMPLEX"
+      },
+      "zoom": 0.5,
+      "palette": [
+        {
+          "block": "minecraft:grass_block",
+          "weight": 8
+        },
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:coarse_dirt"
+        },
+        {
+          "block": "minecraft:diorite"
+        }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 4,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.0001,
+      "variance": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:cornflower"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.5,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 5
+        },
+        {
+          "block": "minecraft:short_grass",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:fern"
+        },
+        {
+          "block": "minecraft:large_fern"
+        }
+      ]
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-mixed-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 43136866,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-birch-1",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 5,
+        "heightMax": 8,
+        "variants": 2,
+        "seed": 1666531998,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 122,
+          "squish": 1.2,
+          "mode": "TRIMMED",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 1725462762,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 433969281,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

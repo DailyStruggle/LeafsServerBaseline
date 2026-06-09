@@ -1,38 +1,75 @@
 {
-  "name": "vanilla/old_growth_birch_forest",
+  "name": "Old Growth Birch Forest",
+  "color": "#88BB67",
   "rarity": 1,
-  "derivative": "OLD_GROWTH_BIRCH_FOREST",
-  "vanillaDerivative": "OLD_GROWTH_BIRCH_FOREST",
-  "category": "forest",
+  "derivative": "minecraft:old_growth_birch_forest",
+  "vanillaDerivative": "minecraft:old_growth_birch_forest",
   "generators": [
     {
       "min": 4,
-      "max": 10,
+      "max": 7,
       "generator": "plain"
     }
   ],
-  "objects": [
-    {
-      "chance": 0.55,
-      "density": 6,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
       },
-      "place": [
-        "trees/vanilla-birch/birchXL1",
-        "trees/vanilla-birch/birchXL2",
-        "trees/vanilla-birch/birchXL3",
-        "trees/vanilla-birch/birchXL4",
-        "trees/vanilla-birch/birchXL5",
-        "trees/vanilla-birch/birchXL6",
-        "trees/vanilla-birch/birchXL7",
-        "trees/vanilla-birch/birchXL8"
+      {
+        "block": "minecraft:andesite"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "FLAT"
+      },
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        }
+      ]
+    },
+    {
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
       ]
     }
   ],
@@ -77,5 +114,203 @@
         }
       ]
     }
-  ]
+  ],
+  "customDerivitives": [
+    {
+      "category": "forest",
+      "id": "old_growth_birch_forest",
+      "grassColor": "#88BB67",
+      "foliageColor": "#6BA941",
+      "waterColor": "#44AFF5",
+      "downfallType": "none"
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-birch-XL-h11",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 11,
+        "heightMax": 11,
+        "variants": 1,
+        "seed": 678581228,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 10,
+              "radius": 3.4
+            },
+            {
+              "yOffset": 11,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 11,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 12,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.1375,
+        "density": 6
+      },
+      {
+        "name": "pv-birch-XL-h13",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 13,
+        "heightMax": 13,
+        "variants": 1,
+        "seed": 1182544576,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 9,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 10,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 12,
+              "radius": 3.4
+            },
+            {
+              "yOffset": 13,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 14,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 15,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.1375,
+        "density": 6
+      },
+      {
+        "name": "pv-birch-XL-h14",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 14,
+        "heightMax": 14,
+        "variants": 1,
+        "seed": 1478010723,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 10,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 11,
+              "radius": 3.75
+            },
+            {
+              "yOffset": 13,
+              "radius": 4.25
+            },
+            {
+              "yOffset": 14,
+              "radius": 3.75
+            },
+            {
+              "yOffset": 15,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 16,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.1375,
+        "density": 6
+      },
+      {
+        "name": "pv-birch-XL-h16",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 16,
+        "heightMax": 16,
+        "variants": 1,
+        "seed": 907462223,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 11,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 13,
+              "radius": 4.5
+            },
+            {
+              "yOffset": 15,
+              "radius": 5.1
+            },
+            {
+              "yOffset": 17,
+              "radius": 4.5
+            },
+            {
+              "yOffset": 18,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 19,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.1375,
+        "density": 6
+      }
+    ]
+  }
 }

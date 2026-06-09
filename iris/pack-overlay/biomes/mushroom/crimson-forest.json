@@ -1,0 +1,198 @@
+{
+  "name": "Crimson Mushroom Swamp",
+  "color": "#FFC0FE",
+  "rarity": 2,
+  "derivative": "minecraft:crimson_forest",
+  "vanillaDerivative": "minecraft:mushroom_fields",
+  "customDerivitives": [
+    {
+      "id": "mushroom_crimson_forest",
+      "waterColor": "#C41A1A",
+      "foliageColor": "#AB3030",
+      "waterFogColor": "#C41A1A",
+      "grassColor": "#C41A1A",
+      "fogColor": "#C41A1A"
+    }
+  ],
+  "children": [
+    "mushroom/crimson-forest-extended"
+  ],
+  "generators": [
+    {
+      "min": 4,
+      "max": 25,
+      "generator": "plain-cliffs"
+    }
+  ],
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:crimson_hyphae"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "zoom": 0.5,
+      "style": {
+        "style": "NOWHERE"
+      },
+      "palette": [
+        {
+          "block": "minecraft:crimson_nylium"
+        }
+      ]
+    },
+    {
+      "minHeight": 8,
+      "maxHeight": 9,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        },
+        {
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.009,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "data": {
+            "face": "floor",
+            "powered": false,
+            "facing": "east"
+          },
+          "block": "minecraft:polished_blackstone_button"
+        },
+        {
+          "data": {
+            "face": "floor",
+            "powered": false,
+            "facing": "south"
+          },
+          "block": "minecraft:crimson_button"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.05,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "block": "minecraft:crimson_fungus"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.11,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "block": "minecraft:crimson_roots"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    }
+  ],
+  "childShrinkFactor": 2.4,
+  "slab": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "weight": 4,
+        "block": "minecraft:air"
+      },
+      {
+        "data": {
+          "waterlogged": false,
+          "type": "bottom"
+        },
+        "block": "minecraft:crimson_slab"
+      },
+      {
+        "weight": 4,
+        "block": "minecraft:air"
+      }
+    ]
+  },
+  "proceduralObjects": {
+    "fungi": [
+      {
+        "name": "pv-mushroom-red-mushroom-0",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:red_mushroom_block",
+        "stemHeightMin": 4,
+        "stemHeightMax": 8,
+        "stemWidth": 1,
+        "capRadiusMin": 2,
+        "capRadiusMax": 4,
+        "capThickness": 1,
+        "chance": 0.25,
+        "density": 1,
+        "seed": 1439920930
+      },
+      {
+        "name": "pv-mushroom-brown-mushroom-1",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:brown_mushroom_block",
+        "stemHeightMin": 3,
+        "stemHeightMax": 6,
+        "stemWidth": 1,
+        "capRadiusMin": 3,
+        "capRadiusMax": 5,
+        "capThickness": 1,
+        "chance": 0.25,
+        "density": 1,
+        "seed": 1935670237
+      }
+    ]
+  }
+}

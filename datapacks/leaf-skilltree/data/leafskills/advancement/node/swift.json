@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:root",
+  "display": {
+    "title": "Swiftness",
+    "description": "Start node. +10% movement speed. Choose with: /trigger skill_pick set 2",
+    "icon": { "id": "minecraft:feather" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

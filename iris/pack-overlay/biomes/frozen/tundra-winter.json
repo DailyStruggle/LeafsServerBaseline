@@ -1,0 +1,338 @@
+{
+  "name": "Winter Forest",
+  "color": "#8EDEE7",
+  "rarity": 1,
+  "derivative": "minecraft:taiga",
+  "vanillaDerivative": "minecraft:dark_forest",
+  "customDerivitives": [
+    {
+      "downfallType": "snow",
+      "foliageColor": "#194569",
+      "id": "winter_mountain_forest1",
+      "temperature": -3,
+      "fogColor": "#A6D1FF",
+      "waterFogColor": "#216FC4",
+      "grassColor": "#D0E1FF"
+    },
+    {
+      "downfallType": "snow",
+      "foliageColor": "#5F84A2",
+      "id": "winter_mountain_forest2",
+      "temperature": -3,
+      "fogColor": "#A6D1FF",
+      "waterFogColor": "#216FC4",
+      "grassColor": "#D0E1FF"
+    },
+    {
+      "downfallType": "snow",
+      "foliageColor": "#91AEC4",
+      "id": "winter_mountain_forest3",
+      "temperature": -3,
+      "fogColor": "#A6D1FF",
+      "waterFogColor": "#216FC4",
+      "grassColor": "#D0E1FF"
+    }
+  ],
+  "generators": [
+    {
+      "min": 48,
+      "max": 86,
+      "generator": "smooth-dunes"
+    }
+  ],
+  "biomeStyle": {
+    "style": "STATIC",
+    "zoom": 1
+  },
+  "wall": {
+    "style": {
+      "style": "NOWHERE"
+    },
+    "palette": [
+      {
+        "block": "minecraft:diorite"
+      },
+      {
+        "block": "minecraft:diorite"
+      },
+      {
+        "block": "minecraft:stone"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "SIMPLEX",
+        "fracture": {
+          "style": "NOWHERE",
+          "zoom": 0.39,
+          "multiplier": 23
+        }
+      },
+      "zoom": 0.7,
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        },
+        {
+          "block": "minecraft:snow_block"
+        },
+        {
+          "block": "minecraft:powder_snow"
+        }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 2,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "style": {
+        "style": "STATIC"
+      },
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.003,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 1,
+      "palette": [
+        {
+          "block": "minecraft:white_tulip"
+        },
+        {
+          "block": "minecraft:cornflower"
+        },
+        {
+          "block": "minecraft:blue_orchid"
+        },
+        {
+          "block": "minecraft:lily_of_the_valley"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.01,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "data": {
+            "age": 0
+          },
+          "block": "minecraft:sweet_berry_bush"
+        },
+        {
+          "data": {
+            "age": 1
+          },
+          "block": "minecraft:sweet_berry_bush"
+        },
+        {
+          "data": {
+            "age": 2
+          },
+          "block": "minecraft:sweet_berry_bush"
+        },
+        {
+          "data": {
+            "age": 3
+          },
+          "block": "minecraft:sweet_berry_bush"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.25,
+      "palette": [
+        {
+          "block": "minecraft:snow"
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "palette": [
+        {
+          "block": "minecraft:stone_button",
+          "data": {
+            "Facing": "north",
+            "face": "floor"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "palette": [
+        {
+          "block": "minecraft:stone_button",
+          "data": {
+            "Facing": "east",
+            "face": "floor"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "palette": [
+        {
+          "block": "minecraft:tall_grass"
+        }
+      ]
+    },
+    {
+      "chance": 0.25,
+      "palette": [
+        {
+          "block": "minecraft:short_grass"
+        }
+      ]
+    },
+    {
+      "chance": 0.06,
+      "palette": [
+        {
+          "block": "minecraft:fern"
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "palette": [
+        {
+          "block": "minecraft:large_fern"
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "palette": [
+        {
+          "block": "minecraft:cobblestone_slab"
+        }
+      ]
+    }
+  ],
+  "childShrinkFactor": 2.4,
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-mixed-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 1878737502,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-birch-1",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 5,
+        "heightMax": 8,
+        "variants": 2,
+        "seed": 818533307,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 122,
+          "squish": 1.2,
+          "mode": "TRIMMED",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 764358716,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 1957998013,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

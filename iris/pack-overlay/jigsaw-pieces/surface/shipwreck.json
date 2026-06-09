@@ -1,0 +1,17 @@
+{
+  "object": "jigsaw/surface/shipwreck",
+  "placementOptions": {
+    "bore": false,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/shipwreck_supply"
+      },
+      {
+        "name": "minecraft:chests/shipwreck_treasure"
+      },
+      {
+        "name": "minecraft:chests/shipwreck_map"
+      }
+    ]
+  }
+}

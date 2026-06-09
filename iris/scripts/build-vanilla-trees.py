@@ -17,6 +17,7 @@ Then: powershell iris/scripts/deploy-iris-pack.ps1
 import json
 import os
 import sys
+import zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 IRIS = os.path.dirname(HERE)
@@ -28,33 +29,51 @@ OVERLAY_VANILLA = os.path.join(IRIS, "pack-overlay", "biomes", "vanilla")
 sys.path.insert(0, TREEGEN)
 from nbt import write_iob          # noqa: E402
 from generate_tree import generate_tree  # noqa: E402
+from to_procedural import convert_entry  # noqa: E402
 
 VARIANTS = 8  # variants per species/size bucket (variation is cheap)
+
+# Procedural-tree variants emitted per (species, size) group. Iris grows these at
+# world-gen time from the IrisProceduralTree JSON, so we no longer bake .iob.
+PROC_VARIANTS = 4
 
 # Trunk-height buckets (see plan doc): S/M/L/XL.
 SIZES = {"S": (4, 6), "M": (6, 9), "L": (8, 12), "XL": (11, 16)}
 
 # Per-species generation parameters.
 # profile must be one of: oak, birch, spruce, jungle, acacia, dark_oak, cherry
+#
+# Canopy shape is re-derived from our own canopy.py model (the deprecated .iob
+# pipeline's geometry), NOT hand-rolled here: each species only carries its
+# `profile` (+ optional `squish`/`start_angle`), and `convert_entry(bake_layers=
+# True)` injects that profile's tuned `_PRESETS`/`_PROFILE_RADIUS_SCALE` silhouette
+# as explicit Iris `layers` (see to_procedural._bake_preset_layers). The canopy
+# `mode` is `trimmed` (our canopy.py default) = solid crown minus box corners, so
+# leaves are full and always enclose the trunk. `start_angle` 90 keeps a flat
+# underside + rounded top (0 = full sphere, 90 = flat bottom; see canopy.py
+# _layer_half_height). `density` mode (the previous, buggy choice) is what made
+# the converted trees sparse/bare and is no longer used for vanilla trees.
 SPECIES = {
-    "oak":      {"profile": "oak",      "trunk": "minecraft:oak_log",      "leaves": "minecraft:oak_leaves",      "canopy": {"squish": 0.85, "mode": "density", "leaf_density": 0.9}},
-    "birch":    {"profile": "birch",    "trunk": "minecraft:birch_log",    "leaves": "minecraft:birch_leaves",    "canopy": {"squish": 0.95, "mode": "density", "leaf_density": 0.88}},
-    "spruce":   {"profile": "spruce",   "trunk": "minecraft:spruce_log",   "leaves": "minecraft:spruce_leaves",   "canopy": {"squish": 1.0,  "mode": "density", "leaf_density": 0.92}},
-    # 2-wide (2x2) spruce: occasional tall mega-pine for taiga (Part 2). Same
-    # spruce profile, but trunk_width 2 so it reads as a thick old pine.
-    "spruce2w": {"profile": "spruce",   "trunk": "minecraft:spruce_log",   "leaves": "minecraft:spruce_leaves",   "trunk_width": 2, "canopy": {"squish": 1.0,  "mode": "density", "leaf_density": 0.92}},
-    "jungle":   {"profile": "jungle",   "trunk": "minecraft:jungle_log",   "leaves": "minecraft:jungle_leaves",   "canopy": {"squish": 0.9,  "mode": "density", "leaf_density": 0.85}},
-    "acacia":   {"profile": "acacia",   "trunk": "minecraft:acacia_log",   "leaves": "minecraft:acacia_leaves",   "canopy": {"squish": 0.55, "mode": "density", "leaf_density": 0.85}},
-    # Vanilla dark oak: flat, wide umbrella crown (not a sphere). Uses the
-    # dedicated "dark_oak_flat" canopy profile + a disc-like start_angle and low
-    # squish so the top reads as a shallow slab.
-    "dark_oak": {"profile": "dark_oak_flat", "trunk": "minecraft:dark_oak_log", "leaves": "minecraft:dark_oak_leaves", "trunk_width": 2, "canopy": {"start_angle": 150, "squish": 0.28, "mode": "density", "leaf_density": 0.95}},
-    # Giant roofed-forest dark oak: same flat umbrella but on the extra-wide
-    # canopy profile so the crowns are broad enough to overlap into a continuous
-    # closed roof in the dark_forest__giant variant.
-    "dark_oak_wide": {"profile": "dark_oak_flat_wide", "trunk": "minecraft:dark_oak_log", "leaves": "minecraft:dark_oak_leaves", "trunk_width": 2, "canopy": {"start_angle": 150, "squish": 0.28, "mode": "density", "leaf_density": 0.97}},
-    "cherry":   {"profile": "cherry",   "trunk": "minecraft:cherry_log",   "leaves": "minecraft:cherry_leaves",   "canopy": {"squish": 0.85, "mode": "density", "leaf_density": 0.9}},
-    "mangrove": {"profile": "oak",      "trunk": "minecraft:mangrove_log", "leaves": "minecraft:mangrove_leaves", "canopy": {"squish": 0.9,  "mode": "density", "leaf_density": 0.88}},
+    "oak":      {"profile": "oak",      "trunk": "minecraft:oak_log",      "leaves": "minecraft:oak_leaves",      "canopy": {"start_angle": 90, "squish": 0.85, "mode": "trimmed"}},
+    "birch":    {"profile": "birch",    "trunk": "minecraft:birch_log",    "leaves": "minecraft:birch_leaves",    "canopy": {"start_angle": 90, "squish": 0.95, "mode": "trimmed"}},
+    "spruce":   {"profile": "spruce",   "trunk": "minecraft:spruce_log",   "leaves": "minecraft:spruce_leaves",   "canopy": {"start_angle": 90, "squish": 1.0,  "mode": "trimmed"}},
+    # 2-wide (2x2) spruce: occasional tall mega-pine for taiga. Same spruce
+    # profile/silhouette, but trunk_width 2 so it reads as a thick old pine, and
+    # its own tall mega-pine "heights" (sourced from configs/taiga.json). The
+    # canopy radius scales with height (via _PROFILE_RADIUS_SCALE), so the taller
+    # trunk gets a proportionally larger, fully-clothed crown.
+    "spruce2w": {"profile": "spruce",   "trunk": "minecraft:spruce_log",   "leaves": "minecraft:spruce_leaves",   "trunk_width": 2, "heights": {"S": (16, 22), "M": (18, 30), "L": (24, 36), "XL": (30, 44)}, "canopy": {"start_angle": 90, "squish": 1.0, "mode": "trimmed"}},
+    "jungle":   {"profile": "jungle",   "trunk": "minecraft:jungle_log",   "leaves": "minecraft:jungle_leaves",   "canopy": {"start_angle": 90, "squish": 0.9,  "mode": "trimmed"}},
+    "acacia":   {"profile": "acacia",   "trunk": "minecraft:acacia_log",   "leaves": "minecraft:acacia_leaves",   "canopy": {"start_angle": 90, "squish": 0.55, "mode": "trimmed"}},
+    # Vanilla dark oak: flat, wide umbrella crown (not a sphere). The dedicated
+    # "dark_oak_flat" profile already compresses its preset layers into the top of
+    # the crown; the low squish keeps each layer a shallow slab.
+    "dark_oak": {"profile": "dark_oak_flat", "trunk": "minecraft:dark_oak_log", "leaves": "minecraft:dark_oak_leaves", "trunk_width": 2, "canopy": {"start_angle": 90, "squish": 0.28, "mode": "trimmed"}},
+    # Giant roofed-forest dark oak: same flat umbrella on the extra-wide profile
+    # so crowns overlap into a continuous closed roof in dark_forest__giant.
+    "dark_oak_wide": {"profile": "dark_oak_flat_wide", "trunk": "minecraft:dark_oak_log", "leaves": "minecraft:dark_oak_leaves", "trunk_width": 2, "canopy": {"start_angle": 90, "squish": 0.28, "mode": "trimmed"}},
+    "cherry":   {"profile": "cherry",   "trunk": "minecraft:cherry_log",   "leaves": "minecraft:cherry_leaves",   "canopy": {"start_angle": 90, "squish": 0.85, "mode": "trimmed"}},
+    "mangrove": {"profile": "oak",      "trunk": "minecraft:mangrove_log", "leaves": "minecraft:mangrove_leaves", "canopy": {"start_angle": 90, "squish": 0.9,  "mode": "trimmed"}},
     # Distinct tree *forms* (not just size): an `extra` dict is merged verbatim
     # into the generate_tree entry, so a species can carry trunk-shape / lean /
     # spiral / branch params. This lets a biome variant ship a recognizably
@@ -63,7 +82,7 @@ SPECIES = {
     "cherry_spiral": {
         "profile": "cherry", "trunk": "minecraft:cherry_log", "leaves": "minecraft:cherry_leaves",
         "canopy": {
-            "start_angle": 90, "squish": 0.7, "mode": "density", "leaf_density": 0.9,
+            "start_angle": 90, "squish": 0.7, "mode": "trimmed", "leaf_density": 0.9,
             "branches": {
                 "prob_fn": "top_heavy", "prob_params": {"exponent": 2.5},
                 "length_fn": "linear", "length_params": {"base": 4, "crown": 11},
@@ -419,6 +438,96 @@ def _object_group(place, chance, density):
     }
 
 
+def _stable_seed(*parts):
+    """Deterministic 31-bit seed from the given parts (reproducible runs)."""
+    return zlib.crc32("|".join(str(p) for p in parts).encode("utf-8")) & 0x7FFFFFFF
+
+
+def _bucket_heights(h_min, h_max):
+    """Distinct fixed trunk heights spread across a size bucket (<= PROC_VARIANTS)."""
+    if h_max <= h_min:
+        return [h_min]
+    span = h_max - h_min
+    raw = {int(round(h_min + span * k / max(PROC_VARIANTS - 1, 1)))
+           for k in range(PROC_VARIANTS)}
+    return sorted(raw)
+
+
+def _proc_trees(scope, sp, size, chance, density):
+    """Build the IrisProceduralTree dicts for a generated species/size group.
+
+    Canopy shape is re-derived from our canopy.py model: ``convert_entry`` is run
+    with ``bake_layers=True`` so each tree carries the profile's tuned preset
+    silhouette as explicit Iris ``layers`` (instead of Iris falling back to its own
+    internal presets). Because Iris places canopy ``yOffset`` ABSOLUTELY from the
+    tree base (it does not rescale it to the runtime trunk height), we emit one
+    tree per FIXED height across the bucket (``heightMin == heightMax``) and bake
+    its layers for that exact height, so every crown caps its own trunk. The
+    group's placement ``chance`` is split evenly across the fixed-height variants
+    so total tree density is preserved."""
+    cfg = SPECIES[sp]
+    h_min, h_max = cfg.get("heights", {}).get(size, SIZES[size])
+    heights = _bucket_heights(h_min, h_max)
+    per_chance = chance / len(heights)
+    trees = []
+    for height in heights:
+        entry = {
+            "name": "pv-%s-%s-h%d" % (sp, size, height),
+            "trunk": cfg["trunk"],
+            "leaves": cfg["leaves"],
+            "profile": cfg["profile"],
+            "height_min": height,
+            "height_max": height,
+            "count": 1,
+            "seed": _stable_seed(scope, sp, size, height),
+            "trunk_width": cfg.get("trunk_width", 1),
+            "trunk_shape": "constant",
+            "canopy": dict(cfg["canopy"]),
+        }
+        # Merge any species-specific form params (trunk shape, lean, spiral, curve).
+        entry.update(cfg.get("extra", {}))
+        proc = convert_entry(entry, lambda _m: None, bake_layers=True)
+        proc["chance"] = per_chance
+        proc["density"] = density
+        trees.append(proc)
+    return trees
+
+
+def _build_placements(scope, groups, refs):
+    """Split a biome's tree groups into procedural trees (generated species) and
+    legacy .iob object placers (huge mushrooms + pre-built custom: objects)."""
+    objects = []
+    trees = []
+    for sp, size, chance, density in groups:
+        if sp == "mushroom" or sp.startswith("custom:"):
+            place = resolve_place(refs, sp, size)
+            if not place:
+                continue
+            objects.append(_object_group(list(place), chance, density))
+        else:
+            trees.extend(_proc_trees(scope, sp, size, chance, density))
+    return objects, trees
+
+
+def _apply_placements(data, objects, trees):
+    """Write the (objects, trees) split onto the biome dict, clearing stale keys."""
+    if objects:
+        data["objects"] = objects
+    else:
+        data.pop("objects", None)
+    proc = data.get("proceduralObjects")
+    if not isinstance(proc, dict):
+        proc = {}
+    if trees:
+        proc["trees"] = trees
+    else:
+        proc.pop("trees", None)
+    if proc:
+        data["proceduralObjects"] = proc
+    else:
+        data.pop("proceduralObjects", None)
+
+
 def _decorator(chance, palette, stack_min=1, stack_max=1):
     pal = []
     for blk, weight in palette:
@@ -440,32 +549,33 @@ def write_overlays(refs):
     biomes = set(BIOME_TREES) | set(BIOME_DECORATORS) | set(BIOME_GENERATORS) | set(BIOME_LAYERS)
     for biome in sorted(biomes):
         base_path = os.path.join(BASE_VANILLA, biome + ".json")
-        if not os.path.exists(base_path):
-            print("  SKIP missing base biome:", biome)
+        overlay_path = os.path.join(OVERLAY_VANILLA, biome + ".json")
+        # Prefer the pack-base template; if pack-base is not synced for this
+        # vanilla biome, fall back to the existing overlay so the biome still
+        # gets (re)transitioned to procedural trees instead of being skipped.
+        src_path = base_path if os.path.exists(base_path) else overlay_path
+        if not os.path.exists(src_path):
+            print("  SKIP missing base+overlay biome:", biome)
             continue
-        with open(base_path, "r", encoding="utf-8") as f:
+        # utf-8-sig: overlay fallbacks may carry a stray BOM; tolerate and drop it.
+        with open(src_path, "r", encoding="utf-8-sig") as f:
             data = json.load(f)
         if biome in BIOME_GENERATORS:
             data["generators"] = BIOME_GENERATORS[biome]
         if biome in BIOME_LAYERS:
             data["layers"] = BIOME_LAYERS[biome]
-        objects = []
-        for sp, size, chance, density in BIOME_TREES.get(biome, []):
-            place = resolve_place(refs, sp, size)
-            if not place:
-                continue
-            objects.append(_object_group(list(place), chance, density))
-        if objects:
-            data["objects"] = objects
+        objects, trees = _build_placements(biome, BIOME_TREES.get(biome, []), refs)
+        _apply_placements(data, objects, trees)
         decorators = [_decorator(*spec) for spec in BIOME_DECORATORS.get(biome, [])]
         if decorators:
             data["decorators"] = decorators
-        out_path = os.path.join(OVERLAY_VANILLA, biome + ".json")
+        out_path = overlay_path
         with open(out_path, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, indent=2)
             f.write("\n")
         written += 1
-        print("  overlay biome %-26s (%d trees, %d decorators)" % (biome, len(objects), len(decorators)))
+        print("  overlay biome %-26s (%d proc-trees, %d objects, %d decorators)"
+              % (biome, len(trees), len(objects), len(decorators)))
     print("  wrote %d overlay vanilla biome files" % written)
 
 
@@ -479,10 +589,14 @@ def write_variants(refs):
         parent, rarity, groups = BIOME_VARIANTS[variant]
         rarity = RARITY_SCALE.get(rarity, rarity)
         parent_base = os.path.join(BASE_VANILLA, parent + ".json")
-        if not os.path.exists(parent_base):
-            print("  SKIP variant (missing parent base):", variant)
+        parent_overlay = os.path.join(OVERLAY_VANILLA, parent + ".json")
+        # Inherit from the pack-base parent, falling back to the (already
+        # transitioned) parent overlay when pack-base is not synced.
+        parent_src = parent_base if os.path.exists(parent_base) else parent_overlay
+        if not os.path.exists(parent_src):
+            print("  SKIP variant (missing parent base+overlay):", variant)
             continue
-        with open(parent_base, "r", encoding="utf-8") as f:
+        with open(parent_src, "r", encoding="utf-8-sig") as f:
             base = json.load(f)
         base["name"] = "vanilla/" + variant
         base["rarity"] = rarity
@@ -491,14 +605,8 @@ def write_variants(refs):
         if parent in BIOME_LAYERS:
             base["layers"] = BIOME_LAYERS[parent]
         data = dict(base)
-        objects = []
-        for sp, size, chance, density in groups:
-            place = resolve_place(refs, sp, size)
-            if not place:
-                continue
-            objects.append(_object_group(list(place), chance, density))
-        if objects:
-            data["objects"] = objects
+        objects, trees = _build_placements(variant, groups, refs)
+        _apply_placements(data, objects, trees)
         decorators = [_decorator(*spec) for spec in BIOME_DECORATORS.get(parent, [])]
         if decorators:
             data["decorators"] = decorators
@@ -507,16 +615,20 @@ def write_variants(refs):
             json.dump(data, f, indent=2)
             f.write("\n")
         written += 1
-        print("  variant biome %-26s parent=%-18s rarity=%d (%d trees)" % (variant, parent, rarity, len(objects)))
+        print("  variant biome %-26s parent=%-18s rarity=%d (%d proc-trees, %d objects)"
+              % (variant, parent, rarity, len(trees), len(objects)))
     print("  wrote %d variant biome files" % written)
 
 
 def main():
-    print("=== Generating vanilla tree variants ===")
-    refs = gen_species()
-    print("=== Writing vanilla biome overlays ===")
+    # Trees are now grown by Iris' native procedural generator at world-gen
+    # (proceduralObjects.trees), so we no longer bake .iob for the generated
+    # species. Only mushrooms (base-pack objects) and pre-built custom: objects
+    # are still placed as .iob, and neither needs gen_species().
+    refs = {}
+    print("=== Writing vanilla biome overlays (procedural trees) ===")
     write_overlays(refs)
-    print("=== Writing vanilla biome variants ===")
+    print("=== Writing vanilla biome variants (procedural trees) ===")
     write_variants(refs)
     print("Done. Next: run iris/scripts/deploy-iris-pack.ps1")
 

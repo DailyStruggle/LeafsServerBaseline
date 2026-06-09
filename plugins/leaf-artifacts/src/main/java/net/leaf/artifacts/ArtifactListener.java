@@ -1,5 +1,8 @@
 package net.leaf.artifacts;
 
+import net.leaf.curios.api.CuriosApi;
+import net.leaf.curios.api.event.CurioEquipEvent;
+import net.leaf.curios.api.event.CurioUnequipEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,40 +11,50 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 /**
- * Wires each online player to a lightweight per-player reconcile loop.
+ * Wires each online player to a lightweight per-player reconcile loop and reacts
+ * to curio equip/unequip events from LeafCurios.
  *
  * <p>Uses the player's entity scheduler (Folia-safe; also supported on regular
  * Paper) so all artifact state changes run on the thread that owns the player.
- * A periodic reconcile keeps the design simple for this first pass: any way an
- * artifact enters or leaves the inventory is picked up within roughly one
- * second without hooking every inventory event.</p>
+ * The curio store itself (load/save/persistence) is owned by LeafCurios; this
+ * plugin only recomputes attribute modifiers / infinite effects from the active
+ * curio set whenever it changes (and once per second as a safety net).</p>
  */
 public final class ArtifactListener implements Listener {
 
-    private static final long INITIAL_DELAY_TICKS = 1L;
+    private static final long INITIAL_DELAY_TICKS = 2L;
     private static final long PERIOD_TICKS = 20L;
 
     private final Plugin plugin;
     private final ArtifactController controller;
-    private final ArtifactEquipment equipment;
+    private final RollerSkatesController rollerSkates;
+    private final HeliumFlamingoController heliumFlamingo;
+    private final FlippersController flippers;
+    private final CuriosApi curios;
 
-    public ArtifactListener(Plugin plugin, ArtifactController controller, ArtifactEquipment equipment) {
+    public ArtifactListener(Plugin plugin, ArtifactController controller,
+                            RollerSkatesController rollerSkates,
+                            HeliumFlamingoController heliumFlamingo,
+                            FlippersController flippers, CuriosApi curios) {
         this.plugin = plugin;
         this.controller = controller;
-        this.equipment = equipment;
+        this.rollerSkates = rollerSkates;
+        this.heliumFlamingo = heliumFlamingo;
+        this.flippers = flippers;
+        this.curios = curios;
     }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        equipment.load(player);
-        // Strip any artifact modifiers persisted in the player's NBT from a
-        // previous session, then apply the current equipped set cleanly. Without
-        // the clear, reconcile would see a stale-but-present modifier and skip
-        // re-adding it, leaving the artifact inactive until manually re-equipped.
+        // Slight delay so LeafCurios has loaded this player's curio store first.
+        // Migrate any legacy in-plugin equipment, then strip stale persisted
+        // modifiers and re-apply the active set cleanly (so equipped artifacts
+        // are effective immediately on login without a manual re-equip).
         player.getScheduler().runDelayed(
                 plugin,
                 task -> {
+                    ArtifactLegacyMigration.migrate(plugin, player, curios);
                     controller.clear(player);
                     controller.reconcile(player);
                 },
@@ -53,13 +66,26 @@ public final class ArtifactListener implements Listener {
                 null,
                 PERIOD_TICKS,
                 PERIOD_TICKS);
+        rollerSkates.start(player);
+        heliumFlamingo.start(player);
+        flippers.start(player);
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        controller.clear(player);
-        equipment.save(player);
-        equipment.unload(player.getUniqueId());
+        controller.clear(event.getPlayer());
+        rollerSkates.clear(event.getPlayer());
+        heliumFlamingo.clear(event.getPlayer());
+        flippers.clear(event.getPlayer());
+    }
+
+    @EventHandler
+    public void onCurioEquip(CurioEquipEvent event) {
+        controller.reconcile(event.getPlayer());
+    }
+
+    @EventHandler
+    public void onCurioUnequip(CurioUnequipEvent event) {
+        controller.reconcile(event.getPlayer());
     }
 }

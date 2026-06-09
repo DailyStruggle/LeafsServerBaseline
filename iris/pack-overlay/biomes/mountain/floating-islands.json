@@ -1,0 +1,335 @@
+{
+  "name": "Floating Islands",
+  "color": "#7EC8A0",
+  "rarity": 12,
+  "derivative": "minecraft:windswept_hills",
+  "vanillaDerivative": "minecraft:windswept_hills",
+  "customDerivitives": [
+    {
+      "id": "floating_islands",
+      "grassColor": "#79C05A",
+      "foliageColor": "#59AE30",
+      "waterColor": "#3F76E4",
+      "skyColor": "#77ADFF",
+      "downfallType": "rain"
+    }
+  ],
+  "generators": [
+    {
+      "min": 150,
+      "max": 220,
+      "generator": "plain"
+    }
+  ],
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
+      },
+      {
+        "block": "minecraft:dirt"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "FLAT"
+      },
+      "palette": [
+        {
+          "weight": 5,
+          "block": "minecraft:grass_block"
+        },
+        {
+          "weight": 2,
+          "block": "minecraft:podzol"
+        },
+        {
+          "weight": 1,
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 20,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:gravel"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.12,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.5,
+      "palette": [
+        {
+          "block": "minecraft:grass"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.02,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:poppy"
+        },
+        {
+          "block": "minecraft:azure_bluet"
+        },
+        {
+          "block": "minecraft:oxeye_daisy"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.004,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.2,
+      "palette": [
+        {
+          "block": "minecraft:moss_block"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-oak-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 834282834,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.03,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-1",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 1199538163,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.03,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-2",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 11,
+        "variants": 3,
+        "seed": 1546686480,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 118,
+          "squish": 0.75,
+          "mode": "DENSITY",
+          "leafDensity": 0.85
+        },
+        "chance": 0.03,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 13,
+        "heightMax": 18,
+        "variants": 3,
+        "seed": 720751281,
+        "trunkWidth": 2,
+        "trunkShape": "PARABOLIC",
+        "shapePeakOffset": 0.2,
+        "canopy": {
+          "startAngle": 122,
+          "squish": 0.95,
+          "mode": "DENSITY",
+          "leafDensity": 0.88,
+          "branches": {
+            "probabilityFunction": "TOP_HEAVY",
+            "probabilityExponent": 2.0,
+            "lengthFunction": "LINEAR",
+            "lengthBase": 2,
+            "lengthCrown": 4,
+            "azimuthMode": "RANDOM",
+            "elevation": 22,
+            "leafStartUp": true,
+            "clusterRadius": 2,
+            "clusterMode": "DENSITY",
+            "clusterDensity": 0.85
+          }
+        },
+        "chance": 0.03,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-0",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 1114505283,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.004,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-1",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 12,
+        "heightMax": 16,
+        "variants": 3,
+        "seed": 883645154,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 134,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.88
+        },
+        "chance": 0.004,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 11,
+        "heightMax": 15,
+        "variants": 3,
+        "seed": 803517697,
+        "trunkWidth": 1,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.8,
+        "canopy": {
+          "startAngle": 132,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.004,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-3",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 18,
+        "heightMax": 26,
+        "variants": 3,
+        "seed": 1495396256,
+        "trunkWidth": 2,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.65,
+        "canopy": {
+          "startAngle": 130,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.004,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

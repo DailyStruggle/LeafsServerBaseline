@@ -71,6 +71,25 @@ project guide:
 - `docs/usage/TREE-GENERATION.md` - full config schema, worked example, and a
   description of the `.iob` / `.schem` output formats.
 
+## Converting to Iris 4.0 procedural trees
+
+Iris 4.0 can generate trees at world-gen time from a JSON definition
+(`IrisProceduralTree`) instead of a pre-baked `.iob`. `to_procedural.py` converts
+the same configs into that format:
+
+```
+python to_procedural.py --config configs/embervine.json
+# -> configs/embervine.procedural.json   (or pass --out <file>)
+```
+
+The conversion recases keys to camelCase, flattens our nested `*_params` objects
+into Iris' discrete fields, splits `branches.azimuth` into `azimuthMode`+`azimuth`,
+and uppercases enum values. `.iob`-only post-processing fields (encase, invert_y,
+clear_cone, ...) have no procedural equivalent and are reported as skipped.
+
+The full field-by-field mapping is in
+`docs/scratch/IRIS4-TREE-SCHEMA-COMPARISON.md`.
+
 ## Using the output in the pack
 
 The generated `.iob` files are plain object files. To make an Iris biome place

@@ -1,0 +1,11 @@
+{
+  "name": "Basalt Deltas",
+  "color": "#4A4A52",
+  "rarity": 5,
+  "landBiomes": [
+    "nether/basalt-deltas"
+  ],
+  "entitySpawners": [
+    "nether/hostile"
+  ]
+}

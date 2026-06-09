@@ -1,14 +1,14 @@
-# apply-tree-integration.ps1
+﻿# apply-tree-integration.ps1
 # Applies tree rate trims and adds custom tree objects to Iris overworld biome JSONs.
 # Reads from live pack, modifies in place using raw string operations only -
 # never round-trips through ConvertTo-Json to avoid corrupting stock structure.
 
 param(
-    [string]$PackRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes",
+    [string]$PackRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes",
     # Compiled .iob source objects, organised under <species>\custom-<species>-<tier>-<n>.iob
     [string]$SourceObjects = "C:\Users\lxgol\IdeaProjects\LeafsServerBaseline\scripts\output\renamed",
     # Destination inside the Iris pack that the "trees/custom/<name>" placements resolve to
-    [string]$ObjectsRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\objects\trees\custom",
+    [string]$ObjectsRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\objects\trees\custom",
     # A/B isolation toggle for telling new vs. old trees apart:
     #   both         - stock + custom trees (normal production state)
     #   new-only     - keep ONLY custom trees in touched biomes (stock tree chances zeroed)
@@ -27,7 +27,7 @@ param(
     [double]$CustomYOffset = -3.0,
     # Pristine stock baseline. Every Apply regenerates the live file FROM this snapshot,
     # so switching Mode is fully reversible and never compounds edits. Created on first run.
-    [string]$SnapshotRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes-stock-snapshot"
+    [string]$SnapshotRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes-stock-snapshot"
 )
 
 # Snapshot the current (clean) biomes tree once, so it can serve as the immutable

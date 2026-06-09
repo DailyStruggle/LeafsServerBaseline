@@ -151,20 +151,78 @@ def _log_to_wood(trunk_block: str) -> str:
     return _LOG_TO_WOOD.get(base, base)
 
 
+# Block ids that support an `axis` property (pillar-like). Non-orientable trunk
+# blocks (e.g. lava, obsidian for the inverted lava-vein objects) must NOT get an
+# [axis=...] suffix appended, which would corrupt their blockstate.
+_ORIENTABLE_TOKENS = ("log", "wood", "stem", "hyphae", "basalt", "pillar", "bone_block")
+
+
+def _axis_block(block: str, axis: str) -> str:
+    """Append [axis=..] only to orientable blocks that don't already carry a state."""
+    if "[" in block:
+        return block
+    base = block.split(":")[-1]
+    if any(tok in base for tok in _ORIENTABLE_TOKENS):
+        return block + "[axis=%s]" % axis
+    return block
+
+
+# When True, trunk cross-sections are filled as a DISC (rounded) instead of a square.
+# Toggled per-config by generate_tree via set_round_trunk(); default keeps the original
+# square behaviour so existing tree configs are unaffected.
+_ROUND_TRUNK = False
+_ROUND_PHASES = (0.0, 0.0, 0.0)
+
+
+def set_round_trunk(flag: bool, seed: int = 0):
+    """Enable/disable rounded (disc) trunk cross-sections for subsequent generation.
+
+    When enabled, the disc radius is modulated by a few angular sine harmonics (seeded
+    per object) so the cross-section is an IRREGULAR rounded blob rather than a perfect
+    circle. The phases are fixed per object so the irregular outline stays consistent up
+    the whole trunk.
+    """
+    global _ROUND_TRUNK, _ROUND_PHASES
+    _ROUND_TRUNK = bool(flag)
+    r = random.Random((seed ^ 0x6F2A) & 0xFFFFFFFF)
+    _ROUND_PHASES = (r.uniform(0, math.tau), r.uniform(0, math.tau), r.uniform(0, math.tau))
+
+
+def _irregular_radius(rad: float, dx: float, dz: float) -> float:
+    """Angular-noise modulated radius so the round trunk edge is irregular, not circular."""
+    p1, p2, p3 = _ROUND_PHASES
+    theta = math.atan2(dz, dx)
+    factor = (1.0
+              + 0.20 * math.sin(3 * theta + p1)
+              + 0.13 * math.sin(5 * theta + p2)
+              + 0.09 * math.sin(2 * theta + p3))
+    return rad * factor
+
+
 def _square_positions(cx: float, cz: float, width: int):
-    """Yield (x, z) positions for a square of given width centered at (cx, cz)."""
+    """Yield (x, z) positions for a square (or irregular disc, if round trunk is on)."""
     if width % 2 == 1:
         half = width // 2
         icx = int(round(cx))
         icz = int(round(cz))
+        rad = half + 0.5
         for dx in range(-half, half + 1):
             for dz in range(-half, half + 1):
+                if _ROUND_TRUNK and math.hypot(dx, dz) > _irregular_radius(rad, dx, dz):
+                    continue
                 yield icx + dx, icz + dz
     else:
         ox = int(math.floor(cx)) - width // 2 + 1
         oz = int(math.floor(cz)) - width // 2 + 1
+        rad = width / 2.0
+        ccx = ox + (width - 1) / 2.0
+        ccz = oz + (width - 1) / 2.0
         for dx in range(width):
             for dz in range(width):
+                ddx = (ox + dx) - ccx
+                ddz = (oz + dz) - ccz
+                if _ROUND_TRUNK and math.hypot(ddx, ddz) > _irregular_radius(rad, ddx, ddz):
+                    continue
                 yield ox + dx, oz + dz
 
 
@@ -223,7 +281,7 @@ def generate_trunk_with_offsets(height: int, trunk_block: str, trunk_width: int,
         active_trunk = _secondary_trunk_block(y, height, trunk_block,
                                               secondary_trunk, secondary_trunk_start,
                                               secondary_trunk_end)
-        block = active_trunk + "[axis=%s]" % axis
+        block = _axis_block(active_trunk, axis)
         for x, z in _square_positions(cx, cz, w):
             blocks[(x, y, z)] = block
         # Fill connectivity gap: if center shifted >1 block, rasterize intermediate layers
@@ -247,7 +305,7 @@ def generate_trunk_with_offsets(height: int, trunk_block: str, trunk_width: int,
     # Use the secondary trunk's wood variant where secondary blocks were placed.
     wood_block = _log_to_wood(trunk_block)
     secondary_wood = _log_to_wood(secondary_trunk) if secondary_trunk else None
-    if wood_block != trunk_block or (secondary_wood and secondary_wood != secondary_trunk):
+    if wood_block != trunk_block.split("[")[0] or (secondary_wood and secondary_wood != secondary_trunk.split("[")[0]):
         all_pos = set(blocks.keys())
         for (x, y, z), blk in list(blocks.items()):
             blk_base = blk.split("[")[0]

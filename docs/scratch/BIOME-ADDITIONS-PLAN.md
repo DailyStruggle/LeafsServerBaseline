@@ -1,7 +1,7 @@
 # Biome Additions and Cleanup Plan
 
 Date: 2026-06-05
-Status: Pending approval
+Status: IMPLEMENTED 2026-06-07 - all listed new biomes + per-volcano Hot Springs children are live in `iris/pack-overlay/biomes/` and wired into region `landBiomes`/`shoreBiomes`; deployed and reference-validated. See `docs/scratch/BIOME-ADDITIONS-EXECUTION-SEQUENCE.md`. In-world smoke test pending a user-triggered server boot.
 
 ---
 

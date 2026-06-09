@@ -1,0 +1,108 @@
+{
+    "name": "Volcanic Caldera Child",
+    "derivative": "minecraft:basalt_deltas",
+    "vanillaDerivative": "minecraft:basalt_deltas",
+    "wall": {
+        "palette": [
+            { "block": "minecraft:magma_block", "weight": 10 },
+            { "block": "minecraft:smooth_basalt", "weight": 6 },
+            { "block": "minecraft:basalt", "data": { "axis": "y" }, "weight": 3 },
+            { "block": "minecraft:lava", "data": { "level": 1 }, "weight": 2 }
+        ]
+    },
+    "layers": [
+        {
+            "maxHeight": 2,
+            "minHeight": 1,
+            "palette": [
+                { "block": "minecraft:magma_block", "weight": 10 },
+                { "block": "minecraft:smooth_basalt", "weight": 3 },
+                { "block": "minecraft:lava", "data": { "level": 0 }, "weight": 3 }
+            ]
+        }
+    ],
+    "caveCeilingLayers": [
+        {
+            "maxHeight": 2,
+            "minHeight": 2,
+            "palette": [
+                { "block": "minecraft:smooth_basalt", "weight": 5 },
+                { "block": "minecraft:magma_block", "weight": 6 }
+            ]
+        }
+    ],
+    "objects": [
+        
+    ],
+    "caveProfile": {
+        "enabled": true,
+        "verticalRange": {
+            "min": 60,
+            "max": 290
+        },
+        "baseDensityStyle": {
+            "style": "PERLIN_IRIS",
+            "zoom": 0.68
+        },
+        "detailDensityStyle": {
+            "style": "SIMPLEX",
+            "zoom": 0.5
+        },
+        "warpStyle": {
+            "style": "IRIS_DOUBLE",
+            "zoom": 0.4
+        },
+        "baseWeight": 0.85,
+        "detailWeight": 0.1,
+        "warpStrength": 0.2,
+        "densityThreshold": {
+            "min": -0.12,
+            "max": -0.04,
+            "style": {
+                "style": "PERLIN_IRIS",
+                "zoom": 0.68
+            }
+        },
+        "thresholdBias": 0.12,
+        "sampleStep": 2,
+        "surfaceClearance": 4,
+        "allowSurfaceBreak": true,
+        "surfaceBreakStyle": {
+            "style": "SIMPLEX",
+            "zoom": 0.95
+        },
+        "surfaceBreakNoiseThreshold": 0.72,
+        "surfaceBreakDepth": 16,
+        "surfaceBreakThresholdBoost": 0.12,
+        "objectMinDepthBelowSurface": 12,
+        "surfaceObjectExclusionDepth": 24,
+        "defaultObjectAnchor": "FLOOR",
+        "defaultObjectPlaceMode": "ORGANIC_STILT",
+        "anchorScanStep": 1,
+        "anchorSearchAttempts": 18,
+        "allowWater": false,
+        "waterMinDepthBelowSurface": 24,
+        "waterRequiresFloor": true,
+        "allowLava": true,
+        "modules": [
+            {
+                "style": {
+                    "style": "VASCULAR_THIN",
+                    "zoom": 1.4
+                },
+                "weight": 0.13,
+                "threshold": 0.03,
+                "verticalRange": {
+                    "min": 60,
+                    "max": 290
+                },
+                "invert": false
+            }
+        ],
+        "verticalEdgeFade": 18,
+        "verticalEdgeFadeStrength": 0.15,
+        "minCarveCells": 14,
+        "recoveryThresholdBoost": 0.07
+    },
+    "caveMinDepthBelowSurface": 6
+}

@@ -3,6 +3,8 @@
   "color": "#44C3D1",
   "rarity": 1,
   "landBiomes": [
+    "frozen/frostpeak",
+    "frozen/boreal-shield",
     "frozen/plains",
     "frozen/hills",
     "frozen/tundra-winter",
@@ -16,6 +18,7 @@
     "frozen/ice-spikes",
     "frozen/mountains/large-mountain",
     "frozen/mountains/extreem-ice-spikes",
+    "frozen/snowcap-highlands",
     "vanilla/snowy_plains",
     "vanilla/snowy_taiga",
     "vanilla/ice_spikes",
@@ -30,88 +33,6 @@
     "carving/rocky-cavebiome",
     "carving/ice-caves",
     "magnetics/frostfire-caves"
-  ],
-  "jigsawStructures": [
-    {
-      "structure": "ruined-portal",
-      "rarity": 1200
-    },
-    {
-      "structure": "dungeon-skeleton",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-spider",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-zombie",
-      "rarity": 800
-    },
-    {
-      "structure": "frozen-adventurers-camp",
-      "_rarityComment": "was 900 - too sparse to find; lowered for visibility",
-      "rarity": 90
-    },
-    {
-      "structure": "soulforge-ruin",
-      "_rarityComment": "was 1600 - too sparse to find; lowered for visibility",
-      "rarity": 160
-    }
-  ],
-  "objects": [
-    {
-      "heightmap": {
-        "seed": 1337,
-        "style": {
-          "style": "SIMPLEX",
-          "multiplier": 10
-        },
-        "offsetY": 5
-      },
-      "chance": 0.05,
-      "bottom": true,
-      "density": 1,
-      "place": [
-        "structures/amethyst1",
-        "structures/amethyst2",
-        "structures/amethyst3",
-        "structures/amethyst4",
-        "structures/amethyst5",
-        "structures/amethyst6"
-      ],
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:glass"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:void_air"
-              }
-            ]
-          }
-        }
-      ],
-      "enabled": true,
-      "xAxis": {
-        "interval": 90,
-        "max": 360,
-        "min": 0
-      },
-      "yAxis": {
-        "interval": 90,
-        "max": 270,
-        "min": 0
-      },
-      "translate": {
-        "yRandom": 10,
-        "y": 2
-      }
-    }
   ],
   "shoreBiomes": [
     "frozen/shore/beach"
@@ -151,7 +72,6 @@
       "varience": 8
     }
   ],
-  "riverRarity": 1,
   "landBiomeZoom": 4.2,
   "shoreHeightMin": 2.2,
   "shoreHeightMax": 4.2,
@@ -161,54 +81,7 @@
     "frozen/cave",
     "frozen/water"
   ],
-  "carving": {
-    "ravines": [
-      {
-        "rarity": 150,
-        "ravine": "ice/main"
-      }
-    ],
-    "caves": [
-      {
-        "breakSurface": true,
-        "cave": "cavesv4/glacial/main",
-        "rarity": 20,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "VASCULAR"
-          }
-        }
-      },
-      {
-        "breakSurface": true,
-        "cave": "ice/main",
-        "rarity": 50,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "VASCULAR"
-          }
-        }
-      },
-      {
-        "breakSurface": true,
-        "cave": "rocky/main",
-        "rarity": 50,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      }
-    ]
-  },
   "shoreHeightZoom": 1.14,
-  "riverThickness": 0.006,
   "loot": {
     "mode": "FALLBACK",
     "tables": [

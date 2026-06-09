@@ -25,16 +25,21 @@ def root_depth_for(height: int) -> int:
     return max(2, min(16, int(round(0.18 * height))))
 
 
-def build_roots(base_cells, height: int, trunk_block: str, seed: int = 0) -> dict:
+def build_roots(base_cells, height: int, trunk_block: str, seed: int = 0,
+                root_block: str = None) -> dict:
     """Return {(x, y, z): blockstate} of root blocks at y < 0.
 
     base_cells: iterable of (x, z) trunk footprint positions at the base layer (y==0).
+    root_block: optional override for the root material. When given it is used verbatim
+        (e.g. "minecraft:fire" or "minecraft:air") instead of the vertical trunk log -
+        used by the inverted lava-vein objects whose flipped "roots" reach up through the
+        surface to carve / scorch an irregular mountaintop pattern.
     """
     cells = list(base_cells)
     if not cells:
         return {}
 
-    log = _log_y(trunk_block)
+    log = root_block if root_block else _log_y(trunk_block)
     depth = root_depth_for(height)
     rng = random.Random((seed ^ 0x5009) & 0xFFFFFFFF)
 

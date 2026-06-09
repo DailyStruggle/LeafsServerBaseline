@@ -1,0 +1,41 @@
+{
+  "name": "Soul Sand Valley",
+  "color": "#3E2F23",
+  "rarity": 1,
+  "derivative": "minecraft:soul_sand_valley",
+  "vanillaDerivative": "minecraft:soul_sand_valley",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 32,
+      "max": 70
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {"block": "minecraft:soul_soil", "weight": 5},
+        {"block": "minecraft:soul_sand", "weight": 3}
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {"block": "minecraft:netherrack"}
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.04,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:soul_fire", "weight": 3},
+        {"block": "minecraft:soul_torch", "weight": 1}
+      ]
+    }
+  ]
+}

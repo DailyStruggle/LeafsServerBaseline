@@ -1,0 +1,124 @@
+{
+  "name": "Autumnal Canopy",
+  "color": "#C9722B",
+  "rarity": 1,
+  "derivative": "minecraft:forest",
+  "vanillaDerivative": "minecraft:forest",
+  "customDerivitives": [
+    {
+      "id": "autumn_canopy_russet",
+      "foliageColor": "#C9722B",
+      "grassColor": "#B5882A"
+    }
+  ],
+  "children": [
+    "seasonal/autumn/warm-canopy-red",
+    "seasonal/autumn/warm-canopy-gold"
+  ],
+  "childStyle": {
+    "style": "CELLULAR",
+    "zoom": 0.35
+  },
+  "childShrinkFactor": 1,
+  "entitySpawners": [
+    "seasonal/autumn"
+  ],
+  "generators": [
+    {
+      "min": 4,
+      "max": 14,
+      "generator": "plain"
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.3,
+      "density": 3,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-oak/oakM1",
+        "trees/vanilla-oak/oakM2",
+        "trees/vanilla-oak/oakM3",
+        "trees/vanilla-oak/oakM4",
+        "trees/vanilla-oak/oakM5",
+        "trees/vanilla-oak/oakM6",
+        "trees/vanilla-oak/oakM7",
+        "trees/vanilla-oak/oakM8"
+      ]
+    },
+    {
+      "chance": 0.16,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/vanilla-birch/birchM1",
+        "trees/vanilla-birch/birchM2",
+        "trees/vanilla-birch/birchM3",
+        "trees/vanilla-birch/birchM4",
+        "trees/vanilla-birch/birchM5",
+        "trees/vanilla-birch/birchM6",
+        "trees/vanilla-birch/birchM7",
+        "trees/vanilla-birch/birchM8"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 80
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 30
+        },
+        {
+          "block": "minecraft:large_fern",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "zoom": 0.35,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:pumpkin",
+          "weight": 6
+        },
+        {
+          "block": "minecraft:brown_mushroom",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:red_mushroom",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

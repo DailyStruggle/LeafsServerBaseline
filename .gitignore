@@ -55,6 +55,7 @@ iris/thirdparty-derived/**
 
 staging/
 iris/pack-base/
+iris/_pack-base-39-backup/
 iris/staging/
 iris/output/
 

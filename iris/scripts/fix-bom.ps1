@@ -1,4 +1,4 @@
-$packBiomes = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld-custom\biomes"
+﻿$packBiomes = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld-custom\biomes"
 $projectBiomes = "C:\Users\lxgol\IdeaProjects\LeafsServerBaseline\iris-biomes"
 
 function Remove-BOM($path) {

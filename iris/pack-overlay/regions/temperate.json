@@ -24,6 +24,7 @@
     "temperate/sakura-forest",
     "temperate/oak-forest-flat",
     "temperate/croak",
+    "temperate/auroral-garden",
     "vanilla/plains",
     "vanilla/sunflower_plains",
     "vanilla/meadow",
@@ -40,9 +41,6 @@
     "vanilla/birch_forest__young",
     "vanilla/birch_forest__tall",
     "vanilla/flower_forest__young",
-    "vanilla/cherry_grove__young",
-    "vanilla/cherry_grove__tall",
-    "vanilla/cherry_grove__spiral",
     "vanilla/lake",
     "vanilla/lake",
     "vanilla/puddle",
@@ -54,93 +52,6 @@
     "carving/andesite-caves",
     "prismatics/crystal-caves",
     "prismatics/amethyst-caves"
-  ],
-  "jigsawStructures": [
-    {
-      "structure": "ruined-portal",
-      "rarity": 1200
-    },
-    {
-      "structure": "dungeon-skeleton",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-spider",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-zombie",
-      "rarity": 800
-    },
-    {
-      "structure": "stoneborne-outpost",
-      "_rarityComment": "was 600 - too sparse to find; lowered for visibility",
-      "rarity": 60
-    },
-    {
-      "structure": "prismatic-shrine",
-      "_rarityComment": "was 1500 - too sparse to find; lowered for visibility",
-      "rarity": 150
-    },
-    {
-      "structure": "geode-vault",
-      "_rarityComment": "was 1500 - too sparse to find; lowered for visibility",
-      "rarity": 150
-    }
-  ],
-  "objects": [
-    {
-      "heightmap": {
-        "seed": 1337,
-        "style": {
-          "style": "SIMPLEX",
-          "multiplier": 10
-        },
-        "offsetY": 5
-      },
-      "chance": 0.05,
-      "bottom": true,
-      "density": 1,
-      "place": [
-        "structures/amethyst1",
-        "structures/amethyst2",
-        "structures/amethyst3",
-        "structures/amethyst4",
-        "structures/amethyst5",
-        "structures/amethyst6"
-      ],
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:glass"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:void_air"
-              }
-            ]
-          }
-        }
-      ],
-      "enabled": true,
-      "xAxis": {
-        "interval": 90,
-        "max": 360,
-        "min": 0
-      },
-      "yAxis": {
-        "interval": 90,
-        "max": 270,
-        "min": 0
-      },
-      "translate": {
-        "yRandom": 10,
-        "y": 2
-      }
-    }
   ],
   "shoreBiomes": [
     "temperate/shore/beach",
@@ -155,7 +66,6 @@
     "ocean/dark-depth-ocean",
     "ocean/rich-oceans"
   ],
-  "ENTITY_SPAWNS": "ALL ENTITY SPAWNS FOR THE REGION",
   "entitySpawners": [
     "temperate/passive",
     "temperate/hostile",
@@ -182,50 +92,10 @@
       "varience": 4
     }
   ],
-  "carving": {
-    "ravines": [
-      {
-        "rarity": 190,
-        "ravine": "drip/main"
-      },
-      {
-        "rarity": 150,
-        "ravine": "rocky/main"
-      }
-    ],
-    "caves": [
-      {
-        "breakSurface": true,
-        "cave": "drip/main",
-        "rarity": 30,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      },
-      {
-        "breakSurface": true,
-        "cave": "rocky/main",
-        "rarity": 15,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      }
-    ]
-  },
-  "riverRarity": 1,
   "landBiomeZoom": 4.9,
   "shoreHeightMin": 1,
   "shoreHeightMax": 5.2,
   "shoreHeightZoom": 1.14,
-  "riverThickness": 0.025,
   "loot": {
     "mode": "FALLBACK",
     "tables": [

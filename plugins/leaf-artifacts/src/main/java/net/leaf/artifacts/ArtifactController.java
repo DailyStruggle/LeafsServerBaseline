@@ -49,8 +49,9 @@ public final class ArtifactController {
                 if (inst == null) {
                     continue;
                 }
-                AttributeModifier existing = findModifier(inst, ArtifactKeys.modifierKey(type, spec.attribute()));
-                if (existing != null) {
+                var key = ArtifactKeys.modifierKey(type, spec.attribute());
+                AttributeModifier existing;
+                while ((existing = findModifier(inst, key)) != null) {
                     inst.removeModifier(existing);
                 }
             }
@@ -81,10 +82,23 @@ public final class ArtifactController {
                 }
                 var key = ArtifactKeys.modifierKey(type, spec.attribute());
                 AttributeModifier existing = findModifier(inst, key);
-                if (desired && existing == null) {
-                    inst.addModifier(new AttributeModifier(
-                            key, spec.amount(), spec.operation(), EquipmentSlotGroup.ANY));
-                } else if (!desired && existing != null) {
+                if (desired) {
+                    // Re-apply when missing, or when a persisted modifier carries a
+                    // stale amount/operation (e.g. after an artifact's value was
+                    // retuned between builds). Without the refresh a stale NBT
+                    // modifier looks "present" and the live value never updates
+                    // until the player manually re-equips.
+                    boolean stale = existing != null
+                            && (existing.getAmount() != spec.amount()
+                            || existing.getOperation() != spec.operation());
+                    if (existing == null || stale) {
+                        if (existing != null) {
+                            inst.removeModifier(existing);
+                        }
+                        inst.addModifier(new AttributeModifier(
+                                key, spec.amount(), spec.operation(), EquipmentSlotGroup.ANY));
+                    }
+                } else if (existing != null) {
                     inst.removeModifier(existing);
                 }
             }

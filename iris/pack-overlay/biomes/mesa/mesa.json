@@ -2,18 +2,12 @@
     "name": "Mesa",
     "color": "#CA5F30",
     "rarity": 2,
-    "derivative": "BADLANDS",
-    "vanillaDerivative": "BADLANDS",
+    "derivative": "minecraft:badlands",
+    "vanillaDerivative": "minecraft:badlands",
     "biomeScatter": [
         "BADLANDS",
         "ERODED_BADLANDS",
         "ERODED_BADLANDS"
-    ],
-    "jigsawStructures": [
-        {
-            "structure": "village-savanna",
-            "rarity": 1200
-        }
     ],
     "children": [
         "mesa/valleys",

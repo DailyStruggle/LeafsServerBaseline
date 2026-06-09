@@ -1,62 +1,13 @@
 {
   "name": "vanilla/savanna__tall",
   "rarity": 12,
-  "derivative": "SAVANNA",
-  "vanillaDerivative": "SAVANNA",
-  "category": "savanna",
+  "derivative": "minecraft:savanna",
+  "vanillaDerivative": "minecraft:savanna",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
+      "min": 3,
+      "max": 16,
       "generator": "plain"
-    }
-  ],
-  "objects": [
-    {
-      "chance": 0.05,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-acacia/acaciaM1",
-        "trees/vanilla-acacia/acaciaM2",
-        "trees/vanilla-acacia/acaciaM3",
-        "trees/vanilla-acacia/acaciaM4",
-        "trees/vanilla-acacia/acaciaM5",
-        "trees/vanilla-acacia/acaciaM6",
-        "trees/vanilla-acacia/acaciaM7",
-        "trees/vanilla-acacia/acaciaM8"
-      ]
-    },
-    {
-      "chance": 0.06,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-acacia/acaciaL1",
-        "trees/vanilla-acacia/acaciaL2",
-        "trees/vanilla-acacia/acaciaL3",
-        "trees/vanilla-acacia/acaciaL4",
-        "trees/vanilla-acacia/acaciaL5",
-        "trees/vanilla-acacia/acaciaL6",
-        "trees/vanilla-acacia/acaciaL7",
-        "trees/vanilla-acacia/acaciaL8"
-      ]
     }
   ],
   "decorators": [
@@ -76,5 +27,281 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-acacia-M-h6",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 491344342,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-M-h7",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 1783521600,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-M-h8",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 2062646481,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-M-h9",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 234245191,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 10,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.0125,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-L-h8",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 2066945766,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-L-h9",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 204744304,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 10,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-L-h11",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 11,
+        "heightMax": 11,
+        "variants": 1,
+        "seed": 462168229,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 11,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 11,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 12,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-L-h12",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 12,
+        "heightMax": 12,
+        "variants": 1,
+        "seed": 42299679,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 13,
+              "radius": 2.0
+            },
+            {
+              "yOffset": 13,
+              "radius": 3.2
+            },
+            {
+              "yOffset": 14,
+              "radius": 1.6
+            }
+          ]
+        },
+        "chance": 0.015,
+        "density": 2
+      }
+    ]
+  }
 }

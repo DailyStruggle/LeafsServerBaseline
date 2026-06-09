@@ -1,0 +1,14 @@
+{"spawns": [
+  {
+    "entity": "standard/passive/sniffer",
+    "maxSpawns": 2,
+    "minSpawns": 1,
+    "rarity": 4
+  },
+  {
+    "entity": "standard/neutral/bee",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 2
+  }
+]}

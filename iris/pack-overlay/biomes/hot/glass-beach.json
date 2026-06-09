@@ -1,0 +1,131 @@
+{
+  "name": "Glass Beach",
+  "color": "#7FE0D8",
+  "rarity": 8,
+  "derivative": "minecraft:warm_ocean",
+  "vanillaDerivative": "minecraft:desert",
+  "customDerivitives": [
+    {
+      "id": "glass_beach",
+      "foliageColor": "#b8945a",
+      "waterColor": "#54D6C8",
+      "downfallType": "none",
+      "humidity": 0,
+      "temperature": 1.5
+    }
+  ],
+  "generators": [
+    {
+      "min": 0,
+      "max": 1,
+      "generator": "plain"
+    }
+  ],
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:smooth_sandstone"
+      },
+      {
+        "block": "minecraft:sand"
+      },
+      {
+        "block": "minecraft:smooth_sandstone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "STATIC"
+      },
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "weight": 4
+        },
+        {
+          "block": "minecraft:cyan_stained_glass",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:lime_stained_glass",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:white_stained_glass",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:yellow_stained_glass",
+          "weight": 2
+        },
+        {
+          "block": "minecraft:pink_stained_glass",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 6,
+      "palette": [
+        {
+          "block": "minecraft:sand"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.04,
+      "zoom": 0.4,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "data": {
+            "north": "none",
+            "south": "none",
+            "east": "none",
+            "west": "none"
+          },
+          "block": "minecraft:light_blue_stained_glass_pane"
+        },
+        {
+          "data": {
+            "north": "none",
+            "south": "none",
+            "east": "none",
+            "west": "none"
+          },
+          "block": "minecraft:lime_stained_glass_pane"
+        },
+        {
+          "data": {
+            "north": "none",
+            "south": "none",
+            "east": "none",
+            "west": "none"
+          },
+          "block": "minecraft:cyan_stained_glass_pane"
+        }
+      ]
+    }
+  ]
+}

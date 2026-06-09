@@ -1,0 +1,218 @@
+{
+  "name": "Embertide Springs",
+  "color": "#A0C8A0",
+  "rarity": 3,
+  "derivative": "minecraft:beach",
+  "vanillaDerivative": "minecraft:beach",
+  "customDerivitives": [
+    {
+      "id": "embertide_springs",
+      "grassColor": "#91BD59",
+      "foliageColor": "#77AB2F",
+      "waterColor": "#77E0F7",
+      "downfallType": "rain"
+    }
+  ],
+  "generators": [
+    {
+      "min": 62,
+      "max": 72,
+      "generator": "plain"
+    }
+  ],
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:calcite"
+      },
+      {
+        "block": "minecraft:sand"
+      },
+      {
+        "block": "minecraft:calcite"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "FLAT"
+      },
+      "palette": [
+        {
+          "weight": 6,
+          "block": "minecraft:calcite"
+        },
+        {
+          "weight": 3,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "weight": 1,
+          "block": "minecraft:sand"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 2,
+      "palette": [
+        {
+          "block": "minecraft:sand"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 8,
+      "palette": [
+        {
+          "block": "minecraft:sandstone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.008,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.2,
+      "palette": [
+        {
+          "block": "minecraft:calcite"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.003,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.15,
+      "palette": [
+        {
+          "block": "minecraft:yellow_concrete_powder"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.015,
+      "variance": {
+        "style": "STATIC"
+      },
+      "zoom": 0.3,
+      "palette": [
+        {
+          "block": "minecraft:dead_bush"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-spruce-spruce-0",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 1356649516,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.005,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-1",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 12,
+        "heightMax": 16,
+        "variants": 3,
+        "seed": 639209101,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 134,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.88
+        },
+        "chance": 0.005,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 11,
+        "heightMax": 15,
+        "variants": 3,
+        "seed": 1029071214,
+        "trunkWidth": 1,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.8,
+        "canopy": {
+          "startAngle": 132,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.005,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-3",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 18,
+        "heightMax": 26,
+        "variants": 3,
+        "seed": 1267940303,
+        "trunkWidth": 2,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.65,
+        "canopy": {
+          "startAngle": 130,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.005,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

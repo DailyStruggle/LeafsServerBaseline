@@ -22,7 +22,7 @@ iris/pack-patches/
 |  |- objects/jigsaw/...        # .iob objects (new paths, never override base)
 |  |- jigsaw-pieces/...
 |  |- jigsaw-pools/...
-|  |- jigsaw-structures/...
+|  |- structures/...            # v4 IrisStructure (flat per-structure; 4.0 dropped jigsaw-structures/)
 |- patches/            # git-ignored; *.patch.json files that AMEND staged files
    |- biomes/temperate/meadows.json.patch.json
 ```
@@ -41,13 +41,31 @@ One target per file, suffix `*.patch.json`:
     "patches": [
         {
             "op": "addUnique",
-            "array": "jigsawStructures",
-            "key": "structure",
-            "value": { "structure": "village-meadow", "rarity": 1 }
+            "array": "structures",
+            "key": "structures",
+            "value": {
+                "structures": ["village-meadow"],
+                "distribution": "RANDOM_SPREAD",
+                "spacing": 32,
+                "separation": 8,
+                "salt": 70072
+            }
         }
     ]
 }
 ```
+
+> **Iris 4.0 format.** Structures are now `assets/structures/<key>.json`
+> (`IrisStructure`: `startPool` / `maxDepth` / `maxSizeChunks` / `placeMode`) and
+> are placed by appending an `IrisStructurePlacement` to a biome's `structures`
+> array - NOT the 3.x `jigsaw-structures/` folder + `jigsawStructures` array,
+> which 4.0 does not load. The `addUnique` dedupe `key` is `structures` (the
+> placement's structure-key list). See `docs/design/IRIS-V4-STRUCTURES.md` and
+> `iris/scripts/migrate-legacy-structures-to-v4.py` (the one-shot cutover).
+>
+> Placement grid (chunks): villages `spacing 32 / separation 8`; T&T pillager
+> outposts `spacing 48 / separation 12`, so the two do not visually collide. A
+> deterministic per-structure `salt` decouples placements that share a grid.
 
 Supported ops (see `iris/scripts/apply-pack-patches.py`):
 
@@ -56,8 +74,10 @@ Supported ops (see `iris/scripts/apply-pack-patches.py`):
 - `remove` - drop every element of `array` whose `key` equals `match`.
 - `set` - set a top-level `field` to `value`.
 
-`rarity` follows the Iris convention: **lower = more common** (1 = appears in
-nearly every instance of the biome; 800/1200/1750 = progressively rarer).
+(Legacy note: the 3.x `jigsawStructures` arrays used a single `rarity` int -
+**lower = more common**. 4.0 replaced that with the chunk-spacing grid above; the
+MANIFEST `rarity` values in `import-tnt-villages.py` are retained only as a
+relative-rarity hint for future spacing tuning.)
 
 ## Applying
 
@@ -104,6 +124,41 @@ converted `.iob` object exists for that content.
 > `village/beach_lighthouse/villager_lighthouse_master` and
 > `village/sparse_jungle_polynesian/villager_village_chief`, which wrap real
 > converted `.iob` objects instead of being empty.
+
+## Pillager outpost set (Towns & Towers `pillager_outpost_*`)
+
+In addition to the 17 T&T villages, the 23 biome-flavored T&T pillager outposts
+(towers / forts / camps + the ocean ship variant) are converted and wired through
+this same layer. They are mid-tier "landmark" finds: themed silhouettes with low
+loot creep (loot is just the vanilla outpost chest), so they read as ambience and
+do not out-build players.
+
+Pipeline (all tracked tooling in `iris/scripts/`):
+
+1. `nbt_to_iris.py --set outpost/<type>/<biome> --structure-key pillager-outpost-<biome>`
+   converts each set into the git-ignored quarantine
+   (`iris/thirdparty-derived/towns-and-towers/iris/`).
+2. `wire-tt-outposts.py` copies the converted `objects/jigsaw/outpost`+`ships`,
+   `jigsaw-pieces`, `jigsaw-pools` and the `pillager-outpost-*` `structures/` into
+   `assets/`, writes the 4 pillager spawn stub pools (below), and appends a matching
+   `addUnique` `structures` (`IrisStructurePlacement`, spacing 48 / separation 12)
+   entry to each biome's existing `*.patch.json` (mirroring the village->biome map
+   one-for-one).
+
+All 23 resolve via `jigsaw_validate.py` ("Graph wires"). `pillager-outpost-savanna-plateau`
+emits two tolerable `missing piece JSON` warnings (`savanna_plateau_tower_top_6/7` are
+optional terminator tops with no source `.nbt`); it still generates, same accepted
+tolerance as the villages' population pools.
+
+New pillager spawn stub pools (empty `{"pieces": []}`, same rationale as the village
+population stubs - mob spawns, not structure objects):
+
+| Stub pool (key under `jigsaw-pools/`) | Source intent |
+|---|---|
+| `outpost/pillagers/grunt` | Outpost pillager grunt spawns |
+| `outpost/pillagers/outpost_captain` | Outpost captain (raid banner) spawn |
+| `outpost/pillagers/captive_jungle` | Caged captive (jungle fort) spawn |
+| `outpost/pillagers/captive_snow` | Caged captive (snowy variants) spawn |
 
 ## Waystone pool recreated without the Waystones block
 

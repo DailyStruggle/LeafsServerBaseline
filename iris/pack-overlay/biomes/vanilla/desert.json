@@ -1,9 +1,8 @@
 {
   "name": "vanilla/desert",
   "rarity": 1,
-  "derivative": "DESERT",
-  "vanillaDerivative": "DESERT",
-  "category": "desert",
+  "derivative": "minecraft:desert",
+  "vanillaDerivative": "minecraft:desert",
   "generators": [
     {
       "min": 8,

@@ -31,6 +31,9 @@ New work always starts with a requirements doc. No implementation begins without
 - [`design/IRIS-BIOME-RESEARCH.md`](design/IRIS-BIOME-RESEARCH.md) - preexisting Iris overworld biomes evaluated against ADR-003 criteria, with Gemini concept mapping
 - [`design/IOB-FILE-FORMAT.md`](design/IOB-FILE-FORMAT.md) - binary spec for Iris `.iob` objects, derived from our `nbt_to_iris.py` / `iob_inspect.py` / `recenter-iob.py` tooling
 - [`design/TILEDATA-FORMAT.md`](design/TILEDATA-FORMAT.md) - binary spec for the Iris `TileData` tile-entity records that follow the `.iob` block list (modern key+JSON and legacy ordinal encodings)
+- [`design/IRIS-V4-STRUCTURES.md`](design/IRIS-V4-STRUCTURES.md) - how Iris 4.0 loads and places structures (`importedStructures`, `structures`/`IrisStructurePlacement`, jigsaw pools/pieces) and the legacy `jigsawStructures` migration gap
+- [`design/IRIS-NETHER-GENERATION.md`](design/IRIS-NETHER-GENERATION.md) - methodology and research for authoring an Iris-generated Nether (dimension, regions, biomes, structures)
+- [`design/VANILLA-TERRAIN-SHAPE.md`](design/VANILLA-TERRAIN-SHAPE.md) - intended vanilla terrain shape per biome archetype and the Iris v4 levers (height band, interpolation, composite octaves, cliffs) to stop over-smoothing
 - [`design/adr/`](design/adr/) - Architecture Decision Records
 - [`scratch/LESSONS_LEARNED.md`](scratch/LESSONS_LEARNED.md) - engineering pitfalls and notes
 - [`scratch/POTENTIAL_BUGS.md`](scratch/POTENTIAL_BUGS.md) - incidental findings backlog

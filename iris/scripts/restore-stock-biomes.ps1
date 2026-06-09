@@ -1,4 +1,4 @@
-$root = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes"
+﻿$root = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes"
 $base = "https://raw.githubusercontent.com/IrisDimensions/overworld/master/biomes"
 
 # Find all patched biomes

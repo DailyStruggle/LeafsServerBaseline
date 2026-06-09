@@ -2,14 +2,13 @@
     "name": "Hot Mountain Cliffs",
     "color": "#E7C34B",
     "rarity": 3,
-    "derivative": "DESERT",
-    "vanillaDerivative": "DESERT",
+    "derivative": "minecraft:desert",
+    "vanillaDerivative": "minecraft:desert",
     "generators": [{
         "min": 59,
         "max": 92,
         "generator": "cracked-cliffs"
     }],
-    "biomeZoom": 30,
     "biomeStyle": {"style": "SIMPLEX"},
     "wall": {
         "style": {"style": "STATIC"},

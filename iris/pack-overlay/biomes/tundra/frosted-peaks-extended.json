@@ -1,19 +1,17 @@
 {
     "name": "Frosted Peaks",
     "rarity": 5,
-    "derivative": "OLD_GROWTH_SPRUCE_TAIGA",
-    "vanillaDerivative": "OLD_GROWTH_SPRUCE_TAIGA",
+    "derivative": "minecraft:old_growth_spruce_taiga",
+    "vanillaDerivative": "minecraft:old_growth_spruce_taiga",
     "customDerivitives": [{
         "id": "frosted-peaks",
-        "grassColor": "#53AEB8",
-        "category": "extreme_hills"
+        "grassColor": "#53AEB8"
     }],
     "generators": [{
         "generator": "mountain",
         "max": 300,
         "min": 226
     }],
-    "biomeZoom": 0.73,
     "wall": {
         "style": {"style": "STATIC"},
         "palette": [
@@ -140,15 +138,5 @@
                 "block": "minecraft:air"
             }
         ]
-    },
-    "carving": {"caves": [{
-        "breakSurface": true,
-        "cave": "rocky/tubes",
-        "rarity": 11,
-        "caveStartHeight": {
-            "max": 180,
-            "min": 80,
-            "style": {"style": "STATIC"}
-        }
-    }]}
+    }
 }

@@ -1,4 +1,4 @@
-$packRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld-custom"
+﻿$packRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld-custom"
 $projectRoot = "C:\Users\lxgol\IdeaProjects\LeafsServerBaseline"
 
 $missing = @()

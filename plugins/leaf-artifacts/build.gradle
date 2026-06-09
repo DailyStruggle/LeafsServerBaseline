@@ -21,6 +21,8 @@ repositories {
 
 dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+    // LeafArtifacts depends on the LeafCurios API (separate plugin module).
+    compileOnly files('../leaf-curios/build/libs/LeafCurios-0.1.0.jar')
 }
 
 // Match the Maven finalName (LeafArtifacts-0.1.0.jar) so deploy docs stay accurate.

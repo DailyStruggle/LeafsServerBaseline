@@ -1,9 +1,19 @@
 {
-  "name": "vanilla/windswept_savanna",
+  "name": "Windswept Savanna",
+  "color": "#A79256",
   "rarity": 1,
-  "derivative": "WINDSWEPT_SAVANNA",
-  "vanillaDerivative": "WINDSWEPT_SAVANNA",
-  "category": "savanna",
+  "derivative": "minecraft:windswept_savanna",
+  "vanillaDerivative": "minecraft:windswept_savanna",
+  "customDerivitives": [
+    {
+      "category": "savanna",
+      "id": "windswept_savanna",
+      "grassColor": "#BFB755",
+      "foliageColor": "#AEA42A",
+      "waterColor": "#2C8B9C",
+      "downfallType": "none"
+    }
+  ],
   "generators": [
     {
       "min": 15,
@@ -11,28 +21,65 @@
       "generator": "plain-cliffs"
     }
   ],
-  "objects": [
-    {
-      "chance": 0.03,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
       },
-      "place": [
-        "trees/vanilla-acacia/acaciaS1",
-        "trees/vanilla-acacia/acaciaS2",
-        "trees/vanilla-acacia/acaciaS3",
-        "trees/vanilla-acacia/acaciaS4",
-        "trees/vanilla-acacia/acaciaS5",
-        "trees/vanilla-acacia/acaciaS6",
-        "trees/vanilla-acacia/acaciaS7",
-        "trees/vanilla-acacia/acaciaS8"
+      {
+        "block": "minecraft:andesite"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "style": {
+        "style": "FLAT"
+      },
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        }
+      ]
+    },
+    {
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
       ]
     }
   ],
@@ -53,5 +100,111 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-acacia-S-h4",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 4,
+        "heightMax": 4,
+        "variants": 1,
+        "seed": 1514355129,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.01,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-S-h5",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 5,
+        "heightMax": 5,
+        "variants": 1,
+        "seed": 759433519,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.01,
+        "density": 2
+      },
+      {
+        "name": "pv-acacia-S-h6",
+        "trunk": "minecraft:acacia_log",
+        "leaves": "minecraft:acacia_leaves",
+        "profile": "ACACIA",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 877484181,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.55,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.01,
+        "density": 2
+      }
+    ]
+  }
 }

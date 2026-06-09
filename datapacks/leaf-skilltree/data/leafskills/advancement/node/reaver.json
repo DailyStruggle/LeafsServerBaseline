@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:node/vigor",
+  "display": {
+    "title": "Reaver",
+    "description": "Needs Vigor. Excludes Bulwark. +2 attack damage. Choose with: /trigger skill_pick set 4",
+    "icon": { "id": "minecraft:iron_axe" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

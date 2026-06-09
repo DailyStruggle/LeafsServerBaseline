@@ -1,0 +1,19 @@
+name: LeafCurios
+version: 0.1.0
+main: net.leaf.curios.LeafCuriosPlugin
+api-version: '1.21'
+author: Leaf
+description: A Curios-style trinket/accessory slot API for other plugins to register slots and curio items.
+folia-supported: true
+commands:
+  curios:
+    description: Open the curios menu; /curios slot ... to manage slot types (admin).
+    usage: /curios [slot <add|remove|list> ...]
+    permission: leafcurios.use
+permissions:
+  leafcurios.use:
+    description: Open the curios equipment menu.
+    default: true
+  leafcurios.admin:
+    description: Manage curio slot types at runtime.
+    default: op

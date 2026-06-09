@@ -1,0 +1,67 @@
+{
+  "name": "Autumn",
+  "_comment": "Seasonal Biome Framework - AUTUMN region (seasonalGroup: autumn). A late-harvest woodland footprint: mixed oak/birch canopy, fern-and-pumpkin litter, with fox/rabbit/horse forest life and husks standing in for night scarecrows. Vanilla-Iris-expressible features only; non-vanilla catalog mobs substituted with vanilla variants (white-lipped deer->fox/rabbit/horse, scarecrows->husk).",
+  "seasonalGroup": "autumn",
+  "color": "#C9722B",
+  "rarity": 2,
+  "landBiomes": [
+    "seasonal/autumnal-canopy",
+    "seasonal/autumnal-canopy",
+    "vanilla/forest",
+    "vanilla/birch_forest",
+    "vanilla/taiga",
+    "vanilla/old_growth_birch_forest",
+    "vanilla/meadow"
+  ],
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/andesite-caves"
+  ],
+  "shoreBiomes": [
+    "temperate/shore/beach",
+    "temperate/shore/oak-beach"
+  ],
+  "seaBiomeZoom": 8,
+  "seaBiomes": [
+    "temperate/sea/ocean",
+    "ocean/ocean",
+    "ocean/deep"
+  ],
+  "entitySpawners": [
+    "temperate/passive",
+    "temperate/hostile",
+    "temperate/cave",
+    "temperate/water"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "deposits": [
+    {
+      "minHeight": 15,
+      "maxPerChunk": 26,
+      "maxHeight": 410,
+      "minPerChunk": 4,
+      "minSize": 3,
+      "maxSize": 8,
+      "palette": [
+        {
+          "block": "minecraft:iron_ore"
+        },
+        {
+          "block": "minecraft:coal_ore"
+        }
+      ],
+      "varience": 4
+    }
+  ],
+  "landBiomeZoom": 4.9,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "loot": {
+    "mode": "FALLBACK",
+    "tables": [
+      "temperate/clutter",
+      "temperate/food"
+    ]
+  }
+}

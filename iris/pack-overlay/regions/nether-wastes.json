@@ -1,0 +1,11 @@
+{
+  "name": "Nether Wastes",
+  "color": "#7A1F12",
+  "rarity": 1,
+  "landBiomes": [
+    "nether/nether-wastes"
+  ],
+  "entitySpawners": [
+    "nether/hostile"
+  ]
+}

@@ -2,18 +2,17 @@
   "name": "Swamp Marsh",
   "color": "#647B10",
   "rarity": 1,
-  "derivative": "SWAMP",
-  "vanillaDerivative": "SWAMP",
+  "derivative": "minecraft:swamp",
+  "vanillaDerivative": "minecraft:swamp",
   "customDerivitives": [
     {
-      "category": "swamp",
       "id": "swamp_marsh_rotten",
       "waterColor": "#684D1A",
       "grassColor": "#5C581A",
       "spawnRarity": 20,
       "spawns": [
         {
-          "type": "SLIME"
+          "type": "minecraft:slime"
         }
       ]
     }
@@ -28,7 +27,6 @@
       "generator": "mountain"
     }
   ],
-  "biomeZoom": 9,
   "biomeStyle": {
     "style": "SIMPLEX"
   },
@@ -174,29 +172,6 @@
       },
       "translate": {
         "y": -3
-      }
-    },
-    {
-      "chance": 0.35,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "clutter/oakclutt1",
-        "clutter/oakclutt2",
-        "clutter/oakclutt3"
-      ],
-      "translate": {
-        "x": 0,
-        "y": -2,
-        "z": 0
       }
     }
   ],

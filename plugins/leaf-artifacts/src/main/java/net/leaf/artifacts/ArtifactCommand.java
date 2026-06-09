@@ -2,6 +2,7 @@ package net.leaf.artifacts;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.leaf.curios.api.CuriosApi;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,18 +24,18 @@ import java.util.Optional;
  */
 public final class ArtifactCommand implements CommandExecutor, TabCompleter {
 
-    private final ArtifactMenu menu;
+    private final CuriosApi curios;
 
-    public ArtifactCommand(ArtifactMenu menu) {
-        this.menu = menu;
+    public ArtifactCommand(CuriosApi curios) {
+        this.curios = curios;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // No args: open the curio equipment menu for the player.
+        // No args: open the shared curios equipment menu for the player.
         if (args.length == 0) {
             if (sender instanceof Player self) {
-                menu.open(self);
+                curios.openMenu(self);
             } else {
                 sender.sendMessage(Component.text("Only a player can open the artifact menu.", NamedTextColor.RED));
             }

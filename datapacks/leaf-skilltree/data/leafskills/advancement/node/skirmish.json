@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:node/swift",
+  "display": {
+    "title": "Skirmish",
+    "description": "Needs Swiftness. +20% attack speed. Choose with: /trigger skill_pick set 5",
+    "icon": { "id": "minecraft:golden_sword" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

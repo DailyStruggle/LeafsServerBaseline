@@ -4,7 +4,6 @@
     "environment": "NORMAL",
     "dimensionAngleDeg": 69,
     "fluidHeight": 75,
-    "jigsawStructureDivisor": 20,
     "continentZoom": 1,
     "continentalStyle": {
         "style": "NOWHERE_CELLULAR",
@@ -21,29 +20,9 @@
         "axialFracturing": true,
         "zoom": 6
     },
-    "jigsawStructures": [
-        {
-            "structure": "trail_chambers",
-            "rarity": 1600
-        },
-        {
-            "structure": "mineshaft",
-            "rarity": 240
-        }
-    ],
     "logicalHeight": 1024,
     "dimensionHeight": {
         "max": 1024,
-        "min": -64
-    },
-    "logicalHeightEnd": 448,
-    "dimensionHeightEnd": {
-        "max": 448,
-        "min": -64
-    },
-    "logicalHeightNether": 448,
-    "dimensionHeightNether": {
-        "max": 448,
         "min": -64
     },
     "landChance": 0.69,
@@ -72,7 +51,11 @@
         "tundra",
         "temperate",
         "tropical",
-        "swamp"
+        "swamp",
+        "season_spring",
+        "season_summer",
+        "season_autumn",
+        "season_winter"
     ],
     "seaBiomeStyle": {
         "style": "SIMPLEX",
@@ -161,190 +144,110 @@
             "chanceStyle": "snippet/style/deepslate"
         }
     ],
-    "carving": {
-        "caves": [
-            {
-                "breakSurface": true,
-                "cave": "vanilla/spaghetti",
-                "rarity": 26,
-                "caveStartHeight": {
-                    "max": 200,
-                    "min": 40,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "vanilla/crack",
-                "rarity": 55,
-                "caveStartHeight": {
-                    "max": 190,
-                    "min": 32,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": false,
-                "cave": "vanilla/cheese",
-                "rarity": 85,
-                "caveStartHeight": {
-                    "max": 160,
-                    "min": 28,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": false,
-                "cave": "vanilla/chamber",
-                "rarity": 180,
-                "caveStartHeight": {
-                    "max": 110,
-                    "min": 20,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/dark-depths/tubes",
-                "rarity": 90,
-                "caveStartHeight": {
-                    "max": 30,
-                    "min": 10,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/azure-wastes/main",
-                "rarity": 120,
-                "caveStartHeight": {
-                    "max": 70,
-                    "min": 12,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/mushroom/main",
-                "rarity": 180,
-                "caveStartHeight": {
-                    "max": 60,
-                    "min": 12,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/crystalized-overgrown/tubes",
-                "rarity": 120,
-                "caveStartHeight": {
-                    "max": 32,
-                    "min": 8,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/crystalized/tubes",
-                "rarity": 120,
-                "caveStartHeight": {
-                    "max": 32,
-                    "min": 8,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/spider-infestation/main",
-                "rarity": 170,
-                "caveStartHeight": {
-                    "max": 90,
-                    "min": 30,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "cavesv4/mantle-core/main",
-                "rarity": 60,
-                "caveStartHeight": {
-                    "max": 20,
-                    "min": 12,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": true,
-                "cave": "deep/main",
-                "rarity": 60,
-                "caveStartHeight": {
-                    "max": 50,
-                    "min": 8,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "cave": "lush/main",
-                "rarity": 100,
-                "breakSurface": false,
-                "caveStartHeight": {
-                    "max": 44,
-                    "min": 10,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": false,
-                "cave": "deep/elongated",
-                "rarity": 40,
-                "caveStartHeight": {
-                    "max": 50,
-                    "min": 8,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
-            },
-            {
-                "breakSurface": false,
-                "cave": "deepdark/big-deepdarkcave",
-                "rarity": 300,
-                "caveStartHeight": {
-                    "max": 40,
-                    "min": 8,
-                    "style": {
-                        "style": "STATIC"
-                    }
-                }
+    "carvingEnabled": true,
+    "caveProfile": {
+        "enabled": true,
+        "verticalRange": {
+            "min": 6,
+            "max": 700
+        },
+        "baseDensityStyle": {
+            "style": "PERLIN_IRIS",
+            "zoom": 0.72
+        },
+        "detailDensityStyle": {
+            "style": "SIMPLEX",
+            "zoom": 0.54
+        },
+        "warpStyle": {
+            "style": "FRACTAL_WATER",
+            "zoom": 0.5
+        },
+        "baseWeight": 0.9,
+        "detailWeight": 0.11,
+        "warpStrength": 0.24,
+        "densityThreshold": {
+            "min": -0.14,
+            "max": -0.06,
+            "style": {
+                "style": "SIMPLEX",
+                "zoom": 0.74
             }
-        ]
+        },
+        "thresholdBias": 0.14,
+        "sampleStep": 3,
+        "surfaceClearance": 5,
+        "allowSurfaceBreak": true,
+        "surfaceBreakStyle": {
+            "style": "SIMPLEX",
+            "zoom": 0.88
+        },
+        "surfaceBreakNoiseThreshold": 0.6,
+        "surfaceBreakDepth": 16,
+        "surfaceBreakThresholdBoost": 0.1,
+        "objectMinDepthBelowSurface": 14,
+        "surfaceObjectExclusionDepth": 30,
+        "defaultObjectAnchor": "FLOOR",
+        "defaultObjectPlaceMode": "ORGANIC_STILT",
+        "anchorScanStep": 1,
+        "anchorSearchAttempts": 12,
+        "allowWater": true,
+        "waterMinDepthBelowSurface": 20,
+        "waterRequiresFloor": true,
+        "allowLava": true,
+        "modules": [
+            {
+                "style": {
+                    "style": "SIMPLEX_VASCULAR",
+                    "zoom": 1.08
+                },
+                "weight": 0.08,
+                "threshold": 0.03,
+                "verticalRange": {
+                    "min": 24,
+                    "max": 660
+                },
+                "invert": false
+            },
+            {
+                "style": {
+                    "style": "FRACTAL_FBM_SIMPLEX",
+                    "zoom": 0.24
+                },
+                "weight": 0.04,
+                "threshold": 0.08,
+                "verticalRange": {
+                    "min": 6,
+                    "max": 240
+                },
+                "invert": true
+            }
+        ],
+        "verticalEdgeFade": 24,
+        "verticalEdgeFadeStrength": 0.18,
+        "minCarveCells": 24,
+        "recoveryThresholdBoost": 0.07
     },
+    "carving": [
+        {
+            "id": "global-deepdark-band",
+            "enabled": true,
+            "biome": "carving/standard-deepdark",
+            "worldYRange": {
+                "min": -250,
+                "max": -175
+            }
+        },
+        {
+            "id": "volcanic-caldera-band",
+            "enabled": true,
+            "biome": "carving/volcanic-caldera",
+            "worldYRange": {
+                "min": 150,
+                "max": 290
+            }
+        }
+    ],
     "shoreBiomeStyle": {
         "style": "NOWHERE_CELLULAR"
     },
@@ -630,67 +533,8 @@
         "style": "SIMPLEX"
     },
     "coordFractureZoom": 0.15,
-    "layers": [
-        {
-            "minHeight": 0,
-            "maxHeight": 2,
-            "palette": [
-                {
-                    "block": "minecraft:snow_block"
-                }
-            ],
-            "slopeCondition": {
-                "maximumSlope": 3
-            }
-        },
-        {
-            "minHeight": 1,
-            "maxHeight": 1,
-            "palette": [
-                {
-                    "block": "minecraft:grass_block"
-                }
-            ],
-            "slopeCondition": {
-                "maximumSlope": 3
-            }
-        },
-        {
-            "minHeight": 7,
-            "maxHeight": 18,
-            "palette": [
-                {
-                    "block": "minecraft:dirt"
-                }
-            ],
-            "slopeCondition": {
-                "maximumSlope": 3
-            }
-        },
-        {
-            "minHeight": 6,
-            "maxHeight": 18,
-            "style": {
-                "style": "STATIC"
-            },
-            "palette": [
-                {
-                    "block": "minecraft:stone"
-                },
-                {
-                    "block": "minecraft:andesite"
-                },
-                {
-                    "block": "minecraft:stone"
-                }
-            ]
-        }
-    ],
     "preventLeafDecay": true,
     "useMantle": true,
-    "stronghold": "stronghold",
-    "strongholdJumpDistance": 670,
-    "maxStrongholds": 27,
     "decorate": true,
     "loot": {
         "mode": "FALLBACK",

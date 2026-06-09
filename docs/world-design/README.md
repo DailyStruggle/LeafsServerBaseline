@@ -8,6 +8,7 @@ thinking behind it, not just the technical output.
 | Guide | Description |
 |-------|-------------|
 | [`IRIS-WORLD-BUILDING.md`](IRIS-WORLD-BUILDING.md) | How a desire for a custom world became actual biomes: the full journey from feeling to finished terrain |
+| [`IRIS-4.0-MIGRATION.md`](IRIS-4.0-MIGRATION.md) | Findings on the Iris 4.0 (beta) jar and the step-by-step methodology to re-sync `pack-base` and re-validate the overlay/deploy workflow |
 
 ## How This Fits the Docs Workflow
 

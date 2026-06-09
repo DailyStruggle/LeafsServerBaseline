@@ -1,0 +1,63 @@
+{
+  "name": "Embertide Caldera",
+  "color": "#7A3A0E",
+  "rarity": 1,
+  "derivative": "minecraft:badlands",
+  "vanillaDerivative": "minecraft:badlands",
+  "generators": [
+    {
+      "generator": "mountain",
+      "max": 180,
+      "min": 3
+    }
+  ],
+  "wall": {
+    "palette": [
+      { "weight": 4, "block": "minecraft:orange_terracotta" },
+      { "weight": 3, "block": "minecraft:red_terracotta" },
+      { "weight": 3, "block": "minecraft:brown_terracotta" },
+      { "weight": 2, "block": "minecraft:terracotta" },
+      { "weight": 2, "block": "minecraft:orange_glazed_terracotta" },
+      { "weight": 1, "block": "minecraft:red_glazed_terracotta" },
+      { "weight": 1, "block": "minecraft:blackstone" },
+      { "weight": 1, "block": "minecraft:lava", "data": { "level": 1 } }
+    ]
+  },
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        { "weight": 4, "block": "minecraft:orange_terracotta" },
+        { "weight": 3, "block": "minecraft:red_terracotta" },
+        { "weight": 2, "block": "minecraft:brown_terracotta" },
+        { "weight": 2, "block": "minecraft:terracotta" },
+        { "weight": 2, "block": "minecraft:orange_glazed_terracotta" },
+        { "weight": 1, "block": "minecraft:red_glazed_terracotta" },
+        { "weight": 1, "block": "minecraft:lava", "data": { "level": 0 } }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 6,
+      "palette": [
+        { "weight": 3, "block": "minecraft:orange_terracotta" },
+        { "weight": 2, "block": "minecraft:brown_terracotta" },
+        { "weight": 2, "block": "minecraft:terracotta" },
+        { "weight": 1, "block": "minecraft:blackstone" }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "particleAltX": 0.001,
+      "particleAltY": 0.13885,
+      "particleAltZ": 0.001,
+      "chance": 1,
+      "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
+      "particleOffset": 0,
+      "interval": 200,
+      "particleCount": 0
+    }
+  ]
+}

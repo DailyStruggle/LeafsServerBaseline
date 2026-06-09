@@ -1,4 +1,4 @@
-$root = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes"
+﻿$root = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes"
 
 # Check all our custom biome files for any object entry missing "place"
 $customFiles = @(

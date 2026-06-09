@@ -1,0 +1,9 @@
+{
+  "_comment": "Spread pool for the emergent lava caldera. Iris pools are UNWEIGHTED (uniform over distinct piece keys), so the lava cell is listed via three distinct alias keys (lava-cell/b/c) versus a single obsidian terminator (lava-edge) to bias growth ~3:1 toward more lava, with obsidian caps closing off the edges. maxDepth on the structure bounds the overall size.",
+  "pieces": [
+    "clutter/lava-cell",
+    "clutter/lava-cellb",
+    "clutter/lava-cellc",
+    "clutter/lava-edge"
+  ]
+}

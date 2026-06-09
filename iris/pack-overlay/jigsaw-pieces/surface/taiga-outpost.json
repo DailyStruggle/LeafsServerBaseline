@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/surface/taiga-outpost",
+  "placementOptions": {
+    "bore": false,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/pillager_outpost"
+      }
+    ]
+  }
+}

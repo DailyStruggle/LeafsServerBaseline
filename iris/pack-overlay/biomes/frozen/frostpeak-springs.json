@@ -1,0 +1,46 @@
+{
+    "name": "Frostpeak Springs",
+    "color": "#A0C8D8",
+    "rarity": 6,
+    "derivative": "minecraft:snowy_taiga",
+    "vanillaDerivative": "minecraft:snowy_taiga",
+    "customDerivitives": [{
+        "id": "frostpeak_springs",
+        "grassColor": "#80B497",
+        "foliageColor": "#60A17B",
+        "waterColor": "#77E0F7",
+        "downfallType": "snow"
+    }],
+    "generators": [
+        {
+            "generator": "frostpeak-basin",
+            "max": 112,
+            "min": 104
+        }
+    ],
+    "layers": [
+        {
+            "minHeight": 1,
+            "maxHeight": 1,
+            "palette": [
+                {"weight": 6, "block": "minecraft:calcite"},
+                {"weight": 3, "block": "minecraft:white_terracotta"},
+                {"weight": 2, "block": "minecraft:packed_ice"},
+                {"weight": 1, "block": "minecraft:yellow_terracotta"}
+            ]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 3,
+            "palette": [
+                {"weight": 4, "block": "minecraft:calcite"},
+                {"weight": 1, "block": "minecraft:packed_ice"}
+            ]
+        },
+        {
+            "minHeight": 4,
+            "maxHeight": 9,
+            "palette": [{"block": "minecraft:stone"}]
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:node/vigor",
+  "display": {
+    "title": "Bulwark",
+    "description": "Needs Vigor. Excludes Reaver. +8 armor. Choose with: /trigger skill_pick set 3",
+    "icon": { "id": "minecraft:shield" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

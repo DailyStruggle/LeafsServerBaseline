@@ -1,39 +1,179 @@
 {
   "name": "vanilla/snowy_plains",
   "rarity": 1,
-  "derivative": "SNOWY_PLAINS",
-  "vanillaDerivative": "SNOWY_PLAINS",
-  "category": "icy",
+  "derivative": "minecraft:snowy_plains",
+  "vanillaDerivative": "minecraft:snowy_plains",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
+      "min": 3,
+      "max": 16,
       "generator": "plain"
     }
   ],
-  "objects": [
-    {
-      "chance": 0.02,
-      "density": 1,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-spruce-S-h4",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 4,
+        "heightMax": 4,
+        "variants": 1,
+        "seed": 823823018,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 2,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 3,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            }
+          ]
         },
-        "enabled": true
+        "chance": 0.006666666666666667,
+        "density": 1
       },
-      "place": [
-        "trees/vanilla-spruce/spruceS1",
-        "trees/vanilla-spruce/spruceS2",
-        "trees/vanilla-spruce/spruceS3",
-        "trees/vanilla-spruce/spruceS4",
-        "trees/vanilla-spruce/spruceS5",
-        "trees/vanilla-spruce/spruceS6",
-        "trees/vanilla-spruce/spruceS7",
-        "trees/vanilla-spruce/spruceS8"
-      ]
-    }
-  ]
+      {
+        "name": "pv-spruce-S-h5",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 5,
+        "heightMax": 5,
+        "variants": 1,
+        "seed": 1176353340,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 1
+      },
+      {
+        "name": "pv-spruce-S-h6",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1595206534,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 4,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 1
+      }
+    ]
+  }
 }

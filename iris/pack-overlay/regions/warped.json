@@ -1,0 +1,11 @@
+{
+  "name": "Warped Forest",
+  "color": "#168A82",
+  "rarity": 4,
+  "landBiomes": [
+    "nether/warped-forest"
+  ],
+  "entitySpawners": [
+    "nether/hostile"
+  ]
+}

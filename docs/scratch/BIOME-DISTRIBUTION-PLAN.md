@@ -2,7 +2,7 @@
 # Goal: 50-80% Vanilla | Vanilla-Adjacent Second | Custom Third | Iris Rare
 
 Date: 2026-06-05
-Status: Draft - awaiting approval (Rule D-005)
+Status: PARTIALLY IMPLEMENTED 2026-06-07 - the custom (Tier 3) biome layer is now live: 11 custom biomes (5 volcano families + 6 new biomes) authored into `iris/pack-overlay/biomes/` and wired into region biome lists; deployed and reference-validated. Tier ratios / rarity tuning remain to be confirmed in-world (user-triggered server boot). See `docs/scratch/BIOME-ADDITIONS-EXECUTION-SEQUENCE.md`.
 
 ---
 

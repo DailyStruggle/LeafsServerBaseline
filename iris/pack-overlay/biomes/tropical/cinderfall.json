@@ -1,0 +1,57 @@
+{
+  "name": "Cinderfall",
+  "color": "#8C1E1E",
+  "rarity": 20,
+  "derivative": "minecraft:jungle",
+  "vanillaDerivative": "minecraft:badlands",
+  "children": [
+    "tropical/cinderfall-lava",
+    "tropical/cinderfall-springs"
+  ],
+  "generators": [
+    {
+      "generator": "mountain",
+      "max": 180,
+      "min": 30
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 2,
+      "palette": [
+        { "weight": 8, "block": "minecraft:red_terracotta" },
+        { "weight": 1, "block": "minecraft:orange_terracotta" }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 10,
+      "palette": [
+        { "weight": 8, "block": "minecraft:red_terracotta" },
+        { "weight": 1, "block": "minecraft:brown_terracotta" }
+      ]
+    }
+  ],
+  "objects": [
+    
+  ],
+  "effects": [
+    {
+      "particleAltX": 0.001,
+      "particleAltY": 0.13885,
+      "particleAltZ": 0.001,
+      "chance": 1,
+      "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
+      "particleOffset": 0,
+      "interval": 300,
+      "particleCount": 0
+    }
+  ],
+  "childStyle": {
+    "style": "GLOB",
+    "zoom": 0.2,
+    "exponent": 4
+  },
+  "childShrinkFactor": 1
+}

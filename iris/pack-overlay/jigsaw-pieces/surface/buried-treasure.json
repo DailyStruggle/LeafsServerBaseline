@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/surface/buried-treasure",
+  "placementOptions": {
+    "bore": false,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/buried_treasure"
+      }
+    ]
+  }
+}

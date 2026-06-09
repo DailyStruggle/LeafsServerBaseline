@@ -1,9 +1,12 @@
 {
-  "name": "vanilla/windswept_gravelly_hills",
+  "name": "Windswept Gravelly Hills",
+  "color": "#8F9C8A",
   "rarity": 1,
-  "derivative": "WINDSWEPT_GRAVELLY_HILLS",
-  "vanillaDerivative": "WINDSWEPT_GRAVELLY_HILLS",
-  "category": "extreme_hills",
+  "derivative": "minecraft:windswept_gravelly_hills",
+  "vanillaDerivative": "minecraft:windswept_gravelly_hills",
+  "children": [
+    "mountain/Cute_Cliffs+"
+  ],
   "generators": [
     {
       "min": 20,
@@ -11,51 +14,79 @@
       "generator": "plain-cliffs"
     }
   ],
-  "objects": [
-    {
-      "chance": 0.02,
-      "density": 2,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
       },
-      "place": [
-        "trees/vanilla-spruce/spruceS1",
-        "trees/vanilla-spruce/spruceS2",
-        "trees/vanilla-spruce/spruceS3",
-        "trees/vanilla-spruce/spruceS4",
-        "trees/vanilla-spruce/spruceS5",
-        "trees/vanilla-spruce/spruceS6",
-        "trees/vanilla-spruce/spruceS7",
-        "trees/vanilla-spruce/spruceS8"
+      {
+        "block": "minecraft:andesite"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "slopeCondition": {
+        "minimumSlope": 0,
+        "maximumSlope": 2.6
+      },
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        }
       ]
     },
     {
-      "chance": 0.02,
-      "density": 1,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
+      "minHeight": 2,
+      "maxHeight": 4,
+      "slopeCondition": {
+        "minimumSlope": 3.95
       },
-      "place": [
-        "trees/vanilla-oak/oakS1",
-        "trees/vanilla-oak/oakS2",
-        "trees/vanilla-oak/oakS3",
-        "trees/vanilla-oak/oakS4",
-        "trees/vanilla-oak/oakS5",
-        "trees/vanilla-oak/oakS6",
-        "trees/vanilla-oak/oakS7",
-        "trees/vanilla-oak/oakS8"
+      "palette": [
+        {
+          "block": "minecraft:gravel"
+        }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:gravel"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
       ]
     }
   ],
@@ -76,5 +107,344 @@
         }
       ]
     }
-  ]
+  ],
+  "slab": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "data": {
+          "waterlogged": false,
+          "type": "bottom"
+        },
+        "block": "minecraft:stone_slab"
+      },
+      {
+        "data": {
+          "waterlogged": false,
+          "type": "bottom"
+        },
+        "block": "minecraft:cobblestone_slab"
+      },
+      {
+        "weight": 2,
+        "block": "minecraft:air"
+      }
+    ]
+  },
+  "customDerivitives": [
+    {
+      "category": "extreme_hills",
+      "id": "windswept_gravelly_hills",
+      "grassColor": "#8AB689",
+      "foliageColor": "#6DA36B",
+      "waterColor": "#4159B0",
+      "downfallType": "none"
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-spruce-S-h4",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 4,
+        "heightMax": 4,
+        "variants": 1,
+        "seed": 1150705489,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 2,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 3,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 2
+      },
+      {
+        "name": "pv-spruce-S-h5",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 5,
+        "heightMax": 5,
+        "variants": 1,
+        "seed": 865169351,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 2
+      },
+      {
+        "name": "pv-spruce-S-h6",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 714620541,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 2,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 4,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.65
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 2
+      },
+      {
+        "name": "pv-oak-S-h4",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 4,
+        "heightMax": 4,
+        "variants": 1,
+        "seed": 1167067418,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 3,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 3,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 4,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 4,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 1
+      },
+      {
+        "name": "pv-oak-S-h5",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 5,
+        "heightMax": 5,
+        "variants": 1,
+        "seed": 848771468,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 3,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 4,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 4,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 1
+      },
+      {
+        "name": "pv-oak-S-h6",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 731801654,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.006666666666666667,
+        "density": 1
+      }
+    ]
+  }
 }

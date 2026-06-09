@@ -4,7 +4,7 @@ jigsaw_validate.py - static link-resolution check for an Iris jigsaw graph.
 It mirrors how Iris resolves a jigsaw structure at load time so we can confirm
 "does this wire?" *without* a running server:
 
-  jigsaw-structures/<key>.json .pieces[]   -> jigsaw-pieces/<piece>.json   (NO "jigsaw/" prefix)
+  structures/<key>.json        .startPool -> jigsaw-pools/<pool>.json        (v4 IrisStructure)
   jigsaw-pools/<pool>.json     .pieces[]   -> jigsaw-pieces/<piece>.json   (NO "jigsaw/" prefix)
   jigsaw-pieces/<piece>.json   .object     -> objects/<object>.iob         ("jigsaw/" prefix kept)
   jigsaw-pieces/.connectors[].pools[]      -> jigsaw-pools/<pool>.json
@@ -12,6 +12,9 @@ It mirrors how Iris resolves a jigsaw structure at load time so we can confirm
 Pass one or more pack roots; later roots act as fallbacks (e.g. the staging pack
 provides shared pools the derived set may point at). Reports every unresolved
 reference and a reachable-from-structure summary.
+
+Backward-compatible: if no v4 structures/<key>.json exists it falls back to the
+legacy jigsaw-structures/<key>.json (.pieces[]) form.
 
 Usage:
   python jigsaw_validate.py --structure village-meadow --root <derived_iris_dir> [--root <staging_dir>]
@@ -82,12 +85,23 @@ def main():
         for piece_key in load_json(pp).get("pieces", []):
             check_piece(piece_key)
 
-    sp = find(roots, "jigsaw-structures", args.structure + ".json")
-    if not sp:
-        sys.exit(f"structure not found: jigsaw-structures/{args.structure}.json")
-    sj = load_json(sp)
-    for piece_key in sj.get("pieces", []):
-        check_piece(piece_key)
+    sp = find(roots, "structures", args.structure + ".json")
+    if sp:
+        # v4 IrisStructure: seed from the startPool (a jigsaw pool).
+        sj = load_json(sp)
+        start_pool = sj.get("startPool")
+        if not start_pool:
+            sys.exit(f"structures/{args.structure}.json has no startPool")
+        check_pool(start_pool)
+    else:
+        # legacy 3.x IrisJigsawStructure: seed from .pieces[].
+        sp = find(roots, "jigsaw-structures", args.structure + ".json")
+        if not sp:
+            sys.exit(f"structure not found: structures/{args.structure}.json "
+                     f"(nor legacy jigsaw-structures/{args.structure}.json)")
+        sj = load_json(sp)
+        for piece_key in sj.get("pieces", []):
+            check_piece(piece_key)
 
     print(f"structure        : {args.structure}")
     print(f"reachable pieces : {len(seen_pieces)}")

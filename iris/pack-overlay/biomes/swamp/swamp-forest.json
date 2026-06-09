@@ -1,8 +1,8 @@
 {
   "name": "Swamp Forest",
   "rarity": 2,
-  "derivative": "SWAMP",
-  "vanillaDerivative": "SWAMP",
+  "derivative": "minecraft:swamp",
+  "vanillaDerivative": "minecraft:swamp",
   "customDerivitives": [
     {
       "id": "k530forestswamp",
@@ -10,8 +10,7 @@
       "waterColor": "#49521d",
       "waterFogColor": "#49521d",
       "fogColor": "#325729",
-      "grassColor": "#4b5332",
-      "category": "forest"
+      "grassColor": "#4b5332"
     }
   ],
   "children": [
@@ -94,33 +93,6 @@
   "objects": [
     {
       "place": [
-        "trees/mixed/dotree1",
-        "trees/mixed/dotree2",
-        "trees/mixed/dotree3",
-        "trees/mixed/dotree4",
-        "trees/mixed/dotree5",
-        "trees/mixed/dotree6",
-        "trees/mixed/dotree7",
-        "trees/mixed/dotree8",
-        "trees/mixed/dotree9",
-        "trees/mixed/dotree10"
-      ],
-      "chance": 0.65,
-      "rotation": {
-        "enabled": true,
-        "yAxis": {
-          "enabled": true,
-          "interval": 90,
-          "min": -360,
-          "max": 360
-        }
-      },
-      "translate": {
-        "y": -5
-      }
-    },
-    {
-      "place": [
         "trees/acacia/17",
         "trees/acacia/18"
       ],
@@ -128,28 +100,6 @@
         "y": -4
       },
       "chance": 0.3,
-      "rotation": {
-        "enabled": true,
-        "yAxis": {
-          "enabled": true,
-          "interval": 90,
-          "min": -360,
-          "max": 360
-        }
-      }
-    },
-    {
-      "mode": "PAINT",
-      "place": [
-        "clutter/stump1",
-        "clutter/stump2",
-        "clutter/stump3",
-        "clutter/stump4",
-        "clutter/stump5",
-        "clutter/stump6",
-        "clutter/stump7"
-      ],
-      "chance": 0.2,
       "rotation": {
         "enabled": true,
         "yAxis": {
@@ -270,5 +220,93 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-mixed-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 1537991134,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-birch-1",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 5,
+        "heightMax": 8,
+        "variants": 2,
+        "seed": 1150651890,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 122,
+          "squish": 1.2,
+          "mode": "TRIMMED",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 586913110,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 1088687677,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
 }

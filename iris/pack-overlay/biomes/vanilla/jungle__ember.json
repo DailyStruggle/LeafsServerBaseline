@@ -1,18 +1,46 @@
 {
   "name": "vanilla/jungle__ember",
   "rarity": 30,
-  "derivative": "JUNGLE",
-  "vanillaDerivative": "JUNGLE",
-  "category": "jungle",
-  "entitySpawners": [
-    "embervine-common",
-    "embervine-elite"
-  ],
+  "derivative": "minecraft:jungle",
+  "vanillaDerivative": "minecraft:jungle",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
+      "min": 3,
+      "max": 16,
       "generator": "plain"
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.4,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 20
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:melon"
+        }
+      ]
     }
   ],
   "objects": [
@@ -69,39 +97,6 @@
         "trees/embervine/embervine_large_2",
         "trees/embervine/embervine_large_3",
         "trees/embervine/embervine_large_4"
-      ]
-    }
-  ],
-  "decorators": [
-    {
-      "chance": 0.4,
-      "style": {
-        "style": "STATIC"
-      },
-      "palette": [
-        {
-          "block": "minecraft:short_grass",
-          "weight": 100
-        },
-        {
-          "block": "minecraft:tall_grass",
-          "weight": 20
-        },
-        {
-          "block": "minecraft:fern",
-          "weight": 12
-        }
-      ]
-    },
-    {
-      "chance": 0.02,
-      "style": {
-        "style": "STATIC"
-      },
-      "palette": [
-        {
-          "block": "minecraft:melon"
-        }
       ]
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:node/bulwark",
+  "display": {
+    "title": "Warden",
+    "description": "Hybrid apex. Needs BOTH Bulwark and Skirmish, and you must have slain the Ender Dragon. Grants Resistance I. Choose with: /trigger skill_pick set 6",
+    "icon": { "id": "minecraft:dragon_head" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

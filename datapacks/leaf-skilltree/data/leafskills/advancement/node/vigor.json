@@ -1,0 +1,15 @@
+{
+  "parent": "leafskills:root",
+  "display": {
+    "title": "Vigor",
+    "description": "Start node. +4 max health. Choose with: /trigger skill_pick set 1",
+    "icon": { "id": "minecraft:apple" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "chosen": { "trigger": "minecraft:impossible" }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "name": "Amethyst Rainforest",
+  "derivative": "minecraft:jungle",
+  "vanillaDerivative": "minecraft:jungle",
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:calcite"
+        },
+        {
+          "block": "minecraft:smooth_basalt"
+        }
+      ]
+    },
+    {
+      "minHeight": 2,
+      "maxHeight": 5,
+      "palette": [
+        {
+          "block": "minecraft:tuff"
+        }
+      ]
+    }
+  ],
+  "color": "#8EDEE7",
+  "rarity": 1,
+  "customDerivitives": [
+    {
+      "id": "terralost_amethyst_rainforest1",
+      "skyColor": "#CEC6FF",
+      "fogColor": "#C0D8FF",
+      "humidity": 0.9,
+      "downfallType": "rain",
+      "temperature": 0.95,
+      "foliageColor": "#A57AEB",
+      "waterColor": "#43D5EE",
+      "grassColor": "#4AB400",
+      "waterFogColor": "#50533"
+    },
+    {
+      "id": "terralost_amethyst_rainforest2",
+      "skyColor": "#CEC6FF",
+      "fogColor": "#C0D8FF",
+      "humidity": 0.1,
+      "downfallType": "rain",
+      "temperature": 0.45,
+      "foliageColor": "#8B45FF",
+      "waterColor": "#43D5EE",
+      "grassColor": "#4AB400",
+      "waterFogColor": "#50533"
+    }
+  ],
+  "children": [
+    "terralost/amethyst-rainforest"
+  ],
+  "generators": [
+    {
+      "min": 50,
+      "max": 70,
+      "generator": "vascular-cracked-cliffs"
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.01,
+      "variance": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:allium"
+        }
+      ],
+      "style": {
+        "style": "STATIC"
+      }
+    },
+    {
+      "chance": 0.6,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:tall_grass",
+          "weight": 5
+        },
+        {
+          "block": "minecraft:short_grass",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:fern"
+        },
+        {
+          "block": "minecraft:large_fern"
+        }
+      ]
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-mixed-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 864464766,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.075,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-birch-1",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 5,
+        "heightMax": 8,
+        "variants": 2,
+        "seed": 2079733153,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 122,
+          "squish": 1.2,
+          "mode": "TRIMMED",
+          "leafDensity": 0.9
+        },
+        "chance": 0.075,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 1353119392,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.075,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-mixed-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 684277917,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.075,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{"spawns": [
+  {
+    "entity": "standard/passive/fox",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 3
+  },
+  {
+    "entity": "standard/passive/rabbit",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 3
+  },
+  {
+    "entity": "standard/passive/horse",
+    "maxSpawns": 2,
+    "minSpawns": 1,
+    "rarity": 6
+  },
+  {
+    "entity": "standard/hostile/husk",
+    "maxSpawns": 2,
+    "minSpawns": 1,
+    "rarity": 5
+  }
+]}

@@ -2,8 +2,8 @@
   "name": "Swamp Roofed Forest",
   "color": "#708A10",
   "rarity": 1,
-  "derivative": "SWAMP",
-  "vanillaDerivative": "DARK_FOREST",
+  "derivative": "minecraft:swamp",
+  "vanillaDerivative": "minecraft:dark_forest",
   "children": [
     "swamp/sea/lake"
   ],
@@ -78,383 +78,7 @@
       ]
     }
   ],
-  "objects": [
-    {
-      "chance": 0.1,
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:spruce_leaves"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:oak_leaves"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:birch_leaves"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_leaves"
-              }
-            ]
-          }
-        }
-      ],
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/oak/mroofed1",
-        "trees/oak/mroofed2",
-        "trees/oak/mroofed3",
-        "trees/oak/mroofed4",
-        "trees/oak/mroofed5",
-        "trees/oak/mroofed6",
-        "trees/oak/mroofed7",
-        "trees/oak/mroofed8",
-        "trees/oak/mroofed9",
-        "trees/oak/mroofed10",
-        "trees/oak/mroofed11",
-        "trees/oak/mroofed12"
-      ]
-    },
-    {
-      "chance": 0.02,
-      "density": 1,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/mushroom/browngeneric1",
-        "trees/mushroom/browngeneric2",
-        "trees/mushroom/redgeneric3",
-        "trees/mushroom/redgeneric4",
-        "trees/mushroom/redgeneric5",
-        "trees/mushroom/redgeneric6",
-        "trees/mushroom/redgeneric7",
-        "trees/mushroom/redgeneric8",
-        "trees/mushroom/redgeneric9",
-        "trees/mushroom/redgeneric10",
-        "trees/mushroom/redgeneric11"
-      ]
-    },
-    {
-      "chance": 0.07,
-      "density": 1,
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:red_mushroom_block"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:brown_mushroom_block"
-              }
-            ]
-          }
-        }
-      ],
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/mushroom/browngeneric1",
-        "trees/mushroom/browngeneric2",
-        "trees/mushroom/redgeneric3",
-        "trees/mushroom/redgeneric4",
-        "trees/mushroom/redgeneric5",
-        "trees/mushroom/redgeneric6",
-        "trees/mushroom/redgeneric7",
-        "trees/mushroom/redgeneric8",
-        "trees/mushroom/redgeneric9",
-        "trees/mushroom/redgeneric10",
-        "trees/mushroom/redgeneric11"
-      ]
-    },
-    {
-      "chance": 0.7,
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:birch_leaves"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_leaves"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:dark_oak_fence"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_leaves"
-              }
-            ]
-          }
-        }
-      ],
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/oak/troofed1",
-        "trees/oak/troofed2",
-        "trees/oak/troofed3",
-        "trees/oak/troofed4",
-        "trees/oak/troofed5",
-        "trees/oak/troofed6",
-        "trees/oak/troofed7",
-        "trees/oak/troofed8",
-        "trees/oak/troofed9",
-        "trees/oak/troofed10"
-      ]
-    },
-    {
-      "chance": 0.135,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "clutter/boulder1",
-        "clutter/boulder2",
-        "clutter/boulder3",
-        "clutter/boulder4",
-        "clutter/boulder5",
-        "clutter/boulder6",
-        "clutter/boulder7",
-        "clutter/boulder8"
-      ],
-      "translate": {
-        "x": 0,
-        "y": -2,
-        "z": 0
-      }
-    },
-    {
-      "chance": 0.1,
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_log"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_log"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_wood"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_wood"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_fence"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_fence"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:dark_oak_planks"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:stripped_dark_oak_wood"
-              }
-            ]
-          }
-        }
-      ],
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "clutter/stump1",
-        "clutter/stump2",
-        "clutter/stump3",
-        "clutter/stump4",
-        "clutter/stump5",
-        "clutter/stump6"
-      ],
-      "mode": "PAINT"
-    },
-    {
-      "chance": 0.3,
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_log"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_log"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_wood"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_wood"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:oak_fence"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:dark_oak_fence"
-              }
-            ]
-          }
-        },
-        {
-          "find": [
-            {
-              "block": "minecraft:dark_oak_planks"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:stripped_dark_oak_wood"
-              }
-            ]
-          }
-        }
-      ],
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "clutter/oakclutt1",
-        "clutter/oakclutt2",
-        "clutter/oakclutt3",
-        "clutter/oakclutt4",
-        "clutter/oakclutt5"
-      ]
-    },
-    {
-      "chance": 0.001,
-      "rotation": {
-        "enabled": false
-      },
-      "place": [
-        "clutter/genericgrave1"
-      ],
-      "translate": {
-        "x": 0,
-        "y": -1,
-        "z": 0
-      }
-    }
-  ],
+  "objects": [],
   "decorators": [
     {
       "chance": 0.01,
@@ -541,5 +165,139 @@
         "style": "STATIC"
       }
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-oak-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 576575250,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-1",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 1419283891,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-2",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 11,
+        "variants": 3,
+        "seed": 1339515472,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 118,
+          "squish": 0.75,
+          "mode": "DENSITY",
+          "leafDensity": 0.85
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 13,
+        "heightMax": 18,
+        "variants": 3,
+        "seed": 957495537,
+        "trunkWidth": 2,
+        "trunkShape": "PARABOLIC",
+        "shapePeakOffset": 0.2,
+        "canopy": {
+          "startAngle": 122,
+          "squish": 0.95,
+          "mode": "DENSITY",
+          "leafDensity": 0.88,
+          "branches": {
+            "probabilityFunction": "TOP_HEAVY",
+            "probabilityExponent": 2.0,
+            "lengthFunction": "LINEAR",
+            "lengthBase": 2,
+            "lengthCrown": 4,
+            "azimuthMode": "RANDOM",
+            "elevation": 22,
+            "leafStartUp": true,
+            "clusterRadius": 2,
+            "clusterMode": "DENSITY",
+            "clusterDensity": 0.85
+          }
+        },
+        "chance": 0.95,
+        "density": 1,
+        "roots": false
+      }
+    ],
+    "fungi": [
+      {
+        "name": "pv-mushroom-red-mushroom-0",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:red_mushroom_block",
+        "stemHeightMin": 4,
+        "stemHeightMax": 8,
+        "stemWidth": 1,
+        "capRadiusMin": 2,
+        "capRadiusMax": 4,
+        "capThickness": 1,
+        "chance": 0.495,
+        "density": 1,
+        "seed": 1335756070
+      },
+      {
+        "name": "pv-mushroom-brown-mushroom-1",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:brown_mushroom_block",
+        "stemHeightMin": 3,
+        "stemHeightMax": 6,
+        "stemWidth": 1,
+        "capRadiusMin": 3,
+        "capRadiusMax": 5,
+        "capThickness": 1,
+        "chance": 0.495,
+        "density": 1,
+        "seed": 777384093
+      }
+    ]
+  }
 }

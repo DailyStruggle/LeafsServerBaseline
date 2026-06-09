@@ -1,0 +1,199 @@
+{
+    "name": "mesa/glass-spires",
+    "color": "#FFC0CB",
+    "rarity": 1,
+    "derivative": "minecraft:cherry_grove",
+    "vanillaDerivative": "minecraft:cherry_grove",
+    "generators": [
+        {
+            "min": -3,
+            "max": 16,
+            "generator": "magnetics/glass"
+        }
+    ],
+    "wall": {
+        "palette": [
+            {
+                "block": "minecraft:calcite"
+            },
+            {
+                "block": "minecraft:smooth_quartz"
+            },
+            {
+                "block": "minecraft:quartz_block"
+            },
+            {
+                "block": "minecraft:andesite"
+            }
+        ]
+    },
+    "layers": [
+        {
+            "maxHeight": 1,
+            "palette": [
+                {
+                    "block": "minecraft:calcite"
+                },
+                {
+                    "block": "minecraft:smooth_quartz"
+                }
+            ]
+        },
+        {
+            "minHeight": 1,
+            "maxHeight": 3,
+            "palette": [
+                {
+                    "block": "minecraft:quartz_block"
+                },
+                {
+                    "block": "minecraft:smooth_quartz"
+                },
+                {
+                    "block": "minecraft:calcite"
+                }
+            ]
+        },
+        {
+            "minHeight": 3,
+            "maxHeight": 6,
+            "palette": [
+                {
+                    "block": "minecraft:calcite"
+                },
+                {
+                    "block": "minecraft:andesite"
+                },
+                {
+                    "block": "minecraft:stone"
+                }
+            ]
+        },
+        {
+            "minHeight": 6,
+            "maxHeight": 16,
+            "palette": [
+                {
+                    "block": "minecraft:stone"
+                },
+                {
+                    "block": "minecraft:andesite"
+                },
+                {
+                    "block": "minecraft:calcite"
+                },
+                {
+                    "block": "minecraft:deepslate"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        
+    ],
+    "decorators": [
+        {
+            "chance": 0.02,
+            "palette": [
+                {
+                    "block": "minecraft:amethyst_cluster"
+                },
+                {
+                    "block": "minecraft:small_amethyst_bud"
+                }
+            ]
+        }
+    ],
+    "floatingChildBiomes": [
+        {
+            "biome": "magnetics/glass-shard",
+            "rarity": 1,
+            "footprintStyle": {
+                "style": "CELLULAR_IRIS_THICK",
+                "zoom": 0.38,
+                "fracture": {
+                    "style": "SIMPLEX",
+                    "zoom": 0.16,
+                    "multiplier": 8
+                }
+            },
+            "footprintThreshold": 0.55,
+            "pickerStyle": {
+                "style": "SIMPLEX",
+                "zoom": 4
+            },
+            "altitudeStyle": {
+                "style": "SIMPLEX",
+                "zoom": 3.2
+            },
+            "minHeightAboveSurface": 125,
+            "maxHeightAboveSurface": 175,
+            "topShapeMode": "NOISE",
+            "maxTopHeight": 20,
+            "topShapeStyle": {
+                "style": "CELLULAR_HEIGHT_IRIS",
+                "zoom": 0.32,
+                "fracture": {
+                    "style": "SIMPLEX",
+                    "zoom": 0.14,
+                    "multiplier": 5
+                }
+            },
+            "topShapeAmp": 1,
+            "bottomStyle": {
+                "style": "FRACTAL_RM_SIMPLEX",
+                "zoom": 0.24,
+                "fracture": {
+                    "style": "SIMPLEX",
+                    "zoom": 0.14,
+                    "multiplier": 5
+                }
+            },
+            "bottomDepthMin": 10,
+            "bottomDepthMax": 18,
+            "bottomExponent": 1.7,
+            "bottomPaletteMode": "MIRROR_TOP",
+            "maxThickness": 40,
+            "wallWarpStyle": {
+                "style": "HEXAGON_IRIS",
+                "zoom": 0.22,
+                "fracture": {
+                    "style": "SIMPLEX",
+                    "zoom": 0.12,
+                    "multiplier": 4
+                }
+            },
+            "wallWarpAmplitude": 3,
+            "carveStyle": {
+                "style": "SIMPLEX",
+                "zoom": 0.18,
+                "fracture": {
+                    "style": "SIMPLEX",
+                    "zoom": 0.1,
+                    "multiplier": 3
+                }
+            },
+            "carveThreshold": 0.88,
+            "inheritDecorators": true,
+            "inheritObjects": false,
+            "objectShrinkFactor": 0.7,
+            "topObjectMode": "REPLACE",
+            "topObjectOverrides": [
+                
+            ],
+            "bottomObjectMode": "REPLACE",
+            "bottomObjectOverrides": [
+                
+            ]
+        }
+    ],
+    "customDerivitives": [
+        {
+            "id": "cherry_grove",
+            "grassColor": "#B6DB61",
+            "foliageColor": "#B6DB61",
+            "waterColor": "#5DB7EF",
+            "downfallType": "none"
+        }
+    ]
+}

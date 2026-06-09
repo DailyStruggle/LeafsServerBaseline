@@ -123,39 +123,31 @@ Planned custom biomes for the overworld. Each entry includes the Iris category, 
 - **Climate:** Temp -0.25, Humidity 0.5
 - **Terrain:** Open forest, moderate hills, frosted grass tint
 - **Primary palette:** Birch logs, frosted grass (custom or snow-layer analog), icy iris flowers
-- **Signature blocks:** Allay natural spawns; no hostile mob spawner entries
+- **Signature blocks:** Allay natural spawns (wired via `entitySpawners: ["structure/allay"]`)
 - **Build theme anchor:** Peaceful sanctuaries, secure farms, fairy-tale cottages
-- **Rarity:** 5 (rare by design - a reward biome)
+- **Rarity:** 15 (rare by design - a reward biome)
+- **Status:** Implemented - `iris/pack-overlay/biomes/temperate/auroral-garden.json`, wired into `regions/temperate.json` `landBiomes`.
+- **No-hostiles limitation:** biome-level `entitySpawners` are additive to the region's; vanilla Iris cannot subtract the temperate region's hostile spawners, so a guaranteed no-hostiles read is not achievable at the biome level (would need a dedicated region or a future Iris mechanic).
 
 ### Hot Category
 
 > **Lush Desert** - covered by Iris `terralost/ancient-sands` (sphinx ruins, pyramid jigsaw, adopt as-is). No custom entry needed.
 
-#### Warped Mesa
-
-- **Concept hook:** Jagged, deeply eroded clay peaks in cool deep blue - alien enough to justify a sci-fi research outpost or void-touched base.
-- **Iris category:** `mesa`
-- **Derivative:** `minecraft:badlands`
-- **Climate:** Temp 2.0, Humidity 0.0
-- **Terrain:** Highly eroded spires and canyons; cyan/blue terracotta layer stacking
-- **Primary palette:** Cyan terracotta, blue-tinted sand (custom or blue concrete powder), packed ice accents
-- **Signature blocks:** Cyan terracotta bands, blue-tinted sand floor
-- **Build theme anchor:** Alien bases, sci-fi research facilities, void-touched ruins
-- **Rarity:** 4
-
-### Ocean / Shore Category
+> **Warped Mesa** - cut (latest decision). Kept here only as a do-not-implement note; the alien cyan/blue eroded-clay concept is not being built.
 
 #### Glass Beach
 
-- **Concept hook:** Shimmering shoreline of smoothed colorful sea glass - modernist beach houses and glassworks look like they belong here.
-- **Iris category:** `ocean` (shore sub-type)
+- **Concept hook:** Shimmering shoreline of smoothed colorful sea glass - modernist beach houses and glassworks look like they belong here. The sea glass (melted sand) is justified by the biome's own heat, not by an adjacent volcano.
+- **Iris category:** `hot`
 - **Derivative:** `minecraft:beach`
-- **Climate:** Temp 0.7, Humidity 0.4, high continentalness edge
-- **Terrain:** Flat shoreline, shallow water; sea glass blocks replace sand at surface
+- **Climate:** Temp 1.5, Humidity 0.4, high continentalness edge
+- **Terrain:** Flat, sun-baked shoreline, shallow water; sea glass blocks replace sand at surface
 - **Primary palette:** Colorful sea glass (stained glass / glass pane variants), white sand subsurface
 - **Signature blocks:** Sea glass surface layer in mixed colors; glass pane decorators as driftwood analog
 - **Build theme anchor:** Modernist beach houses, lighthouses, glassworks studios
-- **Rarity:** 4
+- **Rarity:** 8
+- **Design decision:** Sited under the `hot` category (warm climate sells the melted-glass story) rather than tied to lava/volcanic adjacency. A volcanic region is feasible but not wanted right now; Iris also cannot guarantee a volcanic neighbour for a shore biome (continentalness-edge placement, not adjacency-controlled). If a future Iris mechanic allows biome-adjacency gating, optionally revisit to bias it toward the Embertide/Cinderfall volcanic fringes.
+- **Status:** Implemented - `iris/pack-overlay/biomes/hot/glass-beach.json`, wired into `regions/hot.json` `shoreBiomes`. Surface layer is a weighted mix of stained-glass blocks (sea glass) over white sand subsurface; stained-glass-pane decorators act as driftwood.
 
 ### Mountain Category
 
@@ -167,14 +159,27 @@ Planned custom biomes for the overworld. Each entry includes the Iris category, 
 
 Rather than static biomes, four seasonal profiles can be implemented as region-level biome sets that share the same geographic footprint but swap surface palettes, decorators, and mob spawners. Each season maps to a distinct Iris region with a `seasonalGroup` tag.
 
-| Season | Iris region tag | Key surface features | Signature mob |
-|---|---|---|---|
-| Summer Strand | `season_summer` | Palm trees, coconut clusters, wild melon patches, white sand | Crabs, white dolphins |
-| Autumnal Canopy | `season_autumn` | Orange oak, yellow birch, leaf piles, pumpkins, wild corn/wheat | Hostile scarecrows (night), white-lipped deer |
-| Winter Waste | `season_winter` | Deep snow, powder snow patches, frozen lakes, spruce forest | Penguins, hostile iceologers |
-| Spring Meadow | `season_spring` | Cherry blossom, birch, active bee hives, abandoned greenhouses | Mooblooms, sniffers |
+| Season | Iris region tag | Key surface features | Signature mob | Status |
+|---|---|---|---|---|
+| Summer Strand | `season_summer` | Acacia 'palms', wild melon patches, white sand | Turtles (crabs), dolphins (white dolphins) | Implemented |
+| Autumnal Canopy | `season_autumn` | Mixed oak/birch canopy, fern + pumpkin litter | Fox/rabbit/horse (white-lipped deer), husk (night scarecrows) | Implemented |
+| Winter Waste | `season_winter` | Deep/powder snow, glacier-pine + spruce | Polar bears (penguins), strays (iceologers) | Implemented |
+| Spring Meadow | `season_spring` | Cherry blossom, birch, active bee hives | Sniffers, bees | Implemented |
 
 **Implementation note:** Seasonal biomes share the same `derivative` as their base climate biome. The season is a decorator/palette swap, not a separate biome ID from the client's perspective.
+
+**All four seasonal profiles are now implemented.** Each is a distinct region (`seasonalGroup` tag, rarity 2) wired into `iris/pack-overlay/dimensions/overworld.json` `regions`, with one signature biome under `biomes/seasonal/` and a dedicated spawner under `spawners/seasonal/`.
+
+| Season | Region | Signature biome (derivative) | Spawner (vanilla mobs) |
+|---|---|---|---|
+| Spring | `regions/season_spring.json` | `biomes/seasonal/spring-meadow.json` (`CHERRY_GROVE`) | `spawners/seasonal/spring.json` - sniffer + bee |
+| Summer | `regions/season_summer.json` | `biomes/seasonal/summer-strand.json` (`BEACH`) | `spawners/seasonal/summer.json` - turtle + dolphin |
+| Autumn | `regions/season_autumn.json` | `biomes/seasonal/autumnal-canopy.json` (`FOREST`) | `spawners/seasonal/autumn.json` - fox + rabbit + horse + husk |
+| Winter | `regions/season_winter.json` | `biomes/seasonal/winter-waste.json` (`SNOWY_TAIGA`) | `spawners/seasonal/winter.json` - polar bear + rabbit + stray |
+
+- **Scope / mob policy:** only vanilla-Iris-expressible features are shipped. Per the "work the mobs in as vanilla variants" decision, the catalog's non-vanilla signature mobs are substituted with the closest vanilla entity rather than dropped: crabs -> turtles, white dolphins -> dolphins (Summer); white-lipped deer -> fox/rabbit/horse, night scarecrows -> husks (Autumn); penguins -> polar bears, iceologers -> strays (Winter); Spring's mooblooms remain omitted (sniffer + bee cover its signature life). Purely decorative non-vanilla content (coconut clusters, "abandoned greenhouses") is omitted, mirroring the Sulfur Caves "terrain + available content only" precedent.
+- **Trees:** Summer uses sparse `vanilla-acacia` palms; Autumn uses `vanilla-oak` + `vanilla-birch`; Winter uses `glacierpine` + `vanilla-spruce`; Spring uses `vanilla-cherry` + `vanilla-birch`.
+- **Seasonal colour mixing (Spring, Summer, Autumn):** each signature biome mixes its season's palette using child biomes rather than a single flat tint. The parent carries a base `customDerivitives` foliage/grass colour, and two colour-variant child biomes are blended in through `children` + `childStyle` (CELLULAR, zoom 0.35); the children mirror the parent terrain (same generators/trees/grass) and differ only by colour. Shades: Autumn warm tones (russet base + crimson `seasonal/autumn/warm-canopy-red` + amber `warm-canopy-gold`); Summer darker greens (verdant base + deep `seasonal/summer/deep-strand-forest` + pine `deep-strand-meadow`); Spring lighter greens (soft base + fresh-lime `seasonal/spring/light-meadow-bright` + pale `light-meadow-soft`). Winter intentionally has no colour-mix children.
 
 ---
 
@@ -219,7 +224,7 @@ All seven cave biomes above now exist as overlay files (overlay only; never edit
 
 **Naming note:** "Crystal Caves" is reserved for the rainbow stained-glass biome; the amethyst-crystal reward concept is now **Amethyst Caves**.
 
-**Frostfire / ice-volcano tie:** the intent is for Frostfire Caves to sit specifically under the Frostpeak ice volcano. Iris exposes `IrisBiome.carvingBiome` ("the biome used when under a carving instead of this current biome"), which would let the Frostpeak land biome point directly at `magnetics/frostfire-caves`. Frostpeak is not in the current overlay, so for now Frostfire is wired into the `frozen` region's `caveBiomes`; switch it to the `carvingBiome` approach on Frostpeak once that biome is deployed.
+**Frostfire / ice-volcano tie:** the intent is for Frostfire Caves to sit specifically under the Frostpeak ice volcano. Iris exposes `IrisBiome.carvingBiome` ("the biome used when under a carving instead of this current biome"), which would let the Frostpeak land biome point directly at `magnetics/frostfire-caves`. Frostpeak is now live in `pack-overlay/biomes/frozen/frostpeak.json`; Frostfire is still wired into the `frozen` region's `caveBiomes` (region-level), so switching it to the per-biome `carvingBiome` approach on Frostpeak remains a follow-up refinement.
 
 **Version note (1.21.11 early testing):** all palettes use current vanilla blocks. If later game versions add native crystal/sulfur/ice blocks or dedicated cave mobs, revisit palettes and the `entitySpawners` hooks to use the native content.
 
@@ -232,6 +237,8 @@ All seven cave biomes above now exist as overlay files (overlay only; never edit
 ## Volcano Biomes
 
 Five volcano variants, each placed in a different climate zone. All are forks of the `tropical/volcanoes` + `tropical/volcanoes-lava` Iris biome pair with the `the_void` derivative replaced by a valid vanilla ID. Each uses an "off-color" surface palette - blocks that are subtly wrong for the surrounding biome - so players notice something unusual before they see the caldera.
+
+**Status (live):** all five family parent biomes are authored in `pack-overlay/biomes/` and wired into region `landBiomes`: Frostpeak -> frozen, Cinderfall + Embertide -> tropical, Ashcrown -> tundra, Cinnabar Mesa + Bryce Spires + Ashen Plains -> hot, Floating Islands -> terralost, Mirage Isles -> tropical shore. Each `-lava` caldera child and `-springs` Hot Springs child is referenced from its parent biome's `children` array (not from region `landBiomes`). **Exception:** `frozen/frostpeak-springs` exists as a file but is not yet ready and is wired nowhere - its parent `frozen/frostpeak.json` `children` lists only `frozen/frostpeak-lava`, so the Frostpeak Hot Springs child does not currently generate. The `clutter/magmaspire1-3` basalt spire objects they place are generated by `iris/scripts/build-magmaspires.py` (sources in `iris/object-src/clutter/`, compiled to `pack-overlay/objects/clutter/*.iob`).
 
 **Shared mechanics (all variants):**
 - Generator: `mountain`, min Y=30 max Y=180 - cone shape

@@ -1,11 +1,11 @@
-# strip-old-custom-entries.ps1
+﻿# strip-old-custom-entries.ps1
 # Removes custom tree entries (both old multi-line and new compact single-line formats)
 # from Iris biome JSON files, preserving all stock entries untouched.
 # Uses brace-counting to excise complete object blocks containing trees/custom/ paths.
 # After running this script, re-run apply-tree-integration.ps1 to re-patch.
 
 param(
-    [string]$PackRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes"
+    [string]$PackRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes"
 )
 
 # Given a string and a position inside a { ... } block, find the start of that block

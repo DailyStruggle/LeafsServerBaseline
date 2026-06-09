@@ -1,0 +1,22 @@
+{
+  "object": "jigsaw/clutter/lavapocket3",
+  "placementOptions": {
+    "bore": true,
+    "mode": "FAST_MAX_HEIGHT",
+    "translateCenter": false,
+    "translate": {
+      "x": 0,
+      "y": -3,
+      "z": 0
+    },
+    "rotation": {
+      "enabled": true,
+      "yAxis": {
+        "enabled": true,
+        "min": 0,
+        "max": 270,
+        "interval": 90
+      }
+    }
+  }
+}

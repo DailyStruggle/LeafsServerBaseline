@@ -1,0 +1,60 @@
+{
+    "group": "NORMAL",
+    "maximumRate": {
+        "amount": 8,
+        "per": {"seconds": 15}
+    },
+    "maxEntitiesPerChunk": 2,
+    "weather": "ANY",
+    "spawns": [
+        {
+            "entity": "standard/neutral/piglin",
+            "energyMultiplier": 1,
+            "rarity": 5,
+            "maxSpawns": 4,
+            "minSpawns": 2
+        },
+        {
+            "entity": "standard/neutral/zombifiedpiglin",
+            "energyMultiplier": 1,
+            "rarity": 5,
+            "maxSpawns": 4,
+            "minSpawns": 2
+        },
+        {
+            "entity": "standard/hostile/hoglin",
+            "energyMultiplier": 1,
+            "rarity": 10,
+            "maxSpawns": 3,
+            "minSpawns": 1
+        },
+        {
+            "entity": "standard/hostile/ghast",
+            "energyMultiplier": 1,
+            "rarity": 20,
+            "maxSpawns": 1,
+            "minSpawns": 1
+        },
+        {
+            "entity": "standard/hostile/magmacube",
+            "energyMultiplier": 1,
+            "rarity": 10,
+            "maxSpawns": 2,
+            "minSpawns": 1
+        },
+        {
+            "entity": "standard/hostile/blaze",
+            "energyMultiplier": 1,
+            "rarity": 30,
+            "maxSpawns": 2,
+            "minSpawns": 1
+        },
+        {
+            "entity": "standard/hostile/enderman",
+            "energyMultiplier": 1,
+            "rarity": 40,
+            "maxSpawns": 2,
+            "minSpawns": 1
+        }
+    ]
+}

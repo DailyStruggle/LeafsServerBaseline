@@ -1,0 +1,48 @@
+{
+  "name": "Warped Forest",
+  "color": "#168A82",
+  "rarity": 1,
+  "derivative": "minecraft:warped_forest",
+  "vanillaDerivative": "minecraft:warped_forest",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 32,
+      "max": 80
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {"block": "minecraft:warped_nylium"}
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 4,
+      "palette": [
+        {"block": "minecraft:netherrack"}
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.18,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:warped_roots", "weight": 6},
+        {"block": "minecraft:warped_fungus", "weight": 3},
+        {"block": "minecraft:nether_sprouts", "weight": 2}
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:warped_wart_block"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "name": "Mushroom Tunnels",
+  "derivative": "minecraft:lush_caves",
+  "vanillaDerivative": "minecraft:lush_caves",
+  "wall": {
+    "palette": [
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "maxHeight": 1,
+      "minHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:mycelium"
+        }
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.012,
+      "style": {
+        "style": "STATIC"
+      },
+      "partOf": "CEILING",
+      "palette": [
+        {
+          "block": "minecraft:shroomlight"
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    }
+  ],
+  "caveCeilingLayers": [
+    {
+      "maxHeight": 1,
+      "minHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom_block"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    
+  ],
+  "caveProfile": {
+    "enabled": true,
+    "verticalRange": {
+      "min": 90,
+      "max": 640
+    },
+    "baseDensityStyle": {
+      "style": "PERLIN_IRIS",
+      "zoom": 0.72
+    },
+    "detailDensityStyle": {
+      "style": "FRACTAL_BILLOW_SIMPLEX",
+      "zoom": 0.52
+    },
+    "warpStyle": {
+      "style": "SIMPLEX",
+      "zoom": 0.44
+    },
+    "baseWeight": 0.9,
+    "detailWeight": 0.11,
+    "warpStrength": 0.26,
+    "densityThreshold": {
+      "min": -0.13,
+      "max": -0.05,
+      "style": {
+        "style": "SIMPLEX",
+        "zoom": 0.72
+      }
+    },
+    "thresholdBias": 0.13,
+    "sampleStep": 2,
+    "surfaceClearance": 6,
+    "allowSurfaceBreak": true,
+    "surfaceBreakStyle": {
+      "style": "SIMPLEX",
+      "zoom": 0.86
+    },
+    "surfaceBreakNoiseThreshold": 0.6,
+    "surfaceBreakDepth": 14,
+    "surfaceBreakThresholdBoost": 0.1,
+    "objectMinDepthBelowSurface": 14,
+    "surfaceObjectExclusionDepth": 30,
+    "defaultObjectAnchor": "FLOOR",
+    "defaultObjectPlaceMode": "ORGANIC_STILT",
+    "anchorScanStep": 1,
+    "anchorSearchAttempts": 18,
+    "allowWater": true,
+    "waterMinDepthBelowSurface": 18,
+    "waterRequiresFloor": true,
+    "allowLava": true,
+    "modules": [
+      {
+        "style": {
+          "style": "SIMPLEX_VASCULAR",
+          "zoom": 1.06
+        },
+        "weight": 0.08,
+        "threshold": 0.03,
+        "verticalRange": {
+          "min": 16,
+          "max": 620
+        },
+        "invert": false
+      },
+      {
+        "style": {
+          "style": "CELLULAR_BILINEAR",
+          "zoom": 1.28
+        },
+        "weight": 0.04,
+        "threshold": 0.15,
+        "verticalRange": {
+          "min": 30,
+          "max": 540
+        },
+        "invert": false
+      }
+    ],
+    "verticalEdgeFade": 24,
+    "verticalEdgeFadeStrength": 0.17,
+    "minCarveCells": 20,
+    "recoveryThresholdBoost": 0.07
+  },
+  "caveMinDepthBelowSurface": 12,
+  "children": [
+    "carving/mushroom-child"
+  ],
+  "childStyle": {
+    "style": "CELLULAR_IRIS_DOUBLE",
+    "zoom": 1.06
+  },
+  "childShrinkFactor": 1.54,
+  "proceduralObjects": {
+    "fungi": [
+      {
+        "name": "pv-mushroom-red-mushroom-0",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:red_mushroom_block",
+        "stemHeightMin": 4,
+        "stemHeightMax": 8,
+        "stemWidth": 1,
+        "capRadiusMin": 2,
+        "capRadiusMax": 4,
+        "capThickness": 1,
+        "chance": 0.95,
+        "density": 1,
+        "seed": 1859251747
+      },
+      {
+        "name": "pv-mushroom-brown-mushroom-1",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:brown_mushroom_block",
+        "stemHeightMin": 3,
+        "stemHeightMax": 6,
+        "stemWidth": 1,
+        "capRadiusMin": 3,
+        "capRadiusMax": 5,
+        "capThickness": 1,
+        "chance": 0.95,
+        "density": 1,
+        "seed": 1694146151
+      }
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Frozen Pine Hills",
+  "color": "#10719B",
+  "rarity": 1,
+  "derivative": "minecraft:snowy_taiga",
+  "vanillaDerivative": "minecraft:snowy_taiga",
+  "customDerivitives": [
+    {
+      "id": "frozen_pine_hills",
+      "downfallType": "snow",
+      "temperature": -3,
+      "waterColor": "#216FC4",
+      "fogColor": "#A6D1FF",
+      "waterFogColor": "#216FC4",
+      "foliageColor": "#B8D0E1",
+      "grassColor": "#D0E1FF"
+    }
+  ],
+  "generators": [
+    {
+      "generator": "mountain",
+      "max": 40,
+      "min": 11
+    }
+  ],
+  "wall": {
+    "palette": [
+      {
+        "block": "minecraft:stone"
+      },
+      {
+        "block": "minecraft:andesite"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "minHeight": 0,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:snow_block"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:grass_block"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 28,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 1,
+      "variance": {
+        "style": "NOWHERE",
+        "zoom": 0.23
+      },
+      "palette": [
+        {
+          "data": {
+            "layers": 1
+          },
+          "block": "minecraft:snow"
+        },
+        {
+          "block": "minecraft:air"
+        }
+      ]
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-spruce-spruce-0",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 10,
+        "heightMax": 14,
+        "variants": 2,
+        "seed": 2125149058,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 136,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.86
+        },
+        "chance": 0.225,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-1",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 12,
+        "heightMax": 16,
+        "variants": 3,
+        "seed": 141453603,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 134,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.88
+        },
+        "chance": 0.225,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-2",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 11,
+        "heightMax": 15,
+        "variants": 3,
+        "seed": 320964288,
+        "trunkWidth": 1,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.8,
+        "canopy": {
+          "startAngle": 132,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.225,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-spruce-spruce-3",
+        "trunk": "minecraft:spruce_log",
+        "leaves": "minecraft:spruce_leaves",
+        "profile": "SPRUCE",
+        "heightMin": 18,
+        "heightMax": 26,
+        "variants": 3,
+        "seed": 1709497441,
+        "trunkWidth": 2,
+        "trunkShape": "LINEAR",
+        "shapeStart": 1.0,
+        "shapeEnd": 0.65,
+        "canopy": {
+          "startAngle": 130,
+          "squish": 1.0,
+          "mode": "TRIMMED",
+          "leafDensity": 0.85
+        },
+        "chance": 0.225,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

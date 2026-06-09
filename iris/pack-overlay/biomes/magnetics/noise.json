@@ -1,0 +1,303 @@
+{
+  "name": "Magnetics Noise",
+  "color": "#8BA070",
+  "rarity": 1,
+  "derivative": "minecraft:plains",
+  "vanillaDerivative": "minecraft:plains",
+  "generators": [
+    {
+      "min": -3,
+      "max": 22,
+      "generator": "magnetics/noise"
+    }
+  ],
+  "wall": {
+    "palette": [
+      {
+        "block": "minecraft:granite"
+      },
+      {
+        "block": "minecraft:diorite"
+      },
+      {
+        "block": "minecraft:gravel"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:gravel"
+        },
+        {
+          "block": "minecraft:coarse_dirt"
+        },
+        {
+          "block": "minecraft:granite"
+        },
+        {
+          "block": "minecraft:diorite"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:coarse_dirt"
+        },
+        {
+          "block": "minecraft:gravel"
+        },
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 7,
+      "palette": [
+        {
+          "block": "minecraft:granite"
+        },
+        {
+          "block": "minecraft:diorite"
+        },
+        {
+          "block": "minecraft:andesite"
+        }
+      ]
+    },
+    {
+      "minHeight": 7,
+      "maxHeight": 18,
+      "palette": [
+        {
+          "block": "minecraft:granite"
+        },
+        {
+          "block": "minecraft:diorite"
+        },
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:deepslate"
+        },
+        {
+          "block": "minecraft:gravel"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.5,
+      "palette": [
+        {
+          "block": "minecraft:short_grass"
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "palette": [
+        {
+          "block": "minecraft:dandelion"
+        },
+        {
+          "block": "minecraft:poppy"
+        }
+      ]
+    }
+  ],
+  "floatingChildBiomes": [
+    {
+      "biome": "temperate/plains",
+      "rarity": 1,
+      "footprintStyle": {
+        "style": "GLOB_IRIS_THICK",
+        "zoom": 0.74,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.24,
+          "multiplier": 7
+        }
+      },
+      "footprintThreshold": 0.44,
+      "pickerStyle": {
+        "style": "SIMPLEX",
+        "zoom": 4.0
+      },
+      "altitudeStyle": {
+        "style": "SIMPLEX",
+        "zoom": 2.8
+      },
+      "minHeightAboveSurface": 125,
+      "maxHeightAboveSurface": 165,
+      "topShapeMode": "NOISE",
+      "maxTopHeight": 18,
+      "topShapeStyle": {
+        "style": "PERLIN_IRIS_THICK",
+        "zoom": 0.58,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.24,
+          "multiplier": 4
+        }
+      },
+      "topShapeAmp": 0.75,
+      "bottomStyle": {
+        "style": "GLOB_IRIS_DOUBLE",
+        "zoom": 0.48,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.2,
+          "multiplier": 4
+        }
+      },
+      "bottomDepthMin": 10,
+      "bottomDepthMax": 20,
+      "bottomExponent": 0.75,
+      "maxThickness": 40,
+      "wallWarpStyle": {
+        "style": "SIMPLEX",
+        "zoom": 0.5,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.2,
+          "multiplier": 3
+        }
+      },
+      "wallWarpAmplitude": 3.0,
+      "carving": "carving/rocky-cavebiome-child",
+      "carveStyle": {
+        "style": "SIMPLEX",
+        "zoom": 0.22,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.14,
+          "multiplier": 3
+        }
+      },
+      "carveThreshold": 0.84,
+      "inheritDecorators": true,
+      "inheritObjects": true,
+      "objectShrinkFactor": 0.55,
+      "topObjectMode": "MERGE",
+      "topObjectOverrides": [],
+      "bottomObjectMode": "INHERIT_ONLY",
+      "bottomObjectOverrides": []
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-oak-oak-0",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 9,
+        "variants": 2,
+        "seed": 1859218780,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 128,
+          "squish": 0.88,
+          "mode": "DENSITY",
+          "leafDensity": 0.9
+        },
+        "chance": 0.095,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-1",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 12,
+        "variants": 3,
+        "seed": 403978237,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 125,
+          "squish": 0.92,
+          "mode": "DENSITY",
+          "leafDensity": 0.88
+        },
+        "chance": 0.095,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-2",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 11,
+        "variants": 3,
+        "seed": 56350750,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 118,
+          "squish": 0.75,
+          "mode": "DENSITY",
+          "leafDensity": 0.85
+        },
+        "chance": 0.095,
+        "density": 1,
+        "roots": false
+      },
+      {
+        "name": "pv-oak-oak-3",
+        "trunk": "minecraft:oak_log",
+        "leaves": "minecraft:oak_leaves",
+        "profile": "OAK",
+        "heightMin": 13,
+        "heightMax": 18,
+        "variants": 3,
+        "seed": 1973322431,
+        "trunkWidth": 2,
+        "trunkShape": "PARABOLIC",
+        "shapePeakOffset": 0.2,
+        "canopy": {
+          "startAngle": 122,
+          "squish": 0.95,
+          "mode": "DENSITY",
+          "leafDensity": 0.88,
+          "branches": {
+            "probabilityFunction": "TOP_HEAVY",
+            "probabilityExponent": 2.0,
+            "lengthFunction": "LINEAR",
+            "lengthBase": 2,
+            "lengthCrown": 4,
+            "azimuthMode": "RANDOM",
+            "elevation": 22,
+            "leafStartUp": true,
+            "clusterRadius": 2,
+            "clusterMode": "DENSITY",
+            "clusterDensity": 0.85
+          }
+        },
+        "chance": 0.095,
+        "density": 1,
+        "roots": false
+      }
+    ]
+  }
+}

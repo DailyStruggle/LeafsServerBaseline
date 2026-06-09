@@ -40,83 +40,6 @@
     "carving/rocky-cavebiome",
     "carving/andesite-caves"
   ],
-  "jigsawStructures": [
-    {
-      "structure": "ruined-portal",
-      "rarity": 1200
-    },
-    {
-      "structure": "dungeon-skeleton",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-spider",
-      "rarity": 800
-    },
-    {
-      "structure": "dungeon-zombie",
-      "rarity": 800
-    },
-    {
-      "structure": "stoneborne-outpost",
-      "_rarityComment": "was 600 - too sparse to find; lowered for visibility",
-      "rarity": 60
-    }
-  ],
-  "objects": [
-    {
-      "heightmap": {
-        "seed": 1337,
-        "style": {
-          "style": "SIMPLEX",
-          "multiplier": 10
-        },
-        "offsetY": 5
-      },
-      "chance": 0.05,
-      "bottom": true,
-      "density": 1,
-      "place": [
-        "structures/amethyst1",
-        "structures/amethyst2",
-        "structures/amethyst3",
-        "structures/amethyst4",
-        "structures/amethyst5",
-        "structures/amethyst6"
-      ],
-      "edit": [
-        {
-          "find": [
-            {
-              "block": "minecraft:glass"
-            }
-          ],
-          "replace": {
-            "palette": [
-              {
-                "block": "minecraft:void_air"
-              }
-            ]
-          }
-        }
-      ],
-      "enabled": true,
-      "xAxis": {
-        "interval": 90,
-        "max": 360,
-        "min": 0
-      },
-      "yAxis": {
-        "interval": 90,
-        "max": 270,
-        "min": 0
-      },
-      "translate": {
-        "yRandom": 10,
-        "y": 2
-      }
-    }
-  ],
   "shoreBiomes": [
     "temperate/shore/beach",
     "temperate/shore/oak-beach"
@@ -156,12 +79,10 @@
       "varience": 4
     }
   ],
-  "riverRarity": 1,
   "landBiomeZoom": 4.9,
   "shoreHeightMin": 1,
   "shoreHeightMax": 5.2,
   "shoreHeightZoom": 1.14,
-  "riverThickness": 0.025,
   "loot": {
     "mode": "FALLBACK",
     "tables": [

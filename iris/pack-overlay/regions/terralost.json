@@ -3,6 +3,7 @@
   "color": "#446600",
   "rarity": 2,
   "landBiomes": [
+    "mountain/floating-islands",
     "terralost/amethyst-rainforest",
     "terralost/ancient-sands",
     "terralost/amethyst-canyon",
@@ -31,30 +32,7 @@
   ],
   "shoreHeightMin": 2.2,
   "shoreHeightMax": 5.2,
-  "carving": {
-    "ravines": [
-      {
-        "rarity": 25,
-        "ravine": "calcite/main"
-      }
-    ],
-    "caves": [
-      {
-        "breakSurface": true,
-        "cave": "rocky/main",
-        "rarity": 50,
-        "caveStartHeight": {
-          "max": 400,
-          "min": 15,
-          "style": {
-            "style": "STATIC"
-          }
-        }
-      }
-    ]
-  },
   "shoreHeightZoom": 1.14,
-  "riverThickness": 0.025,
   "loot": {
     "mode": "FALLBACK",
     "tables": [

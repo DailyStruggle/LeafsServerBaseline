@@ -1,61 +1,90 @@
 {
-  "name": "vanilla/cherry_grove",
+  "name": "Cherry Grove",
+  "color": "#FFC0CB",
   "rarity": 1,
-  "derivative": "CHERRY_GROVE",
-  "vanillaDerivative": "CHERRY_GROVE",
-  "category": "forest",
+  "derivative": "minecraft:cherry_grove",
+  "vanillaDerivative": "minecraft:cherry_grove",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
-      "generator": "plain"
+      "min": -3,
+      "max": 16,
+      "generator": "magnetics/glass"
     }
   ],
-  "objects": [
-    {
-      "chance": 0.3,
-      "density": 4,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
+  "wall": {
+    "palette": [
+      {
+        "block": "minecraft:calcite"
       },
-      "place": [
-        "trees/vanilla-cherry/cherryM1",
-        "trees/vanilla-cherry/cherryM2",
-        "trees/vanilla-cherry/cherryM3",
-        "trees/vanilla-cherry/cherryM4",
-        "trees/vanilla-cherry/cherryM5",
-        "trees/vanilla-cherry/cherryM6",
-        "trees/vanilla-cherry/cherryM7",
-        "trees/vanilla-cherry/cherryM8"
+      {
+        "block": "minecraft:smooth_quartz"
+      },
+      {
+        "block": "minecraft:quartz_block"
+      },
+      {
+        "block": "minecraft:andesite"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:calcite"
+        },
+        {
+          "block": "minecraft:smooth_quartz"
+        }
       ]
     },
     {
-      "chance": 0.22,
-      "density": 3,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:quartz_block"
         },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-cherry/cherryL1",
-        "trees/vanilla-cherry/cherryL2",
-        "trees/vanilla-cherry/cherryL3",
-        "trees/vanilla-cherry/cherryL4",
-        "trees/vanilla-cherry/cherryL5",
-        "trees/vanilla-cherry/cherryL6",
-        "trees/vanilla-cherry/cherryL7",
-        "trees/vanilla-cherry/cherryL8"
+        {
+          "block": "minecraft:smooth_quartz"
+        },
+        {
+          "block": "minecraft:calcite"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 6,
+      "palette": [
+        {
+          "block": "minecraft:calcite"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 16,
+      "palette": [
+        {
+          "block": "minecraft:stone"
+        },
+        {
+          "block": "minecraft:andesite"
+        },
+        {
+          "block": "minecraft:calcite"
+        },
+        {
+          "block": "minecraft:deepslate"
+        }
       ]
     }
   ],
@@ -91,5 +120,670 @@
         }
       ]
     }
-  ]
+  ],
+  "floatingChildBiomes": [
+    {
+      "biome": "magnetics/glass-shard",
+      "rarity": 1,
+      "footprintStyle": {
+        "style": "CELLULAR_IRIS_THICK",
+        "zoom": 0.38,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.16,
+          "multiplier": 8
+        }
+      },
+      "footprintThreshold": 0.55,
+      "pickerStyle": {
+        "style": "SIMPLEX",
+        "zoom": 4
+      },
+      "altitudeStyle": {
+        "style": "SIMPLEX",
+        "zoom": 3.2
+      },
+      "minHeightAboveSurface": 125,
+      "maxHeightAboveSurface": 175,
+      "topShapeMode": "NOISE",
+      "maxTopHeight": 20,
+      "topShapeStyle": {
+        "style": "CELLULAR_HEIGHT_IRIS",
+        "zoom": 0.32,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.14,
+          "multiplier": 5
+        }
+      },
+      "topShapeAmp": 1,
+      "bottomStyle": {
+        "style": "FRACTAL_RM_SIMPLEX",
+        "zoom": 0.24,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.14,
+          "multiplier": 5
+        }
+      },
+      "bottomDepthMin": 10,
+      "bottomDepthMax": 18,
+      "bottomExponent": 1.7,
+      "bottomPaletteMode": "MIRROR_TOP",
+      "maxThickness": 40,
+      "wallWarpStyle": {
+        "style": "HEXAGON_IRIS",
+        "zoom": 0.22,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.12,
+          "multiplier": 4
+        }
+      },
+      "wallWarpAmplitude": 3,
+      "carving": "carving/amethyst-child",
+      "carveStyle": {
+        "style": "SIMPLEX",
+        "zoom": 0.18,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.1,
+          "multiplier": 3
+        }
+      },
+      "carveThreshold": 0.88,
+      "inheritDecorators": true,
+      "inheritObjects": false,
+      "objectShrinkFactor": 0.7,
+      "topObjectMode": "REPLACE",
+      "topObjectOverrides": [
+        {
+          "place": [
+            "clutter/amethyst-cluster1",
+            "clutter/amethyst-cluster2",
+            "clutter/amethyst-cluster3",
+            "clutter/amethyst-cluster4",
+            "clutter/amethyst-cluster5",
+            "clutter/icespec1",
+            "clutter/icespec2",
+            "clutter/icespec3"
+          ],
+          "chance": 0.8,
+          "mode": "CENTER_HEIGHT",
+          "density": 10,
+          "rotation": {
+            "yAxis": {
+              "min": 0,
+              "max": 270,
+              "interval": 90,
+              "enabled": true
+            },
+            "enabled": true
+          },
+          "edit": [
+            {
+              "find": [
+                {
+                  "block": "minecraft:ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:packed_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:light_blue_stained_glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:blue_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:tinted_glass"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "place": [
+            "clutter/singleicespike1",
+            "clutter/singleicespike2",
+            "clutter/singleicespike3",
+            "clutter/singleicespike4",
+            "clutter/singleicespike5"
+          ],
+          "chance": 0.55,
+          "mode": "CENTER_HEIGHT",
+          "density": 6,
+          "rotation": {
+            "yAxis": {
+              "min": 0,
+              "max": 270,
+              "interval": 90,
+              "enabled": true
+            },
+            "enabled": true
+          },
+          "edit": [
+            {
+              "find": [
+                {
+                  "block": "minecraft:ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:packed_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:light_blue_stained_glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:blue_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:tinted_glass"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "bottomObjectMode": "REPLACE",
+      "bottomObjectOverrides": [
+        {
+          "place": [
+            "clutter/singleicespike1",
+            "clutter/singleicespike2",
+            "clutter/singleicespike3",
+            "clutter/singleicespike4",
+            "clutter/singleicespike5",
+            "clutter/icespiresmol1",
+            "clutter/icespiresmol2",
+            "clutter/icespiresmol3"
+          ],
+          "chance": 0.75,
+          "mode": "FAST_MIN_HEIGHT",
+          "density": 9,
+          "rotation": {
+            "yAxis": {
+              "min": 0,
+              "max": 270,
+              "interval": 90,
+              "enabled": true
+            },
+            "enabled": true
+          },
+          "edit": [
+            {
+              "find": [
+                {
+                  "block": "minecraft:ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:packed_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:light_blue_stained_glass"
+                  }
+                ]
+              }
+            },
+            {
+              "find": [
+                {
+                  "block": "minecraft:blue_ice"
+                }
+              ],
+              "replace": {
+                "palette": [
+                  {
+                    "block": "minecraft:tinted_glass"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "customDerivitives": [
+    {
+      "category": "forest",
+      "id": "cherry_grove",
+      "grassColor": "#B6DB61",
+      "foliageColor": "#B6DB61",
+      "waterColor": "#5DB7EF",
+      "downfallType": "none"
+    }
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-cherry-M-h6",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1437440900,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 4,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.075,
+        "density": 4
+      },
+      {
+        "name": "pv-cherry-M-h7",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 581610258,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.1
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.075,
+        "density": 4
+      },
+      {
+        "name": "pv-cherry-M-h8",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 840283779,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 2.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.8
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.6
+            }
+          ]
+        },
+        "chance": 0.075,
+        "density": 4
+      },
+      {
+        "name": "pv-cherry-M-h9",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1158841877,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.8
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.6
+            }
+          ]
+        },
+        "chance": 0.075,
+        "density": 4
+      },
+      {
+        "name": "pv-cherry-L-h8",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 869784756,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 2.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.8
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.6
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-cherry-L-h9",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1154542626,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.8
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.6
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-cherry-L-h11",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 11,
+        "heightMax": 11,
+        "variants": 1,
+        "seed": 505541815,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 2.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 10,
+              "radius": 5.0
+            },
+            {
+              "yOffset": 11,
+              "radius": 3.5
+            },
+            {
+              "yOffset": 12,
+              "radius": 2.0
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-cherry-L-h12",
+        "trunk": "minecraft:cherry_log",
+        "leaves": "minecraft:cherry_leaves",
+        "profile": "CHERRY",
+        "heightMin": 12,
+        "heightMax": 12,
+        "variants": 1,
+        "seed": 120104205,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.85,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 9,
+              "radius": 5.4
+            },
+            {
+              "yOffset": 10,
+              "radius": 6.0
+            },
+            {
+              "yOffset": 12,
+              "radius": 6.0
+            },
+            {
+              "yOffset": 13,
+              "radius": 4.2
+            },
+            {
+              "yOffset": 14,
+              "radius": 2.4
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      }
+    ]
+  }
 }

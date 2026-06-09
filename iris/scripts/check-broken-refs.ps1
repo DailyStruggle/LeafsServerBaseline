@@ -1,4 +1,4 @@
-$biomesRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes"
+﻿$biomesRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes"
 $results = @()
 
 Get-ChildItem -Recurse -Path $biomesRoot -Filter "*.json" -File | ForEach-Object {

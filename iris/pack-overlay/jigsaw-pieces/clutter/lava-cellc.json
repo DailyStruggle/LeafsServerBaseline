@@ -1,0 +1,49 @@
+{
+  "object": "jigsaw/clutter/lavacell",
+  "placementOptions": {
+    "bore": true,
+    "translate": {
+      "x": 0,
+      "y": -1,
+      "z": 0
+    }
+  },
+  "connectors": [
+    {
+      "name": "",
+      "targetName": "*",
+      "innerConnector": false,
+      "pools": ["clutter/lava-spread"],
+      "position": {"x": -1, "y": 0, "z": 0},
+      "direction": "WEST_NEGATIVE_X",
+      "lockY": true
+    },
+    {
+      "name": "",
+      "targetName": "*",
+      "innerConnector": false,
+      "pools": ["clutter/lava-spread"],
+      "position": {"x": 1, "y": 0, "z": 0},
+      "direction": "EAST_POSITIVE_X",
+      "lockY": true
+    },
+    {
+      "name": "",
+      "targetName": "*",
+      "innerConnector": false,
+      "pools": ["clutter/lava-spread"],
+      "position": {"x": 0, "y": 0, "z": -1},
+      "direction": "NORTH_NEGATIVE_Z",
+      "lockY": true
+    },
+    {
+      "name": "",
+      "targetName": "*",
+      "innerConnector": false,
+      "pools": ["clutter/lava-spread"],
+      "position": {"x": 0, "y": 0, "z": 1},
+      "direction": "SOUTH_POSITIVE_Z",
+      "lockY": true
+    }
+  ]
+}

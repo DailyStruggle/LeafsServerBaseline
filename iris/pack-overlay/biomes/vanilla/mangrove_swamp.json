@@ -1,9 +1,24 @@
 {
-  "name": "vanilla/mangrove_swamp",
+  "name": "Mangrove Swamp",
+  "color": "#67705A",
   "rarity": 1,
-  "derivative": "MANGROVE_SWAMP",
-  "vanillaDerivative": "MANGROVE_SWAMP",
-  "category": "swamp",
+  "derivative": "minecraft:mangrove_swamp",
+  "vanillaDerivative": "minecraft:mangrove_swamp",
+  "customDerivitives": [
+    {
+      "category": "swamp",
+      "id": "mangrove_swamp",
+      "waterColor": "#3A7A6A",
+      "grassColor": "#6A7039",
+      "spawnRarity": 20,
+      "spawns": [
+        {
+          "type": "minecraft:slime"
+        }
+      ],
+      "foliageColor": "#8DB127"
+    }
+  ],
   "generators": [
     {
       "min": -7,
@@ -11,6 +26,25 @@
       "generator": "mountain"
     }
   ],
+  "biomeStyle": {
+    "style": "SIMPLEX"
+  },
+  "wall": {
+    "style": {
+      "style": "STATIC"
+    },
+    "palette": [
+      {
+        "block": "minecraft:stone"
+      },
+      {
+        "block": "minecraft:andesite"
+      },
+      {
+        "block": "minecraft:stone"
+      }
+    ]
+  },
   "layers": [
     {
       "style": {
@@ -52,31 +86,6 @@
       ]
     }
   ],
-  "objects": [
-    {
-      "chance": 0.36,
-      "density": 5,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-mangrove/mangroveM1",
-        "trees/vanilla-mangrove/mangroveM2",
-        "trees/vanilla-mangrove/mangroveM3",
-        "trees/vanilla-mangrove/mangroveM4",
-        "trees/vanilla-mangrove/mangroveM5",
-        "trees/vanilla-mangrove/mangroveM6",
-        "trees/vanilla-mangrove/mangroveM7",
-        "trees/vanilla-mangrove/mangroveM8"
-      ]
-    }
-  ],
   "decorators": [
     {
       "chance": 0.25,
@@ -101,5 +110,193 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-mangrove-M-h6",
+        "trunk": "minecraft:mangrove_log",
+        "leaves": "minecraft:mangrove_leaves",
+        "profile": "OAK",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 742773274,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.9,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 5,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.09,
+        "density": 5
+      },
+      {
+        "name": "pv-mangrove-M-h7",
+        "trunk": "minecraft:mangrove_log",
+        "leaves": "minecraft:mangrove_leaves",
+        "profile": "OAK",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 1531110028,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.9,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.7
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.95
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.09,
+        "density": 5
+      },
+      {
+        "name": "pv-mangrove-M-h8",
+        "trunk": "minecraft:mangrove_log",
+        "leaves": "minecraft:mangrove_leaves",
+        "profile": "OAK",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 1274937117,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.9,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 7,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.6
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.09,
+        "density": 5
+      },
+      {
+        "name": "pv-mangrove-M-h9",
+        "trunk": "minecraft:mangrove_log",
+        "leaves": "minecraft:mangrove_leaves",
+        "profile": "OAK",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1023070091,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.9,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 2.4
+            },
+            {
+              "yOffset": 6,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 8,
+              "radius": 4.0
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.6
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.6
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.09,
+        "density": 5
+      }
+    ]
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "name": "head",
+  "size": 32,
+  "background": "light_gray_glass",
+  "palette": {
+    "k": "#2b2f36",
+    "a": "#c9ccd4",
+    "s": "#8a8f99"
+  },
+  "art": [
+    "................",
+    "................",
+    "....kkkkkkk.....",
+    "...kaaaaaaak....",
+    "..kaaaaaaaaak...",
+    "..kassaaaassk...",
+    "..kaaaaaaaaak...",
+    "..kaaaaaaaaak...",
+    "..kakkkkkkkak...",
+    "..kaaaaaaaaak...",
+    "..kaaaaaaaaak...",
+    "...kaaaaaaak....",
+    "....kkkkkkk.....",
+    "................",
+    "................",
+    "................"
+  ]
+}

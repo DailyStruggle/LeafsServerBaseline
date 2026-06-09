@@ -1,0 +1,19 @@
+name: LeafSkills
+version: 0.1.0
+main: net.leaf.skills.LeafSkillsPlugin
+api-version: '1.21'
+author: Leaf
+description: Advancement-driven passive skill selection with XP-level cost and classless prerequisites.
+folia-supported: true
+commands:
+  leafskills:
+    description: Skill admin command; /leafskills reset [player] to clear a player's selections (no XP refund).
+    usage: /leafskills reset [player]
+    permission: leafskills.admin
+permissions:
+  leafskills.admin:
+    description: Reset selections and other administrative actions.
+    default: op
+  leafskills.use:
+    description: Select and benefit from passive skill nodes.
+    default: true

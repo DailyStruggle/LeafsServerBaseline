@@ -1,0 +1,241 @@
+{
+  "name": "Magnetics Mycelium",
+  "color": "#9B5DAA",
+  "rarity": 1,
+  "derivative": "minecraft:mushroom_fields",
+  "vanillaDerivative": "minecraft:mushroom_fields",
+  "generators": [
+    {
+      "min": -3,
+      "max": 15,
+      "generator": "magnetics/mycelium"
+    }
+  ],
+  "wall": {
+    "palette": [
+      {
+        "block": "minecraft:tuff"
+      },
+      {
+        "block": "minecraft:cobbled_deepslate"
+      },
+      {
+        "block": "minecraft:deepslate"
+      },
+      {
+        "block": "minecraft:mud"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "maxHeight": 1,
+      "palette": [
+        {
+          "block": "minecraft:mycelium"
+        },
+        {
+          "block": "minecraft:podzol"
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:rooted_dirt"
+        },
+        {
+          "block": "minecraft:dirt"
+        },
+        {
+          "block": "minecraft:muddy_mangrove_roots"
+        }
+      ]
+    },
+    {
+      "minHeight": 3,
+      "maxHeight": 6,
+      "palette": [
+        {
+          "block": "minecraft:mud"
+        },
+        {
+          "block": "minecraft:packed_mud"
+        },
+        {
+          "block": "minecraft:coarse_dirt"
+        }
+      ]
+    },
+    {
+      "minHeight": 6,
+      "maxHeight": 18,
+      "palette": [
+        {
+          "block": "minecraft:tuff"
+        },
+        {
+          "block": "minecraft:deepslate"
+        },
+        {
+          "block": "minecraft:cobbled_deepslate"
+        },
+        {
+          "block": "minecraft:stone"
+        }
+      ]
+    }
+  ],
+  "objects": [],
+  "decorators": [
+    {
+      "chance": 0.08,
+      "palette": [
+        {
+          "block": "minecraft:red_mushroom"
+        },
+        {
+          "block": "minecraft:brown_mushroom"
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "palette": [
+        {
+          "block": "minecraft:mycelium"
+        }
+      ]
+    }
+  ],
+  "floatingChildBiomes": [
+    {
+      "biome": "mushroom/forest",
+      "rarity": 1,
+      "footprintStyle": {
+        "style": "PERLIN_IRIS_THICK",
+        "zoom": 0.78,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.24,
+          "multiplier": 7
+        }
+      },
+      "footprintThreshold": 0.39,
+      "pickerStyle": {
+        "style": "SIMPLEX",
+        "zoom": 4.0
+      },
+      "altitudeStyle": {
+        "style": "SIMPLEX",
+        "zoom": 2.4
+      },
+      "minHeightAboveSurface": 95,
+      "maxHeightAboveSurface": 145,
+      "topShapeMode": "NOISE",
+      "maxTopHeight": 18,
+      "topShapeStyle": {
+        "style": "PERLIN_IRIS_THICK",
+        "zoom": 0.5,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.22,
+          "multiplier": 4
+        }
+      },
+      "topShapeAmp": 0.8,
+      "bottomStyle": {
+        "style": "PERLIN_IRIS_DOUBLE",
+        "zoom": 0.5,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.2,
+          "multiplier": 4
+        }
+      },
+      "bottomDepthMin": 10,
+      "bottomDepthMax": 20,
+      "bottomExponent": 0.65,
+      "bottomPaletteMode": "CUSTOM",
+      "bottomPalette": [
+        {
+          "minHeight": 8,
+          "maxHeight": 18,
+          "palette": [
+            {
+              "block": "minecraft:andesite"
+            },
+            {
+              "block": "minecraft:stone"
+            }
+          ]
+        }
+      ],
+      "maxThickness": 40,
+      "wallWarpStyle": {
+        "style": "SIMPLEX",
+        "zoom": 0.55,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.2,
+          "multiplier": 3
+        }
+      },
+      "wallWarpAmplitude": 2.0,
+      "carving": "carving/mushroom",
+      "carveStyle": {
+        "style": "SIMPLEX",
+        "zoom": 0.24,
+        "fracture": {
+          "style": "SIMPLEX",
+          "zoom": 0.14,
+          "multiplier": 3
+        }
+      },
+      "carveThreshold": 0.84,
+      "inheritDecorators": true,
+      "inheritObjects": true,
+      "objectShrinkFactor": 0.52,
+      "topObjectMode": "INHERIT_ONLY",
+      "topObjectOverrides": [],
+      "bottomObjectMode": "INHERIT_ONLY",
+      "bottomObjectOverrides": []
+    }
+  ],
+  "proceduralObjects": {
+    "fungi": [
+      {
+        "name": "pv-mushroom-red-mushroom-0",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:red_mushroom_block",
+        "stemHeightMin": 4,
+        "stemHeightMax": 8,
+        "stemWidth": 1,
+        "capRadiusMin": 2,
+        "capRadiusMax": 4,
+        "capThickness": 1,
+        "chance": 0.45,
+        "density": 1,
+        "seed": 1818800986
+      },
+      {
+        "name": "pv-mushroom-brown-mushroom-1",
+        "variants": 5,
+        "stem": "minecraft:mushroom_stem",
+        "cap": "minecraft:brown_mushroom_block",
+        "stemHeightMin": 3,
+        "stemHeightMax": 6,
+        "stemWidth": 1,
+        "capRadiusMin": 3,
+        "capRadiusMax": 5,
+        "capThickness": 1,
+        "chance": 0.45,
+        "density": 1,
+        "seed": 266203944
+      }
+    ]
+  }
+}

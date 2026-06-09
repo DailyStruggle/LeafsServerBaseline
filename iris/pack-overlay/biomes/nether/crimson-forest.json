@@ -1,0 +1,48 @@
+{
+  "name": "Crimson Forest",
+  "color": "#9A1C2B",
+  "rarity": 1,
+  "derivative": "minecraft:crimson_forest",
+  "vanillaDerivative": "minecraft:crimson_forest",
+  "generators": [
+    {
+      "generator": "plain",
+      "min": 32,
+      "max": 80
+    }
+  ],
+  "layers": [
+    {
+      "minHeight": 1,
+      "maxHeight": 1,
+      "palette": [
+        {"block": "minecraft:crimson_nylium"}
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 4,
+      "palette": [
+        {"block": "minecraft:netherrack"}
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.18,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:crimson_roots", "weight": 6},
+        {"block": "minecraft:crimson_fungus", "weight": 3},
+        {"block": "minecraft:warped_fungus", "weight": 1}
+      ]
+    },
+    {
+      "chance": 0.02,
+      "style": {"style": "STATIC"},
+      "palette": [
+        {"block": "minecraft:nether_wart_block"}
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import math
 import os
 import random
 import sys
@@ -11,7 +12,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _HERE)
 
 from nbt import write_schematic, write_iob
-from trunk import generate_trunk_with_offsets
+from trunk import generate_trunk_with_offsets, set_round_trunk
 from canopy import generate_canopy
 from decorators import apply_decorators
 from roots import build_roots
@@ -91,7 +92,7 @@ def generate_tree(entry: dict, height: int) -> dict:
     secondary_trunk_start = float(entry.get("secondary_trunk_start", 0.5))
     secondary_trunk_end = float(entry.get("secondary_trunk_end", 1.0))
 
-    if ":" in leaf_block and "[" not in leaf_block:
+    if ":" in leaf_block and "[" not in leaf_block and "leaves" in leaf_block:
         leaf_block = leaf_block + "[distance=1,persistent=true,waterlogged=false]"
 
     # Normalise secondary_trunk block
@@ -107,18 +108,19 @@ def generate_tree(entry: dict, height: int) -> dict:
     secondary_leaves = None
     if isinstance(secondary_leaves_raw, str):
         sl = secondary_leaves_raw
-        if ":" in sl and "[" not in sl:
+        if ":" in sl and "[" not in sl and "leaves" in sl:
             sl = sl + "[distance=1,persistent=true,waterlogged=false]"
         secondary_leaves = sl
     elif isinstance(secondary_leaves_raw, list):
         expanded = []
         for entry_sl in secondary_leaves_raw:
             blk = entry_sl.get("block", "")
-            if ":" in blk and "[" not in blk:
+            if ":" in blk and "[" not in blk and "leaves" in blk:
                 blk = blk + "[distance=1,persistent=true,waterlogged=false]"
             expanded.append({"block": blk, "weight": entry_sl.get("weight", 1)})
         secondary_leaves = expanded if expanded else None
 
+    set_round_trunk(bool(entry.get("trunk_round", False)), seed)
     blocks, trunk_offsets = generate_trunk_with_offsets(
         height, trunk_block, trunk_width, trunk_shape, trunk_shape_params,
         lean_azimuth, lean_angle, curve_fn, curve_params,
@@ -146,9 +148,97 @@ def generate_tree(entry: dict, height: int) -> dict:
     if entry.get("roots", True):
         base_cells = set((x, z) for (x, y, z) in trunk_positions if y == 0)
         if base_cells:
-            for pos, blk in build_roots(base_cells, height, trunk_block, seed).items():
+            root_block = entry.get("root_block", None)
+            for pos, blk in build_roots(base_cells, height, trunk_block, seed,
+                                        root_block=root_block).items():
                 if pos not in blocks:
                     blocks[pos] = blk
+
+    # Encase: wrap every exposed face of a target material (default lava) in a sheath
+    # block (e.g. obsidian). This fully seals the trunk AND branches in obsidian so the
+    # lava is contained and the trunk reads as a rounded obsidian-skinned column - which
+    # the canopy decorators alone could not do (they only skin the canopy, not the trunk).
+    encase_block = entry.get("encase", None)
+    if encase_block:
+        encase_targets = entry.get("encase_targets", ["minecraft:lava"])
+        target_bases = set(t.split("[")[0] for t in encase_targets)
+        existing = set(blocks.keys())
+        shell = {}
+        for (x, y, z), blk in blocks.items():
+            if blk.split("[")[0] not in target_bases:
+                continue
+            for dx, dy, dz in ((1, 0, 0), (-1, 0, 0), (0, 1, 0),
+                               (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+                npos = (x + dx, y + dy, z + dz)
+                if npos not in existing and npos not in shell:
+                    shell[npos] = encase_block
+        blocks.update(shell)
+
+        # Optional upward vertical variation of the obsidian sheath: stack a random
+        # number (0..encase_top_variation) of extra sheath blocks above each column's
+        # top so the crust is bumpy rather than a flat skin.
+        variation = int(entry.get("encase_top_variation", 0))
+        if variation > 0:
+            vrng = random.Random((seed ^ 0x2A2A) & 0xFFFFFFFF)
+            col_top = {}
+            ebase = encase_block.split("[")[0]
+            for (x, y, z), blk in blocks.items():
+                if blk.split("[")[0] == ebase:
+                    if (x, z) not in col_top or y > col_top[(x, z)]:
+                        col_top[(x, z)] = y
+            for (x, z), ty in col_top.items():
+                for i in range(1, vrng.randint(0, variation) + 1):
+                    npos = (x, ty + i, z)
+                    if npos not in blocks:
+                        blocks[npos] = encase_block
+
+    # Invert the whole model vertically. Used for the "lava vein" objects: a normal
+    # upward tree becomes an inverted trunk that drives DOWN from y=0 with branches
+    # (lava) veining downward, the obsidian sheath sealing it below ground.
+    if entry.get("invert_y", False):
+        blocks = {(x, -y, z): blk for (x, y, z), blk in blocks.items()}
+
+    # Open top face: expose lava ONLY on the single highest Y plane of the whole model
+    # (the flat trunk mouth), not per-column. This guarantees one FLAT, level lava pool
+    # at the top; everything below (branches, veins) stays fully obsidian-encased so no
+    # lava is exposed at varying/lower heights.
+    if encase_block and entry.get("encase_open_top", False):
+        lava_ys = [y for (x, y, z), blk in blocks.items()
+                   if blk.split("[")[0] in target_bases]
+        if lava_ys:
+            top_y = max(lava_ys)
+            ebase = encase_block.split("[")[0]
+            for (x, y, z), blk in list(blocks.items()):
+                if y == top_y and blk.split("[")[0] in target_bases:
+                    above = (x, top_y + 1, z)
+                    if blocks.get(above, "").split("[")[0] == ebase:
+                        del blocks[above]
+
+    # Clear cone: bake a widening cone of void_air ABOVE the top lava pool so the
+    # airspace over the pool is guaranteed clear (void_air actually removes terrain,
+    # unlike plain air which Iris skips). Radius expands with height for a conic shape.
+    cone_h = int(entry.get("clear_cone_height", 0))
+    if cone_h > 0:
+        lava_cells = [(x, y, z) for (x, y, z), blk in blocks.items()
+                      if blk.split("[")[0] == "minecraft:lava"]
+        if lava_cells:
+            top_y = max(y for (x, y, z) in lava_cells)
+            mouth = [(x, z) for (x, y, z) in lava_cells if y == top_y]
+            mcx = sum(p[0] for p in mouth) / len(mouth)
+            mcz = sum(p[1] for p in mouth) / len(mouth)
+            base_r = max(math.hypot(px - mcx, pz - mcz) for (px, pz) in mouth) + 1.0
+            expand = float(entry.get("clear_cone_expand", 1.6))
+            icx, icz = int(round(mcx)), int(round(mcz))
+            for h in range(1, cone_h + 1):
+                r = base_r * (1.0 + (expand - 1.0) * (h / cone_h))
+                ri = int(math.ceil(r))
+                for dx in range(-ri, ri + 1):
+                    for dz in range(-ri, ri + 1):
+                        if math.hypot(dx, dz) <= r:
+                            pos = (icx + dx, top_y + h, icz + dz)
+                            if pos not in blocks:
+                                blocks[pos] = "minecraft:void_air"
+
     return blocks
 
 

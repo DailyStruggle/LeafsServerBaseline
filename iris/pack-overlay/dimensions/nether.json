@@ -1,0 +1,134 @@
+{
+    "version": 31100,
+    "name": "Nether",
+    "environment": "NETHER",
+    "fluidHeight": 32,
+    "logicalHeight": 128,
+    "dimensionHeight": {
+        "min": 0,
+        "max": 128
+    },
+    "bedrock": true,
+    "fluidPalette": {
+        "palette": [
+            {"block": "minecraft:lava"}
+        ]
+    },
+    "rockPalette": {
+        "palette": [
+            {"block": "minecraft:netherrack", "weight": 12},
+            {"block": "minecraft:blackstone", "weight": 1}
+        ]
+    },
+    "dimensionOptions": {
+        "ultrawarm": "TRUE",
+        "natural": "FALSE",
+        "piglinSafe": "TRUE",
+        "bedWorks": "FALSE",
+        "respawnAnchorWorks": "TRUE",
+        "raids": "FALSE",
+        "skylight": "FALSE",
+        "ceiling": "TRUE",
+        "ambientLight": 0.1,
+        "fixedTime": 18000,
+        "coordinateScale": 8.0
+    },
+    "regionStyle": {
+        "style": "CELLULAR_IRIS_DOUBLE",
+        "axialFracturing": true,
+        "fracture": {
+            "style": "FRACTAL_WATER",
+            "axialFracturing": true,
+            "multiplier": 9,
+            "zoom": 0.15
+        }
+    },
+    "regionZoom": 12,
+    "regions": [
+        "nether-wastes",
+        "crimson",
+        "warped",
+        "soul-valley",
+        "basalt-deltas"
+    ],
+    "landBiomeStyle": {
+        "style": "NOWHERE_CELLULAR",
+        "axialFracturing": true,
+        "fracture": {
+            "style": "NOWHERE",
+            "axialFracturing": true,
+            "multiplier": 55,
+            "zoom": 0.15
+        }
+    },
+    "caveBiomeStyle": {
+        "style": "SIMPLEX"
+    },
+    "importedStructures": {
+        "mode": "CUSTOM",
+        "datapackOverrides": true,
+        "enabled": [
+            "minecraft:fortress",
+            "minecraft:bastion_remnant",
+            "minecraft:nether_fossil",
+            "minecraft:ruined_portal_nether"
+        ],
+        "disabled": []
+    },
+    "structures": [],
+    "ores": [
+        {
+            "threshold": 1,
+            "range": {"min": 0, "max": 0},
+            "palette": {"palette": [{"block": "minecraft:bedrock"}]},
+            "chanceStyle": {"style": "FLAT"}
+        },
+        {
+            "threshold": 1,
+            "range": {"min": 127, "max": 127},
+            "palette": {"palette": [{"block": "minecraft:bedrock"}]},
+            "chanceStyle": {"style": "FLAT"}
+        }
+    ],
+    "deposits": [
+        {
+            "minHeight": 8,
+            "maxHeight": 120,
+            "maxPerChunk": 16,
+            "minPerChunk": 8,
+            "minSize": 3,
+            "maxSize": 6,
+            "palette": [
+                {"block": "minecraft:nether_quartz_ore"}
+            ],
+            "varience": 5
+        },
+        {
+            "minHeight": 8,
+            "maxHeight": 120,
+            "maxPerChunk": 10,
+            "minPerChunk": 4,
+            "minSize": 3,
+            "maxSize": 6,
+            "palette": [
+                {"block": "minecraft:nether_gold_ore"}
+            ],
+            "varience": 5
+        },
+        {
+            "minHeight": 8,
+            "maxHeight": 22,
+            "maxPerChunk": 2,
+            "minPerChunk": 1,
+            "minSize": 1,
+            "maxSize": 3,
+            "palette": [
+                {"block": "minecraft:ancient_debris"}
+            ],
+            "varience": 2
+        }
+    ],
+    "useMantle": true,
+    "decorate": true,
+    "preventLeafDecay": true
+}

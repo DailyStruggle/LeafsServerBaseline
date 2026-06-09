@@ -19,7 +19,7 @@ import java.util.Set;
  * event-reactive) artifacts are intentionally not implemented yet.</p>
  *
  * <p>An artifact is "active" while it is equipped in the curio menu. Each type
- * declares the {@link CurioSlot} categories it may be placed into ({@link #slots()}).
+ * declares the curio slot type ids it may be placed into ({@link #slots()}).
  * Custom models and loot sourcing are deferred to later integration work.</p>
  */
 public enum ArtifactType {
@@ -33,7 +33,7 @@ public enum ArtifactType {
                     AttributeSpec.add(Attribute.STEP_HEIGHT, 0.4D),
                     AttributeSpec.scale(Attribute.MOVEMENT_SPEED, 0.20D)),
             List.of(),
-            Set.of(CurioSlot.FEET)),
+            Set.of("feet")),
 
     CRYSTAL_HEART(
             "crystal_heart",
@@ -42,7 +42,7 @@ public enum ArtifactType {
             "Permanently raises your maximum health.",
             List.of(AttributeSpec.add(Attribute.MAX_HEALTH, 6.0D)),
             List.of(),
-            Set.of(CurioSlot.NECKLACE, CurioSlot.CHARM)),
+            Set.of("necklace", "charm")),
 
     STEADFAST_SPIKES(
             "steadfast_spikes",
@@ -51,7 +51,7 @@ public enum ArtifactType {
             "You cannot be knocked back.",
             List.of(AttributeSpec.add(Attribute.KNOCKBACK_RESISTANCE, 1.0D)),
             List.of(),
-            Set.of(CurioSlot.FEET)),
+            Set.of("feet")),
 
     FERAL_CLAWS(
             "feral_claws",
@@ -60,7 +60,7 @@ public enum ArtifactType {
             "Greatly increases your attack speed.",
             List.of(AttributeSpec.scale(Attribute.ATTACK_SPEED, 0.40D)),
             List.of(),
-            Set.of(CurioSlot.HANDS)),
+            Set.of("hands")),
 
     POWER_GLOVE(
             "power_glove",
@@ -69,7 +69,7 @@ public enum ArtifactType {
             "Increases your melee attack damage.",
             List.of(AttributeSpec.add(Attribute.ATTACK_DAMAGE, 2.0D)),
             List.of(),
-            Set.of(CurioSlot.HANDS)),
+            Set.of("hands")),
 
     LUCKY_SCARF(
             "lucky_scarf",
@@ -78,7 +78,7 @@ public enum ArtifactType {
             "Fortune favours you (increased luck).",
             List.of(AttributeSpec.add(Attribute.LUCK, 2.0D)),
             List.of(),
-            Set.of(CurioSlot.NECKLACE)),
+            Set.of("necklace")),
 
     NIGHT_VISION_GOGGLES(
             "night_vision_goggles",
@@ -87,7 +87,7 @@ public enum ArtifactType {
             "You can see clearly in the dark.",
             List.of(),
             List.of(PotionEffectType.NIGHT_VISION),
-            Set.of(CurioSlot.HEAD)),
+            Set.of("head")),
 
     SNORKEL(
             "snorkel",
@@ -96,7 +96,7 @@ public enum ArtifactType {
             "You can breathe underwater.",
             List.of(),
             List.of(PotionEffectType.WATER_BREATHING),
-            Set.of(CurioSlot.HEAD)),
+            Set.of("head")),
 
     SCARF_OF_INVISIBILITY(
             "scarf_of_invisibility",
@@ -105,7 +105,7 @@ public enum ArtifactType {
             "You are permanently invisible.",
             List.of(),
             List.of(PotionEffectType.INVISIBILITY),
-            Set.of(CurioSlot.NECKLACE)),
+            Set.of("necklace")),
 
     OBSIDIAN_SKULL(
             "obsidian_skull",
@@ -114,7 +114,7 @@ public enum ArtifactType {
             "You are immune to fire and lava.",
             List.of(),
             List.of(PotionEffectType.FIRE_RESISTANCE),
-            Set.of(CurioSlot.HEAD, CurioSlot.CHARM)),
+            Set.of("head", "charm")),
 
     // --- P2: simple event reactions (handled in ArtifactEventListener) ---
 
@@ -125,7 +125,7 @@ public enum ArtifactType {
             "Heal for a fraction of the melee damage you deal.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.HANDS)),
+            Set.of("hands")),
 
     FLAME_PENDANT(
             "flame_pendant",
@@ -134,7 +134,7 @@ public enum ArtifactType {
             "Sets enemies ablaze when you hit them in melee.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.NECKLACE)),
+            Set.of("necklace")),
 
     SHOCK_PENDANT(
             "shock_pendant",
@@ -143,7 +143,7 @@ public enum ArtifactType {
             "A chance to call lightning down on whatever you strike.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.NECKLACE)),
+            Set.of("necklace")),
 
     PANIC_NECKLACE(
             "panic_necklace",
@@ -152,7 +152,7 @@ public enum ArtifactType {
             "Grants a burst of speed when you take damage.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.NECKLACE)),
+            Set.of("necklace")),
 
     ONION_RING(
             "onion_ring",
@@ -161,7 +161,7 @@ public enum ArtifactType {
             "Gain mobile Haste for a while after eating.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.RING, CurioSlot.CHARM)),
+            Set.of("ring", "charm")),
 
     GOLDEN_HOOK(
             "golden_hook",
@@ -170,7 +170,7 @@ public enum ArtifactType {
             "Creatures you slay yield extra experience.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.CHARM)),
+            Set.of("charm")),
 
     FIRE_GAUNTLET(
             "fire_gauntlet",
@@ -179,7 +179,7 @@ public enum ArtifactType {
             "Increases melee damage and ignites the enemies you hit.",
             List.of(AttributeSpec.add(Attribute.ATTACK_DAMAGE, 2.0D)),
             List.of(),
-            Set.of(CurioSlot.HANDS)),
+            Set.of("hands")),
 
     BUNNY_HOPPERS(
             "bunny_hoppers",
@@ -188,7 +188,7 @@ public enum ArtifactType {
             "Jump higher and never take fall damage.",
             List.of(AttributeSpec.add(Attribute.JUMP_STRENGTH, 0.25D)),
             List.of(),
-            Set.of(CurioSlot.FEET)),
+            Set.of("feet")),
 
     CLOUD_IN_A_BOTTLE(
             "cloud_in_a_bottle",
@@ -197,7 +197,124 @@ public enum ArtifactType {
             "Jump again in mid-air; the lift scales with your jump strength.",
             List.of(),
             List.of(),
-            Set.of(CurioSlot.CHARM));
+            Set.of("charm")),
+
+    // Roller Skates (P3 signature movement, handled in RollerSkatesController):
+    // its speed is a dynamic, ramping MOVEMENT_SPEED modifier driven per-tick,
+    // not a static AttributeSpec, so it declares no attributes here.
+    ROLLER_SKATES(
+            "roller_skates",
+            "Roller Skates",
+            Material.GOLDEN_BOOTS,
+            "Build up speed the longer you keep moving; slow to a stop when you halt.",
+            List.of(),
+            List.of(),
+            Set.of("feet")),
+
+    // Helium Flamingo (P3 signature movement, handled in HeliumFlamingoController):
+    // timed air-swimming. It forces the swimming pose/state in midair so the
+    // player "swims" through the air; driven per-tick, it declares no static
+    // attributes here.
+    HELIUM_FLAMINGO(
+            "helium_flamingo",
+            "Helium Flamingo",
+            Material.SALMON,
+            "Swim through the air: hold your swimming form aloft instead of falling.",
+            List.of(),
+            List.of(),
+            Set.of("charm")),
+
+    // Flippers (P3 movement, handled in FlippersController): a swim-speed boost.
+    // Vanilla has no swim-speed attribute, so the effect is applied dynamically
+    // as an ambient Dolphin's Grace while in water (and, by synergy, during the
+    // Helium Flamingo air-swim); it therefore declares no static attributes here.
+    FLIPPERS(
+            "flippers",
+            "Flippers",
+            Material.LIME_DYE,
+            "Swim faster through water (and through the air with a Helium Flamingo).",
+            List.of(),
+            List.of(),
+            Set.of("feet")),
+
+    // --- P4: event-driven charms (handled in ArtifactEventListener) ---
+
+    CROSS_NECKLACE(
+            "cross_necklace",
+            "Cross Necklace",
+            Material.IRON_NUGGET,
+            "Lengthens your invulnerability frames after taking a hit.",
+            List.of(),
+            List.of(),
+            Set.of("necklace", "charm")),
+
+    ANTIDOTE_VESSEL(
+            "antidote_vessel",
+            "Antidote Vessel",
+            Material.LINGERING_POTION,
+            "Negative status effects wear off faster.",
+            List.of(),
+            List.of(),
+            Set.of("charm")),
+
+    THORN_PENDANT(
+            "thorn_pendant",
+            "Thorn Pendant",
+            Material.SWEET_BERRIES,
+            "Reflects part of the melee damage you take, with no durability cost.",
+            List.of(),
+            List.of(),
+            Set.of("charm")),
+
+    // --- Hats (helmet/head slot) ---
+
+    // Superstitious Hat (handled in ArtifactEventListener): a Looting-style boost
+    // to mob loot. Vanilla has no "carried looting" hook, so EntityDeathEvent
+    // drops are augmented when the killer wears it; declares no static state.
+    SUPERSTITIOUS_HAT(
+            "superstitious_hat",
+            "Superstitious Hat",
+            Material.LEATHER,
+            "Mobs you slay drop more loot (acts like extra Looting).",
+            List.of(),
+            List.of(),
+            Set.of("head")),
+
+    // Anglers Hat (handled in ArtifactEventListener): faster bites (Lure) and
+    // better catches (Luck of the Sea). Driven off PlayerFishEvent; declares no
+    // static state.
+    ANGLERS_HAT(
+            "anglers_hat",
+            "Anglers Hat",
+            Material.PUFFERFISH,
+            "Fish bite faster and you reel in better catches.",
+            List.of(),
+            List.of(),
+            Set.of("head")),
+
+    // Villager Hat: a permanent trade discount. Hero of the Village is exactly
+    // the vanilla mechanic that discounts villager trades, so it is delivered as
+    // an infinite ambient effect while the hat is carried.
+    VILLAGER_HAT(
+            "villager_hat",
+            "Villager Hat",
+            Material.WHEAT,
+            "Villagers give you a permanent trade discount.",
+            List.of(),
+            List.of(PotionEffectType.HERO_OF_THE_VILLAGE),
+            Set.of("head")),
+
+    // Eternal Steak is NOT a curio: it is a steak you can eat repeatedly that is
+    // never consumed. It declares no slots (so it cannot be equipped) and its
+    // effect is handled on consume in ArtifactEventListener.
+    ETERNAL_STEAK(
+            "eternal_steak",
+            "Eternal Steak",
+            Material.COOKED_BEEF,
+            "An everlasting meal: eat it as often as you like, it is never used up.",
+            List.of(),
+            List.of(),
+            Set.of());
 
     private final String id;
     private final String displayName;
@@ -205,11 +322,11 @@ public enum ArtifactType {
     private final String description;
     private final List<AttributeSpec> attributes;
     private final List<PotionEffectType> effects;
-    private final Set<CurioSlot> slots;
+    private final Set<String> slots;
 
     ArtifactType(String id, String displayName, Material material, String description,
                  List<AttributeSpec> attributes, List<PotionEffectType> effects,
-                 Set<CurioSlot> slots) {
+                 Set<String> slots) {
         this.id = id;
         this.displayName = displayName;
         this.material = material;
@@ -243,8 +360,8 @@ public enum ArtifactType {
         return effects;
     }
 
-    /** The curio slot categories this artifact may be equipped into. */
-    public Set<CurioSlot> slots() {
+    /** The curio slot type ids this artifact may be equipped into. */
+    public Set<String> slots() {
         return slots;
     }
 

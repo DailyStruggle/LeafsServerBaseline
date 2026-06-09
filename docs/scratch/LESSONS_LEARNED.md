@@ -14,6 +14,84 @@ Dated engineering pitfalls, non-obvious behaviors, and "things that bit us". Add
 
 ---
 
+### 2026-06-08 - Custom biome `spawns[].type` must be a lowercase NamespacedKey (`minecraft:slime`), NOT the uppercase enum (`SLIME`)
+
+**Context:** Server boot logged `Skipping custom biome spawn with null entity type in biome swamp_cambian_drift` / `swamp_marsh_rotten` (non-fatal; the biome still generates, the custom mob spawn is just dropped).
+**What happened:** Iris 4.0 deserializes `customDerivitives[].spawns[].type` (an `org.bukkit.entity.EntityType`) through a registry adapter whose `read` does `NamespacedKey.fromString(string)` then `Registry.get(key)` (decompiled `art.arcane.iris.util.common.data.registry.RegistryTypeAdapter` / `volmlib...RegistryUtil`). `NamespacedKey.fromString` REJECTS uppercase, so `"SLIME"` returns `null` -> `getType()` is null -> the spawn is skipped. The overlay swamp biomes used `"SLIME"`. Note `swamp_marsh_rotten` is the `customDerivitives[].id` defined in `swamp/marsh.json` (which used `"SLIME"`), not `swamp/marsh-rotten.json` (which already used `minecraft:slime`).
+**Fix / workaround:** Use the lowercase namespaced key, e.g. `"type": "minecraft:slime"` (this is exactly what Iris writes back via `EntityType.getKey()`). Fixed `swamp/cambian-drift.json`, `swamp/cambian-drift-extended.json`, `swamp/marsh.json`. Rule: every `spawns[].type` must be a valid lowercase NamespacedKey, never the Bukkit enum constant.
+
+---
+
+### 2026-06-08 - `customDerivitives[].category` must be a valid `IrisBiomeCustomCategory` enum (`grove` is NOT one)
+
+**Context:** Server boot threw `NullPointerException: ... IrisBiomeCustom.getCategory() is null` at `IrisBiomeCustom.generateJson` during `ServerConfigurator.installDataPacks`.
+**What happened:** 8 overlay biomes (`temperate/auroral-garden.json` + the 7 `temperate/rainbow/*-grove.json`) set their `customDerivitives[0].category` to `"grove"`. `grove` is a vanilla biome ID, NOT an `IrisBiomeCustomCategory` value, so Iris's enum loader resolved it to `null` and `getCategory().toString()` NPE'd. Valid values: beach,desert,extreme_hills,forest,icy,jungle,mesa,mushroom,nether,none,ocean,plains,river,savanna,swamp,taiga,the_end.
+**Fix / workaround:** Changed those entries to `"forest"` (matching base `terralost/alpine-grove`, which derives from a frozen-peaks/grove climate yet uses `category: forest`). Added `iris/scripts/scan-customderiv-category.py` (merges pack-base+pack-overlay, overlay wins, flags any `customDerivitives` entry whose `category` is missing or not in the valid set). Beware: `Set-Content -Encoding utf8` on PS 5.1 writes a BOM - strip it after.
+
+---
+
+### 2026-06-08 - Iris 4.0 `IrisBiome` has NO top-level `category` field (decompiled, not a "move")
+
+**Context:** User asked to "fix category now" for the 4.0 migration. The earlier 2026-06-07 note had GUESSED that 4.0 "moved `category` into a `customDerivitives[]` block" and left it pending a server boot.
+**What happened:** Decompiling `Iris.jar` (4.0, `javap -p art.arcane.iris.engine.object.IrisBiome`) settled it WITHOUT a boot: `IrisBiome` has no `category` field at all - only `derivative`/`vanillaDerivative` (Bukkit `Biome`, deserialized from the `minecraft:*` form) and a `customDerivitives` list. Top-level `category` is simply DEAD in 4.0. `category` survives only on `IrisBiomeCustom` (each `customDerivitives` entry), as an enum {beach,desert,extreme_hills,forest,icy,jungle,mesa,mushroom,nether,none,ocean,plains,river,savanna,swamp,taiga,the_end}. A `customDerivitives` entry REGISTERS a new custom biome derivative (registry/behaviour change) and its `category` is a narrower, different concept - so "moving" the old top-level value there would have been wrong. The 11 overlay biomes that had BOTH proved this: their top-level `category` (e.g. `icy`) DIFFERED from their `customDerivitives[].category` (e.g. `grove`).
+**Fix / workaround:** Added `iris/scripts/strip-biome-category.py` - targeted regex that removes ONLY the top-level `category` line (matched at the top-level indentation, so nested `customDerivitives` categories are untouched), JSON-validated, idempotent. Ran it: removed the dead key from 87 overlay biomes; 0 top-level categories remain, all JSON valid, the 41 `customDerivitives[].category` values preserved. Tip: to resolve "does 4.0 still accept field X" questions, decompile `Iris.jar` (`art.arcane.iris.engine.object.Iris*`) rather than waiting on a boot. Full plan: `docs/world-design/IRIS-4.0-MIGRATION.md`.
+
+---
+
+### 2026-06-08 - How we apply vanilla biomes changed in 4.0 (only 20 base files; 16 of our overrides downgrade them)
+
+**Context:** Second half of the same task - "identify the differences for how we apply vanilla biomes" on the 4.0 base.
+**What happened:** "Applying" a vanilla biome is two things and 4.0 changed the first. (1) THE FILE: 3.9.1 base shipped a `biomes/vanilla/*` file for nearly every biome and we override same-path; 4.0 ships only 20 "special" vanilla files (cherry_grove, jagged_peaks, ice_spikes, oceans, grove, mangrove_swamp, old_growth_*, savanna_plateau, snowy_slopes, stony_peaks, stony_shore, sunflower_plains, windswept_*, wooded_badlands) and derives the simple ones (plains/desert/forest/taiga/swamp/...) straight from the registry. Our 67 overlay `biomes/vanilla/*` therefore split into 51 ADDITIVE (no base file - keep) and 16 OVERRIDES of a base file, and 15 of those 16 would DOWNGRADE a far richer 4.0 biome (cherry_grove 2.0 KB ours vs 17.9 KB base; ice_spikes 0.2 vs 6.1 KB; stony_shore 0.2 vs 7.1 KB; only sunflower_plains is comparable). (2) WIRING is unchanged: biomes are placed by path reference from region `landBiomes`/`seaBiomes`/`shoreBiomes`/`caveBiomes` (e.g. `vanilla/forest`); we just inject many more `vanilla/*` refs than the 4.0 base region (forests.json: base lists 3, ours ~20).
+**Fix / workaround:** Recorded the full split + downgrade table in `docs/world-design/IRIS-4.0-MIGRATION.md` ("How we apply vanilla biomes"). Plan: drop the 15 downgrading overrides (region refs then resolve to the richer 4.0 base biome at the same path - the "prefer vanilla" outcome), keep theme hooks like `jagged_peaks`->`mountain-aggro`, keep all 51 additive files. Drop/rebase decisions and the region carving rework are paused for a user-booted 26.1 server.
+
+---
+
+### 2026-06-07 - Iris 4.0 biome `derivative`/`vanillaDerivative` is namespaced (`minecraft:*`), not the old enum
+
+**Context:** Replacing `pack-base` with the 4.0 download and starting the overlay conversion (user-directed: "update biomes via python script ... prefix:ed lowercase").
+**What happened:** 4.0 base biomes write `derivative`/`vanillaDerivative` as namespaced registry keys (e.g. `"minecraft:jagged_peaks"`), whereas our 3.9.1 overlay used the Bukkit enum form (`"JAGGED_PEAKS"`). This SUPERSEDES the 2026-06-05 rule (further below) that those fields "use uppercase Minecraft biome enum names" - that was true for 3.9.1, not 4.0.
+**Fix / workaround:** Added `iris/scripts/namespace-biome-derivatives.py` - targeted regex (formatting/diff preserved, idempotent) that rewrites both keys to `minecraft:<lower>`, skipping already-namespaced/non-enum values. It carries a `RENAME` map for legacy enum names whose plain lowercase is the WRONG registry key (`MOUNTAINS`->`windswept_hills`, `SNOWY_TUNDRA`->`snowy_plains`, `GIANT_TREE_TAIGA`->`old_growth_pine_taiga`, `JUNGLE_EDGE`->`sparse_jungle`, etc.). Ran it: 256 values across 128 overlay biome files; all still valid JSON, zero enum forms left. Note still UNVERIFIED on a 26.1 server whether 4.0 ALSO requires moving top-level `category` into a `customDerivitives[]` block (4.0 base does that) - left as-is pending a boot. Full plan: `docs/world-design/IRIS-4.0-MIGRATION.md`.
+
+---
+
+### 2026-06-07 - Iris 4.0 is a breaking change (new namespace + api 26.1); 3.9.1 source lessons may not hold
+
+**Context:** Evaluating an `Iris.jar` the dev handed over as a 4.0 beta, and whether we can re-sync `pack-base` / swap it in.
+**What happened:** The jar's `plugin.yml` reports `version: 4.0.0-26.1`, `main: art.arcane.iris.Iris`, `api-version: '26.1'`, `folia-supported: true`. This is NOT a drop-in over 3.9.1: (1) the package moved `com.volmit.iris` -> `art.arcane.iris`, so every class/line reference in the older lessons below was read against a tree that no longer exists; (2) `api-version 26.1` + Folia means the test server build must match 26.1 or the plugin will not load (our scripts are pinned to `...\RTP-Paper\1.21.11`); (3) 4.0 is private/beta - it is NOT on public GitHub/Spigot/Modrinth (public top-of-tree is still `3.9.1-1.20.1-1.21.11` on both `master` and `dev`), so it came from a non-public channel. The pack format may also have changed.
+**Fix / workaround:** Treat 4.0 as a deliberate migration, not a jar swap. Re-sync `pack-base` from a 4.0 auto-download on a 26.1 server, diff it against the committed 3.9.1 base, re-validate the overlay, and re-verify each source-level lesson against the new `art.arcane.iris` classes before trusting it. Full methodology + open questions live in `docs/world-design/IRIS-4.0-MIGRATION.md`. The in-game cutover/boot is user-triggered.
+
+---
+
+### 2026-06-07 - Iris 4.0 pack ("Overworld V3000") structure deltas vs our 3.9.1 base
+
+**Context:** The dev's 4.0 auto-download landed at `...\RTP-Folia\26.1\plugins\Iris\packs\overworld`. Compared it by relative path against our 3.9.1 `iris/pack-base` + `iris/pack-overlay` to find what 4.0 changed and what (if anything) we had hand-added to the git-ignored base.
+**What happened:** 4.0 is a big restructure, not a content tweak. It ADDS a `structures/` folder (flat per-vanilla-structure: `minecraft_village_*`, `minecraft_ancient_city`, `minecraft_trial_chambers`, `shipwreck`, etc. + `structure-index.json`); REMOVES `caves/`, `entities/`, `jigsaw-structures/`, `markers/`, `ravines/`; tripled `jigsaw-pieces` (688->2271) and `jigsaw-pools` (72->225); added regions `estranged`/`magnetics`/`prismatics` (9->12); trimmed biomes/loot/spawners. Crucial false alarm: `biomes/terralost/WIP/*` (76 files) is in our base but NOT 4.0 - it is STOCK Iris (terralost is a standard region; its non-WIP biomes are identical in both packs), NOT our work; do not import it. Our genuinely-custom content (vanilla/replica biomes, frostpeak/ashcrown/embertide/etc.) is already correctly in `pack-overlay`; nothing needed moving out of base.
+**Fix / workaround:** Captured full delta + migration TODOs in `docs/world-design/IRIS-4.0-MIGRATION.md`. User-directed cleanup applied now: deleted the two amethyst crystal-cave tube overlays (`pack-overlay/caves/cavesv4/crystalized*/tubes.json`) and removed their dangling `cave` refs (calcite-base biome x1, dimension overworld x2). Deferred to the actual 4.0 cutover: re-express our `caves/vanilla/*` + `caves/amethyst/small` in 4.0's carving system (no `caves/` folder in 4.0), and re-wire our `jigsaw-structures/*` (dungeons + mineshaft) against 4.0's new `structures/`/expanded jigsaw layout.
+
+---
+
+### 2026-06-07 - Iris object `clamp` is a placement GATE, not a Y pin (and old chunks never regenerate)
+
+**Context:** Frostpeak lava-tree volcano. The earlier checkpoint claimed `clamp { minHeight: N, maxHeight: N }` PINS an object to absolute world Y. Tuning the caldera, changing `clamp` from 216 to 300 did NOT move the volcano (crater stayed ~Y118), which made no sense under the "pin" theory.
+**What happened:** Reading Iris source (`IrisObject.java`, ~line 737): `if (!config.isForcePlace() && !config.getClamp().canPlace(y + rty + ty, y - rty + ty)) return -1;`. `clamp` only GATES whether the object may place at the already-computed Y; it never sets Y. A tight `clamp` (min==max) therefore REJECTS placement in newly generated chunks. The object's Y is `terrain height + rty (rotation of center.y, ~h/2) + translate.Y (+ yRandom)`. The "it worked at 235 / now 118" readings were from DIFFERENT, already-generated chunks - Iris never regenerates existing chunks, so a config change is only visible in brand-new terrain.
+**Fix / workaround:** Keep `clamp` permissive (a wide band, or omit). Control an object's vertical position with `translate.Y` (direct offset) and the biome terrain generator height, plus `mode` (e.g. `CENTER_HEIGHT`) if needed. Always verify object-placement tweaks by exploring FRESH terrain (or regenerating the test world), never an already-loaded area.
+
+---
+
+### 2026-06-07 - Iris jigsaw negative `overrideYRange` SURFACES locked children (setRealPositions `y<0` bug)
+
+**Context:** Mineshaft (Iris jigsaw) kept landing ON the surface even though `overrideYRange` was set to `max:-15`/`min:-45` and the world was redeployed/wiped on every boot, so "stale chunks" was NOT the cause. The previous same-day entry below (the "relative to sea level" theory) is a MISDIAGNOSIS - see correction.
+**What happened (verified against Iris `master` source):** `overrideYRange` IS absolute world-Y (`IrisStyledRange.get` just `fitDouble(min,max)` - no sea-level/`fluidHeight` offset). The real bug is in `PlannedPiece.setRealPositions(x, y, z, placer)`: it treats **any** `y < 0` as the "place on heightmap" sentinel and sets connector real-Y to `placer.getHighest(...)` (the SURFACE). The start piece's own block placement happens at the correct buried Y, but its connector `realPositions` get snapped to the surface; every child with `lockY:true` then reads `ParentConnection.getTargetPosition()` -> `parent.realPositions` (= surface) and the whole structure climbs to the surface. Because 1.18+ underground is negative Y, the buried range `-45..-15` is entirely `< 0`, so it triggered the bug for EVERY piece - the earlier "fix" (pushing the range more negative) made surfacing total. The mountaintop sighting was `getHighest`, not the override.
+**Fix / workaround:** Set `overrideYRange` to **positive** world-Y that is still below sea level (`fluidHeight`=75) and above bedrock: `min:10`/`max:40`. With `y >= 0`, `setRealPositions` takes the `else` branch (`pos.getY() + y`), so locked children correctly inherit the buried parent Y and stay underground. Rule: for ANY buried Iris jigsaw using `lockY` connectors, keep `overrideYRange`/`lockY` >= 0 (use the 0..63 underground band, not negative Y) or Iris will snap the connectors to the surface. Cannot patch Iris itself (dependency jar), so constrain the pack value instead.
+
+### 2026-06-07 - [SUPERSEDED/WRONG] Iris jigsaw `overrideYRange` is RELATIVE TO SEA LEVEL, not absolute world-Y
+
+**NOTE: This entry is a MISDIAGNOSIS. `overrideYRange` is absolute world-Y; the real cause is the `setRealPositions` `y<0` surface-snap bug documented in the entry above. Kept for history.**
+
+**Context:** Mineshaft jigsaw (the Iris structure, NOT vanilla) was surfacing/floating on land - one seen poking out of a mountaintop at ~Y100. The structure file capped `overrideYRange` at `max: 40` / `min: -40` (STATIC), and every connector already had `lockY: true`, so the whole structure inherits the start piece's Y. An absolute reading said "max 40 is below sea level, can't surface" - but it did.
+**What happened:** `overrideYRange` values are interpreted RELATIVE TO `fluidHeight` (sea level), not as absolute world-Y. This pack's `fluidHeight` is 75, so `max: 40` resolves to world Y ~115 and `min: -40` to ~35. The start piece can therefore land as high as ~Y115, which pokes through mountain surfaces. The earlier (2026-06-06) note guessing this range was absolute (blaming a min of -50 for carving bedrock) was a MISDIAGNOSIS - relative to sea level, -50 is world Y ~25, nowhere near the -60 bedrock band.
+**Fix / workaround:** Set the range so the whole band stays comfortably below sea level: `max: -15` / `min: -45` -> world Y ~30..60 (underground everywhere, above bedrock). Rule: when tuning any Iris jigsaw/structure `overrideYRange`, add `fluidHeight` to the value to get the real world Y. Keep `max` negative for fully-buried structures.
+
 ### 2026-06-06 - Iris objects never PASTE air; carved pieces need stored air + `bore`
 
 **Context:** Mineshaft jigsaw rooms generated sporadic and disconnected in spectator mode, and a few pieces did not connect "due to lack of overlap". Suspicion was that some mineshaft pieces "fail to paste air".

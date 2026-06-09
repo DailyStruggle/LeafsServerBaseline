@@ -1,4 +1,4 @@
-$packRoot = "C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld\biomes"
+﻿$packRoot = "C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld\biomes"
 $surfaceDirs = @("frozen","hot","mesa","mountain","mushroom","savanna","swamp","temperate","terralost","tropical","tundra")
 
 # Verified heights from .iob binary headers (W x H x D measured 2026-06-04)

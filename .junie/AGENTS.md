@@ -19,7 +19,7 @@ Operational guide for AI agents and human contributors working in the LeafsServe
 7. **Write markdown as UTF-8; never emit mojibake.** If you see sequences like `â€"`, `â€™`, `âœ…`, `Â§`, `Ã©`, or the replacement character `?` in a diff you're about to write, stop and re-encode (see *Markdown Encoding Hygiene*).
 8. **Never run destructive git operations** (`git stash`, `git checkout -- <path>`, `git reset --hard`, `git restore`, `git revert`, `git clean -fd`, `git rebase`, `git push --force`) on the user's working tree. See *Git Safety* below.
 9. **Never edit the Iris `pack-base`.** It is the upstream vanilla pack and is git-ignored. To change any base biome/region/etc., add or edit a same-path file under `pack-overlay` instead. See *Iris Pack Layering* below.
-10. **Never boot the test server yourself.** Server starts are user-triggered (no agent console/stdin, rcon disabled). When a step needs a running server, pause and `ask_user` to boot it. See *Server Boots Are User-Triggered* below.
+10. **Never boot the test server yourself, but you MAY deploy.** Server starts are user-triggered (no agent console/stdin, rcon disabled); pause and `ask_user` to boot when a running server is needed. Running `deploy-iris-pack.ps1` / `deploy-plugins.ps1` is allowed (it only stages/copies files, does not boot). See *Server Boots Are User-Triggered* below.
 
 ---
 
@@ -198,6 +198,14 @@ Rules:
 - When a step needs a running server, **stop and `ask_user`**: state exactly what you changed, that it is deploy-ready, and ask the user to boot the server (and, if needed, run the in-game command) and report back.
 - If you already started a server in this session, **stop the `java` process** before handing back so no orphan survives.
 - Headless boots are acceptable **only** for non-interactive checks the user explicitly asked for (e.g. "confirm the pack parses without errors"), and even then prefer asking first.
+
+### Deploying the Iris pack IS permitted (deploy != boot)
+
+Running the deploy script is a pure file-staging/copy step and does **not** start the server, so it is allowed for agents:
+
+- You MAY run `iris/scripts/deploy-iris-pack.ps1` (and `plugins/deploy-plugins.ps1`) without `ask_user`. It builds `iris/staging`, wipe-deploys to `test/iris/pack` + `plugins/Iris/packs/overworld`, and clears caches.
+- The deploy is non-interactive and self-contained; capture its output and confirm exit code 0.
+- After deploying, the frozen world pack only takes effect on the **next** server boot - which is still **user-triggered**. So: deploy yourself, then pause and `ask_user` to reboot when in-game verification is needed.
 
 ---
 

@@ -2,8 +2,8 @@
   "name": "vanilla/puddle",
   "color": "#4A6FD4",
   "rarity": 1,
-  "derivative": "RIVER",
-  "vanillaDerivative": "RIVER",
+  "derivative": "minecraft:river",
+  "vanillaDerivative": "minecraft:river",
   "generators": [
     {
       "min": -3,

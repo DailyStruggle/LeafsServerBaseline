@@ -1,62 +1,13 @@
 {
   "name": "vanilla/birch_forest__tall",
   "rarity": 12,
-  "derivative": "BIRCH_FOREST",
-  "vanillaDerivative": "BIRCH_FOREST",
-  "category": "forest",
+  "derivative": "minecraft:birch_forest",
+  "vanillaDerivative": "minecraft:birch_forest",
   "generators": [
     {
-      "min": 4,
-      "max": 10,
+      "min": 3,
+      "max": 16,
       "generator": "plain"
-    }
-  ],
-  "objects": [
-    {
-      "chance": 0.28,
-      "density": 4,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-birch/birchM1",
-        "trees/vanilla-birch/birchM2",
-        "trees/vanilla-birch/birchM3",
-        "trees/vanilla-birch/birchM4",
-        "trees/vanilla-birch/birchM5",
-        "trees/vanilla-birch/birchM6",
-        "trees/vanilla-birch/birchM7",
-        "trees/vanilla-birch/birchM8"
-      ]
-    },
-    {
-      "chance": 0.22,
-      "density": 3,
-      "rotation": {
-        "yAxis": {
-          "min": 0,
-          "max": 270,
-          "interval": 90,
-          "enabled": true
-        },
-        "enabled": true
-      },
-      "place": [
-        "trees/vanilla-birch/birchL1",
-        "trees/vanilla-birch/birchL2",
-        "trees/vanilla-birch/birchL3",
-        "trees/vanilla-birch/birchL4",
-        "trees/vanilla-birch/birchL5",
-        "trees/vanilla-birch/birchL6",
-        "trees/vanilla-birch/birchL7",
-        "trees/vanilla-birch/birchL8"
-      ]
     }
   ],
   "decorators": [
@@ -100,5 +51,377 @@
         }
       ]
     }
-  ]
+  ],
+  "proceduralObjects": {
+    "trees": [
+      {
+        "name": "pv-birch-M-h6",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 6,
+        "heightMax": 6,
+        "variants": 1,
+        "seed": 1879429150,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 4,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 5,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.07,
+        "density": 4
+      },
+      {
+        "name": "pv-birch-M-h7",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 7,
+        "heightMax": 7,
+        "variants": 1,
+        "seed": 117629064,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.07,
+        "density": 4
+      },
+      {
+        "name": "pv-birch-M-h8",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 398327065,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.07,
+        "density": 4
+      },
+      {
+        "name": "pv-birch-M-h9",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1622855055,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.07,
+        "density": 4
+      },
+      {
+        "name": "pv-birch-L-h8",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 8,
+        "heightMax": 8,
+        "variants": 1,
+        "seed": 377460526,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 5,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 6,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-birch-L-h9",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 9,
+        "heightMax": 9,
+        "variants": 1,
+        "seed": 1635297208,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 6,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 7,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 8,
+              "radius": 2.55
+            },
+            {
+              "yOffset": 9,
+              "radius": 2.25
+            },
+            {
+              "yOffset": 9,
+              "radius": 1.5
+            },
+            {
+              "yOffset": 10,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-birch-L-h11",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 11,
+        "heightMax": 11,
+        "variants": 1,
+        "seed": 241051302,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 7,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 8,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 10,
+              "radius": 3.4
+            },
+            {
+              "yOffset": 11,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 11,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 12,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      },
+      {
+        "name": "pv-birch-L-h12",
+        "trunk": "minecraft:birch_log",
+        "leaves": "minecraft:birch_leaves",
+        "profile": "BIRCH",
+        "heightMin": 12,
+        "heightMax": 12,
+        "variants": 1,
+        "seed": 391608092,
+        "roots": false,
+        "trunkWidth": 1,
+        "trunkShape": "CONSTANT",
+        "canopy": {
+          "startAngle": 90,
+          "squish": 0.95,
+          "mode": "TRIMMED",
+          "layers": [
+            {
+              "yOffset": 8,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 10,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 11,
+              "radius": 3.4
+            },
+            {
+              "yOffset": 12,
+              "radius": 3.0
+            },
+            {
+              "yOffset": 13,
+              "radius": 1.8
+            },
+            {
+              "yOffset": 14,
+              "radius": 1.5
+            }
+          ]
+        },
+        "chance": 0.055,
+        "density": 3
+      }
+    ]
+  }
 }

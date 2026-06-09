@@ -2,8 +2,8 @@
     "name": "Calcite Peaks",
     "color": "#6E7D85",
     "rarity": 1,
-    "derivative": "WINDSWEPT_HILLS",
-    "vanillaDerivative": "WINDSWEPT_HILLS",
+    "derivative": "minecraft:windswept_hills",
+    "vanillaDerivative": "minecraft:windswept_hills",
     "generators": [
         {
         "min": 143,
@@ -12,36 +12,6 @@
         }
 
      ],
-     "carving": {"caves": [
-        {
-            "breakSurface": true,
-            "cave": "calcite/main",
-            "rarity": 90,
-            "caveStartHeight": {
-                "max": 200,
-                "min": 85,
-                "style": {"style": "STATIC"}
-            }},
-             {
-            "breakSurface": true,
-            "cave": "cavesv4/crystalized/tubes",
-            "rarity": 90,
-            "caveStartHeight": {
-                "max": 200,
-                "min": 85,
-                "style": {"style": "STATIC"}
-            }},
-             {
-            "breakSurface": true,
-            "cave": "cavesv4/spider-infestation/main",
-            "rarity": 90,
-            "caveStartHeight": {
-                "max": 200,
-                "min": 85,
-                "style": {"style": "STATIC"}
-            }}
-
-     ]},
 
     "wall": {
         "style": {"style": "STATIC"},

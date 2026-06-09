@@ -1,6 +1,6 @@
-import os, re
+﻿import os, re
 
-pack = r'C:\GameServers\Minecraft\testServer\RTP-Paper\1.21.11\plugins\Iris\packs\overworld'
+pack = r'C:\GameServers\Minecraft\testServer\RTP-Folia\26.1\plugins\Iris\packs\overworld'
 
 biomes = set()
 for root, dirs, files in os.walk(os.path.join(pack, 'biomes')):

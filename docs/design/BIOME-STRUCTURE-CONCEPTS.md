@@ -148,11 +148,11 @@ All eight cave structures are implemented as our own assets (created outright, A
 | Structure | File slug | Region(s) wired | Region rarity | Vanilla loot table | Y range |
 |---|---|---|---|---|---|
 | Stoneborne Outpost | `stoneborne-outpost` | temperate, forests | 60 (was 600) | `chests/abandoned_mineshaft` | -25..5 |
-| Frozen Adventurer's Camp | `frozen-adventurers-camp` | frozen, tundra | 90 (was 900) | `chests/igloo_chest` | 15..65 |
+| Frozen Adventurer's Camp | `frozen-adventurers-camp` | frozen, tundra | 900 (restored from 90 - 90 placed one every few chunks) | `chests/igloo_chest` | 15..65 |
 | Buried Sand Temple Annex | `buried-sand-temple-annex` | hot | 90 (was 900) | `chests/desert_pyramid` | 25..65 |
 | Prismatic Shrine | `prismatic-shrine` | temperate | 150 (was 1500) | `chests/end_city_treasure` | -55..-15 |
 | Geode Vault | `geode-vault` | temperate | 150 (was 1500) | `chests/buried_treasure` | -55..-15 |
-| Soulforge Ruin | `soulforge-ruin` | frozen | 160 (was 1600) | `chests/nether_bridge` | -64..-25 |
+| Soulforge Ruin | `soulforge-ruin` | frozen | 1600 (restored from 160 - 160 placed it too often) | `chests/nether_bridge` | -64..-25 |
 | Deep Forge | `deep-forge` | hot | 250 (was 2500) | `chests/ruined_portal` | -64..-45 |
 | Toxic Prospector's Dig | `toxic-prospectors-dig` | tropical | 90 (was 900) | `chests/abandoned_mineshaft` | 0..55 |
 

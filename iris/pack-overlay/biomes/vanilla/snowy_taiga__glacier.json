@@ -1,14 +1,31 @@
 {
   "name": "vanilla/snowy_taiga__glacier",
   "rarity": 12,
-  "derivative": "SNOWY_TAIGA",
-  "vanillaDerivative": "SNOWY_TAIGA",
-  "category": "taiga",
+  "derivative": "minecraft:snowy_taiga",
+  "vanillaDerivative": "minecraft:snowy_taiga",
   "generators": [
     {
       "min": 5,
       "max": 22,
       "generator": "rare-hills"
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.3,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 6
+        }
+      ]
     }
   ],
   "objects": [
@@ -65,24 +82,6 @@
         "trees/glacierpine/glacierpine_large_2",
         "trees/glacierpine/glacierpine_large_3",
         "trees/glacierpine/glacierpine_large_4"
-      ]
-    }
-  ],
-  "decorators": [
-    {
-      "chance": 0.3,
-      "style": {
-        "style": "STATIC"
-      },
-      "palette": [
-        {
-          "block": "minecraft:short_grass",
-          "weight": 100
-        },
-        {
-          "block": "minecraft:fern",
-          "weight": 6
-        }
       ]
     }
   ]

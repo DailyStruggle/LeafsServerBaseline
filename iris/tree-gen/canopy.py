@@ -345,6 +345,21 @@ def _branch_endpoint(ox: int, oy: int, oz: int,
     return (ox + int(round(dx)), oy + int(round(dy)), oz + int(round(dz)))
 
 
+# Block ids that support an `axis` property. Non-orientable branch blocks (e.g. lava
+# for the inverted lava-vein objects) must NOT get an [axis=..] suffix appended.
+_ORIENTABLE_TOKENS = ("log", "wood", "stem", "hyphae", "basalt", "pillar", "bone_block")
+
+
+def _axis_block(block: str, axis: str) -> str:
+    """Append [axis=..] only to orientable blocks that don't already carry a state."""
+    if "[" in block:
+        return block
+    base = block.split(":")[-1]
+    if any(tok in base for tok in _ORIENTABLE_TOKENS):
+        return block + "[axis=%s]" % axis
+    return block
+
+
 def _rasterize_branch(ox: int, oy: int, oz: int,
                       ex: int, ey: int, ez: int,
                       trunk_block: str) -> dict:
@@ -352,7 +367,7 @@ def _rasterize_branch(ox: int, oy: int, oz: int,
     blocks = {}
     steps = max(abs(ex - ox), abs(ey - oy), abs(ez - oz), 1)
     axis = _log_axis(ex - ox, ey - oy, ez - oz)
-    block = trunk_block + "[axis=%s]" % axis
+    block = _axis_block(trunk_block, axis)
     for i in range(steps + 1):
         t = i / steps
         x = int(round(ox + (ex - ox) * t))

@@ -1,64 +1,84 @@
 package net.leaf.artifacts;
 
+import net.leaf.curios.api.CuriosApi;
+import net.leaf.curios.api.CuriosProvider;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * Exploration artifacts (wearable trinkets) recreated with vanilla mechanics.
  *
- * <p>P1 (from {@code docs/scratch/ARTIFACTS-VANILLA-RECREATION.md}): artifacts
- * whose effect is a passive attribute modifier and/or an infinite potion
- * effect that is present while the artifact is carried. A per-player reconcile
- * loop (driven by the Folia-safe entity scheduler) keeps each player's
- * modifiers/effects in sync with their inventory.</p>
+ * <p>Artifacts are equipped through the shared LeafCurios menu/API (this plugin
+ * depends on LeafCurios). On enable it registers the curio slot types it needs
+ * (Head, Necklace, Hands x2, Ring, Charm x2, Feet x2) and marks its items as
+ * curios; the per-player curio store and menu live in LeafCurios.</p>
  *
- * <p>P2: simple event-reactive artifacts (lifesteal, ignite/lightning on hit,
- * speed when hurt, fall-damage immunity, haste on eating, bonus kill XP),
- * handled immediately in {@link ArtifactEventListener} on the triggering
- * event's region thread.</p>
- *
- * <p>Not yet implemented (deferred): the signature movement combos and other
- * ticking artifacts, loot-table/datapack sourcing, and resource-pack custom
- * models. This build is for review only.</p>
+ * <p>A per-player reconcile loop (Folia-safe entity scheduler) keeps each
+ * player's attribute modifiers / infinite effects in sync with their active
+ * curio set, and event-reactive artifacts are handled in
+ * {@link ArtifactEventListener}. Cloud in a Bottle (movement) lives in
+ * {@link CloudJumpListener}.</p>
  */
 public final class LeafArtifactsPlugin extends JavaPlugin {
 
-    private static final long INITIAL_DELAY_TICKS = 1L;
+    private static final long INITIAL_DELAY_TICKS = 2L;
     private static final long PERIOD_TICKS = 20L;
 
     private ArtifactController controller;
-    private ArtifactEquipment equipment;
+    private RollerSkatesController rollerSkates;
+    private HeliumFlamingoController heliumFlamingo;
+    private FlippersController flippers;
 
     @Override
     public void onEnable() {
+        CuriosApi curios = CuriosProvider.get();
+        if (curios == null) {
+            getLogger().severe("LeafCurios API not available; disabling LeafArtifacts.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         ArtifactKeys.init(this);
-        this.equipment = new ArtifactEquipment(getLogger());
+        ArtifactSlotDefs.registerAll(curios);
+
+        ArtifactEquipment equipment = new ArtifactEquipment(curios);
         this.controller = new ArtifactController(equipment);
+        this.rollerSkates = new RollerSkatesController(this, equipment);
+        this.heliumFlamingo = new HeliumFlamingoController(this, equipment);
+        this.flippers = new FlippersController(this, equipment, heliumFlamingo);
 
-        ArtifactMenu menu = new ArtifactMenu(equipment, controller);
-
-        getServer().getPluginManager().registerEvents(new ArtifactListener(this, controller, equipment), this);
+        getServer().getPluginManager().registerEvents(
+                new ArtifactListener(this, controller, rollerSkates, heliumFlamingo, flippers, curios), this);
         getServer().getPluginManager().registerEvents(new ArtifactEventListener(equipment), this);
         getServer().getPluginManager().registerEvents(new CloudJumpListener(this, equipment), this);
-        getServer().getPluginManager().registerEvents(menu, this);
 
-        ArtifactCommand command = new ArtifactCommand(menu);
+        ArtifactCommand command = new ArtifactCommand(curios);
         if (getCommand("artifact") != null) {
             getCommand("artifact").setExecutor(command);
             getCommand("artifact").setTabCompleter(command);
         }
 
-        // Handle players already online (e.g. after a /reload) by loading their
-        // equipment and starting their reconcile loop now; on a fresh start this
-        // set is empty.
+        // Handle players already online (e.g. after a /reload): migrate legacy
+        // equipment and start their reconcile loop now.
         for (Player player : getServer().getOnlinePlayers()) {
-            equipment.load(player);
+            player.getScheduler().runDelayed(
+                    this,
+                    task -> {
+                        ArtifactLegacyMigration.migrate(this, player, curios);
+                        controller.clear(player);
+                        controller.reconcile(player);
+                    },
+                    null,
+                    INITIAL_DELAY_TICKS);
             player.getScheduler().runAtFixedRate(
                     this,
                     task -> controller.reconcile(player),
                     null,
-                    INITIAL_DELAY_TICKS,
+                    PERIOD_TICKS,
                     PERIOD_TICKS);
+            rollerSkates.start(player);
+            heliumFlamingo.start(player);
+            flippers.start(player);
         }
 
         getLogger().info("LeafArtifacts enabled.");
@@ -66,12 +86,18 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        for (Player player : getServer().getOnlinePlayers()) {
-            if (equipment != null) {
-                equipment.save(player);
-            }
-            if (controller != null) {
+        if (controller != null) {
+            for (Player player : getServer().getOnlinePlayers()) {
                 controller.clear(player);
+                if (rollerSkates != null) {
+                    rollerSkates.clear(player);
+                }
+                if (heliumFlamingo != null) {
+                    heliumFlamingo.clear(player);
+                }
+                if (flippers != null) {
+                    flippers.clear(player);
+                }
             }
         }
     }

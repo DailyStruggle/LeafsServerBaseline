@@ -9,7 +9,6 @@
         "endHour": 5
     },
     "maxEntitiesPerChunk": 6,
-    "energyMultiplier": 1,
     "weather": "ANY",
     "spawns": [
         {

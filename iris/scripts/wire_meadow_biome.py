@@ -1,4 +1,12 @@
-"""One-shot: insert a village-meadow jigsawStructures entry next to village-plains
+"""DEPRECATED (Iris 3.x only) - do NOT use on the 4.0 pack.
+
+This one-shot inserted a legacy `jigsawStructures` entry (the 3.x array form that
+Iris 4.0 does NOT load - see docs/design/IRIS-V4-STRUCTURES.md). Village/structure
+placement is now done with the v4 `structures` (IrisStructurePlacement) array via
+the pack-patches layer (import-tnt-villages.py / wire-tt-outposts.py +
+apply-pack-patches.py). Kept only for historical reference.
+
+One-shot: insert a village-meadow jigsawStructures entry next to village-plains
 in a live Iris biome JSON, preserving exact formatting. Idempotent.
 Usage: python wire_meadow_biome.py <biome.json> [rarity]
 """

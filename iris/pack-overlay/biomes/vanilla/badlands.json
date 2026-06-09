@@ -1,9 +1,8 @@
 {
   "name": "vanilla/badlands",
   "rarity": 1,
-  "derivative": "BADLANDS",
-  "vanillaDerivative": "BADLANDS",
-  "category": "mesa",
+  "derivative": "minecraft:badlands",
+  "vanillaDerivative": "minecraft:badlands",
   "generators": [
     {
       "min": 50,

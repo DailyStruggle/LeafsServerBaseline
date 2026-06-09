@@ -1,0 +1,68 @@
+{
+  "name": "Summer",
+  "_comment": "Seasonal Biome Framework - SUMMER region (seasonalGroup: summer). A sun-baked strand footprint: white-sand beaches with sparse acacia 'palms', wild melon, and dolphin/turtle coastal life. Vanilla-Iris-expressible features only; non-vanilla catalog mobs substituted with vanilla variants (crabs->turtles, white dolphins->dolphins).",
+  "seasonalGroup": "summer",
+  "color": "#F7E08A",
+  "rarity": 2,
+  "landBiomes": [
+    "seasonal/summer-strand",
+    "seasonal/summer-strand",
+    "vanilla/savanna",
+    "vanilla/sunflower_plains",
+    "vanilla/plains",
+    "vanilla/savanna_plateau",
+    "vanilla/desert"
+  ],
+  "caveBiomes": [
+    "carving/rocky-cavebiome",
+    "carving/andesite-caves"
+  ],
+  "shoreBiomes": [
+    "temperate/shore/beach",
+    "temperate/shore/oak-beach"
+  ],
+  "seaBiomeZoom": 8,
+  "seaBiomes": [
+    "temperate/sea/ocean",
+    "ocean/ocean",
+    "ocean/deep"
+  ],
+  "entitySpawners": [
+    "tropical/passive",
+    "tropical/hostile",
+    "tropical/cave",
+    "tropical/water",
+    "tropical/beach"
+  ],
+  "shoreBiomeZoom": 0.15,
+  "deposits": [
+    {
+      "minHeight": 15,
+      "maxPerChunk": 26,
+      "maxHeight": 410,
+      "minPerChunk": 4,
+      "minSize": 3,
+      "maxSize": 8,
+      "palette": [
+        {
+          "block": "minecraft:iron_ore"
+        },
+        {
+          "block": "minecraft:coal_ore"
+        }
+      ],
+      "varience": 4
+    }
+  ],
+  "landBiomeZoom": 4.9,
+  "shoreHeightMin": 1,
+  "shoreHeightMax": 5.2,
+  "shoreHeightZoom": 1.14,
+  "loot": {
+    "mode": "FALLBACK",
+    "tables": [
+      "temperate/clutter",
+      "temperate/food"
+    ]
+  }
+}

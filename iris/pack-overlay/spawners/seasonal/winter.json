@@ -1,0 +1,20 @@
+{"spawns": [
+  {
+    "entity": "standard/neutral/polarbear",
+    "maxSpawns": 2,
+    "minSpawns": 1,
+    "rarity": 4
+  },
+  {
+    "entity": "standard/passive/rabbit",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 3
+  },
+  {
+    "entity": "standard/hostile/stray",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 4
+  }
+]}

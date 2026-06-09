@@ -1,0 +1,56 @@
+{
+    "name": "Volcanic Peak",
+    "color": "#7A1414",
+    "rarity": 22,
+    "derivative": "minecraft:jungle",
+    "vanillaDerivative": "minecraft:basalt_deltas",
+    "generators": [
+        {
+            "generator": "mountain",
+            "max": 200,
+            "min": 30
+        }
+    ],
+    "layers": [
+        {
+            "minHeight": 1,
+            "maxHeight": 1,
+            "palette": [
+                { "weight": 7, "block": "minecraft:basalt", "data": { "axis": "y" } },
+                { "weight": 2, "block": "minecraft:smooth_basalt" },
+                { "weight": 1, "block": "minecraft:magma_block" }
+            ]
+        },
+        {
+            "minHeight": 2,
+            "maxHeight": 8,
+            "palette": [
+                { "weight": 6, "block": "minecraft:blackstone" },
+                { "weight": 2, "block": "minecraft:basalt", "data": { "axis": "y" } },
+                { "weight": 1, "block": "minecraft:tuff" }
+            ]
+        },
+        {
+            "minHeight": 1,
+            "maxHeight": 3,
+            "palette": [
+                { "block": "minecraft:tuff" }
+            ]
+        }
+    ],
+    "objects": [
+        
+    ],
+    "effects": [
+        {
+            "particleAltX": 0.001,
+            "particleAltY": 0.13885,
+            "particleAltZ": 0.001,
+            "chance": 1,
+            "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
+            "particleOffset": 0,
+            "interval": 240,
+            "particleCount": 0
+        }
+    ]
+}

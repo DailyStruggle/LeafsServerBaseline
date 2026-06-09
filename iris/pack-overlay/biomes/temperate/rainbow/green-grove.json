@@ -1,0 +1,96 @@
+{
+  "name": "Green Grove",
+  "color": "#43A047",
+  "rarity": 1,
+  "derivative": "minecraft:grove",
+  "vanillaDerivative": "minecraft:grove",
+  "customDerivitives": [
+    {
+      "id": "rainbow_green",
+      "grassColor": "#43A047",
+      "foliageColor": "#43A047",
+      "waterColor": "#7FD0E0",
+      "skyColor": "#A7C7F0",
+      "fogColor": "#C7B8E6",
+      "downfallType": "snow"
+    }
+  ],
+  "generators": [
+    {
+      "min": 64,
+      "max": 90,
+      "generator": "rare-hills"
+    }
+  ],
+  "layers": [
+    {
+      "style": {
+        "style": "FLAT"
+      },
+      "palette": [
+        {
+          "block": "minecraft:grass_block",
+          "weight": 30
+        },
+        {
+          "block": "minecraft:snow_block",
+          "weight": 3
+        },
+        {
+          "block": "minecraft:packed_ice",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "minHeight": 1,
+      "maxHeight": 3,
+      "palette": [
+        {
+          "block": "minecraft:dirt"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "chance": 0.16,
+      "density": 2,
+      "rotation": {
+        "yAxis": {
+          "min": 0,
+          "max": 270,
+          "interval": 90,
+          "enabled": true
+        },
+        "enabled": true
+      },
+      "place": [
+        "trees/rainbow-grove/rainbowM1",
+        "trees/rainbow-grove/rainbowM2",
+        "trees/rainbow-grove/rainbowM3",
+        "trees/rainbow-grove/rainbowM4",
+        "trees/rainbow-grove/rainbowM5",
+        "trees/rainbow-grove/rainbowM6"
+      ]
+    }
+  ],
+  "decorators": [
+    {
+      "chance": 0.25,
+      "style": {
+        "style": "STATIC"
+      },
+      "palette": [
+        {
+          "block": "minecraft:short_grass",
+          "weight": 100
+        },
+        {
+          "block": "minecraft:fern",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

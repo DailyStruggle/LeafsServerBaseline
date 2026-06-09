@@ -1,0 +1,14 @@
+{"spawns": [
+  {
+    "entity": "standard/passive/turtle",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 3
+  },
+  {
+    "entity": "standard/neutral/dolphin",
+    "maxSpawns": 3,
+    "minSpawns": 1,
+    "rarity": 4
+  }
+]}

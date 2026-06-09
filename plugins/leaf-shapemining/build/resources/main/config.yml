@@ -1,0 +1,37 @@
+# LeafShapeMining configuration.
+
+# Direction-aware tunnel-bore (1x1xN) length caps, in blocks per swing.
+# Digging straight down is the dangerous case (lava/void), so it is clamped hard.
+tunnel:
+  max-horizontal: 32
+  max-up: 8
+  max-down: 3
+
+# Hard cap on blocks broken by a single swing (balance / per-tick perf limit).
+max-blocks-per-swing: 64
+
+# Durability cost charged to the tool per extra block broken by the shape
+# (the originally-broken block uses vanilla durability).
+durability-per-block: 1
+
+# Bulk-filler allow-list. Only these materials are ever broken by a shape, and a
+# shape only triggers when the originally-broken block is one of them. All ores,
+# containers, and block-entities are intentionally excluded to preserve mining
+# pacing (this is the line that separates shape-mining from veinminer).
+allow-list:
+  - STONE
+  - COBBLESTONE
+  - DEEPSLATE
+  - COBBLED_DEEPSLATE
+  - DIRT
+  - COARSE_DIRT
+  - GRANITE
+  - DIORITE
+  - ANDESITE
+  - TUFF
+  - NETHERRACK
+  - SANDSTONE
+  - RED_SANDSTONE
+  - BLACKSTONE
+  - BASALT
+  - CALCITE

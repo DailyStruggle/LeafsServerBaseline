@@ -31,6 +31,14 @@
             <version>1.21.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- LeafArtifacts depends on the LeafCurios API (separate plugin module). -->
+        <dependency>
+            <groupId>net.leaf</groupId>
+            <artifactId>leaf-curios</artifactId>
+            <version>0.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../leaf-curios/build/libs/LeafCurios-0.1.0.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

@@ -10,8 +10,14 @@ git-ignored quarantine and are copied into the (also git-ignored) pack-patches
 overlay. Per ADR-004 none of that is redistributed.
 
 MANIFEST maps each T&T village set -> Iris structure key -> target biome files
-(relative to the pack root, e.g. biomes/swamp/marsh.json) -> rarity
-(Iris convention: lower = more common).
+(relative to the pack root, e.g. biomes/swamp/marsh.json) -> rarity hint
+(legacy 3.x convention: lower = more common; retained only as a relative-rarity
+note - 4.0 placement uses a chunk-spacing grid, see VILLAGE_SPACING below).
+
+Iris 4.0 format: villages are emitted as `structures/<key>.json` (IrisStructure)
+and placed via `structures` arrays of IrisStructurePlacement, NOT the 3.x
+`jigsaw-structures/` + `jigsawStructures` form (4.0 does not load it). See
+docs/design/IRIS-V4-STRUCTURES.md.
 
 Run:
   python iris/scripts/import-tnt-villages.py
@@ -20,6 +26,11 @@ import json
 import os
 import subprocess
 import sys
+
+# v4 placement grid (chunks) for villages - a common find. Outposts (wired by
+# wire-tt-outposts.py) use a wider grid so the two do not visually collide.
+VILLAGE_SPACING = 32
+VILLAGE_SEPARATION = 8
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 IRIS = os.path.join(REPO, "iris")
@@ -97,8 +108,15 @@ def convert(set_dir, struct_json, key):
     return True
 
 
+def _salt_for(struct_key):
+    import zlib
+    return (zlib.crc32(struct_key.encode("utf-8")) % 90000) + 1000
+
+
 def merge_patch(target_rel, key, rarity):
-    """Create/merge a *.patch.json adding {structure:key, rarity} to a biome."""
+    """Create/merge a *.patch.json adding a `structures` IrisStructurePlacement
+    for `key` to a biome. `rarity` is retained only as a relative-rarity hint;
+    4.0 placement uses the VILLAGE_SPACING/SEPARATION grid."""
     # patch file path mirrors the target under PATCH_SPECS with .patch.json
     rel_os = target_rel.replace("/", os.sep)
     patch_path = os.path.join(PATCH_SPECS, rel_os + ".patch.json")
@@ -109,14 +127,20 @@ def merge_patch(target_rel, key, rarity):
         spec = {"target": target_rel, "patches": []}
     # idempotent: skip if this structure already present
     for op in spec["patches"]:
-        if op.get("op") == "addUnique" and \
-                op.get("value", {}).get("structure") == key:
+        if op.get("op") == "addUnique" and op.get("array") == "structures" and \
+                op.get("value", {}).get("structures") == [key]:
             return "exists"
     spec["patches"].append({
         "op": "addUnique",
-        "array": "jigsawStructures",
-        "key": "structure",
-        "value": {"structure": key, "rarity": rarity},
+        "array": "structures",
+        "key": "structures",
+        "value": {
+            "structures": [key],
+            "distribution": "RANDOM_SPREAD",
+            "spacing": VILLAGE_SPACING,
+            "separation": VILLAGE_SEPARATION,
+            "salt": _salt_for(key),
+        },
     })
     os.makedirs(os.path.dirname(patch_path), exist_ok=True)
     with open(patch_path, "w", encoding="utf-8", newline="\n") as f:
@@ -129,7 +153,7 @@ def copy_assets():
     """Mirror derived objects/jigsaw-* into pack-patches/assets (additive)."""
     import shutil
     copied = 0
-    for sub in ("objects", "jigsaw-pieces", "jigsaw-pools", "jigsaw-structures"):
+    for sub in ("objects", "jigsaw-pieces", "jigsaw-pools", "structures"):
         src = os.path.join(DERIVED, sub)
         if not os.path.isdir(src):
             continue

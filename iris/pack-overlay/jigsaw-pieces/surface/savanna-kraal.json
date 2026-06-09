@@ -1,0 +1,11 @@
+{
+  "object": "jigsaw/surface/savanna-kraal",
+  "placementOptions": {
+    "bore": false,
+    "vanillaLoot": [
+      {
+        "name": "minecraft:chests/pillager_outpost"
+      }
+    ]
+  }
+}
