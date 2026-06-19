@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "leaf:volcanic_mountain",
+    "leaf:volcanic_hot_springs",
+    "leaf:alpine_meadow"
+  ]
+}

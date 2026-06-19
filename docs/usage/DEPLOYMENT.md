@@ -27,6 +27,9 @@ datapacks/deploy-datapacks.ps1
   ensures files removed from the repo do not linger as a stale snapshot).
 - The target level name is resolved from `-LevelName`, else `level-name` in
   `server.properties`, else `world`.
+- Before copying, it runs `datapacks/patch-all.ps1`, which applies the per-pack
+  integration/dedup patches (`datapacks/_patch-*.ps1`) to the repo source. See
+  [Structure-pack integration & dedup](../design/STRUCTURE-PACK-INTEGRATION.md).
 
 Switches:
 
@@ -36,6 +39,7 @@ Switches:
   SCRATCH on the next boot. Use this when worldgen/dimension changes must show up
   everywhere, not just in newly generated chunks. Off by default.
 - `-NoBackup` - skip the backup when `-ResetWorld` is given.
+- `-NoPatch` - skip the integration/dedup patch step (deploy the packs as-is).
 - `-ServerBase <path>` - override the server root.
 
 ## Deploying plugins

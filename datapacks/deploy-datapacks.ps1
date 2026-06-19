@@ -3,7 +3,8 @@ param(
     [string]$LevelName,
     [string[]]$Only,
     [switch]$ResetWorld,
-    [switch]$NoBackup
+    [switch]$NoBackup,
+    [switch]$NoPatch
 )
 
 # Deploys the repo's vanilla datapacks to the test server's world datapacks folder.
@@ -65,6 +66,17 @@ if (-not (Test-Path $worldDir -PathType Container)) {
     throw "Server world folder not found: $worldDir (check -ServerBase / -LevelName)."
 }
 New-Item -ItemType Directory -Path $dest -Force | Out-Null
+
+# Run the integration/dedup patches against the repo datapack SOURCE before copying, so
+# the deployed packs carry our leaf:* biome wiring and the dedup fixes. Idempotent; skip
+# with -NoPatch. (Category-tag wiring lives statically in leaf-worldgen and needs no patch.)
+if (-not $NoPatch) {
+    $patchAll = Join-Path $datapacksSrc 'patch-all.ps1'
+    if (Test-Path $patchAll) {
+        Write-Output '=== Running datapack integration/dedup patches ==='
+        & $patchAll
+    }
+}
 
 Write-Output "=== Deploying datapacks to $dest ==="
 

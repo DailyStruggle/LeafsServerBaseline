@@ -568,4 +568,4 @@ If the `procedural` block (or flat fields like `trunk`, `leaves`) is present, th
 
 - [ADR-002](../design/adr/ADR-002-tree-generation-script-approach.md) - design decision and options considered.
 - [REQ-001](../requirements/REQ-001-tree-generation-script.md) - requirements and acceptance criteria.
-- [IRIS-WORLD-BUILDING](../world-design/IRIS-WORLD-BUILDING.md) - end-to-end Iris biome authoring, including object placement.
+- [IRIS-WORLD-BUILDING](../../legacy/iris/docs/IRIS-WORLD-BUILDING.md) - (archived per ADR-005) end-to-end Iris biome authoring, including object placement.

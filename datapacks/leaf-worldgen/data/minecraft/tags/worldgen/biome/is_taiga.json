@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "leaf:taiga_core",
+    "leaf:taiga_body",
+    "leaf:taiga_edge",
+    "leaf:redwood_grove",
+    "leaf:boreal_shield"
+  ]
+}
