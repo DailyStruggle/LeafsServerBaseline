@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Old Shepherd",
+    "description": "Fell the Old Shepherd of the high meadow. The first kill yields the Crystal Heart.",
+    "icon": { "id": "minecraft:heart_of_the_sea" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/old_shepherd_firstkill"]
+  }
+}

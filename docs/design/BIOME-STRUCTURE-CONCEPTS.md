@@ -27,12 +27,13 @@ We reuse the project rarity convention (1 = most common, higher = rarer; see CUS
 
 Design references for structures that consistently land well, are vanilla-faithful, and translate cleanly to NBT/jigsaw:
 
-- **Repurposed Structures** - biome-spread variants of vanilla structures; the model for "same idea, new biome palette".
+- **Explorify** - datapack-based, vanilla-faithful structure variants spread across biomes; the model for "same idea, new biome palette" (ships real NBT/jigsaw, so it is actually extractable).
 - **Towns and Towers** - village/outpost expansions per biome; strong silhouettes, low loot creep.
 - **When Dungeons Arise** / **When Dungeons Arise: Forge** - large set-piece dungeons (keeps, galleons, mushroom houses) tuned to specific biomes.
 - **Dungeons and Taverns** / **Dungeons Arise - Seven Seas** - taverns, naval set-pieces, pillager forts.
 - **ChoiceTheorem's Overhauled Village** - biome-specific village styles; the bar for "village that belongs here".
-- **Stoneholm** / **YUNG's Better Dungeons / Mineshafts / Strongholds** - underground/cave structure depth.
+- **Stoneholm** / **YUNG's Better Dungeons / Strongholds** - underground/cave structure depth.
+- **Hopo Better Mineshaft** - datapack-based themed mineshafts (15 jigsaw types); the NBT/jigsaw alternative for mineshaft depth (YUNG's Better Mineshafts is code-procedural and ships no reusable NBT).
 - **Explorer's Compass / treasure-map hooks** - the navigation pattern for Hidden-tier finds.
 
 ---
@@ -47,7 +48,7 @@ Design references for structures that consistently land well, are vanilla-faithf
 
 #### Lavender Forest
 - **Wizard's Spire** (Uncommon, rarity 7) - lone purple-roofed mage tower with a small library cache. Ref: When Dungeons Arise small tower.
-- **Garden Estate Ruin** (Rare, rarity 10) - overgrown formal-garden manor, hedge maze remnants. Ref: Repurposed Structures mansion variant.
+- **Garden Estate Ruin** (Rare, rarity 10) - overgrown formal-garden manor, hedge maze remnants. Ref: Explorify mansion variant.
 
 #### Orchid Swamp
 - **Stilt Village** (Common, rarity 3) - elevated walkway settlement over the water. Ref: Towns and Towers swamp village.
@@ -59,7 +60,7 @@ Design references for structures that consistently land well, are vanilla-faithf
 ### Hot / Mesa
 
 #### Warped Mesa
-- **Void Research Outpost** (Uncommon, rarity 8) - half-buried sci-fi/alien dig site in the blue clay. Ref: Repurposed Structures desert outpost reskin.
+- **Void Research Outpost** (Uncommon, rarity 8) - half-buried sci-fi/alien dig site in the blue clay. Ref: Explorify desert outpost reskin.
 - **Spire Observatory** (Rare, rarity 14) - tower wedged into an eroded spire, telescope/ender motifs. Ref: When Dungeons Arise tower.
 
 ### Ocean / Shore
@@ -93,7 +94,7 @@ Hot Springs child biomes (per volcano) suit a small, low-loot **Bathhouse Ruin**
 | Maple Forest | **Autumn Wayshrine** - small roadside shrine with cozy loot | Common (3) | ChoiceTheorem roadside |
 | Maple Forest | **Cider Homestead** - barn + orchard cluster | Uncommon (6) | Towns and Towers farm |
 | Boreal Shield | **Nordic Medieval Hall** - timber longhall, fur/axe loot | Uncommon (5) | Dungeons and Taverns hall |
-| Ashen Plains | **Burned Watchpost** - charred ruined outpost, salvage loot | Common (4) | Repurposed Structures ruined portal/outpost |
+| Ashen Plains | **Burned Watchpost** - charred ruined outpost, salvage loot | Common (4) | Explorify ruined portal/outpost |
 | Bryce Spires | **Hoodoo Hermitage** - cliff-dwelling carved into the spires | Rare (11) | When Dungeons Arise cliff dwelling |
 | Floating Islands | **Skybound Ruin** - broken aerial platform with chain bridges | Rare (15) | When Dungeons Arise floating ruin |
 | Mirage Isles | **Mirage Bazaar** - illusory island market, vanishing-loot theme | Hidden (20) | bespoke; treasure-map hook |
@@ -106,20 +107,32 @@ For the vanilla-derived biomes we keep, prefer adapting an existing well-liked s
 
 | Biome group | Structure concept | Tier | Reference |
 |---|---|---|---|
-| Forest / Birch Forest | **Forester's Cabin** + **Overgrown Ruin** | Common (2) / Uncommon (6) | Repurposed Structures / Towns and Towers |
+| Forest / Birch Forest | **Forester's Cabin** + **Overgrown Ruin** | Common (2) / Uncommon (6) | Explorify / Towns and Towers |
 | Dark Forest | **Witch's Coven Cottage** (alt to vanilla mansion) | Rare (12) | When Dungeons Arise mushroom/witch house |
-| Cherry Grove | **Japanese Samurai Temple** - paper walls, katana stands | Rare (10) | bespoke (already in narrative catalog) |
+| Cherry Grove | **Japanese Samurai Temple** - paper walls, katana stands | Rare (10) | bespoke (implemented - see note below) |
 | Old-Growth Pine/Spruce Taiga | **Lumber Camp** + **Hunter's Lodge** | Common (3) / Uncommon (7) | Towns and Towers taiga |
-| Jungle | **Eldorado Statue** (signal) -> **Jungle Temple Vault** | Uncommon (6) / Rare (13) | bespoke + Repurposed Structures jungle temple |
+| Jungle | **Eldorado Statue** (signal) -> **Jungle Temple Vault** | Uncommon (6) / Rare (13) | bespoke + Explorify jungle temple |
 | Bamboo Jungle | **Panda Sanctuary Pavilion** | Uncommon (8) | ChoiceTheorem-style pavilion |
 | Savanna | **Acacia Trading Post** + **Pillager Kraal** | Common (3) / Uncommon (7) | Towns and Towers savanna |
 | Desert / Lush Desert | **Sphinx Ruins / Pyramid Jigsaw** (Iris ancient-sands) + **Oasis Caravan** | Rare (10) / Common (4) | terralost ancient-sands + Towns and Towers |
-| Badlands / Mesa | **Abandoned Mineshaft Headframe** + **Gold Rush Boomtown** | Common (3) / Rare (12) | YUNG's mineshafts / Towns and Towers |
+| Badlands / Mesa | **Abandoned Mineshaft Headframe** + **Gold Rush Boomtown** | Common (3) / Rare (12) | Hopo Better Mineshaft / Towns and Towers |
 | Snowy Plains / Slopes | **Nordic Medieval Hall** (cold variant) + **Frozen Wayshrine** | Uncommon (5) / Common (3) | Dungeons and Taverns |
 | Swamp / Mangrove | **Witch Hut Cluster** + **Sunken Galleon** | Common (3) / Rare (14) | When Dungeons Arise galleon |
 | Mushroom Fields | **Giant Mushroom House** | Rare (16) | When Dungeons Arise mushroom house |
 | Deep Ocean | **Atlantis Ruins** + **Skull Island Vault** | Rare (13) / Hidden (20) | bespoke + Dungeons Arise - Seven Seas |
 | Ocean (hidden archipelago) | **Pirate Utopia** - conquerable island base | Hidden (20) | bespoke + Seven Seas |
+
+### Implementation status (Japanese Samurai Temple)
+
+The Cherry Grove Japanese Samurai Temple is implemented via the vanilla-datapack jigsaw path (see [ADR-005](adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md)) in the `leaf-worldgen` datapack:
+
+- Asset: `data/leaf/structure/jacaranda/japanese_temple.nbt` (73x72x81), converted from a WorldEdit `.schem` via `tools/schem-to-nbt`. The source schematic is third-party-derived and stays out of the repo per [ADR-004](adr/ADR-004-third-party-derived-structure-assets.md) (private, non-commercial use only).
+- Structure: `data/leaf/worldgen/structure/japanese_temple.json` (`minecraft:jigsaw`, `terrain_adaptation: beard_thin`, `project_start_to_heightmap: WORLD_SURFACE_WG`).
+- Pool: `data/leaf/worldgen/template_pool/jacaranda/japanese_temple.json` (single rigid element).
+- Spread: `data/leaf/worldgen/structure_set/japanese_temples.json` (`random_spread`, spacing 44 / separation 16 - "Rare" tier).
+- Biomes: `data/leaf/tags/worldgen/biome/has_structure/japanese_temple.json` -> `leaf:jacaranda_grove` (our cherry biome) and `minecraft:cherry_grove`.
+
+It places only in newly generated chunks. Tuning (spacing, exact placement/foundation, custom loot) is a follow-up refinement pass.
 
 ---
 
@@ -129,11 +142,11 @@ For the vanilla-derived biomes we keep, prefer adapting an existing well-liked s
 |---|---|---|---|
 | Andesite Caves | **Stoneborne Outpost** - small dwarven dig camp | Common (4) | Stoneholm |
 | Ice Caves | **Frozen Adventurer's Camp** - ice-locked supply cache | Uncommon (7) | YUNG's Better Dungeons |
-| Desert Caves | **Buried Sand Temple Annex** | Uncommon (8) | Repurposed Structures |
+| Desert Caves | **Buried Sand Temple Annex** | Uncommon (8) | Explorify |
 | Crystal Caves | **Prismatic Shrine** - rainbow-glass reward room | Rare (15) | bespoke |
 | Amethyst Caves | **Geode Vault** - budding-amethyst treasure pocket | Rare (14) | YUNG's amethyst vault |
 | Frostfire Caves | **Soulforge Ruin** - soul-fire smithy, hazard-gated loot | Rare (16) | When Dungeons Arise |
-| Mantle Caves | **Deep Forge** - magma-lit ore vault, high-risk loot | Hidden (20) | YUNG's Better Mineshafts deep tier |
+| Mantle Caves | **Deep Forge** - magma-lit ore vault, high-risk loot | Hidden (20) | Hopo Better Mineshaft deep tier |
 | Sulfur Caves | **Toxic Prospector's Dig** - gas-masked salvage camp | Uncommon (8) | bespoke (gas hazard already modeled) |
 
 ### Implementation status (cave set)

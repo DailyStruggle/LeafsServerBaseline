@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Blight Warden",
+    "description": "Banish the Blight Warden of the swamp. The first kill yields an Antidote Vessel.",
+    "icon": { "id": "minecraft:lingering_potion" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/blight_warden_firstkill"]
+  }
+}

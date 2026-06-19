@@ -1,0 +1,15 @@
+rootProject.name = 'LeafsServerBaseline'
+
+// Each plugin under plugins/ is an independent, standalone Gradle build with its
+// own settings.gradle/build.gradle (see plugins/deploy-plugins.ps1). Wiring them in
+// as composite (included) builds lets IntelliJ register this directory as a single
+// Gradle project for navigation/indexing while keeping every module independently
+// buildable on its own.
+includeBuild 'plugins/elite-spawn-gate'
+includeBuild 'plugins/leaf-artifacts'
+includeBuild 'plugins/leaf-backpacks'
+includeBuild 'plugins/leaf-curios'
+includeBuild 'plugins/leaf-mobs'
+includeBuild 'plugins/leaf-shapemining'
+includeBuild 'plugins/leaf-skills'
+includeBuild 'plugins/leaf-treegen'

@@ -1,7 +1,7 @@
 """
 expand-tree-configs.py
 Expands each tree-config JSON by duplicating every entry with N additional seeds,
-producing N+1 variants per original entry. Output written to scripts/tree-configs/expanded/.
+producing N+1 variants per original entry. Output written to tools/tree-gen/configs/expanded/.
 
 Usage: python scripts/expand-tree-configs.py [--variants N]
 Default: --variants 9  (gives 10 total per original entry)
@@ -33,9 +33,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--variants", type=int, default=9,
                         help="Number of additional seed variants per entry (default: 9)")
-    parser.add_argument("--configs-dir", default="scripts/tree-configs",
+    parser.add_argument("--configs-dir", default="tools/tree-gen/configs",
                         help="Directory containing tree-config JSON files")
-    parser.add_argument("--out-dir", default="scripts/tree-configs/expanded",
+    parser.add_argument("--out-dir", default="tools/tree-gen/configs/expanded",
                         help="Output directory for expanded configs")
     args = parser.parse_args()
 

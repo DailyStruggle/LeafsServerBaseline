@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Frost Elder",
+    "description": "Fell the Frost Elder of the giant taiga. The first kill yields a Frostward Charm.",
+    "icon": { "id": "minecraft:prismarine_crystals" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/frost_elder_firstkill"]
+  }
+}

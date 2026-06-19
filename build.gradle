@@ -1,0 +1,15 @@
+// Aggregator root for the LeafsServerBaseline repository.
+//
+// This root project intentionally carries no production code: the buildable
+// artifacts live in the standalone plugin modules wired in via includeBuild in
+// settings.gradle. Its purpose is to give IntelliJ a single Gradle entry point
+// so the whole repository is recognised and indexed as one Gradle project.
+//
+// Build an individual plugin from its own directory (e.g. cd plugins/leaf-curios;
+// gradle jar) or use plugins/deploy-plugins.ps1, which builds each module in turn.
+
+tasks.register('plugins') {
+    group = 'build'
+    description = 'Builds the jar for every plugin module (composite build).'
+    dependsOn gradle.includedBuilds.collect { it.task(':jar') }
+}

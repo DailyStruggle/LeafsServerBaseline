@@ -2,7 +2,9 @@
 
 A self-contained, offline tree generator. It reads data-driven JSON tree
 definitions and writes Minecraft object files you can drop into an Iris
-world-gen pack (`.iob`) or open in a schematic editor / WorldEdit (`.schem`).
+world-gen pack (`.iob`), open in a schematic editor / WorldEdit (`.schem`), or
+place as a vanilla structure template (`.nbt`) via `/place template`, structure
+blocks, or jigsaw `template_pool` pieces.
 
 Pure Python 3 standard library: no external packages, no PowerShell, and no
 Minecraft server required.
@@ -18,9 +20,8 @@ tree-gen/
   canopy.py          canopy: species presets, volume layers, branch system
   decorators.py      accent blocks (vines, fruit, snow, ...)
   roots.py           downward taproot + buttress legs
-  nbt.py             .iob (Iris V2 IOB) and .schem (Sponge v3) writers
+  nbt.py             .iob (Iris V2 IOB), .schem (Sponge v3), and .nbt (vanilla structure) writers
   configs/           tree definition JSON files (edit / add your own here)
-    expanded/        auto-expanded variant configs
 ```
 
 ## Requirements
@@ -43,7 +44,7 @@ By default the output is written next to the config, in `configs/output/`.
 |---|---|---|
 | `--config <path>` | required | JSON file containing a flat array of tree definitions |
 | `--out <dir>` | `<config-dir>/output` | Output directory (overrides per-entry defaults) |
-| `--format iob\|schem\|both` | `iob` | `.iob` for Iris, `.schem` for editors, or both |
+| `--format iob\|schem\|nbt\|both\|all` | `iob` | `.iob` for Iris, `.schem` for editors, `.nbt` for vanilla structures, `both` (iob+schem), or `all` (iob+schem+nbt) |
 | `--count <N>` | per-entry `count` | Override the number of variants generated per entry |
 
 Example writing schematics to a custom folder:

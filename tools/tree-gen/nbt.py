@@ -145,6 +145,96 @@ def write_schematic(path: str, blocks: dict, name: str = "tree", author: str = "
         f.write(bytes(root))
 
 
+def parse_blockstate(state: str):
+    """Split a blockstate string into (name, properties dict).
+
+    ``"minecraft:oak_log[axis=y,foo=bar]"`` -> ``("minecraft:oak_log", {"axis": "y", "foo": "bar"})``.
+    A bare ``"minecraft:stone"`` returns ``("minecraft:stone", {})``.
+    """
+    if "[" in state:
+        name, rest = state.split("[", 1)
+        rest = rest.rstrip("]")
+        props = {}
+        for part in rest.split(","):
+            if not part:
+                continue
+            k, v = part.split("=", 1)
+            props[k.strip()] = v.strip()
+        return name, props
+    return state, {}
+
+
+def write_structure_nbt(path: str, blocks: dict, data_version: int = DATA_VERSION) -> None:
+    """Write blocks dict {(x,y,z): blockstate} to a vanilla structure-template .nbt file.
+
+    Produces the gzip-compressed NBT layout consumed by ``/place template``,
+    structure blocks, and jigsaw ``template_pool`` pieces:
+
+        DataVersion : int
+        size        : [int, int, int]   (W, H, L)
+        palette     : [ {Name: str, Properties?: {str: str}} ]
+        blocks      : [ {state: int, pos: [int, int, int]} ]
+        entities    : []
+
+    Only the blocks present in ``blocks`` are emitted; any unfilled position is
+    left as structure void (i.e. untouched on placement).
+    """
+    if not blocks:
+        raise ValueError("blocks dict is empty")
+
+    xs = [p[0] for p in blocks]
+    ys = [p[1] for p in blocks]
+    zs = [p[2] for p in blocks]
+    minx, miny, minz = min(xs), min(ys), min(zs)
+    maxx, maxy, maxz = max(xs), max(ys), max(zs)
+    W = maxx - minx + 1
+    H = maxy - miny + 1
+    L = maxz - minz + 1
+
+    palette = []
+    palette_index = {}
+    block_entries = []
+    for (x, y, z), state in blocks.items():
+        name, props = parse_blockstate(state)
+        key = (name, tuple(sorted(props.items())))
+        if key not in palette_index:
+            palette_index[key] = len(palette)
+            palette.append((name, props))
+        block_entries.append((x - minx, y - miny, z - minz, palette_index[key]))
+
+    palette_list = []
+    for name, props in palette:
+        comp = [(TAG_STRING, "Name", name)]
+        if props:
+            comp.append((TAG_COMPOUND, "Properties",
+                         [(TAG_STRING, k, v) for k, v in props.items()]))
+        palette_list.append(comp)
+
+    blocks_list = []
+    for (x, y, z, idx) in block_entries:
+        blocks_list.append([
+            (TAG_LIST, "pos", (TAG_INT, [x, y, z])),
+            (TAG_INT, "state", idx),
+        ])
+
+    structure_compound = [
+        (TAG_INT, "DataVersion", data_version),
+        (TAG_LIST, "size", (TAG_INT, [W, H, L])),
+        (TAG_LIST, "palette", (TAG_COMPOUND, palette_list)),
+        (TAG_LIST, "blocks", (TAG_COMPOUND, blocks_list)),
+        (TAG_LIST, "entities", (TAG_COMPOUND, [])),
+    ]
+
+    root = bytearray()
+    root.append(TAG_COMPOUND)
+    _name(root, "")
+    _payload(root, TAG_COMPOUND, structure_compound)
+    root.append(TAG_END)
+
+    with gzip.open(path, "wb") as f:
+        f.write(bytes(root))
+
+
 def _write_java_utf(buf: io.BytesIO, s: str) -> None:
     """Write a Java DataOutputStream UTF string: big-endian unsigned short length + MUTF-8 bytes."""
     encoded = s.encode("utf-8")

@@ -44,6 +44,32 @@ public enum ArtifactType {
             List.of(),
             Set.of("necklace", "charm")),
 
+    // Verdant Crown: the Grovewarden's trophy (dark-forest giant boss). A leafy
+    // circlet worn on the head that toughens its bearer with extra maximum health
+    // and a slow, ambient Regeneration - the forest's enduring vitality.
+    VERDANT_CROWN(
+            "verdant_crown",
+            "Verdant Crown",
+            Material.FLOWERING_AZALEA,
+            "A living circlet: raises your maximum health and slowly mends your wounds.",
+            List.of(AttributeSpec.add(Attribute.MAX_HEALTH, 4.0D)),
+            List.of(EffectSpec.of(PotionEffectType.REGENERATION)),
+            Set.of("head")),
+
+    // Frostward Charm: the Frost Elder's trophy (taiga giant boss). Wards off the
+    // cold - its bearer cannot be frozen by powder snow and shrugs off Slowness -
+    // and lends a little steadiness against knockback. Freeze/slow immunity is
+    // event/tick-driven (see ArtifactController + ArtifactEventListener); the
+    // knockback resistance is the only static attribute.
+    FROSTWARD_CHARM(
+            "frostward_charm",
+            "Frostward Charm",
+            Material.PRISMARINE_CRYSTALS,
+            "Wards off the cold: immune to freezing and Slowness, and steadier on your feet.",
+            List.of(AttributeSpec.add(Attribute.KNOCKBACK_RESISTANCE, 0.3D)),
+            List.of(),
+            Set.of("charm")),
+
     STEADFAST_SPIKES(
             "steadfast_spikes",
             "Steadfast Spikes",
@@ -86,7 +112,7 @@ public enum ArtifactType {
             Material.SPYGLASS,
             "You can see clearly in the dark.",
             List.of(),
-            List.of(PotionEffectType.NIGHT_VISION),
+            List.of(EffectSpec.of(PotionEffectType.NIGHT_VISION)),
             Set.of("head")),
 
     SNORKEL(
@@ -95,7 +121,7 @@ public enum ArtifactType {
             Material.GLASS_BOTTLE,
             "You can breathe underwater.",
             List.of(),
-            List.of(PotionEffectType.WATER_BREATHING),
+            List.of(EffectSpec.of(PotionEffectType.WATER_BREATHING)),
             Set.of("head")),
 
     SCARF_OF_INVISIBILITY(
@@ -104,7 +130,7 @@ public enum ArtifactType {
             Material.PHANTOM_MEMBRANE,
             "You are permanently invisible.",
             List.of(),
-            List.of(PotionEffectType.INVISIBILITY),
+            List.of(EffectSpec.of(PotionEffectType.INVISIBILITY)),
             Set.of("necklace")),
 
     OBSIDIAN_SKULL(
@@ -113,7 +139,7 @@ public enum ArtifactType {
             Material.WITHER_SKELETON_SKULL,
             "You are immune to fire and lava.",
             List.of(),
-            List.of(PotionEffectType.FIRE_RESISTANCE),
+            List.of(EffectSpec.of(PotionEffectType.FIRE_RESISTANCE)),
             Set.of("head", "charm")),
 
     // --- P2: simple event reactions (handled in ArtifactEventListener) ---
@@ -237,7 +263,62 @@ public enum ArtifactType {
             List.of(),
             Set.of("feet")),
 
+    // Umbrella (P5, handled in UmbrellaController): a colored, unbreakable shield
+    // whose effect is conditional slow falling. While carried and the wearer is
+    // airborne and descending, an ambient Slow Falling is refreshed each tick so
+    // they drift down gently. The float triggers on every fall (even short drops),
+    // which is the deliberately mild "cost" of carrying it. Driven per-tick, so it
+    // declares no static attributes/effects here. The shield material is a
+    // placeholder for a later resource-pack umbrella model.
+    UMBRELLA(
+            "umbrella",
+            "Umbrella",
+            Material.SHIELD,
+            "You always drift down gently whenever you are falling.",
+            List.of(),
+            List.of(),
+            Set.of("hands")),
+
     // --- P4: event-driven charms (handled in ArtifactEventListener) ---
+
+    // Charm of Sinking: lets the wearer walk on the underwater floor. Vanilla has
+    // no "negate buoyancy" mob effect, so it is delivered by SinkingController,
+    // which gently pushes the wearer down while submerged; it therefore declares
+    // no static attributes/effects here.
+    CHARM_OF_SINKING(
+            "charm_of_sinking",
+            "Charm of Sinking",
+            Material.HEAVY_CORE,
+            "You sink in water and can walk along the bottom.",
+            List.of(),
+            List.of(),
+            Set.of("charm")),
+
+    // Pocket Piston (handled in ArtifactEventListener): a knockback burst on melee
+    // hit. Vanilla has no "extra knockback" attribute that fires only on attack, so
+    // on each melee hit the struck enemy is shoved away from the attacker with an
+    // added velocity impulse; declares no static state.
+    POCKET_PISTON(
+            "pocket_piston",
+            "Pocket Piston",
+            Material.PISTON,
+            "Your melee hits send enemies flying with a knockback burst.",
+            List.of(),
+            List.of(),
+            Set.of("hands")),
+
+    // Universal Attractor (handled in AttractorController): an item magnet that
+    // pulls nearby dropped items toward the wearer. Vanilla has no "magnet" mob
+    // effect, so it is delivered by a per-tick velocity nudge; sneaking suspends
+    // it so loot can still be dropped. Declares no static state.
+    UNIVERSAL_ATTRACTOR(
+            "universal_attractor",
+            "Universal Attractor",
+            Material.LODESTONE,
+            "Nearby dropped items are drawn to you; sneak to switch the pull off.",
+            List.of(),
+            List.of(),
+            Set.of("charm")),
 
     CROSS_NECKLACE(
             "cross_necklace",
@@ -265,6 +346,23 @@ public enum ArtifactType {
             List.of(),
             List.of(),
             Set.of("charm")),
+
+    // Digging Claws: a flat mining-speed boost that stacks on top of the tool's
+    // own Efficiency. Vanilla's Haste is exactly the "faster mining" mob effect
+    // and it stacks additively with Efficiency, so it is delivered as an infinite
+    // ambient Haste while the claws are carried - the same declarative pattern as
+    // Night Vision Goggles / Villager Hat, no per-tick controller required.
+    // Declared at Haste II so it adds on top of a beacon's Haste via the generic
+    // EffectSpec amplifier mechanism (the reconciler samples the external level
+    // and re-applies at the sum, so beacon Haste II + claws Haste II = Haste III).
+    DIGGING_CLAWS(
+            "digging_claws",
+            "Digging Claws",
+            Material.IRON_INGOT,
+            "You mine faster - the boost stacks on top of Efficiency.",
+            List.of(),
+            List.of(EffectSpec.level(PotionEffectType.HASTE, 2)),
+            Set.of("hands")),
 
     // --- Hats (helmet/head slot) ---
 
@@ -301,7 +399,7 @@ public enum ArtifactType {
             Material.WHEAT,
             "Villagers give you a permanent trade discount.",
             List.of(),
-            List.of(PotionEffectType.HERO_OF_THE_VILLAGE),
+            List.of(EffectSpec.of(PotionEffectType.HERO_OF_THE_VILLAGE)),
             Set.of("head")),
 
     // Eternal Steak is NOT a curio: it is a steak you can eat repeatedly that is
@@ -321,11 +419,11 @@ public enum ArtifactType {
     private final Material material;
     private final String description;
     private final List<AttributeSpec> attributes;
-    private final List<PotionEffectType> effects;
+    private final List<EffectSpec> effects;
     private final Set<String> slots;
 
     ArtifactType(String id, String displayName, Material material, String description,
-                 List<AttributeSpec> attributes, List<PotionEffectType> effects,
+                 List<AttributeSpec> attributes, List<EffectSpec> effects,
                  Set<String> slots) {
         this.id = id;
         this.displayName = displayName;
@@ -356,7 +454,7 @@ public enum ArtifactType {
         return attributes;
     }
 
-    public List<PotionEffectType> effects() {
+    public List<EffectSpec> effects() {
         return effects;
     }
 

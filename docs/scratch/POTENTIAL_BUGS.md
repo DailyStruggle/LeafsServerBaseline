@@ -78,3 +78,33 @@ Backlog of incidental findings discovered while working on other tasks. Each ent
 - **Impact**: `void/void` effectively never places (negligible). `ocean-monument` never generates, so deep oceans get no Iris-placed monuments.
 - **Suggested next step**: Drop the `void/void` placer from the stranged-plains overlay; for the monument, either remove the placer (no monuments) or supply a real `jigsaw/ocean-monument` asset.
 - **RESOLVED 2026-06-08 (ocean-monument)**: The `jigsaw/ocean-monument/ocean_monument` object exists in no pack version (incl. the Folia server pack and `_pack-base-39-backup`, which only has the jigsaw piece/structure JSON, not the `.iob`), so the placer only logged a "Couldn't find Object" error and never generated a monument. Removed the dead placer from `ocean/deep.json` (now `"objects": []`); real ocean monuments still generate via the dimension's vanilla `importedStructures` (ALL_ON). The `void/void` placer in `stranged-plains.json` remains (never appears in logs, chance 2e-07).
+
+---
+
+### 2026-06-09 - Dark-forest giants likely float above ground (same root cause as taiga spruce)
+
+- **Discovered-during**: dropping the taiga mega-spruce giants to ground level.
+- **Location**: `datapacks/leaf-worldgen/data/leaf/structure/dark_forest/*.nbt` (titan/spiral dark oaks), placed via `leaf:dark_forest_giant` jigsaw.
+- **Symptom / hypothesis**: Those NBTs also bake the generator's downward root system (taproot + buttress legs) into the bottom `root_depth_for(height)` layers (verified: y=0 layers are dark_oak_log roots). Vanilla jigsaw worldgen anchors the structure floor to the surface heightmap, so the trunk base floats up by ~`depth` blocks - identical to the taiga bug just fixed.
+- **Impact**: Dark-forest landmark giants probably spawn floating on stilt-like roots; only manifests in the custom dark-forest dimension (not loaded on Paper), so it may have gone unnoticed.
+- **Suggested next step**: Apply the same fix (strip layers below the trunk base, shift down by `depth`) to the four dark_forest `.nbt`, e.g. by generalising `tools/tree-gen/_fix_roots.py`; or, better, stop baking roots into exported giant NBTs at generation time.
+
+---
+
+### 2026-06-09 - Worldgen "Feature order cycle" crashes the overworld (jacaranda_grove vs windswept_savanna)
+
+- **Discovered-during**: booting the test server to verify the leaf-mobs framework (LeafMobs itself loaded fine).
+- **Location**: `datapacks/leaf-worldgen/data/leaf/worldgen/biome/jacaranda_grove.json` feature lists vs vanilla `minecraft:windswept_savanna`.
+- **Symptom / hypothesis**: Chunk gen aborts with `IllegalStateException: Feature order cycle found, involved sources: [minecraft:windswept_savanna, leaf:jacaranda_grove]`. The two biomes list shared placed features in conflicting relative orders, so MC cannot compute a single global feature order. Propagates to `unrecoverableChunkSystemFailure` and the server shuts down.
+- **Impact**: FATAL - the overworld cannot generate new chunks; server crashes on boot/first gen, blocking all in-game testing (including the mob framework).
+- **Suggested next step**: Align the ordering of the shared placed features (especially vegetation/tree decoration steps) in `leaf:jacaranda_grove` to match the order used by vanilla biomes like `windswept_savanna` (do not interleave features in a different relative order). Compare each `features[step]` list entry-by-entry against a conflicting vanilla biome and reorder to remove the cycle.
+
+---
+
+### 2026-06-09 - Two leaf-worldgen biome JSONs carry a UTF-8 BOM
+
+- **Discovered-during**: Tier 2 custom biome work (validating JSON parses).
+- **Location**: `datapacks/leaf-worldgen/data/leaf/worldgen/biome/taiga_body.json` and `taiga_core.json` (byte 0 = EF BB BF).
+- **Symptom / hypothesis**: Both files begin with a UTF-8 BOM; every other leaf-worldgen JSON is BOM-less. Strict UTF-8 parsers (e.g. Python `json.load` without `utf-8-sig`) reject them; Minecraft/Gson tolerate a BOM so worldgen is unaffected.
+- **Impact**: No in-game effect (Gson skips the BOM); only trips tooling/CI that reads the files as plain UTF-8.
+- **Suggested next step**: Re-save both files as UTF-8 without BOM to match the rest of the pack (no content change needed).

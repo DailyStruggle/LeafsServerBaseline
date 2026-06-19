@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:advancement_reward",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_wool",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "lucky_scarf",
+                    "leafcurios:slots": "necklace"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:lucky_scarf",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Lucky Scarf", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "Fortune favours you (increased luck).", "color": "gray", "italic": false },
+                  { "text": "Slot: Necklace", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "First trophy of the Blossom Sovereign.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

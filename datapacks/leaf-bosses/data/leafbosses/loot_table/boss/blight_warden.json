@@ -1,0 +1,135 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.2 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lingering_potion",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "antidote_vessel",
+                    "leafcurios:slots": "charm"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:antidote_vessel",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Antidote Vessel", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "Negative status effects wear off faster.", "color": "gray", "italic": false },
+                  { "text": "Slot: Charm", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "Drained from the Blight Warden.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": { "min": 2, "max": 4 },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glowstone_dust",
+          "weight": 6,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 4, "max": 10 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:redstone",
+          "weight": 6,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 4, "max": 12 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:slime_ball",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:fermented_spider_eye",
+          "weight": 3,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 1, "max": 3 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glass_bottle",
+          "weight": 4,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:sugar",
+          "weight": 3,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.35 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_book",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": ["minecraft:luck_of_the_sea", "minecraft:lure", "minecraft:unbreaking"]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

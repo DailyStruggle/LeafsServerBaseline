@@ -1,0 +1,654 @@
+# LeafMobs reference table
+# =========================
+# Each entry under "mobs:" is one data-driven mob. Add a mob by adding a row - no code.
+# This file is the tunable surface of the framework; edit values and run
+#   /leafmobs reload
+# to apply without a restart.
+#
+# Fields (all optional except "entity"):
+#   entity:        Bukkit EntityType name (must be a living, spawnable entity), e.g. RAVAGER.
+#   tier:          COMMON | ELITE | BOSS. Default COMMON. ELITE/BOSS default to persistent.
+#   display_name:  MiniMessage string, e.g. "<dark_green>The Grovewarden".
+#   biomes:        list of biome keys this mob belongs to (e.g. leaf:dark_forest_core).
+#                  Empty/omitted = matches any biome. Used by the (later) spawn service.
+#   attributes:    map of attribute registry key -> base value. Keys are minecraft:* ids:
+#                  max_health, attack_damage, movement_speed, knockback_resistance,
+#                  armor, armor_toughness, follow_range, attack_knockback, scale.
+#   equipment:     helmet/chestplate/leggings/boots/main_hand/off_hand = Material names;
+#                  drop_chance = 0.0..1.0 (default 0.0 so gear is not farmable).
+#   persistent:    keep loaded / never despawn (default: true for ELITE/BOSS).
+#   glowing:       outline glow (default false).
+#   loot_table:    namespaced loot-table id (F5). On a managed-mob death the service rolls
+#                  this vanilla/datapack loot table with the killer as looter and adds the
+#                  result to the drops - the RARE, repeatable reward path.
+#   advancement:   namespaced advancement id (F5). Granted to the killer on death; vanilla
+#                  records "done" once, so the datapack advancement's reward (e.g. the
+#                  GUARANTEED first-kill artifact) fires only the first time.
+#   clear_vanilla_drops: true to wipe the base mob's own drops before adding loot (default
+#                  false). Bosses usually carry no vanilla loot, so set this true for them.
+#   xp:            override dropped experience (default -1 = leave the vanilla amount).
+#   spawn:         natural-spawn transform rule (F4). Omit it (or set enabled: false) and the
+#                  mob only spawns via /leafmobs spawn. Fields:
+#                    enabled:    master switch (default true when a spawn: section exists).
+#                    replace:    list of base EntityType names a natural spawn of which may be
+#                                turned into this mob (default: the mob's own "entity").
+#                    reasons:    list of CreatureSpawnEvent reasons to consider
+#                                (NATURAL, CHUNK_GEN, SPAWNER, ...). Default: [NATURAL].
+#                    chance:     0.0..1.0 probability to transform a matching spawn (default 0).
+#                    cooldown_s: minimum seconds between two natural spawns of this mob
+#                                (server-wide; default 0 = no cooldown).
+#                    max_live:   cap on simultaneously-loaded copies (default 1; 0 = unlimited).
+#                  Selection is random: the biome must match, then chance/cooldown/max_live
+#                  gate the transform before the vanilla spawn is cancelled and replaced.
+#   abilities:     list of ability slots for ELITE/BOSS mobs (ignored on COMMON). Each:
+#                    type:       ability id (see below). REQUIRED.
+#                    cooldown_s: seconds between casts (default 5).
+#                    chance:     0.0..1.0 roll each time the cooldown elapses (default 1.0).
+#                    min_health / max_health: health-fraction window (0..1) the cast is
+#                                allowed in - use for phases (default 0.0 .. 1.0 = always).
+#                    params:     ability-specific tuning (see each type).
+#                  Built-in ability types (all pure Paper API, Folia-safe):
+#                    Magic:  fang_line  {length,damage}        - line of evoker fangs at target
+#                            fang_ring  {count,radius,damage}   - ring of fangs around self
+#                            potion_volley {effect,duration_s,amplifier,radius} - debuff at target
+#                            teleport_blink {distance}          - blink behind target
+#                            summon_adds {entity,count,radius}  - summon owner-tagged adds
+#                    Melee:  leap     {power}                   - lunge toward target
+#                            shockwave {radius,damage,knockback}- close-range AoE burst
+#                            enrage   {effect,duration_s,amplifier} - self-buff (default STRENGTH)
+#                            grapple  {power,min_distance}       - anti-cheese: yanks a far/
+#                                pillaring/kiting target back toward the boss (themed as a
+#                                fishing-rod reel-in for the PvP-rod gag). Only fires when the
+#                                target is at least min_distance blocks away, so a player cannot
+#                                cheese the boss from a tower or by running away.
+#
+# Anti-burst: every BOSS-tier mob caps incoming damage at ~6% of its max health PER HIT (see
+# MobLifecycleListener.BOSS_HIT_CAP_FRACTION), so a fully-kitted player cannot melt a boss on
+# gear alone - they must survive its mechanics long enough to land many hits.
+#
+# Arrow resistance: ground-only managed mobs (any non-flying type) shrug off ordinary arrows
+# (deflected, no damage) so they cannot be plinked down from safety with a starter bow. The
+# exception is PIERCING arrows (pierce level > 0): a player who has advanced enough to enchant
+# Piercing punches through and keeps a working ranged option. Tridents and flying mobs are
+# exempt (see MobLifecycleListener.onArrowResist).
+#                    Trinket-themed boss boosts (mirror the artifact the boss drops):
+#                            thorns_guard {duration_s,reflect}  - Thorn Pendant echo: for
+#                                duration_s the boss reflects 'reflect' (0..1) of the melee
+#                                damage it takes back at the attacker.
+#                            cleanse {immunity_s}               - Antidote Vessel echo: strips
+#                                the boss's own harmful potion effects and grants immunity_s of
+#                                Regeneration.
+
+mobs:
+
+  # --- F1 sample: a Tier-1 farmable flavour reskin (no code needed) -------------------
+  taiga_frostling:
+    entity: STRAY
+    tier: COMMON
+    display_name: "<aqua>Frostling"
+    biomes:
+      - leaf:taiga_core
+      - leaf:taiga_body
+    attributes:
+      minecraft:max_health: 24.0
+      minecraft:movement_speed: 0.27
+      minecraft:follow_range: 28.0
+    equipment:
+      main_hand: BOW
+      helmet: LEATHER_HELMET
+      drop_chance: 0.0
+
+  # --- Sample BOSS: the dark-forest giant warden (first vertical-slice candidate) ------
+  grovewarden:
+    entity: RAVAGER
+    tier: BOSS
+    display_name: "<dark_green><bold>The Grovewarden"
+    biomes:
+      - leaf:dark_forest_core
+      - leaf:dark_forest_body
+    attributes:
+      minecraft:max_health: 300.0
+      minecraft:attack_damage: 14.0
+      minecraft:movement_speed: 0.28
+      minecraft:knockback_resistance: 1.0
+      minecraft:armor: 10.0
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/grovewarden
+    advancement: leafbosses:boss/grovewarden
+    clear_vanilla_drops: true
+    xp: 120
+    # Rare natural spawn: a small fraction of dark-forest zombies become the Grovewarden,
+    # at most one alive at a time, with a long server-wide cooldown (anti-farm). NOTE: the
+    # boss entity itself is still a RAVAGER (see 'entity:' above) - we only piggy-back on a
+    # mob that *does* spawn naturally in the dark forest, because vanilla RAVAGERs do not
+    # spawn from NATURAL world spawning (only via raids/patrols), so replacing RAVAGER would
+    # never fire. ZOMBIE is the common dark-forest grounded spawn, so the replacement triggers.
+    spawn:
+      replace:
+        - ZOMBIE
+      reasons:
+        - NATURAL
+      chance: 0.02
+      cooldown_s: 1200
+      max_live: 1
+    # Melee boss kit: lunge to close distance, then an AoE slam; enrages below half health.
+    abilities:
+      - type: leap
+        cooldown_s: 9
+        chance: 0.6
+        params:
+          power: 1.5
+      - type: shockwave
+        cooldown_s: 7
+        params:
+          radius: 4.5
+          damage: 8.0
+          knockback: 1.3
+      - type: enrage
+        cooldown_s: 20
+        max_health: 0.5          # phase 2: only once the boss drops below half health
+        params:
+          effect: minecraft:strength
+          duration_s: 12
+          amplifier: 1
+      # Verdant-themed boost: the Grovewarden drops the Verdant Crown (vitality), so below
+      # half health it briefly grows brambles and bounces part of the melee it takes.
+      - type: thorns_guard
+        cooldown_s: 16
+        max_health: 0.5
+        params:
+          duration_s: 10
+          reflect: 0.35
+      # Anti-cheese: a melee boss is helpless against pillar/ledge cheese and kiting, so it
+      # yanks any out-of-reach target back into the slam zone before it can be safely poked.
+      - type: grapple
+        cooldown_s: 5
+        params:
+          power: 1.4
+          min_distance: 5.0
+
+  # --- Sample magic BOSS: exercises the SpellKit caster path --------------------------
+  blight_warden:
+    entity: WITCH
+    tier: BOSS
+    display_name: "<dark_purple><bold>The Blight Warden"
+    # leaf:bayou is the leaf-worldgen swamp biome (the old leaf:swamp_core/leaf:swamp_body keys
+    # never existed, so this boss could never match a biome and never spawned). Bayou naturally
+    # spawns WITCHes (weight 5), so the 'replace: WITCH' rule below actually has a base to hijack.
+    biomes:
+      - leaf:bayou
+    attributes:
+      minecraft:max_health: 220.0
+      minecraft:movement_speed: 0.26
+      minecraft:knockback_resistance: 0.6
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/blight_warden
+    advancement: leafbosses:boss/blight_warden
+    clear_vanilla_drops: true
+    xp: 100
+    # Rare natural spawn: an occasional swamp witch becomes the Blight Warden.
+    spawn:
+      replace:
+        - WITCH
+      reasons:
+        - NATURAL
+      chance: 0.05
+      cooldown_s: 1200
+      max_live: 1
+    # Magic boss kit: fang lines + poison volleys, summons adds, blinks away when cornered.
+    abilities:
+      - type: fang_line
+        cooldown_s: 6
+        chance: 0.8
+        params:
+          length: 8
+          damage: 6.0
+      - type: potion_volley
+        cooldown_s: 8
+        params:
+          effect: minecraft:poison
+          duration_s: 6
+          amplifier: 0
+          radius: 3.0
+      - type: summon_adds
+        cooldown_s: 18
+        params:
+          entity: VEX
+          count: 3
+          radius: 3.0
+      - type: teleport_blink
+        cooldown_s: 12
+        chance: 0.5
+        max_health: 0.4          # phase 2: kite harder when low
+        params:
+          distance: 3.0
+      # Trinket-themed boost: the Blight Warden drops the Antidote Vessel, so it periodically
+      # purges its own debuffs (e.g. player-applied poison/weakness) and shrugs them off.
+      - type: cleanse
+        cooldown_s: 14
+        params:
+          immunity_s: 5.0
+      # Anti-cheese: pulls a pillaring/long-range kiter back into fang/poison range so the
+      # fight cannot be trivialised from an unreachable perch.
+      - type: grapple
+        cooldown_s: 7
+        params:
+          power: 1.2
+          min_distance: 7.0
+
+  # --- Canopy Tyrant: jungle giant melee bruiser (drops Feral Claws) -----------------
+  canopy_tyrant:
+    entity: RAVAGER
+    tier: BOSS
+    display_name: "<green><bold>The Canopy Tyrant"
+    biomes:
+      - minecraft:jungle
+      - minecraft:bamboo_jungle
+      - minecraft:sparse_jungle
+    attributes:
+      minecraft:max_health: 280.0
+      minecraft:attack_damage: 13.0
+      minecraft:movement_speed: 0.31
+      minecraft:knockback_resistance: 0.8
+      minecraft:armor: 8.0
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/canopy_tyrant
+    advancement: leafbosses:boss/canopy_tyrant
+    clear_vanilla_drops: true
+    xp: 110
+    # A small fraction of jungle night spawns are promoted to the Tyrant (anti-farm capped).
+    spawn:
+      replace:
+        - ZOMBIE
+      reasons:
+        - NATURAL
+      chance: 0.03
+      cooldown_s: 1200
+      max_live: 1
+    # Fast predator: lunges in, hits hard, frenzies below half health.
+    abilities:
+      - type: leap
+        cooldown_s: 8
+        chance: 0.7
+        params:
+          power: 1.7
+      - type: shockwave
+        cooldown_s: 7
+        params:
+          radius: 4.0
+          damage: 7.0
+          knockback: 1.0
+      - type: enrage
+        cooldown_s: 18
+        max_health: 0.5
+        params:
+          effect: minecraft:speed
+          duration_s: 12
+          amplifier: 1
+      # Anti-cheese: yank a pillaring/kiting target back into the slam zone.
+      - type: grapple
+        cooldown_s: 6
+        params:
+          power: 1.4
+          min_distance: 5.0
+
+  # --- Mire Colossus: swamp giant immovable bruiser (drops Steadfast Spikes) ----------
+  mire_colossus:
+    entity: RAVAGER
+    tier: BOSS
+    display_name: "<dark_green><bold>The Mire Colossus"
+    biomes:
+      - minecraft:swamp
+      - minecraft:mangrove_swamp
+    attributes:
+      minecraft:max_health: 340.0
+      minecraft:attack_damage: 15.0
+      minecraft:movement_speed: 0.24
+      minecraft:knockback_resistance: 1.0
+      minecraft:armor: 12.0
+      minecraft:follow_range: 38.0
+    glowing: true
+    loot_table: leafbosses:boss/mire_colossus
+    advancement: leafbosses:boss/mire_colossus
+    clear_vanilla_drops: true
+    xp: 130
+    spawn:
+      replace:
+        - SLIME
+        - ZOMBIE
+      reasons:
+        - NATURAL
+      chance: 0.03
+      cooldown_s: 1200
+      max_live: 1
+    # Slow, immovable wall of muscle: ground slam, brief weakness aura, enrage at low HP.
+    abilities:
+      - type: shockwave
+        cooldown_s: 6
+        params:
+          radius: 5.0
+          damage: 9.0
+          knockback: 1.6
+      - type: potion_volley
+        cooldown_s: 10
+        params:
+          effect: minecraft:slowness
+          duration_s: 5
+          amplifier: 1
+          radius: 4.0
+      - type: enrage
+        cooldown_s: 20
+        max_health: 0.5
+        params:
+          effect: minecraft:resistance
+          duration_s: 12
+          amplifier: 1
+      # Anti-cheese: drag a pillaring/kiting target back into ground-slam range.
+      - type: grapple
+        cooldown_s: 6
+        params:
+          power: 1.4
+          min_distance: 5.0
+
+  # --- Old Shepherd: meadow giant guardian (drops Crystal Heart) ----------------------
+  old_shepherd:
+    entity: IRON_GOLEM
+    tier: BOSS
+    display_name: "<gold><bold>The Old Shepherd"
+    biomes:
+      - minecraft:meadow
+      - leaf:alpine_meadow
+    attributes:
+      minecraft:max_health: 320.0
+      minecraft:attack_damage: 16.0
+      minecraft:movement_speed: 0.26
+      minecraft:knockback_resistance: 1.0
+      minecraft:armor: 14.0
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/old_shepherd
+    advancement: leafbosses:boss/old_shepherd
+    clear_vanilla_drops: true
+    xp: 130
+    spawn:
+      replace:
+        - ZOMBIE
+        - SKELETON
+      reasons:
+        - NATURAL
+      chance: 0.03
+      cooldown_s: 1200
+      max_live: 1
+    # Stoic protector: heavy slam and a sweeping leap; hardens below half health.
+    abilities:
+      - type: shockwave
+        cooldown_s: 7
+        params:
+          radius: 4.5
+          damage: 8.0
+          knockback: 1.5
+      - type: leap
+        cooldown_s: 11
+        chance: 0.5
+        params:
+          power: 1.2
+      - type: enrage
+        cooldown_s: 20
+        max_health: 0.5
+        params:
+          effect: minecraft:resistance
+          duration_s: 14
+          amplifier: 1
+      # Anti-cheese: a slow guardian cannot chase a pillar/ledge cheeser, so it pulls them down.
+      - type: grapple
+        cooldown_s: 6
+        params:
+          power: 1.4
+          min_distance: 5.0
+
+  # --- Blossom Sovereign: spiral cherry/jacaranda grove caster (drops Lucky Scarf) ----
+  blossom_sovereign:
+    entity: EVOKER
+    tier: BOSS
+    display_name: "<light_purple><bold>The Blossom Sovereign"
+    biomes:
+      - minecraft:cherry_grove
+      - leaf:jacaranda_grove
+    attributes:
+      minecraft:max_health: 210.0
+      minecraft:movement_speed: 0.27
+      minecraft:knockback_resistance: 0.5
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/blossom_sovereign
+    advancement: leafbosses:boss/blossom_sovereign
+    clear_vanilla_drops: true
+    xp: 100
+    spawn:
+      replace:
+        - ZOMBIE
+        - SKELETON
+      reasons:
+        - NATURAL
+      chance: 0.03
+      cooldown_s: 1200
+      max_live: 1
+    # Graceful trickster: dense fang rings, Vex petals, blinks away when pressed.
+    abilities:
+      - type: fang_ring
+        cooldown_s: 7
+        chance: 0.8
+        params:
+          count: 10
+          radius: 4.0
+          damage: 6.0
+      - type: fang_line
+        cooldown_s: 6
+        params:
+          length: 8
+          damage: 6.0
+      - type: summon_adds
+        cooldown_s: 18
+        params:
+          entity: VEX
+          count: 3
+          radius: 3.0
+      - type: teleport_blink
+        cooldown_s: 12
+        chance: 0.5
+        max_health: 0.4
+        params:
+          distance: 3.0
+      # Anti-cheese: pull a long-range/pillaring target back into fang range.
+      - type: grapple
+        cooldown_s: 7
+        params:
+          power: 1.2
+          min_distance: 7.0
+
+  # --- Embervine Warden: volcanic-mountain ranged undead caster (drops Obsidian Skull)-
+  embervine_warden:
+    entity: WITHER_SKELETON
+    tier: BOSS
+    display_name: "<dark_red><bold>The Embervine Warden"
+    biomes:
+      - leaf:volcanic_mountain
+    attributes:
+      minecraft:max_health: 200.0
+      minecraft:attack_damage: 10.0
+      minecraft:movement_speed: 0.27
+      minecraft:knockback_resistance: 0.6
+      minecraft:armor: 8.0
+      minecraft:follow_range: 40.0
+    equipment:
+      main_hand: BOW
+      drop_chance: 0.0
+    glowing: true
+    loot_table: leafbosses:boss/embervine_warden
+    advancement: leafbosses:boss/embervine_warden
+    clear_vanilla_drops: true
+    xp: 110
+    spawn:
+      replace:
+        - ZOMBIE
+        - SKELETON
+      reasons:
+        - NATURAL
+      chance: 0.04
+      cooldown_s: 1200
+      max_live: 1
+    # Ash archer: kites with fang volleys, lays a slow zone, summons skeleton adds.
+    abilities:
+      - type: fang_line
+        cooldown_s: 6
+        chance: 0.8
+        params:
+          length: 9
+          damage: 6.0
+      - type: potion_volley
+        cooldown_s: 9
+        params:
+          effect: minecraft:slowness
+          duration_s: 5
+          amplifier: 0
+          radius: 3.0
+      - type: summon_adds
+        cooldown_s: 20
+        params:
+          entity: SKELETON
+          count: 2
+          radius: 4.0
+      - type: teleport_blink
+        cooldown_s: 12
+        chance: 0.5
+        max_health: 0.4
+        params:
+          distance: 4.0
+      # Anti-cheese: pull a long-range/pillaring target back into fang range.
+      - type: grapple
+        cooldown_s: 7
+        params:
+          power: 1.2
+          min_distance: 7.0
+
+  # --- Ashwood Revenant: badlands ranged undead boss (drops Vampiric Glove) -----------
+  ashwood_revenant:
+    entity: WITHER_SKELETON
+    tier: BOSS
+    display_name: "<gold><bold>The Ashwood Revenant"
+    biomes:
+      - minecraft:badlands
+      - minecraft:wooded_badlands
+      - minecraft:eroded_badlands
+    attributes:
+      minecraft:max_health: 190.0
+      minecraft:attack_damage: 10.0
+      minecraft:movement_speed: 0.28
+      minecraft:knockback_resistance: 0.5
+      minecraft:armor: 6.0
+      minecraft:follow_range: 40.0
+    equipment:
+      main_hand: BOW
+      drop_chance: 0.0
+    glowing: true
+    loot_table: leafbosses:boss/ashwood_revenant
+    advancement: leafbosses:boss/ashwood_revenant
+    clear_vanilla_drops: true
+    xp: 100
+    spawn:
+      replace:
+        - HUSK
+        - SKELETON
+        - ZOMBIE
+      reasons:
+        - NATURAL
+      chance: 0.04
+      cooldown_s: 1200
+      max_live: 1
+    # Wandering deadeye: fang lines, weakness volleys, blinks to keep its distance.
+    abilities:
+      - type: fang_line
+        cooldown_s: 6
+        chance: 0.8
+        params:
+          length: 9
+          damage: 5.0
+      - type: potion_volley
+        cooldown_s: 9
+        params:
+          effect: minecraft:weakness
+          duration_s: 6
+          amplifier: 0
+          radius: 3.0
+      - type: teleport_blink
+        cooldown_s: 11
+        chance: 0.6
+        params:
+          distance: 4.0
+      # Anti-cheese: pull a long-range/pillaring target back into fang range.
+      - type: grapple
+        cooldown_s: 7
+        params:
+          power: 1.2
+          min_distance: 7.0
+
+  # --- Frost Elder: taiga giant frost guardian (drops Frostward Charm) -----------------
+  frost_elder:
+    entity: IRON_GOLEM
+    tier: BOSS
+    display_name: "<aqua><bold>The Frost Elder"
+    biomes:
+      - leaf:taiga_core
+      - leaf:taiga_body
+    attributes:
+      minecraft:max_health: 310.0
+      minecraft:attack_damage: 15.0
+      minecraft:movement_speed: 0.25
+      minecraft:knockback_resistance: 1.0
+      minecraft:armor: 12.0
+      minecraft:follow_range: 40.0
+    glowing: true
+    loot_table: leafbosses:boss/frost_elder
+    advancement: leafbosses:boss/frost_elder
+    clear_vanilla_drops: true
+    xp: 130
+    spawn:
+      replace:
+        - ZOMBIE
+        - SKELETON
+      reasons:
+        - NATURAL
+      chance: 0.03
+      cooldown_s: 1200
+      max_live: 1
+    # Frozen warden: a heavy ground slam, a chilling Slowness aura, hardens below half HP.
+    abilities:
+      - type: shockwave
+        cooldown_s: 7
+        params:
+          radius: 4.5
+          damage: 8.0
+          knockback: 1.4
+      - type: potion_volley
+        cooldown_s: 9
+        params:
+          effect: minecraft:slowness
+          duration_s: 6
+          amplifier: 1
+          radius: 4.0
+      - type: enrage
+        cooldown_s: 20
+        max_health: 0.5
+        params:
+          effect: minecraft:resistance
+          duration_s: 14
+          amplifier: 1
+      # Anti-cheese: a slow guardian drags a pillaring/kiting target back into slam range.
+      - type: grapple
+        cooldown_s: 6
+        params:
+          power: 1.4
+          min_distance: 5.0

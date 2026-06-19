@@ -49,6 +49,10 @@ public final class ArtifactEventListener implements Listener {
     private static final int FIRE_GAUNTLET_FIRE_TICKS = 100;
     /** Shock Pendant: chance per melee hit to call lightning. */
     private static final double SHOCK_CHANCE = 0.15D;
+    /** Pocket Piston: horizontal knockback impulse (blocks/tick) added on a melee hit. */
+    private static final double POCKET_PISTON_KNOCKBACK = 1.2D;
+    /** Pocket Piston: upward component of the knockback burst (blocks/tick). */
+    private static final double POCKET_PISTON_LIFT = 0.4D;
     /** Panic Necklace: Speed II for 5s when hurt. */
     private static final int PANIC_SPEED_TICKS = 100;
     private static final int PANIC_SPEED_AMPLIFIER = 1;
@@ -113,6 +117,30 @@ public final class ArtifactEventListener implements Listener {
                 && ThreadLocalRandom.current().nextDouble() < SHOCK_CHANCE) {
             victim.getWorld().strikeLightning(victim.getLocation());
         }
+
+        if (equipment.carries(attacker, ArtifactType.POCKET_PISTON)) {
+            applyPistonKnockback(attacker, victim);
+        }
+    }
+
+    /**
+     * Pocket Piston: shove the struck enemy away from the attacker with an added
+     * velocity burst (horizontal push from the attacker toward the victim, plus a
+     * small upward lift), on top of the hit's normal knockback.
+     */
+    private void applyPistonKnockback(Player attacker, LivingEntity victim) {
+        org.bukkit.util.Vector away = victim.getLocation().toVector()
+                .subtract(attacker.getLocation().toVector());
+        away.setY(0.0D);
+        if (away.lengthSquared() < 1.0E-6D) {
+            // Attacker and victim share a column; fall back to the attacker's facing.
+            away = attacker.getLocation().getDirection().setY(0.0D);
+            if (away.lengthSquared() < 1.0E-6D) {
+                return;
+            }
+        }
+        away.normalize().multiply(POCKET_PISTON_KNOCKBACK).setY(POCKET_PISTON_LIFT);
+        victim.setVelocity(victim.getVelocity().add(away));
     }
 
     private void healAttacker(Player attacker, double amount) {
@@ -138,6 +166,16 @@ public final class ArtifactEventListener implements Listener {
 
         if (event.getCause() == EntityDamageEvent.DamageCause.FALL
                 && equipment.carries(player, ArtifactType.BUNNY_HOPPERS)) {
+            event.setCancelled(true);
+            return;
+        }
+
+        // Frostward Charm: the cold cannot bite its bearer - cancel powder-snow
+        // freeze damage outright (the freeze counter itself is zeroed each tick by
+        // ArtifactController, so this is the rare-edge backstop).
+        if (event.getCause() == EntityDamageEvent.DamageCause.FREEZE
+                && equipment.carries(player, ArtifactType.FROSTWARD_CHARM)) {
+            player.setFreezeTicks(0);
             event.setCancelled(true);
             return;
         }
@@ -202,6 +240,12 @@ public final class ArtifactEventListener implements Listener {
         PotionEffect newEffect = event.getNewEffect();
         if (newEffect == null
                 || newEffect.getType().getCategory() != PotionEffectTypeCategory.HARMFUL) {
+            return;
+        }
+        // Frostward Charm: immune to Slowness (the chilling debuff) - drop the add.
+        if (newEffect.getType().equals(PotionEffectType.SLOWNESS)
+                && equipment.carries(player, ArtifactType.FROSTWARD_CHARM)) {
+            event.setCancelled(true);
             return;
         }
         if (antidoteGuard.contains(player.getUniqueId())

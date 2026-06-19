@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:advancement_reward",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flowering_azalea",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "verdant_crown",
+                    "leafcurios:slots": "head"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:verdant_crown",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Verdant Crown", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "A living circlet: raises your maximum health and slowly mends your wounds.", "color": "gray", "italic": false },
+                  { "text": "Slot: Head", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "First trophy of the Grovewarden.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

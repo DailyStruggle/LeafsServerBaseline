@@ -6,7 +6,7 @@ See the design note: `docs/scratch/ARTIFACTS-VANILLA-RECREATION.md`.
 
 ## Status
 
-Four passes implemented so far (P1, P2, the first P3 movement item, and the easy P4 charms).
+Four passes implemented so far (P1, P2, the first P3 movement item, and the easy P4 charms), plus the Umbrella (P5).
 
 P1 - passive attribute modifiers and/or infinite potion effects present while the artifact is carried:
 
@@ -20,6 +20,7 @@ P1 - passive attribute modifiers and/or infinite potion effects present while th
 - Snorkel (water breathing)
 - Scarf of Invisibility (invisibility)
 - Obsidian Skull (fire resistance)
+- Digging Claws (faster mining: an infinite ambient **Haste II** that stacks on top of the tool's own Efficiency, and adds on top of a beacon's Haste via the generic effect-buff mechanism below)
 
 P2 - simple event reactions (one-shot reactions to a gameplay event while the artifact is carried):
 
@@ -45,7 +46,17 @@ P4 - event-driven charms (no per-entity ticking):
 - Cross Necklace (lengthens your invulnerability frames after a hit)
 - Antidote Vessel (harmful status effects expire faster - currently halved)
 - Thorn Pendant (reflects a fraction of melee damage taken, no durability cost)
+- Pocket Piston (knockback burst on melee hit: each hit adds an away-from-attacker velocity impulse to the struck enemy, on top of the hit's normal knockback)
 - Eternal Steak (NOT a curio: a steak you can eat repeatedly that is never consumed)
+
+P4 (ticking utility) - per-entity scheduler:
+
+- Charm of Sinking (walk on the underwater floor). Vanilla has no "negate buoyancy" effect, so `SinkingController` runs on the wearer's entity scheduler and, while the charm is carried and the wearer is submerged and off the ground, nudges their vertical velocity down to a gentle sink target. This cancels the upward water bob so they settle onto the bottom and walk along it; the push is mild enough that deliberate upward swimming still works, and nothing persists once they leave the water or unequip.
+- Universal Attractor (item magnet). `AttractorController` runs on the wearer's entity scheduler and, while the charm is carried, pulls nearby dropped items toward them with a per-tick velocity nudge (items within ~8 blocks; left alone once within ~1 block so the normal vanilla pickup takes over). Items still respect their post-drop pickup delay, so freshly-thrown items are not instantly yanked back. The mod's attractor is a toggle so you can still drop loot on purpose; rather than add a keybind, the magnet is suspended while the wearer is **sneaking** (hold shift to drop, release to vacuum). Items reserved for another player's pickup, and items flagged never-pickup, are ignored. Nothing persists once the wearer unequips.
+
+P5 - hard / partial-fidelity:
+
+- Umbrella (conditional slow falling: a colored, unbreakable shield (`UmbrellaController`) that grants an ambient vanilla Slow Falling while it is carried and the wearer is airborne and descending - out of water, not gliding, not flying - so you always drift down gently. It opens on every fall, even short drops, which is the deliberately mild "cost" of carrying it; it occupies a Hands curio slot rather than a real off-hand and the shield material is a placeholder until a resource-pack umbrella model is added).
 
 Hats (helmet/head slot):
 
@@ -53,12 +64,14 @@ Hats (helmet/head slot):
 - Anglers Hat (fishing Lure + Luck of the Sea: on cast, the hook's wait window is shortened on `PlayerFishEvent` (FISHING); on a successful catch (CAUGHT_FISH) the reeled-in item has a chance to be doubled).
 - Villager Hat (permanent trade discount, delivered as an infinite ambient **Hero of the Village** effect while carried - the same vanilla mechanic that discounts villager trades).
 
+## Resource pack (icons)
+
+Every artifact item sets the `minecraft:item_model` component to `leafartifacts:<id>` (`ArtifactItem.create`), so a loaded resource pack renders its dedicated sprite while the base `Material` stays as the no-pack base item. The scaffold lives in `resourcepack/` (a server-sent, player-optional pack): `pack.mcmeta`, a per-artifact item-model (`assets/leafartifacts/items/<id>.json`) and model (`assets/leafartifacts/models/item/<id>.json`) for all artifacts. The only outstanding art step is dropping a 32x32 (Faithful 32x resolution) `<id>.png` per artifact into `assets/leafartifacts/textures/item/`; the id -> texture-brief list is in that folder's `SOURCING.md`. Use original art (do not copy the ochotonida mod's sprites).
+
 Not yet implemented (deferred for review-then-build):
 
-- Remaining ticking/utility charms (Universal Attractor, Digging Claws, Pocket Piston, Charm of Sinking).
-- Hard/partial-fidelity items (Umbrella).
-- Loot-table / datapack sourcing (boss drops and structure loot).
-- Resource-pack custom models (current items use placeholder materials).
+- Artifact icon PNGs (the models are wired; sprites still need to be drawn - see `resourcepack/.../textures/item/SOURCING.md`).
+- Loot sourcing (where artifacts drop) is owned by the biome decisions, not this plugin: boss drops ship with each biome elite's loot table per `docs/scratch/BIOME-BOSS-MOBS-PLAN.md`, with structure drops layered in alongside.
 
 ## Equipment menu (curios)
 
@@ -77,7 +90,8 @@ Artifacts are equipped through the shared **LeafCurios** menu/API (this plugin `
 - Leather artifacts can be dyed: because the vanilla dye recipe strips custom data, a `PrepareItemCraftEvent` handler re-stamps the artifact's identity (marker, name, lore, unbreakable) onto the dyed result while keeping the new colour.
 - A per-player reconcile loop runs on the player's entity scheduler (Folia-safe; also supported on regular Paper). Each pass recomputes the desired attribute modifiers / infinite effects from the equipped set (`ArtifactEquipment`) and adds or removes only what changed. Equipping in the menu also triggers an immediate reconcile.
 - Attribute modifiers are tagged with a stable per-(artifact, attribute) `NamespacedKey`, so reconciliation is idempotent and never double-stacks.
-- Effects the plugin applies are tracked per player so they are removed when the artifact is unequipped, while externally-applied effects (e.g. a real potion) are left untouched.
+- Infinite ambient effects are declared generically as `EffectSpec(type, amplifier)` and stack **additively** with any pre-existing effect of the same type from another source (a beacon, a potion), the way enchantment levels add: the reconcile loop briefly removes its own effect to sample the external amplifier, then re-applies at `externalAmplifier + artifactAmplifier`. So a beacon's Haste II (amplifier 1) plus Digging Claws' Haste II (amplifier 1) yields Haste III (amplifier 2), with no per-artifact workaround. (Vanilla keeps only the strongest instance of an effect rather than summing, which is why the plugin samples-then-sums itself; sampling each pass excludes the plugin's own contribution, so the total never runs away.)
+- Effects the plugin applies are tracked per player so they are removed when the artifact is unequipped, while externally-applied effects (e.g. a real potion) that the plugin never overrode are left untouched.
 - Event-reactive artifacts (P2 and the P4 charms) are handled in `ArtifactEventListener`, which checks the equipped set (`ArtifactEquipment.carries`) when the triggering event fires. The reactions act only on entities already involved in the event, so they stay on the correct region thread under Folia with no extra scheduling.
 - Eternal Steak is the one non-equippable artifact: it declares no curio slots (so the menu rejects it and its lore reads "Consumable" instead of "Slot:"), and its effect is keyed off the item itself. On `PlayerItemConsumeEvent` for an Eternal Steak, the consume is cancelled (so the stack is never reduced) and the steak's nourishment is applied by hand.
 - Cloud in a Bottle (P3) is handled in `CloudJumpListener`. Without an elytra: flight is kept enabled while equipped so the jump key fires `PlayerToggleFlightEvent`, which is cancelled and converted into a vertical impulse (scaled by `JUMP_STRENGTH`). With an elytra: flight is yielded so the glide deploys normally, and the charge is spent as a launch boost on `EntityToggleGlideEvent` (applied next tick so it isn't swallowed by the state change). One charge per airtime, refreshed on landing; flight is only managed in Survival/Adventure. Note: the no-elytra air-jump uses the vanilla double-tap-jump fly gesture.

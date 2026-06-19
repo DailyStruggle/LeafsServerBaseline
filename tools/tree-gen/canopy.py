@@ -473,6 +473,60 @@ def generate_branch_canopy(height: int, trunk_block: str, leaf_block: str,
     return blocks
 
 
+def _cap_trunk_tip(leaf_block: str, mode: str, density: float, seed: int,
+                   trunk_blocks: dict, canopy_blocks: dict,
+                   secondary_leaves=None, secondary_fraction: float = 0.0) -> None:
+    """Enclose an exposed trunk apex so the trunk never pokes above its canopy.
+
+    Only acts when the highest leaf sits below the highest trunk log (a visible
+    poke). Builds a short pointed leaf cap over the trunk's top footprint,
+    tapering to a single leaf above the tip, so the result reads as a natural
+    conifer point rather than a bare log spike. No-op when the canopy already
+    covers the tip.
+    """
+    def _is_log(b):
+        return "log" in b or "wood" in b
+
+    combined = {**trunk_blocks, **canopy_blocks}
+    # Consider every log (trunk column AND branch logs) so branch tips can't poke
+    # either; cap above the highest log so nothing wooden is left uncovered.
+    log_positions = [(x, y, z) for (x, y, z), b in combined.items() if _is_log(b)]
+    if not log_positions:
+        return
+    top_y = max(y for (_x, y, _z) in log_positions)
+    # Top logs that are actually exposed upward (no block directly above). If the
+    # canopy already encloses every top log this leaves nothing to do.
+    exposed = [(x, y, z) for (x, y, z) in log_positions
+               if y >= top_y - 1 and (x, y + 1, z) not in combined]
+    if not exposed:
+        return
+
+    cx = int(round(sum(x for x, _y, _z in exposed) / len(exposed)))
+    cz = int(round(sum(z for _x, _y, z in exposed) / len(exposed)))
+    half = max((max(abs(x - cx), abs(z - cz)) for x, _y, z in exposed), default=0)
+
+    # Lay a full footprint leaf layer directly above the highest log layer so no
+    # log top face is left exposed, then taper to a single-leaf point. Only empty
+    # cells are filled, so this is a no-op wherever the crown already covers.
+    cap_rows = [(top_y + 1, half + 0.5),
+                (top_y + 2, max(1.0, half - 0.5)), (top_y + 3, 0.0)]
+    for y, r in cap_rows:
+        if r < 0.5:
+            pos = (cx, y, cz)
+            if pos not in combined:
+                leaf = _resolve_leaf(leaf_block, secondary_leaves, secondary_fraction,
+                                     random.Random(seed + 7000 + y))
+                canopy_blocks[pos] = leaf
+                combined[pos] = leaf
+            continue
+        disc = _place_leaf_disc(cx, y, cz, r, leaf_block, mode, density,
+                                seed + 7000 + y, combined,
+                                secondary_leaves=secondary_leaves,
+                                secondary_fraction=secondary_fraction)
+        canopy_blocks.update(disc)
+        combined.update(disc)
+
+
 def generate_canopy(height: int, trunk_block: str, leaf_block: str,
                     profile: str, canopy_cfg: dict, seed: int,
                     existing: dict, trunk_offsets: list = None,
@@ -493,9 +547,18 @@ def generate_canopy(height: int, trunk_block: str, leaf_block: str,
 
     blocks = {}
     # For branch-driven trees only place the top crown layer(s) via volume;
-    # the rest of the canopy is built by the branch system.
+    # the rest of the canopy is built by the branch system. Setting
+    # "crown_volume_fraction" keeps the upper fraction of preset layers as a
+    # solid cone (so a conifer reads as a filled, tapering crown at every scale)
+    # while still adding the branch system below for silhouette. Default
+    # behaviour (no key) is unchanged: only the single topmost layer is volume.
     if branch_cfg:
-        crown_layers = [layers[-1]] if layers else []
+        crown_frac = canopy_cfg.get("crown_volume_fraction", None)
+        if crown_frac is not None and layers:
+            n = max(1, int(round(len(layers) * float(crown_frac))))
+            crown_layers = layers[-n:]
+        else:
+            crown_layers = [layers[-1]] if layers else []
         vol = generate_volume_canopy(height, crown_layers, leaf_block,
                                      start_angle, squish, mode, leaf_density,
                                      seed, {**existing}, trunk_offsets=trunk_offsets,
@@ -515,5 +578,10 @@ def generate_canopy(height: int, trunk_block: str, leaf_block: str,
                                     secondary_leaves=secondary_leaves, secondary_fraction=secondary_fraction,
                                     collect_endpoints=collect_endpoints)
         blocks.update(br)
+
+    # Guarantee the trunk apex is enclosed so it never pokes above its canopy.
+    _cap_trunk_tip(leaf_block, mode, leaf_density, seed + 13337,
+                   existing, blocks,
+                   secondary_leaves=secondary_leaves, secondary_fraction=secondary_fraction)
 
     return blocks

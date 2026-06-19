@@ -8,9 +8,12 @@ pipeline onto Iris 4.0's native procedural-tree generator, and - importantly - h
 we keep the new trees faithful to our own tuned `canopy.py` geometry instead of
 falling back to Iris' built-in defaults.
 
-> Source of truth: the per-biome `proceduralObjects.trees` blocks in
-> `iris/pack-overlay/biomes/**/*.json` are now hand-maintained / generated output.
-> The offline `.iob` toolchain (baking trees into object files) is deprecated.
+> SUPERSEDED by [ADR-005](adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md):
+> Iris has been retired in favor of vanilla datapack worldgen, so this Iris-4.0
+> procedural-tree transition is historical. The offline tree generator is NOT
+> deprecated: it is kept as an active tool under `tools/tree-gen/` and now emits a
+> vanilla structure-template `.nbt` (`--format nbt`) to feed vanilla tree features
+> and jigsaw pieces directly. The text below describes the retired Iris pipeline.
 
 ---
 

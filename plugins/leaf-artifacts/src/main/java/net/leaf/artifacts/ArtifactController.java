@@ -8,6 +8,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -39,6 +40,19 @@ public final class ArtifactController {
         Set<ArtifactType> active = activeArtifacts(player);
         reconcileAttributes(player, active);
         reconcileEffects(player, active);
+        reconcileFreeze(player, active);
+    }
+
+    /**
+     * Frostward Charm: keep the wearer thawed. Vanilla powder-snow freezing is a
+     * hardcoded counter (not a potion effect), so the only way to make a carrier
+     * immune is to drive the freeze counter back to zero each reconcile tick -
+     * before it ever reaches the slow/damage threshold.
+     */
+    private void reconcileFreeze(Player player, Set<ArtifactType> active) {
+        if (active.contains(ArtifactType.FROSTWARD_CHARM) && player.getFreezeTicks() > 0) {
+            player.setFreezeTicks(0);
+        }
     }
 
     /** Removes all artifact-applied effects/modifiers for a leaving player. */
@@ -106,33 +120,57 @@ public final class ArtifactController {
     }
 
     private void reconcileEffects(Player player, Set<ArtifactType> active) {
-        Set<PotionEffectType> desired = new HashSet<>();
+        // Highest amplifier requested per effect type across the active set, so
+        // two artifacts asking for the same effect collapse to the strongest.
+        Map<PotionEffectType, Integer> desired = new HashMap<>();
         for (ArtifactType type : active) {
-            desired.addAll(type.effects());
+            for (EffectSpec spec : type.effects()) {
+                desired.merge(spec.type(), spec.amplifier(), Math::max);
+            }
         }
 
         Set<PotionEffectType> owned = appliedEffects.computeIfAbsent(
                 player.getUniqueId(), id -> Collections.synchronizedSet(new HashSet<>()));
 
-        for (ArtifactType type : ArtifactType.values()) {
-            for (PotionEffectType effect : type.effects()) {
-                boolean wanted = desired.contains(effect);
-                if (wanted) {
-                    // Respect an externally-applied effect we do not own.
-                    if (!owned.contains(effect) && player.hasPotionEffect(effect)) {
-                        continue;
-                    }
-                    if (!player.hasPotionEffect(effect)) {
-                        player.addPotionEffect(new PotionEffect(
-                                effect, PotionEffect.INFINITE_DURATION, 0, true, false, false));
-                    }
-                    owned.add(effect);
-                } else if (owned.contains(effect)) {
+        for (PotionEffectType effect : MANAGED_EFFECTS) {
+            Integer wantAmplifier = desired.get(effect);
+            if (wantAmplifier != null) {
+                // Additive "buff a pre-existing effect" path: the artifact's level
+                // stacks on top of whatever the player already has from another
+                // source (a beacon, a potion), the way enchantment levels add - so
+                // a beacon's Haste II (amplifier 1) plus the claws' Haste II
+                // (amplifier 1) yields Haste III (amplifier 2). Because vanilla
+                // keeps only the strongest instance of an effect, our own infinite
+                // effect would otherwise mask the external source; so we first
+                // remove ours to sample the external amplifier, then re-apply at
+                // the sum.
+                if (owned.contains(effect)) {
                     player.removePotionEffect(effect);
-                    owned.remove(effect);
                 }
+                PotionEffect external = player.getPotionEffect(effect);
+                int externalAmplifier = external != null ? external.getAmplifier() : 0;
+                int total = externalAmplifier + wantAmplifier;
+                player.addPotionEffect(new PotionEffect(
+                        effect, PotionEffect.INFINITE_DURATION, total, true, false, false));
+                owned.add(effect);
+            } else if (owned.contains(effect)) {
+                player.removePotionEffect(effect);
+                owned.remove(effect);
             }
         }
+    }
+
+    /** Every potion effect type any artifact can grant; computed once. */
+    private static final Set<PotionEffectType> MANAGED_EFFECTS = collectManagedEffects();
+
+    private static Set<PotionEffectType> collectManagedEffects() {
+        Set<PotionEffectType> all = new HashSet<>();
+        for (ArtifactType type : ArtifactType.values()) {
+            for (EffectSpec spec : type.effects()) {
+                all.add(spec.type());
+            }
+        }
+        return all;
     }
 
     private static AttributeModifier findModifier(AttributeInstance inst, org.bukkit.NamespacedKey key) {

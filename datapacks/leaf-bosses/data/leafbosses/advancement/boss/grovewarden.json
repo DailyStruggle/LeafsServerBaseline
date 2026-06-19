@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Grovewarden",
+    "description": "Fell the Grovewarden of the giant dark forest. The first kill yields a Verdant Crown.",
+    "icon": { "id": "minecraft:flowering_azalea" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/grovewarden_firstkill"]
+  }
+}

@@ -41,7 +41,7 @@ Two entry points exist:
 ## 2. The generator pipeline (`iris/tree-gen/`)
 
 The generator is fully self-contained in `iris/tree-gen/`: the geometry modules,
-the tree definition `configs/` (with `configs/expanded/`), and a directory-local
+the tree definition `configs/`, and a directory-local
 [`README.md`](../../iris/tree-gen/README.md) quick-start all live there, so the
 folder can be shared and run on its own with only Python 3 (no PowerShell, no
 server).
@@ -55,7 +55,7 @@ server).
 | `canopy.py` | Canopy: species presets, volume layers, and the optional branch system |
 | `decorators.py` | Accent blocks placed after the tree is built (vines, fruit, snow, etc.) |
 | `roots.py` | Downward taproot + buttress legs so the trunk always meets the ground |
-| `nbt.py` | The `.iob` (Iris V2 IOB) and `.schem` (Sponge Schematic v3) writers |
+| `nbt.py` | The `.iob` (Iris V2 IOB), `.schem` (Sponge Schematic v3), and `.nbt` (vanilla structure template) writers |
 
 Build order for a single tree (`generate_tree.generate_tree`):
 
@@ -90,7 +90,7 @@ CLI flags:
 |---|---|---|
 | `--config <path>` | required | JSON file containing a flat array of tree definitions |
 | `--out <dir>` | `<config-dir>/output` | Output directory (overrides per-entry defaults) |
-| `--format iob\|schem\|both` | `iob` | `.iob` for Iris, `.schem` for editors/WorldEdit, or both |
+| `--format iob\|schem\|nbt\|both\|all` | `iob` | `.iob` for Iris, `.schem` for editors/WorldEdit, `.nbt` for vanilla structure templates, `both` (iob+schem), or `all` (iob+schem+nbt) |
 | `--count <N>` | per-entry `count` | Override the number of variants generated per entry |
 
 Each generated file prints its bounding box and block count, e.g.:
@@ -310,6 +310,28 @@ A standard GZIP-compressed NBT schematic (DataVersion 3578 / MC 1.20.1) readable
 by WorldEdit and schematic editors. Useful for visual inspection; not consumed by
 Iris. Produced with `--format schem` or `--format both`.
 
+### `.nbt` - vanilla structure template
+
+A GZIP-compressed vanilla structure NBT (DataVersion 3578 / MC 1.20.1), written by
+`nbt.write_structure_nbt`. This is the format Minecraft itself loads via
+`/place template`, structure blocks, and jigsaw `template_pool` pieces, so a
+generated tree can be dropped straight into vanilla datapack worldgen (see
+[ADR-005](../design/adr/ADR-005-retire-iris-for-vanilla-datapack-worldgen.md)).
+The root compound carries:
+
+```
+DataVersion : int
+size        : [int, int, int]                       W, H, L
+palette     : [ {Name: str, Properties?: {str:str}} ]
+blocks      : [ {state: int, pos: [int, int, int]} ]
+entities    : []
+```
+
+Each blockstate string (e.g. `minecraft:oak_log[axis=y]`) is split into its block
+`Name` and a `Properties` compound. Only the generated blocks are emitted;
+unfilled positions are left as structure void. Produced with `--format nbt` or
+`--format all` (iob+schem+nbt).
+
 ### Where files land, and staging
 
 By default files are written to `<config-dir>/output/`. `build-vanilla-trees.py`
@@ -322,7 +344,227 @@ by path-relative key (e.g. `trees/embervine/embervine_small_1`).
 
 ---
 
-## 7. Related docs
+## 7. Natural Placement (LeafTreeGen Plugin)
+
+While the Python tool generates the structures, the **LeafTreeGen** plugin (located in `plugins/leaf-treegen`) handles their placement in a live Minecraft world.
+
+### Installation & Build
+
+To compile the plugin, use the provided Gradle wrapper. This produces a **unified JAR** at the root of the plugin project:
+
+```powershell
+# Build the unified JAR
+./gradlew :plugins:leaf-treegen:jar
+```
+
+The output will be at:
+`plugins/leaf-treegen/build/libs/leaf-treegen-0.1.0.jar`
+
+Drop this JAR into your server's `plugins/` folder. On first startup, it will extract the bundled tree species JSONs to `plugins/LeafTreeGen/species/`.
+
+### How it works
+
+1.  **Registry**: The plugin scans its `plugins/leaf-treegen/species/` folder for JSON configurations.
+2.  **Discovery**: It then scans world datapacks for `.nbt` templates matching the configured `namespace:group` folder.
+3.  **Generation**: On enable/reload, it generates a vanilla worldgen datapack in each world's `datapacks/` folder, mapping species to biomes.
+
+### Configuration
+
+Base species are defined in JSON files under `plugins/leaf-treegen/species/`. Placement mapping and overrides are in `plugins/leaf-treegen/config.yml`.
+
+Example `species/giant_oak.json`:
+```json
+{
+  "name": "giant_oak",
+  "biomes": ["minecraft:forest"],
+  "trunk": "minecraft:oak_log",
+  "leaves": "minecraft:oak_leaves",
+  "heightMin": 15,
+  "heightMax": 25
+}
+```
+
+Example `config.yml` override:
+```yaml
+placement:
+  giant_oak:
+    spacing: 10 # Make them rare
+    weight: 10 # Lower chance compared to other species in the same biome
+    definitions:
+      titan: 100 # Heavily weight the "titan" variation of giant_oak
+```
+
+- **namespace/group**: Matches the `data/<namespace>/structure/<group>/` path where Python tool outputs live.
+- **biomes**: Biomes where the tree spawns naturally and where the sapling is allowed to grow.
+- **spacing/separation**: Controls how sparsely the trees are scattered in the world.
+
+### Admin Commands
+
+The plugin uses a parameter-based command system:
+
+- `/leaftree generate species=<id>`: Test placement at your cursor.
+- `/leaftree give species=<id> [player=<name>] [amount=<n>]`: Hands out special tagged saplings.
+- `/leaftree list [species=<id>]`: Lists available species or variants for a specific species.
+- `/leaftree reload`: Reloads `config.yml` and regenerates the worldgen datapacks (if in DATAPACK mode).
+
+### Adding a New Tree (Full Workflow)
+
+The intended way to create a new tree is to bridge the offline generator with the live plugin:
+
+1.  **Geometry Design**: Edit a JSON definition in `tools/tree-gen/configs/`. Use the [Schema Section](#4-controlling-a-tree-config-schema) above to tune the trunk shape, canopy layers, and branches.
+2.  **Baking**: Run `python tools/tree-gen/generate_tree.py --config <path> --format nbt`. This produces vanilla-compatible `.nbt` templates.
+3.  **Deployment**: Place the `.nbt` files in a world datapack (e.g., `datapacks/leaf-worldgen/data/leaf/structure/<species_group>/`).
+4.  **Registration**: Add the species entry to `plugins/leaf-treegen/config.yml`. Ensure the `namespace` and `group` keys match the datapack path.
+5.  **Placement Mapping**: In `config.yml`, use the `placement` section to map species IDs to biomes and tune their frequency (spacing/separation).
+6.  **Activation**: Use `/leaftree reload` in-game. This automatically handles the complex vanilla worldgen wiring (template pools, structure sets, etc.) via a generated datapack.
+
+### Generation Modes
+
+LeafTreeGen supports two primary ways of placing trees naturally:
+
+1. **DATAPACK** (Recommended):
+   - Automatically generates a vanilla worldgen datapack in the world's `datapacks` folder.
+   - Trees are placed by Minecraft's native jigsaw system during chunk generation.
+   - Best for performance and compatibility with other worldgen tools.
+2. **PROCEDURAL**:
+   - Trees are placed by the plugin at runtime during the `ChunkLoadEvent` (only for new chunks).
+   - Useful if you want more dynamic control or if jigsaw-based generation is not desired.
+   - If the `procedural` block is present in `config.yml`, trees are generated algorithmically on-the-fly; otherwise, random `.nbt` variants are placed.
+   - Density is roughly controlled by the `spacing` config value.
+
+Set the mode in `config.yml` using the `generation-mode` key.
+
+### Biome Placement Mapping (`config.yml`)
+
+The `placement` section in `config.yml` maps tree species (from their JSON ID) to specific biomes and controls their generation density.
+
+```yaml
+placement:
+  forest:
+    biomes: ["forest", "flower_forest"]
+    spacing: 4
+    separation: 2
+  dark_forest:
+    biomes: ["dark_forest"]
+    spacing: 5
+    separation: 2
+```
+
+- **`biomes`**: A list of namespaced biome IDs (e.g. `minecraft:forest`). If the namespace is omitted, `minecraft:` is assumed.
+- **`spacing`**: The average distance in chunks between structure placement attempts.
+- **`separation`**: The minimum distance in chunks between structures.
+- **`trees`**: (Optional) A weighted map of species and individual trees for probabilistic selection within the biome. Use the format `species_id:tree_name` to reference a specific tree inside a JSON config, or just `species_id` to reference the entire file.
+    - **Note**: Weights are **relative**, not percentages. They do not need to add up to 100. If you have `tree_a: 1` and `tree_b: 1`, they each have a 50% chance. If they add up to 10, each unit is 10%.
+
+Example with granular probabilistic selection:
+```yaml
+placement:
+  forest:
+    biomes: ["forest"]
+    spacing: 4
+    separation: 2
+    trees:
+      forest:oak: 40      # 40% chance for standard Oak from forest.json
+      forest:gnarled: 20  # 20% chance for Gnarled Oak from forest.json
+      ashwood: 10         # 10% chance for any tree in ashwood.json
+      birch_forest: 10    # 10% chance for any tree in birch-forest.json
+```
+
+### High-Density Forests (Overlapping Species)
+
+If you want a dense forest with more than one tree per chunk, you can overlap multiple species mappings for the same biome. Each entry in `config.yml` creates an independent vanilla structure placement attempt.
+
+Example of a "Dense Dark Forest":
+```yaml
+placement:
+  # LAYER 1: Giant Titan Trees (spaced out)
+  dark_forest_titan:
+    biomes: ["dark_forest"]
+    spacing: 4
+    separation: 2
+    trees:
+      dark_forest_megas: 100
+
+  # Dense Understory (placed in every chunk)
+  dark_forest_brush:
+    biomes: ["dark_forest"]
+    spacing: 1
+    separation: 0
+    trees:
+      # Mix of medium dark oak varieties from dark-forest.json
+      dark_forest:tree_2: 50  # Medium variant A
+      dark_forest:tree_3: 50  # Medium variant B
+```
+
+In this example, the Dark Forest will generate with massive titan trees occasionally, while the ground is filled with a dense layer of medium dark oaks in nearly every chunk.
+
+### Tree Configuration (`species/*.json`)
+
+The `leaf-treegen` plugin reads tree definitions from JSON files in the `species/` resource folder (or `plugins/leaf-treegen/species/` on disk). The schema is designed to be compatible with both the Python generator and the Java plugin.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `id` | string | filename | Internal unique ID for the species. |
+| `name` / `display-name` | string | `id` | User-facing name of the tree. |
+| `weight` | int | `1` | Species-level weight (frequency in biomes). |
+| `definitions` | map | `{}` | Override weights for internal tree variations (e.g. `{ titan: 90 }`). |
+| `namespace` | string | `leaf` | Datapack namespace for structures. |
+| `group` | string | `id` | Subfolder under the namespace for structure variants. |
+| `biomes` | string[] | `[]` | List of biome IDs where this tree spawns. If empty, spawns nowhere by default. |
+| `sapling-item` | string | `OAK_SAPLING` | The Bukkit Material name for the sapling that grows this tree. |
+| `worldgen` | bool | `!biomes.isEmpty()` | Whether to include this species in the generated worldgen datapack. |
+| `spacing` | int | `3` | Distance between structure centers in chunks (jigsaw `spacing`). |
+| `separation` | int | `2` | Minimum distance between structure centers (jigsaw `separation`). |
+| `salt` | int | `-1` | Random salt for placement. `-1` auto-generates from the ID. |
+| `spread-type` | string | `linear` | Jigsaw placement spread type (`linear` or `triangular`). |
+| `step` | string | `surface_structures` | Worldgen step for structure placement. |
+| `variants` | object / array | `[]` | Manual list of `.nbt` structure locations and weights. |
+
+### Procedural Parameters
+
+If the `procedural` block (or flat fields like `trunk`, `leaves`) is present, the plugin can generate trees algorithmically at runtime.
+
+#### Base Procedural Fields
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `trunk-block` / `trunk` | string | `minecraft:oak_log` | Block ID for the trunk. |
+| `leaf-block` / `leaves` | string | `minecraft:oak_leaves` | Block ID for the canopy. |
+| `height-min` | int | `5` | Minimum height in blocks. |
+| `height-max` | int | `10` | Maximum height in blocks. |
+| `profile` | string | `OAK` | Canopy preset (see [Section 4](#4-controlling-a-tree-config-schema)). |
+| `trunk-width` | double | `1.0` | Base thickness of the trunk. |
+| `trunk-shape` | string | `CONSTANT` | Width function: `CONSTANT`, `LINEAR`, `SIGMOID`, `LOG`, `SINE`, `PARABOLIC`. |
+| `trunk-shape-params` | map | `{}` | Parameters for the width function. |
+| `round-trunk` | bool | `false` | If true, rasterizes the trunk as a cylinder instead of a square column. |
+| `lean-angle` | double | `0.0` | Initial lean angle in degrees. |
+| `lean-azimuth` | double | `0.0` | Compass direction for the lean. |
+| `azimuth-fn` | string | `CONSTANT` | Lean direction function: `CONSTANT`, `SPIRAL`. |
+| `azimuth-params` | map | `{}` | Parameters for the azimuth function (e.g., `turns`, `start`). |
+| `curve-fn` | string | `LINEAR` | How lean accumulates: `LINEAR`, `LOG`, `SIGMOID`, `PARABOLIC`, `CONSTANT`. |
+| `curve-params` | map | `{}` | Parameters for the curve function. |
+| `secondary-trunk` | string | `null` | Optional block for a height band. |
+| `secondary-trunk-start` / `_end` | double | `0.5` / `1.0` | Normalized height range for the secondary trunk. |
+
+#### Canopy Parameters (`canopy`)
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `mode` | string | `DENSITY` | Fill mode: `DENSITY`, `FILLED`, `TRIMMED`, `NOISE`. |
+| `density` | double | `1.0` | Probability of leaf placement in `DENSITY` mode. |
+| `secondary-leaves` | string | `null` | Optional second leaf block type. |
+| `secondary-fraction` | double | `0.0` | Probability of using the secondary leaf block. |
+| `layers` | array | `[]` | List of `{ yOffset, radius }` objects. |
+| `branches` | object | `null` | Recursive branching logic (see below). |
+
+#### Branch Parameters (`branches`)
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `count` | int | `0` | Number of branches to sprout. |
+| `min-length` / `max-length` | double | `2.0` / `5.0` | Length range for branches. |
+| `min-elevation` / `max-elevation` | double | `-20.0` / `45.0` | Elevation angle range. |
+| `spacing` | double | `1.0` | Minimum vertical spacing between branches. |
+| `start-height` | double | `0.6` | Normalized height where branching begins. |
+
+## 8. Related docs
 
 - [ADR-002](../design/adr/ADR-002-tree-generation-script-approach.md) - design decision and options considered.
 - [REQ-001](../requirements/REQ-001-tree-generation-script.md) - requirements and acceptance criteria.

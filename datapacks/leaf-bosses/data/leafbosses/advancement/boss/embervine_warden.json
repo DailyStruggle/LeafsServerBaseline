@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Embervine Warden",
+    "description": "Fell the Embervine Warden of the volcanic slopes. The first kill yields the Obsidian Skull.",
+    "icon": { "id": "minecraft:wither_skeleton_skull" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/embervine_warden_firstkill"]
+  }
+}

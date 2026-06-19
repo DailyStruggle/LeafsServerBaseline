@@ -216,7 +216,14 @@ def _bake_preset_layers(out: dict, entry: dict) -> None:
     branch_driven = isinstance(canopy_cfg.get("branches"), dict)
     layers = preset_layers(profile, height, branch_driven=branch_driven)
     if branch_driven and layers:
-        layers = [layers[-1]]
+        # Mirror generate_canopy: "crown_volume_fraction" keeps the upper
+        # fraction of layers as a solid cone; otherwise only the top layer.
+        crown_frac = canopy_cfg.get("crown_volume_fraction", None)
+        if crown_frac is not None:
+            n = max(1, int(round(len(layers) * float(crown_frac))))
+            layers = layers[-n:]
+        else:
+            layers = [layers[-1]]
     canopy_out["layers"] = [
         {"yOffset": int(y_off), "radius": round(float(radius), 3)}
         for (y_off, radius) in layers

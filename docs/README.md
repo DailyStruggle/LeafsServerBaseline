@@ -41,4 +41,5 @@ New work always starts with a requirements doc. No implementation begins without
 - [`scratch/LESSONS_LEARNED.md`](scratch/LESSONS_LEARNED.md) - engineering pitfalls and notes
 - [`scratch/POTENTIAL_BUGS.md`](scratch/POTENTIAL_BUGS.md) - incidental findings backlog
 - [`world-design/IRIS-WORLD-BUILDING.md`](world-design/IRIS-WORLD-BUILDING.md) - end-to-end Iris biome authoring walkthrough
+- [`usage/DEPLOYMENT.md`](usage/DEPLOYMENT.md) - deployment guide: modular datapack/plugin deploy scripts, switches, and post-deploy steps
 - [`usage/TREE-GENERATION.md`](usage/TREE-GENERATION.md) - tree-generation pipeline guide: how it works, the JSON config schema, and outputs

@@ -1,0 +1,113 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.2 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wither_skeleton_skull",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "obsidian_skull",
+                    "leafcurios:slots": "head"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:obsidian_skull",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Obsidian Skull", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "You are immune to fire and lava.", "color": "gray", "italic": false },
+                  { "text": "Slot: Head", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "Salvaged from the Embervine Warden.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": { "min": 2, "max": 4 },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blaze_powder",
+          "weight": 6,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:magma_cream",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal",
+          "weight": 7,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 6, "max": 16 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone",
+          "weight": 6,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:obsidian",
+          "weight": 4,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.35 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wither_skeleton_skull",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -45,7 +45,7 @@ Open question: 1.21 custom enchantment datapack registration vs. plugin-driven e
 
 ## Full artifact table
 
-The "Resource-pack image/texture" column describes the texture to make/use. Plan: custom items carrying `custom_model_data`, with a resource pack mapping each value to a 16x16 (item) sprite. Slot column indicates the gear the enchantment/effect binds to.
+The "Resource-pack image/texture" column describes the texture to make/use. Plan: custom items carrying `custom_model_data`, with a resource pack mapping each value to a 32x32 (Faithful 32x resolution) item sprite. Slot column indicates the gear the enchantment/effect binds to.
 
 Source key: `Boss` = drops from a biome Tier-2 elite/warden (see `CUSTOM-MOB-SPAWNS-PLAN.md`); `Structure` = injected into a structure loot table. Boss drops are thematically matched to the biome; structure drops use rarity-appropriate containers.
 
@@ -53,27 +53,27 @@ Source key: `Boss` = drops from a biome Tier-2 elite/warden (see `CUSTOM-MOB-SPA
 |---|---|---|---|---|---|---|---|---|
 | Running Shoes | Boots | Mobility | Auto step-up (`STEP_HEIGHT`) + flat speed (`MOVEMENT_SPEED`) | Easy | Uncommon | Structure: mineshaft / abandoned-mineshaft chests | Worn sneaker/trainer with motion lines; warm palette | Yes |
 | Roller Skates | Boots | Mobility | Speed ramps with continuous movement, decays on stop/turn | Medium | Rare | Structure: trial chamber (reward vault) | Skate boot with wheels; small speed-streak accent | Yes |
-| Cloud in a Bottle | Belt/Charm | Mobility | Double jump | Medium | Epic | Boss: Caldera Tyrant (`terralost/volcanic-crater`) | Glass bottle with a swirling white cloud inside | Yes |
+| Cloud in a Bottle | Belt/Charm | Mobility | Double jump | Medium | Epic | Boss: Caldera Tyrant (structure `leaf:caldera_throne`, Nether) | Glass bottle with a swirling white cloud inside | Yes |
 | Helium Flamingo | Charm | Mobility | Timed air-swimming: forces the swim state in midair so you "swim" through the air (NOT gliding) | Hard | Rare | Structure: shipwreck / ocean ruins | Pink inflatable flamingo ring | Yes |
 | Flippers | Boots | Mobility | Swim speed boost (in water and, with Helium Flamingo, in air) | Medium | Uncommon | Structure: buried treasure / ocean ruins | Green/teal swim fins | Yes |
-| Umbrella | Off-hand | Early assist | Shield + early glide | Hard | Rare | Structure: woodland mansion | Folded/closed black umbrella | No |
+| Umbrella | Hands (curio) | Early assist | Conditional slow falling (drift down gently while falling) | Easy | Rare | Structure: woodland mansion | Red-and-white pinwheel umbrella (banner-dyed shield placeholder) | Yes |
 | Snorkel | Helmet | Early assist | Breathe underwater | Easy | Common | Structure: buried treasure / shipwreck | Mask + snorkel tube | Yes |
-| Charm of Sinking | Charm | Utility | Walk on underwater floor | Medium | Uncommon | Structure: ocean ruins / shipwreck | Anchor/weight charm on a chain | No |
-| Crystal Heart | Chest/Charm | Power | Persistent +max health | Easy | Epic | Boss: Sand Revenant (`terralost/ancient-sands`) | Faceted red/pink crystalline heart | Yes |
-| Cross Necklace | Charm | Defensive | Longer invuln frames | Medium | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Silver cross pendant on a chain | Yes |
+| Charm of Sinking | Charm | Utility | Walk on underwater floor (`SinkingController` cancels buoyancy with a per-tick downward nudge while submerged) | Medium | Uncommon | Structure: ocean ruins / shipwreck | Anchor/weight charm on a chain | Yes |
+| Crystal Heart | Chest/Charm | Power | Persistent +max health | Easy | Epic | Boss: Sand Revenant (structure `leaf:sunken_tomb`, desert/badlands) | Faceted red/pink crystalline heart | Yes |
+| Cross Necklace | Charm | Defensive | Longer invuln frames | Medium | Rare | Boss: Glacier Warden (structure `leaf:frozen_prison`, snowy biomes) | Silver cross pendant on a chain | Yes |
 | Antidote Vessel | Charm | Defensive | Shorten negative effects | Medium | Rare | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Small green vial with cork | Yes |
 | Panic Necklace | Charm | Reactive | Speed when hurt | Easy | Uncommon | Structure: pillager outpost | Beaded amber necklace | Yes |
 | Obsidian Skull | Charm | Defensive | Passive fire immunity | Easy | Uncommon | Boss: Embervine Warden (`vanilla/jungle__ember`) | Carved black obsidian skull | Yes |
-| Steadfast Spikes | Boots | Defensive | Knockback immunity | Easy | Rare | Boss: Glacier Warden (`terralost/glacial-chasm`) | Spiked iron sabatons/cleats | Yes |
+| Steadfast Spikes | Boots | Defensive | Knockback immunity | Easy | Rare | Boss: Glacier Warden (structure `leaf:frozen_prison`, snowy biomes) | Spiked iron sabatons/cleats | Yes |
 | Power Glove | Hands | Combat | Always-on +attack damage | Easy | Rare | Structure: trial chamber (ominous vault) | Reinforced studded gauntlet | Yes |
 | Feral Claws | Hands | Combat | +Attack speed | Easy | Rare | Boss: The Creak (`swamp/creaks`) | Curved claw blades over knuckles | Yes |
 | Vampiric Glove | Hands | Combat | Melee lifesteal | Easy | Rare | Boss: Ashwood Revenant (`vanilla/badlands__ashwood`) | Dark red glove with fang motif | Yes |
 | Fire Gauntlet | Hands | Combat | +Melee + ignite on hit | Medium | Rare | Boss: Emberdeep elite (`carving/volcanic`) | Molten-cracked gauntlet, ember glow | Yes |
-| Flame Pendant | Charm | Stacking | Ignite on hit (off-weapon) | Easy | Uncommon | Boss: Caldera Tyrant (`terralost/caldera`) | Orange teardrop gem pendant | Yes |
+| Flame Pendant | Charm | Stacking | Ignite on hit (off-weapon) | Easy | Uncommon | Boss: Caldera Tyrant (structure `leaf:caldera_throne`, Nether) | Orange teardrop gem pendant | Yes |
 | Thorn Pendant | Charm | Stacking | Reflect melee, no durability cost | Medium | Uncommon | Boss: The Creak (`swamp/creaks`) | Green thorn/bramble pendant | Yes |
 | Shock Pendant | Charm | Combat | Lightning on hit (chance) | Easy | Uncommon | Structure: trial chamber | Yellow lightning-bolt pendant | Yes |
-| Pocket Piston | Hands | Combat | Knockback burst on hit | Medium | Rare | Structure: ancient city | Tiny redstone-piston trinket | No |
-| Digging Claws | Hands | Stacking | +Mining speed (stacks Efficiency) | Medium | Uncommon | Boss: Deep elite (`carving/deep`) | Iron mining-claw grips | No |
+| Pocket Piston | Hands | Combat | Knockback burst on hit (`ArtifactEventListener` adds an away-from-attacker velocity impulse on each melee hit) | Medium | Rare | Structure: ancient city | Tiny redstone-piston trinket | Yes |
+| Digging Claws | Hands | Stacking | +Mining speed (ambient Haste II via `EffectSpec`; stacks with Efficiency and adds on top of a beacon's Haste) | Easy | Uncommon | Boss: Deep elite (`carving/deep`) | Iron mining-claw grips | Yes |
 | Superstitious Hat | Helmet | Stacking | +Mob loot (stacks Looting) | Medium | Uncommon | Structure: woodland mansion | Pointed witch-style hat | Yes |
 | Anglers Hat | Helmet | Stacking | +Fishing luck/lure | Medium | Uncommon | Structure: fishing loot / shipwreck | Fishing cap with hooks/lures | Yes |
 | Villager Hat | Helmet | Economy | Permanent trade discount | Hard | Epic | Structure: village (rare desert/savanna chest) | Wide-brim straw/village hat | Yes |
@@ -81,11 +81,18 @@ Source key: `Boss` = drops from a biome Tier-2 elite/warden (see `CUSTOM-MOB-SPA
 | Scarf of Invisibility | Charm | QoL/PvP | Permanent invisibility | Easy | Epic | Boss: Blight Warden (`vanilla/dark_forest__blight`) | Translucent flowing scarf | Yes |
 | Onion Ring | Charm | QoL | Mobile Haste after eating | Easy | Common | Boss: Lush cave elite (`carving/lush`) | Golden ring shaped like a battered onion ring | Yes |
 | Eternal Steak | Charm | QoL | Never hungry / auto-feed | Easy | Uncommon | Boss: Lush cave elite (`carving/lush`) | Perpetually sizzling steak | Yes |
-| Golden Hook | Charm | Boost | +XP from kills | Easy | Uncommon | Boss: Sand Revenant (`terralost/ancient-sands`) | Ornate golden fish-hook | Yes |
+| Golden Hook | Charm | Boost | +XP from kills | Easy | Uncommon | Boss: Sand Revenant (structure `leaf:sunken_tomb`, desert/badlands) | Ornate golden fish-hook | Yes |
 | Lucky Scarf | Charm | Boost | Permanent +Luck | Easy | Uncommon | Structure: trial chamber / buried treasure | Green four-leaf-clover scarf | Yes |
-| Universal Attractor | Charm | Utility | Item magnet (toggle) | Medium | Rare | Boss: Deep elite (`carving/deep`) | Horseshoe magnet with sparkles | No |
+| Universal Attractor | Charm | Utility | Item magnet (`AttractorController` pulls nearby dropped items in with a per-tick velocity nudge; sneak to suspend the pull) | Medium | Rare | Boss: Deep elite (`carving/deep`) | Horseshoe magnet with sparkles | Yes |
 
 ## Source assignment: boss drops vs structure loot
+
+> **Boss side moved.** The per-biome boss roster (entities, archetypes, magic design,
+> advancement + loot-table delivery) is consolidated in
+> `docs/scratch/BIOME-BOSS-MOBS-PLAN.md`. The boss -> artifact mapping below is mirrored
+> there; keep the two in sync, but treat the boss-mobs plan as canonical for the boss
+> side and this note as canonical for the artifact side. The structure-loot channel and
+> the Iris loot-table references below are unchanged here.
 
 Two acquisition channels, matching the existing two-tier mob model:
 
@@ -95,12 +102,12 @@ Two acquisition channels, matching the existing two-tier mob model:
 Boss -> artifact mapping (thematic):
 
 - Embervine Warden (`jungle__ember`) -> Obsidian Skull (fire).
-- Caldera Tyrant (`terralost/volcanic-crater` / `caldera`) -> Cloud in a Bottle (eruption launch), Flame Pendant.
+- Caldera Tyrant (structure `leaf:caldera_throne`, Nether `basalt_deltas`; `BLAZE` throne boss + `MAGMA_CUBE` court adds) -> Cloud in a Bottle (eruption launch), Flame Pendant.
 - Emberdeep elite (`carving/volcanic`) -> Fire Gauntlet.
 - Ashwood Revenant (`badlands__ashwood`) -> Vampiric Glove (undead lifesteal).
-- Glacier Warden (`terralost/glacial-chasm`) -> Steadfast Spikes (unyielding), Cross Necklace.
+- Glacier Warden (structure `leaf:frozen_prison`, snowy biomes; undead warden `WITHER_SKELETON`) -> Steadfast Spikes (unyielding), Cross Necklace.
 - Blight Warden (`dark_forest__blight`) -> Antidote Vessel (toxins), Scarf of Invisibility (gloom).
-- Sand Revenant (`terralost/ancient-sands`) -> Crystal Heart (tomb treasure), Golden Hook.
+- Sand Revenant (structure `leaf:sunken_tomb`, desert/badlands; undead `HUSK`/`STRAY`) -> Crystal Heart (tomb treasure), Golden Hook.
 - Deep elite (`carving/deep`) -> Night Vision Goggles, Digging Claws, Universal Attractor.
 - Lush cave elite (`carving/lush`) -> Onion Ring, Eternal Steak.
 - The Creak (`swamp/creaks`) -> Thorn Pendant (brambles), Feral Claws.
@@ -109,12 +116,122 @@ Items intentionally left to structures (not biome-thematic, or early-game/explor
 
 Note: several mapped bosses are still `planned` in `CUSTOM-MOB-SPAWNS-PLAN.md`; those artifact drops ship when the corresponding biome elite ships. Until then their artifacts can fall back to a structure source.
 
+### Terralost retirement (Iris -> vanilla-datapack finds)
+
+The three `terralost/*` biome sources are retired. Iris was dropped for vanilla-datapack worldgen
+(ADR-005), so `terralost/volcanic-crater`/`caldera`, `terralost/glacial-chasm`, and
+`terralost/ancient-sands` no longer generate in the live world and cannot host a boss. Rather than
+re-author them as custom biomes, each becomes a **rare custom jigsaw structure injected into a fitting
+vanilla biome** (the "structure-over-biome" rule), wired exactly like the shipped `leaf:dark_forest_giant`:
+
+| Boss | Was (terralost biome) | Now (structure @ vanilla biome) | Boss base |
+|---|---|---|---|
+| Caldera Tyrant | `volcanic-crater`/`caldera` | `leaf:caldera_throne` @ Nether `basalt_deltas` (throne over lava) | `BLAZE` + `MAGMA_CUBE` court adds |
+| Glacier Warden | `glacial-chasm` | `leaf:frozen_prison` @ snowy biomes (undead "ice jail") | undead `WITHER_SKELETON` + skeleton/stray adds |
+| Sand Revenant | `ancient-sands` | `leaf:sunken_tomb` @ `desert`/`badlands` (sphinx/tomb ruin) | undead `HUSK`/`STRAY` |
+
+All three share one pipeline (custom structure + amped vanilla-entity boss + PDC anti-farm), so no
+custom biomes are required. The artifact drops are unchanged; only the source channel moves from an
+Iris biome to a datapack structure.
+
 ## Structure-rarity guideline (for the structure-sourced subset)
 
 - Common -> shipwrecks, mineshafts, ocean ruins.
 - Uncommon -> desert/jungle temples, pillager outposts, buried treasure.
 - Rare -> bastions, strongholds, woodland mansions.
 - Epic -> end cities, ancient cities, raid drops (or boss-gated).
+
+## Tier-ordered artifact list (for loot-table placement)
+
+Artifacts grouped by their `Value` tier, mapped onto the four loot-table buckets used by the
+loot-injection datapack/boss tables: `common`, `uncommon`, `rare`, and `special` (the `Epic`
+value tier maps to `special`). Ids match `leafartifacts:<id>` (see the resource-pack `SOURCING.md`).
+Use this as the canonical placement list; the per-artifact source channel (boss vs structure) is in
+the "Source" column of the full artifact table above.
+
+### common
+
+- `snorkel` - Snorkel
+- `night_vision_goggles` - Night Vision Goggles
+- `onion_ring` - Onion Ring
+
+### uncommon
+
+- `running_shoes` - Running Shoes
+- `flippers` - Flippers
+- `charm_of_sinking` - Charm of Sinking
+- `panic_necklace` - Panic Necklace
+- `obsidian_skull` - Obsidian Skull
+- `flame_pendant` - Flame Pendant
+- `thorn_pendant` - Thorn Pendant
+- `shock_pendant` - Shock Pendant
+- `digging_claws` - Digging Claws
+- `superstitious_hat` - Superstitious Hat
+- `anglers_hat` - Anglers Hat
+- `eternal_steak` - Eternal Steak
+- `golden_hook` - Golden Hook
+- `lucky_scarf` - Lucky Scarf
+
+### rare
+
+- `roller_skates` - Roller Skates
+- `helium_flamingo` - Helium Flamingo
+- `umbrella` - Umbrella
+- `cross_necklace` - Cross Necklace
+- `antidote_vessel` - Antidote Vessel
+- `steadfast_spikes` - Steadfast Spikes
+- `power_glove` - Power Glove
+- `feral_claws` - Feral Claws
+- `vampiric_glove` - Vampiric Glove
+- `fire_gauntlet` - Fire Gauntlet
+- `pocket_piston` - Pocket Piston
+- `universal_attractor` - Universal Attractor
+
+### special
+
+- `cloud_in_a_bottle` - Cloud in a Bottle
+- `crystal_heart` - Crystal Heart
+- `villager_hat` - Villager Hat
+- `scarf_of_invisibility` - Scarf of Invisibility
+
+Note: `bunny_hoppers` exists as an item id but is not in the full artifact table above; assign it a
+tier (suggested `uncommon`) when it gets a row before adding it to a loot table.
+
+## Defensive-vs-aggressive rarity skew (with dimension)
+
+Balance intent: defensive/survival artifacts should drop **more readily** than aggressive/combat
+artifacts of the same nominal power, so players can cover their defenses before they snowball
+offense. The table below re-grades artifacts by combat role and applies a one-tier skew:
+
+- Defensive / survival role -> shift **one tier more common** than its base `Value`.
+- Aggressive / offense role -> keep base tier (or shift one tier rarer for the strongest hitters).
+- Neutral (mobility, QoL, utility, economy) -> unchanged from the tier-ordered list above.
+
+The `Dimension` column ties a drop to a dimension only where the artifact's theme makes it natural
+(fire-themed -> Nether; end-game power -> End); blank means Overworld / dimension-agnostic.
+
+| Artifact | id | Role | Base tier | Skewed tier | Dimension |
+|---|---|---|---|---|---|
+| Obsidian Skull | `obsidian_skull` | Defensive (fire immunity) | Uncommon | common | Nether |
+| Panic Necklace | `panic_necklace` | Defensive (reactive) | Uncommon | common | - |
+| Thorn Pendant | `thorn_pendant` | Defensive (reflect) | Uncommon | common | - |
+| Cross Necklace | `cross_necklace` | Defensive (invuln) | Rare | uncommon | - |
+| Antidote Vessel | `antidote_vessel` | Defensive (cleanse) | Rare | uncommon | - |
+| Steadfast Spikes | `steadfast_spikes` | Defensive (knockback immune) | Rare | uncommon | - |
+| Crystal Heart | `crystal_heart` | Defensive (+max health) | Epic | rare | End |
+| Shock Pendant | `shock_pendant` | Aggressive | Uncommon | uncommon | - |
+| Flame Pendant | `flame_pendant` | Aggressive (ignite) | Uncommon | uncommon | Nether |
+| Feral Claws | `feral_claws` | Aggressive (attack speed) | Rare | rare | - |
+| Power Glove | `power_glove` | Aggressive (+damage) | Rare | rare | - |
+| Vampiric Glove | `vampiric_glove` | Aggressive (lifesteal) | Rare | rare | - |
+| Pocket Piston | `pocket_piston` | Aggressive (knockback) | Rare | rare | - |
+| Fire Gauntlet | `fire_gauntlet` | Aggressive (+melee + ignite) | Rare | special | Nether |
+
+Neutral artifacts (Running Shoes, Roller Skates, Cloud in a Bottle, Helium Flamingo, Flippers,
+Umbrella, Snorkel, Charm of Sinking, Night Vision Goggles, Scarf of Invisibility, Onion Ring,
+Eternal Steak, Golden Hook, Lucky Scarf, Superstitious Hat, Anglers Hat, Villager Hat, Digging
+Claws, Universal Attractor) keep their tier from the tier-ordered list above and carry no dimension
+skew, except where their source boss/structure already lives in a specific dimension.
 
 ## Folia compatibility checklist (for implementation)
 
@@ -127,6 +244,7 @@ Note: several mapped bosses are still `planned` in `CUSTOM-MOB-SPAWNS-PLAN.md`; 
 
 - Running Shoes + Roller Skates share one speed subsystem (both velocity-based, not separate or mutually exclusive): Running Shoes sets the starting/floor speed, Roller Skates sets the max/ceiling speed that ramping accelerates toward. Implement as a single per-player speed value clamped between floor (Running Shoes) and ceiling (Roller Skates); wearing only one just sets that bound. This avoids double-stacking while letting the pair combine cleanly.
 - Stacking artifacts (Digging Claws, Power Glove, Flame/Thorn Pendant, Superstitious/Anglers Hat) add on top of enchants; verify caps so totals stay reasonable.
+- Ambient potion-effect artifacts are declared generically as `EffectSpec(type, amplifier)` and reconciled with a single "buff a pre-existing effect" rule that stacks **additively** like enchantment levels: each pass briefly removes the plugin's own effect, samples the remaining external amplifier (a beacon, a potion), and re-applies at `externalAmplifier + artifactAmplifier`. So a beacon's Haste II plus Digging Claws' Haste II gives Haste III, with no per-artifact workaround. Vanilla itself only keeps the strongest instance of a same-type effect, which is why the plugin samples-then-sums; sampling excludes the plugin's own contribution each pass, so the total never runs away.
 - Air-swim combo (signature synergy): Helium Flamingo forces the swim state in midair (you do the swimming pose/motion, NOT gliding), and Flippers adds swim speed that applies in that air-swim state too. Together they make a fast air-swim traversal mode - deliberately unlike Elytra. Implementation: detect Helium Flamingo equipped + airborne, set the player to the swimming state (and/or apply velocity along the look vector) on a per-entity tick; have the Flippers swim-speed modifier apply whenever the player is in the swim state (water or Flamingo-induced air-swim). Folia: drive from the entity scheduler. Tune as a strong-but-limited (timed/charged) mobility tool, not free permanent flight.
 - Cloud + glide combo: Cloud in a Bottle's air-jump adds a fixed upward (+Y) impulse to current velocity (one charge per airtime, speed-capped). +Y only means it doubles as fall-arrest. It is not usable during an active glide; the travel boost is just a side effect of firing on the same key press that enters glide, so the +Y is converted to forward momentum as the glide starts (like a small firework).
 
@@ -138,9 +256,10 @@ Build order, easiest/highest-leverage first. Each phase is independently shippab
 - P1 - Attribute/effect artifacts (Easy, no ticking): Running Shoes, Crystal Heart, Steadfast Spikes, Feral Claws, Power Glove, Lucky Scarf, Night Vision Goggles, Snorkel, Scarf of Invisibility, Obsidian Skull. Pure equip-time modifiers/effects.
 - P2 - Simple event reactions (Easy): Vampiric Glove, Flame Pendant, Shock Pendant, Panic Necklace, Onion Ring, Golden Hook, Fire Gauntlet, Bunny Hoppers.
 - P3 - Signature movement (Medium, the marquee items): Cloud in a Bottle (+Y impulse, glide-entry synergy), Helium Flamingo + Flippers (air-swim combo), Roller Skates (momentum tick). First per-entity scheduler work.
-- P4 - Remaining ticking/utility (Medium): Antidote Vessel, Cross Necklace, Thorn Pendant, Pocket Piston, Charm of Sinking, Universal Attractor, Eternal Steak, Digging Claws, Superstitious Hat, Anglers Hat.
-- P5 - Hard/partial-fidelity (last): Umbrella (glide+shield), Villager Hat (trade discounts).
-- P6 - Sourcing: wire boss drops into Iris loot tables (per shipped biome elites) and structure drops via a layered datapack; add resource-pack textures.
+- P4 - Remaining ticking/utility (Medium): Antidote Vessel, Cross Necklace, Thorn Pendant, Eternal Steak, Superstitious Hat, Anglers Hat. (Digging Claws shipped early as an infinite ambient Haste - declarative, no ticking needed. Charm of Sinking shipped via `SinkingController`, a per-tick downward velocity nudge while submerged. Pocket Piston shipped as an event-driven melee knockback burst in `ArtifactEventListener`. Universal Attractor shipped via `AttractorController`, a per-tick item magnet that sneaking suspends.)
+- P5 - Hard/partial-fidelity (last): Umbrella (delivered as conditional Slow Falling on an unbreakable colored shield, `UmbrellaController`; the always-on float while falling is its cost), Villager Hat (trade discounts).
+- P6 - Presentation (textures): the resource-pack scaffold ships in `plugins/leaf-artifacts/resourcepack/` - a player-optional, server-sent pack with a per-artifact item-model (`assets/leafartifacts/items/<id>.json` + `models/item/<id>.json`) wired to the item via the `minecraft:item_model` component (`leafartifacts:<id>`) in `ArtifactItem.create`. The only remaining step is dropping a 32x32 (Faithful 32x resolution) `<id>.png` per artifact into `assets/leafartifacts/textures/item/`; the id -> texture-brief list lives in that folder's `SOURCING.md`. Use original art (do not copy the ochotonida mod's sprites).
+- Loot sourcing (where artifacts drop) is **out of scope for this note** - it falls to the biome decisions: boss drops are owned by `docs/scratch/BIOME-BOSS-MOBS-PLAN.md` (each artifact ships with its biome elite's loot table) and any non-biome/structure drops are layered in alongside that work. The "Source (where to get it)" column and the boss -> artifact mapping below remain as design intent for those plans to consume.
 
 Open question to settle before P0: 1.21 custom-enchantment datapack registration vs. plugin-driven `custom_data` markers.
 

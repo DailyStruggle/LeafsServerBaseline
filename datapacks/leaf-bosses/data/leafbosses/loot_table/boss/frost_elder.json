@@ -1,0 +1,116 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.2 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:prismarine_crystals",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "frostward_charm",
+                    "leafcurios:slots": "charm"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:frostward_charm",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Frostward Charm", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "Wards off the cold: immune to freezing and Slowness, and steadier on your feet.", "color": "gray", "italic": false },
+                  { "text": "Slot: Charm", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "Wrested from the Frost Elder.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": { "min": 2, "max": 4 },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:packed_ice",
+          "weight": 7,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 4, "max": 12 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_ice",
+          "weight": 4,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 1, "max": 4 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:spruce_log",
+          "weight": 8,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 8, "max": 20 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:sweet_berries",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 4, "max": 12 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.35 }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "weight": 5,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 3, "max": 8 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_block",
+          "weight": 3,
+          "functions": [
+            { "function": "minecraft:set_count", "count": { "min": 1, "max": 2 } }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_apple",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

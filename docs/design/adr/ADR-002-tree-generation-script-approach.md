@@ -1,8 +1,33 @@
 # ADR-002: Tree Generation Script Approach
 
-**Status:** Accepted  
-**Date:** 2026-06-04  
+**Status:** Revised - supersedes the offline Python-script decision in favour of the `leaf-treegen` plugin  
+**Date:** 2026-06-04 (revised 2026-06-19)  
 **Author:** TBD
+
+---
+
+## Revision (2026-06-19): prefer `leaf-treegen`
+
+The original decision below selected an offline Python 3 script (Option A) that wrote Sponge Schematic v3 `.schem` files for Iris to consume. Two things have changed since:
+
+1. Iris has been retired for vanilla-datapack worldgen (see [ADR-005](ADR-005-retire-iris-for-vanilla-datapack-worldgen.md)), so an Iris-consumed `.schem` pipeline no longer fits the architecture.
+2. A dedicated, server-agnostic tree-generation plugin now exists: [`leaf-treegen`](https://github.com/DailyStruggle/leaf-treegen).
+
+**Revised decision:** prefer the [`leaf-treegen`](https://github.com/DailyStruggle/leaf-treegen) plugin as the primary tree-generation mechanism. `leaf-treegen`:
+
+- Generates trees in pure Java and **bakes each procedural species into `N` vanilla structure templates (`.nbt`)** (`N` = the species' `count`) directly at datapack-generation time - no external tooling required.
+- Wires the baked templates into **vanilla jigsaw template pools** and emits a **standard vanilla worldgen datapack on the fly**, so Minecraft's native jigsaw/structure systems handle placement (robust and efficient) instead of fragile runtime listeners. This matches the vanilla-datapack direction of ADR-005.
+- Is **server-agnostic** via a `Platform` abstraction (Paper/Folia today; Fabric/NeoForge planned).
+- Keeps the same **parameter-driven model** the original ADR required: per-species `trunk`/`leaf` block, `heightMin`/`heightMax`, `trunk-width`, `trunk-shape`, `lean`, and explicit `canopy` layers (`yOffset` + `radius`), defined in `species/*.json` with biome/placement overrides in `config.yml`.
+- Supports `generation-mode` of `DATAPACK` (recommended, jigsaw-based), `PROCEDURAL` (runtime), `BOTH`, or `NONE`, plus custom NBT-tagged saplings for player planting.
+
+Consequences of the revision:
+
+- The offline Python script (`scripts/tree-gen/`, Option A) is **superseded** as the shipping pipeline. The Python `tools/tree-gen` project is **retained only as a reference** for the prior externally-baked NBT model; pre-baked `.nbt` templates it produces can still be dropped into the datapack `structure/` folder and referenced via `variants`.
+- Determinism, offline authoring, and parameterisation requirements from [REQ-001](../../requirements/REQ-001-tree-generation-script.md) remain satisfied: `leaf-treegen` bakes deterministic variants and requires no manual schematic editing.
+- Building/deploying follows the plugin module flow (`plugins/deploy-plugins.ps1`); worldgen changes apply on the next (user-triggered) server boot, data-only changes via `/leaftree reload`.
+
+The sections below are **retained for historical context** and describe the now-superseded offline-script design.
 
 ---
 

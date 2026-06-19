@@ -1,0 +1,9 @@
+Drop the 32x32 artifact sprites (Faithful 32x resolution) here, one PNG per artifact id, e.g. running_shoes.png.
+
+Each <id>.png is referenced by models/item/<id>.json (layer0 -> leafartifacts:item/<id>)
+and surfaced on the item via the minecraft:item_model component set in
+ArtifactItem.create (leafartifacts:<id>). See SOURCING.md in this folder for the
+full id -> texture-brief list.
+
+This placeholder only keeps the empty textures/item/ folder under version control;
+delete it once real sprites are added.

@@ -1,0 +1,16 @@
+name: LeafMobs
+version: 0.1.0
+main: net.leaf.mobs.LeafMobsPlugin
+api-version: '1.21'
+author: Leaf
+description: Data-driven, Folia-safe framework for custom/biome mobs (reference-table tuned).
+folia-supported: true
+commands:
+  leafmobs:
+    description: Inspect and spawn data-driven mobs (admin).
+    usage: /leafmobs <list|reload|spawn> [id]
+    permission: leafmobs.admin
+permissions:
+  leafmobs.admin:
+    description: Manage and spawn LeafMobs definitions.
+    default: op

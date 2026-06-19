@@ -53,6 +53,100 @@ iris/thirdparty-derived/**
 !iris/thirdparty-derived/
 !iris/thirdparty-derived/README.md
 
+# Post-Iris quarantine for third-party derived datapacks (ADR-004 policy, ADR-005 model).
+# Towns & Towers is CC BY-NC-ND 4.0: private, non-commercial use is permitted, but the
+# extracted/derived assets MUST NOT be redistributed or published. Track only the
+# README.md so the policy/provenance is documented in-repo; exclude every derived
+# .nbt / JSON / pack.png / license blob underneath.
+datapacks/towns-and-towers/**
+!datapacks/towns-and-towers/
+!datapacks/towns-and-towers/README.md
+
+# Dungeons & Taverns is CC BY-NC-ND 4.0 (same quarantine policy as Towns & Towers):
+# private, non-commercial use is permitted, derived assets MUST NOT be redistributed.
+# Track only the README.md; exclude every derived .nbt / JSON / pack.png / credits blob.
+datapacks/dungeons-and-taverns/**
+!datapacks/dungeons-and-taverns/
+!datapacks/dungeons-and-taverns/README.md
+
+# When Dungeons Arise (DungeonsArise fabric mod) ships "All Rights Reserved" assets.
+# Private, non-commercial use only; extracted/derived assets MUST NOT be redistributed.
+# Track only the README.md; exclude every extracted .nbt / JSON / pack.mcmeta underneath.
+datapacks/dungeons-arise/**
+!datapacks/dungeons-arise/
+!datapacks/dungeons-arise/README.md
+
+# Stoneholm (TheGrimsey) ships under MIT, so redistribution IS permitted with attribution.
+# We still quarantine the extracted assets for repo-leanness / consistency with the other
+# extracted packs: track only the README.md, exclude every .nbt / JSON / pack.mcmeta.
+# (MIT means these COULD be committed if ever desired - this is policy, not a license bar.)
+datapacks/stoneholm/**
+!datapacks/stoneholm/
+!datapacks/stoneholm/README.md
+
+# Hopo Better Mineshaft (Hopo) datapack. License allows personal/server use and ONLY
+# UNMODIFIED redistribution; distributing modified versions is forbidden. To stay safe we
+# quarantine the extracted assets: track only the README.md, exclude every .nbt / JSON /
+# pack.mcmeta underneath.
+datapacks/hopo-better-mineshaft/**
+!datapacks/hopo-better-mineshaft/
+!datapacks/hopo-better-mineshaft/README.md
+
+# YUNG's Better Strongholds (YUNGNICKYOUNG) is LGPL v3, so redistribution IS legally
+# permitted (with source/license). We still quarantine the extracted assets for
+# repo-leanness / consistency with the other extracted packs: track only the README.md,
+# exclude every .nbt / JSON / pack.mcmeta. (LGPL means these COULD be committed if desired.)
+datapacks/yungs-better-strongholds/**
+!datapacks/yungs-better-strongholds/
+!datapacks/yungs-better-strongholds/README.md
+
+# YUNG's Better Dungeons (YUNGNICKYOUNG) is LGPL v3, so redistribution IS legally
+# permitted (with source/license). We still quarantine the extracted assets for
+# repo-leanness / consistency with the other extracted packs: track only the README.md,
+# exclude every .nbt / JSON / pack.mcmeta. (LGPL means these COULD be committed if desired.)
+datapacks/yungs-better-dungeons/**
+!datapacks/yungs-better-dungeons/
+!datapacks/yungs-better-dungeons/README.md
+
+# Explorify (everloste) structure datapack. No license file ships in the zip and the
+# Modrinth page does not state a permissive license, so we treat it conservatively as
+# All-Rights-Reserved: private, non-commercial server use only; extracted/derived assets
+# MUST NOT be redistributed or published. Track only the README.md; exclude every derived
+# .nbt / JSON / pack.mcmeta / pack.png underneath.
+datapacks/explorify/**
+!datapacks/explorify/
+!datapacks/explorify/README.md
+
+# ChoiceTheorem's Overhauled Village (CTOV) by ChoiceTheorem. No license file ships in the
+# jar and the Modrinth page does not state a permissive license, so we treat it
+# conservatively as All-Rights-Reserved: private, non-commercial server use only;
+# extracted/derived assets MUST NOT be redistributed or published. Track only the
+# README.md; exclude every derived .nbt / JSON / pack.mcmeta underneath.
+datapacks/ctov/**
+!datapacks/ctov/
+!datapacks/ctov/README.md
+
+# When Dungeons Arise: Seven Seas (dungeons_arise_seven_seas) is CC0 1.0 (public domain),
+# so redistribution is fully permitted with no restrictions. We still quarantine the
+# extracted assets for repo-leanness / consistency with the other extracted packs: track
+# only the README.md, exclude every .nbt / JSON / pack.mcmeta. (CC0 means these COULD be
+# committed freely if ever desired - this is policy, not a license bar.)
+datapacks/dungeons-arise-seven-seas/**
+!datapacks/dungeons-arise-seven-seas/
+!datapacks/dungeons-arise-seven-seas/README.md
+
+# Structory and Structory: Towers (Stardust Labs). Their license PROHIBITS redistributing
+# the datapack in standalone OR modified form, so committing the assets would breach it.
+# Use is permitted on a private server (incl. modified). Quarantine like the CC BY-NC-ND
+# packs: track only the README.md, exclude every derived asset (.nbt / JSON / pack.png /
+# license / patrons blob).
+datapacks/structory/**
+!datapacks/structory/
+!datapacks/structory/README.md
+datapacks/structory-towers/**
+!datapacks/structory-towers/
+!datapacks/structory-towers/README.md
+
 staging/
 iris/pack-base/
 iris/_pack-base-39-backup/

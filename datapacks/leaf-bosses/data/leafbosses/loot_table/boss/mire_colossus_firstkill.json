@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:advancement_reward",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "PublicBukkitValues": {
+                    "leafartifacts:artifact_type": "steadfast_spikes",
+                    "leafcurios:slots": "feet"
+                  }
+                },
+                "minecraft:item_model": "leafartifacts:steadfast_spikes",
+                "minecraft:unbreakable": {},
+                "minecraft:custom_name": { "text": "Steadfast Spikes", "color": "aqua", "italic": false },
+                "minecraft:lore": [
+                  { "text": "You cannot be knocked back.", "color": "gray", "italic": false },
+                  { "text": "Slot: Feet", "color": "dark_aqua", "italic": false },
+                  { "text": "Artifact", "color": "dark_purple", "italic": false },
+                  { "text": "First trophy of the Mire Colossus.", "color": "dark_green", "italic": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

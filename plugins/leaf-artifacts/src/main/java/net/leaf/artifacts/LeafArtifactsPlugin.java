@@ -28,6 +28,9 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
     private RollerSkatesController rollerSkates;
     private HeliumFlamingoController heliumFlamingo;
     private FlippersController flippers;
+    private UmbrellaController umbrella;
+    private SinkingController sinking;
+    private AttractorController attractor;
 
     @Override
     public void onEnable() {
@@ -46,9 +49,12 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
         this.rollerSkates = new RollerSkatesController(this, equipment);
         this.heliumFlamingo = new HeliumFlamingoController(this, equipment);
         this.flippers = new FlippersController(this, equipment, heliumFlamingo);
+        this.umbrella = new UmbrellaController(this, equipment);
+        this.sinking = new SinkingController(this, equipment);
+        this.attractor = new AttractorController(this, equipment);
 
         getServer().getPluginManager().registerEvents(
-                new ArtifactListener(this, controller, rollerSkates, heliumFlamingo, flippers, curios), this);
+                new ArtifactListener(this, controller, rollerSkates, heliumFlamingo, flippers, umbrella, sinking, attractor, curios), this);
         getServer().getPluginManager().registerEvents(new ArtifactEventListener(equipment), this);
         getServer().getPluginManager().registerEvents(new CloudJumpListener(this, equipment), this);
 
@@ -79,6 +85,9 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
             rollerSkates.start(player);
             heliumFlamingo.start(player);
             flippers.start(player);
+            umbrella.start(player);
+            sinking.start(player);
+            attractor.start(player);
         }
 
         getLogger().info("LeafArtifacts enabled.");
@@ -97,6 +106,15 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
                 }
                 if (flippers != null) {
                     flippers.clear(player);
+                }
+                if (umbrella != null) {
+                    umbrella.clear(player);
+                }
+                if (sinking != null) {
+                    sinking.clear(player);
+                }
+                if (attractor != null) {
+                    attractor.clear(player);
                 }
             }
         }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CLI entry point. Reads a JSON tree config list and writes .iob and/or .schem files."""
+"""CLI entry point. Reads a JSON tree config list and writes .iob, .schem, and/or vanilla structure .nbt files."""
 
 import argparse
 import json
@@ -11,7 +11,7 @@ import sys
 _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _HERE)
 
-from nbt import write_schematic, write_iob
+from nbt import write_schematic, write_iob, write_structure_nbt
 from trunk import generate_trunk_with_offsets, set_round_trunk
 from canopy import generate_canopy
 from decorators import apply_decorators
@@ -257,12 +257,18 @@ def parse_args():
              "Defaults to an 'output/' folder next to the config file."
     )
     parser.add_argument(
-        "--format", default="iob", choices=["iob", "schem", "both"],
-        help="Output format: iob (Iris V2 IOB, default), schem (Sponge Schematic v3), or both."
+        "--format", default="iob", choices=["iob", "schem", "nbt", "both", "all"],
+        help="Output format: iob (Iris V2 IOB, default), schem (Sponge Schematic v3), "
+             "nbt (vanilla structure template), both (iob+schem), or all (iob+schem+nbt)."
     )
     parser.add_argument(
         "--count", type=int, default=None,
         help="Number of schematics to generate per entry (overrides per-entry 'count' field)."
+    )
+    parser.add_argument(
+        "--data-version", type=int, default=None,
+        help="DataVersion stamped into vanilla structure .nbt output "
+             "(e.g. 4325 for Minecraft 1.21.5). Defaults to the nbt module's DATA_VERSION."
     )
     return parser.parse_args()
 
@@ -304,11 +310,11 @@ def main():
             L = max(zs) - min(zs) + 1
 
             written = []
-            if fmt in ("iob", "both"):
+            if fmt in ("iob", "both", "all"):
                 fname = output_filename(entry, height, "iob", index=idx)
                 write_iob(os.path.join(out_dir, fname), blocks)
                 written.append(fname)
-            if fmt in ("schem", "both"):
+            if fmt in ("schem", "both", "all"):
                 fname = output_filename(entry, height, "schem", index=idx)
                 write_schematic(
                     os.path.join(out_dir, fname),
@@ -316,6 +322,14 @@ def main():
                     name=fname.replace(".schem", ""),
                     author="tree-gen",
                 )
+                written.append(fname)
+            if fmt in ("nbt", "all"):
+                fname = output_filename(entry, height, "nbt", index=idx)
+                if args.data_version is not None:
+                    write_structure_nbt(os.path.join(out_dir, fname), blocks,
+                                        data_version=args.data_version)
+                else:
+                    write_structure_nbt(os.path.join(out_dir, fname), blocks)
                 written.append(fname)
 
             print("  [%d/%d] %s  W=%d H=%d L=%d  blocks=%d" % (

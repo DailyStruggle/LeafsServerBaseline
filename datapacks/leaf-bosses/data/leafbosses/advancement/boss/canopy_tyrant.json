@@ -1,0 +1,18 @@
+{
+  "parent": "leafbosses:root",
+  "display": {
+    "title": "Canopy Tyrant",
+    "description": "Fell the Canopy Tyrant of the deep jungle. The first kill yields the Feral Claws.",
+    "icon": { "id": "minecraft:prismarine_shard" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "slain": { "trigger": "minecraft:impossible" }
+  },
+  "rewards": {
+    "loot": ["leafbosses:boss/canopy_tyrant_firstkill"]
+  }
+}

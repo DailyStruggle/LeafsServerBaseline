@@ -1,0 +1,14 @@
+{
+  "display": {
+    "title": "Biome Bosses",
+    "description": "Hunt the apex guardians of each scaled-up biome. First kills yield their artifact.",
+    "icon": { "id": "minecraft:dragon_head" },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+  },
+  "criteria": {
+    "tick": { "trigger": "minecraft:tick" }
+  }
+}

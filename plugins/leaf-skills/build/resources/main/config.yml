@@ -1,0 +1,70 @@
+# LeafSkills configuration.
+#
+# The leaf-skilltree datapack owns the visual advancement tree and the
+# `skill_pick` trigger objective. This plugin reads that trigger, validates the
+# selection, charges experience LEVELS, and applies the buff.
+#
+# Cost curve: cost = base + step * points_already_spent   (linear; D&D-5e-like
+# rising multiclass demand). Levels are spent and never refunded on reset.
+cost:
+  base: 5
+  step: 3
+
+# How often (in ticks) each player's selection trigger is polled and buffs are
+# reconciled. 10 ticks = twice per second.
+poll-interval-ticks: 10
+
+# Each node maps to an advancement key under the leafskills datapack namespace
+# (leafskills:node/<key>). `id` is the integer the player writes via
+# /trigger skill_pick set <id>.
+#
+# requires:  ALL listed node keys must already be owned (classless prerequisite).
+# excludes:  NONE of the listed node keys may be owned (mutual exclusivity).
+# gate:      optional advancement key that must be completed first (hard gate,
+#            e.g. a boss kill, a discovered structure, or a found artifact).
+# attribute: optional flat attribute modifier (operation add_value).
+# effect:    optional infinite potion effect applied while owned.
+nodes:
+  vigor:
+    id: 1
+    requires: []
+    excludes: []
+    attribute:
+      key: max_health
+      amount: 4.0
+  swift:
+    id: 2
+    requires: []
+    excludes: []
+    attribute:
+      key: movement_speed
+      amount: 0.02
+  bulwark:
+    id: 3
+    requires: [vigor]
+    excludes: [reaver]
+    attribute:
+      key: armor
+      amount: 8.0
+  reaver:
+    id: 4
+    requires: [vigor]
+    excludes: [bulwark]
+    attribute:
+      key: attack_damage
+      amount: 2.0
+  skirmish:
+    id: 5
+    requires: [swift]
+    excludes: []
+    attribute:
+      key: attack_speed
+      amount: 0.8
+  warden:
+    id: 6
+    requires: [bulwark, skirmish]
+    excludes: []
+    gate: "minecraft:end/kill_dragon"
+    effect:
+      key: resistance
+      amplifier: 0

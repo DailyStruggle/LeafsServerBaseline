@@ -8,6 +8,13 @@ This note captures the agreed design direction for custom mob variants, named mo
 and biome-specific spawning on this server. It is a planning document, not a spec.
 Implementation is gated behind a separate vertical-slice proposal (Rule D-005).
 
+> **Boss roster moved.** The per-biome **boss** roster, boss -> artifact mapping, and
+> the magic/spellcaster boss design are now consolidated in
+> `docs/scratch/BIOME-BOSS-MOBS-PLAN.md` (the post-ADR-005 Paper + vanilla-datapack
+> approach). This note still owns the two-tier model, the biome-rarity gradient, the
+> Tier-1 (farmable) common-mob lists, and cave-structure design. The Iris-era
+> entities/spawners/loot mechanism below is historical.
+
 ---
 
 ## Goal
@@ -160,6 +167,22 @@ agreed candidate, `maybe` = lighter/secondary. Priority 1 = next slices.
 
 Vanilla-flavor variants (`__young` / `__tall` / `__spiral` / `__dense`) and plain vanilla
 biomes stay at 0% custom spawns to preserve the gradient and are intentionally absent here.
+
+> **Terralost rows retired (Iris -> vanilla-datapack structures, ADR-005).** The `terralost/*`
+> biome rows above (`volcanic-crater`, `caldera`, `glacial-chasm`, `frozen-cliffs`, `ancient-sands`,
+> `desert-canyon`, `skylands`) no longer generate in the live world, so their gated elites move from
+> a custom Iris biome to a rare custom **jigsaw structure** dropped into a fitting vanilla biome
+> (structure-over-biome rule; canonical in `BIOME-BOSS-MOBS-PLAN.md`):
+>
+> - Caldera Tyrant: `leaf:caldera_throne` @ Nether `basalt_deltas` - throne-room over lava; `BLAZE`
+>   boss + `MAGMA_CUBE` court adds (replaces the `volcanic-crater`/`caldera` rows).
+> - Glacier Warden: `leaf:frozen_prison` @ snowy biomes - undead "ice jail"; boss is now undead
+>   `WITHER_SKELETON` (not `IRON_GOLEM`) with skeleton/stray jailer adds (replaces `glacial-chasm`/
+>   `frozen-cliffs`).
+> - Sand Revenant: `leaf:sunken_tomb` @ `desert`/`badlands` - sphinx/tomb ruin; undead `HUSK`/`STRAY`
+>   (replaces `ancient-sands`/`desert-canyon`).
+>
+> The `carving/*` cave rows are unaffected (vanilla cave biomes can host them directly).
 
 ## Cave Structure Design
 

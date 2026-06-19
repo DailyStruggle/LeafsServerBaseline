@@ -30,17 +30,25 @@ public final class ArtifactListener implements Listener {
     private final RollerSkatesController rollerSkates;
     private final HeliumFlamingoController heliumFlamingo;
     private final FlippersController flippers;
+    private final UmbrellaController umbrella;
+    private final SinkingController sinking;
+    private final AttractorController attractor;
     private final CuriosApi curios;
 
     public ArtifactListener(Plugin plugin, ArtifactController controller,
                             RollerSkatesController rollerSkates,
                             HeliumFlamingoController heliumFlamingo,
-                            FlippersController flippers, CuriosApi curios) {
+                            FlippersController flippers, UmbrellaController umbrella,
+                            SinkingController sinking, AttractorController attractor,
+                            CuriosApi curios) {
         this.plugin = plugin;
         this.controller = controller;
         this.rollerSkates = rollerSkates;
         this.heliumFlamingo = heliumFlamingo;
         this.flippers = flippers;
+        this.umbrella = umbrella;
+        this.sinking = sinking;
+        this.attractor = attractor;
         this.curios = curios;
     }
 
@@ -69,6 +77,9 @@ public final class ArtifactListener implements Listener {
         rollerSkates.start(player);
         heliumFlamingo.start(player);
         flippers.start(player);
+        umbrella.start(player);
+        sinking.start(player);
+        attractor.start(player);
     }
 
     @EventHandler
@@ -77,6 +88,9 @@ public final class ArtifactListener implements Listener {
         rollerSkates.clear(event.getPlayer());
         heliumFlamingo.clear(event.getPlayer());
         flippers.clear(event.getPlayer());
+        umbrella.clear(event.getPlayer());
+        sinking.clear(event.getPlayer());
+        attractor.clear(event.getPlayer());
     }
 
     @EventHandler
