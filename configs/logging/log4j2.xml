@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Custom Log4j2 config for the Paper server.
+
+    This is a verbatim copy of Paper's bundled log4j2.xml (extracted from
+    paper-<ver>.jar) with ONE addition: a RegexFilter on the Root logger that
+    DENYs Paper's noisy worldgen diagnostic:
+
+        "Detected unsafe terrain read during worldgen: ..."
+
+    That ERROR is a benign Paper safety diagnostic (it falls back to a safe
+    default and continues) emitted in bulk by large third-party jigsaw
+    structures such as Dungeons & Taverns' nova_structures:cave_chamber_*.
+    See docs/design/STRUCTURE-PACK-INTEGRATION.md. We only suppress the log
+    line; generation is unaffected.
+
+    Wire it up with the JVM flag (deploy-logging-config.ps1 patches start.bat):
+        -Dlog4j.configurationFile=log4j2.xml
+
+    NOTE: keep the appenders below in sync with Paper's bundled log4j2.xml on
+    major Paper upgrades; only the RegexFilter line is ours.
+-->
+<Configuration status="WARN" shutdownHook="disable">
+    <Appenders>
+        <Queue name="ServerGuiConsole">
+            <PatternLayout pattern="[%d{HH:mm:ss} %level]: %msg{nolookups}%n" />
+        </Queue>
+        <TerminalConsole name="TerminalConsole">
+            <PatternLayout>
+                <LoggerNamePatternSelector defaultPattern="%highlightError{[%d{HH:mm:ss} %level]: [%logger] %msg%n%xEx{full}}">
+                    <!-- Log root, Minecraft, Mojang and Bukkit loggers without prefix -->
+                    <!-- Disable prefix for various plugins that bypass the plugin logger -->
+                    <PatternMatch key=",net.minecraft.,Minecraft,com.mojang.,com.sk89q.,ru.tehkode.,Minecraft.AWE"
+                                  pattern="%highlightError{[%d{HH:mm:ss} %level]: %msg%n%xEx{full}}" />
+                </LoggerNamePatternSelector>
+            </PatternLayout>
+        </TerminalConsole>
+        <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout>
+                <LoggerNamePatternSelector defaultPattern="[%d{HH:mm:ss}] [%t/%level]: [%logger] %stripAnsi{%msg}%n%xEx{full}">
+                    <!-- Log root, Minecraft, Mojang and Bukkit loggers without prefix -->
+                    <!-- Disable prefix for various plugins that bypass the plugin logger -->
+                    <PatternMatch key=",net.minecraft.,Minecraft,com.mojang.,com.sk89q.,ru.tehkode.,Minecraft.AWE"
+                                  pattern="[%d{HH:mm:ss}] [%t/%level]: %stripAnsi{%msg}%n%xEx{full}" />
+                </LoggerNamePatternSelector>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <OnStartupTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="1000"/>
+        </RollingRandomAccessFile>
+        <Async name="Async">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="TerminalConsole" level="info"/>
+            <AppenderRef ref="ServerGuiConsole" level="info"/>
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <filters>
+                <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
+                <!-- LeafsServerBaseline: drop benign worldgen "unsafe terrain read" spam -->
+                <RegexFilter regex="(?s).*Detected unsafe terrain read during worldgen.*" onMatch="DENY" onMismatch="NEUTRAL" />
+            </filters>
+            <AppenderRef ref="Async"/>
+        </Root>
+    </Loggers>
+</Configuration>

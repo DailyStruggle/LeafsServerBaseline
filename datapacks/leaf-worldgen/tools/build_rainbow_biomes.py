@@ -13,8 +13,10 @@ import colorsys, json, os
 #   python datapacks/leaf-worldgen/tools/build_rainbow_biomes.py
 
 N = 12
-SAT = 0.55
-VAL = 0.80
+# Denser, more vivid rainbow: higher saturation and a slightly lower value so the
+# canopy tint reads as rich, saturated colour rather than a washed-out pastel.
+SAT = 0.85
+VAL = 0.75
 
 OUT_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data",
                                         "leaf", "worldgen", "biome"))

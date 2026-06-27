@@ -71,7 +71,45 @@ Every artifact item sets the `minecraft:item_model` component to `leafartifacts:
 Not yet implemented (deferred for review-then-build):
 
 - Artifact icon PNGs (the models are wired; sprites still need to be drawn - see `resourcepack/.../textures/item/SOURCING.md`).
-- Loot sourcing (where artifacts drop) is owned by the biome decisions, not this plugin: boss drops ship with each biome elite's loot table per `docs/scratch/BIOME-BOSS-MOBS-PLAN.md`, with structure drops layered in alongside.
+
+## Loot sourcing
+
+Artifacts are injected into world loot entirely in this plugin (no datapack), because vanilla loot tables cannot be merged - only whole-file overridden - so a runtime hook is both cleaner and immune to the third-party structure packs changing. Two channels (`ArtifactLoot` + `ArtifactLootListener`):
+
+- **Structure chests** (`LootGenerateEvent`): when a loot table fills a container, the container's loot-table id is classified by `ArtifactLoot.classifyChest` and, on a chance roll, one tier-appropriate artifact is added. Because a structure only generates in its own biome(s), the loot-table id already encodes the structure (and hence the biome), so no runtime biome lookup is needed. Classification is **two-axis**:
+  - **Structure base tier** - an ordered `STRUCTURE_RULES` match on the id (namespace + token). It covers vanilla structures (mineshaft/shipwreck/ocean-ruin -> `COMMON`, temples/outposts/buried-treasure -> `UNCOMMON`, stronghold/mansion -> `RARE`, ancient-city/trial-chamber/end-city/bastion -> `SPECIAL`) **and every bundled third-party pack by namespace** (ctov, nova_structures, dungeons_arise(+seven_seas), betterstrongholds, betterdungeons, structory(+_towers), kaisyn/towns-and-towers, explorify, hopo, stoneholm), with a `chest` catch-all for any future pack. Pack-namespace rules are matched before the generic vanilla tokens so e.g. a Dungeons-and-Taverns mansion chest named `ancient_city_raid_chest` is read as the mansion (`RARE`), not over-promoted to `SPECIAL`.
+  - **Per-chest rarity shift** - a single +/-1 tier shift read from keywords in the chest's leaf name (`treasure`/`big`/`grand`/`vault`/`boss`/`special`/`high`/`rare`/`top` bump up; `common`/`small`/`barrel`/`normal`/`supply`/`loot_piles`/`mess`/`food`/`low` bump down), so a structure's "treasure" chest outranks its "common" chest. The result is clamped to `COMMON..SPECIAL` (so `BOSS`-only artifacts can never leak into chests). The full table lives in `docs/scratch/ARTIFACTS-VANILLA-RECREATION.md`.
+
+  `LootGenerateEvent` does not fire for mob drops or fishing, which is why mobs use the death channel below.
+- **Mob drops** (`EntityDeathEvent`, killer-independent): a small curated set of hostile mobs (evoker, illusioner, ravager, vindicator, pillager, witch) can rarely drop a tier-appropriate artifact. None of these are `leaf-bosses` entity bases, so the two channels never double up.
+
+The artifact item is always built by `ArtifactItem.create`, so `ArtifactType` stays the single source of truth (no duplicated loot JSON), and tier membership lives in `ArtifactLootTier` (mirroring the skewed tier list in `docs/scratch/ARTIFACTS-VANILLA-RECREATION.md`). Artifacts tagged `BOSS` there (Verdant Crown, Frostward Charm) are excluded from this injection because biome bosses already deliver them via the `leaf-bosses` datapack loot tables (`docs/scratch/BIOME-BOSS-MOBS-PLAN.md`).
+
+## Spawner crafting sink
+
+`SpawnerCraftListener` lets players craft a single pre-configured, bounded `minecraft:spawner` by sacrificing one specific named artifact **plus a Netherite Block**. This directs the inevitable urge to farm XP/resources away from ugly, laggy spawn contraptions and away from natural-spawn dependence, while keeping spawners scarce rather than freely renewable.
+
+Renewability is governed by the consumed artifact:
+
+- The four **SPECIAL**-tier artifacts (Fire Gauntlet, Villager Hat, Scarf of Invisibility, Cloud in a Bottle) come only from finite structure chests, so those spawners are effectively **non-renewable**.
+- The two **BOSS**-tier artifacts (Frostward Charm, Verdant Crown) are boss-gated, so their spawners are **double-gated**: you must beat the biome boss *and* pay the netherite.
+
+Netherite is the game's most valuable/difficult material (and themes the spawner's dark metal cage), satisfying the "2 of: valuable, difficult, nonrenewable" bar for the second ingredient.
+
+Because artifacts are plain vanilla-`Material` items distinguished only by the `ARTIFACT_TYPE` PDC (a datapack recipe cannot match that, and would match the bare base item), each recipe is registered as a shapeless recipe keyed on the artifact's base material (+ a Netherite Block), and a `PrepareItemCraftEvent` guard voids the result unless the real artifact (correct `ArtifactType`, verified by PDC) is in the grid. This mirrors the leather-dye preservation pattern in `ArtifactEventListener`.
+
+Each crafted spawner is clamped (`SpawnCount` 2, `MaxNearbyEntities` 6, `RequiredPlayerRange` 16, `SpawnRange` 4, default 200/800 delays) so it cannot drive runaway mob lag.
+
+| Output (x1 spawner) | Artifact consumed | Tier | Renewability | + Ingredient |
+|---|---|---|---|---|
+| Blaze | Fire Gauntlet | Special | Non-renewable (chest-only) | 1 Netherite Block |
+| Zombie | Villager Hat | Special | Non-renewable (chest-only) | 1 Netherite Block |
+| Spider | Scarf of Invisibility | Special | Non-renewable (chest-only) | 1 Netherite Block |
+| Witch | Cloud in a Bottle | Special | Non-renewable (chest-only) | 1 Netherite Block |
+| Stray | Frostward Charm | Boss | Boss-gated (double-gated) | 1 Netherite Block |
+| Slime | Verdant Crown | Boss | Boss-gated (double-gated) | 1 Netherite Block |
+
+The Witch spawner is the deliberate premium path: witches drop otherwise-nonrenewable Redstone and Glowstone.
 
 ## Equipment menu (curios)
 

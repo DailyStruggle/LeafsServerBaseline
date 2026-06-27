@@ -24,6 +24,8 @@ public final class LeafShapeMiningPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ModeSwitchListener(), this);
         getServer().getPluginManager().registerEvents(
                 new BlockBreakListener(getServer(), config), this);
+        getServer().getPluginManager().registerEvents(
+                new CropHarvestListener(getServer(), config), this);
 
         ShapeMineCommand command = new ShapeMineCommand();
         if (getCommand("shapemine") != null) {

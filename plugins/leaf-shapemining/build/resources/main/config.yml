@@ -1,4 +1,14 @@
 # LeafShapeMining configuration.
+#
+# The feature is opt-in per player (/shapemine on) and runs off any vanilla
+# pickaxe/axe/shovel/hoe the player holds. Once on, sneak + scroll cycles the
+# active shape on the held tool. Every tool class follows the SAME format below:
+#   filler -> blocks the shape modes (1x2 / 3x3 / 1x1xN tunnel) clear in bulk.
+#   vein   -> blocks the "vein" mode flood-fills (connected same-block).
+# A block is only ever broken if the held tool can actually harvest it (tier
+# gate), so a stone pickaxe never destroys diamond-tier blocks. Mining is not
+# the only thing sped up: shovels speed digging, axes fell trees, hoes clear
+# fields - keeping the game a search-and-build game, not a tedious mining game.
 
 # Direction-aware tunnel-bore (1x1xN) length caps, in blocks per swing.
 # Digging straight down is the dangerous case (lava/void), so it is clamped hard.
@@ -14,24 +24,125 @@ max-blocks-per-swing: 64
 # (the originally-broken block uses vanilla durability).
 durability-per-block: 1
 
-# Bulk-filler allow-list. Only these materials are ever broken by a shape, and a
-# shape only triggers when the originally-broken block is one of them. All ores,
-# containers, and block-entities are intentionally excluded to preserve mining
-# pacing (this is the line that separates shape-mining from veinminer).
-allow-list:
-  - STONE
-  - COBBLESTONE
-  - DEEPSLATE
-  - COBBLED_DEEPSLATE
-  - DIRT
-  - COARSE_DIRT
-  - GRANITE
-  - DIORITE
-  - ANDESITE
-  - TUFF
-  - NETHERRACK
-  - SANDSTONE
-  - RED_SANDSTONE
-  - BLACKSTONE
-  - BASALT
-  - CALCITE
+# Vein mode (Ultimine-style) shared cap: how many blocks a single vein clears
+# (also bounded by max-blocks-per-swing above).
+vein:
+  max-vein: 64
+
+# Per-tool-class material lists. High-value ("high-dopamine") ores - diamond,
+# gold, redstone, emerald, lapis, ancient debris, quartz - are intentionally
+# absent from every vein list so each find is still revealed by hand.
+tools:
+  pickaxe:
+    filler:
+      - STONE
+      - COBBLESTONE
+      - DEEPSLATE
+      - COBBLED_DEEPSLATE
+      - GRANITE
+      - DIORITE
+      - ANDESITE
+      - TUFF
+      - NETHERRACK
+      - SANDSTONE
+      - RED_SANDSTONE
+      - BLACKSTONE
+      - BASALT
+      - CALCITE
+    vein:
+      - COAL_ORE
+      - DEEPSLATE_COAL_ORE
+      - COPPER_ORE
+      - DEEPSLATE_COPPER_ORE
+  shovel:
+    filler:
+      - DIRT
+      - COARSE_DIRT
+      - ROOTED_DIRT
+      - GRASS_BLOCK
+      - PODZOL
+      - MYCELIUM
+      - SAND
+      - RED_SAND
+      - GRAVEL
+      - SOUL_SAND
+      - SOUL_SOIL
+      - SNOW_BLOCK
+      - MUD
+    # Clay is the one bulk deposit that comes in discrete pockets, so it reads as
+    # a "vein" for shovels rather than a flat filler layer.
+    vein:
+      - CLAY
+  axe:
+    filler: []
+    # Every wood "log" type the game has, so tree-felling works on all of them.
+    # Includes the stripped + all-bark ("_WOOD") variants and bamboo (whose
+    # BAMBOO_BLOCK is the log-equivalent) so no wood type is left single-block.
+    vein:
+      - OAK_LOG
+      - SPRUCE_LOG
+      - BIRCH_LOG
+      - JUNGLE_LOG
+      - ACACIA_LOG
+      - DARK_OAK_LOG
+      - MANGROVE_LOG
+      - CHERRY_LOG
+      - PALE_OAK_LOG
+      - CRIMSON_STEM
+      - WARPED_STEM
+      - STRIPPED_OAK_LOG
+      - STRIPPED_SPRUCE_LOG
+      - STRIPPED_BIRCH_LOG
+      - STRIPPED_JUNGLE_LOG
+      - STRIPPED_ACACIA_LOG
+      - STRIPPED_DARK_OAK_LOG
+      - STRIPPED_MANGROVE_LOG
+      - STRIPPED_CHERRY_LOG
+      - STRIPPED_PALE_OAK_LOG
+      - STRIPPED_CRIMSON_STEM
+      - STRIPPED_WARPED_STEM
+      - OAK_WOOD
+      - SPRUCE_WOOD
+      - BIRCH_WOOD
+      - JUNGLE_WOOD
+      - ACACIA_WOOD
+      - DARK_OAK_WOOD
+      - MANGROVE_WOOD
+      - CHERRY_WOOD
+      - PALE_OAK_WOOD
+      - CRIMSON_HYPHAE
+      - WARPED_HYPHAE
+      - STRIPPED_OAK_WOOD
+      - STRIPPED_SPRUCE_WOOD
+      - STRIPPED_BIRCH_WOOD
+      - STRIPPED_JUNGLE_WOOD
+      - STRIPPED_ACACIA_WOOD
+      - STRIPPED_DARK_OAK_WOOD
+      - STRIPPED_MANGROVE_WOOD
+      - STRIPPED_CHERRY_WOOD
+      - STRIPPED_PALE_OAK_WOOD
+      - STRIPPED_CRIMSON_HYPHAE
+      - STRIPPED_WARPED_HYPHAE
+      - BAMBOO_BLOCK
+      - STRIPPED_BAMBOO_BLOCK
+  hoe:
+    filler:
+      - HAY_BLOCK
+      - DRIED_KELP_BLOCK
+      - MOSS_BLOCK
+      - SHROOMLIGHT
+      - NETHER_WART_BLOCK
+      - WARPED_WART_BLOCK
+      - SPONGE
+      - WET_SPONGE
+      - TARGET
+    # Crops are the hoe's vein/area material: left-click (vein mode) bulk-breaks a
+    # connected field, and right-click (vein mode) harvests + replants the field
+    # at growth stage 0, like the modded right-click harvest - replacing crops one
+    # at a time is the tedious part farming should not have.
+    vein:
+      - WHEAT
+      - CARROTS
+      - POTATOES
+      - BEETROOTS
+      - NETHER_WART

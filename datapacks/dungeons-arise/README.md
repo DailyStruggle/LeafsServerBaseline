@@ -28,7 +28,7 @@ non-commercial** server only.
   (`net/`), `assets/`, `META-INF/`, `fabric.mod.json` and logo were intentionally NOT
   extracted - only the datapack-side, reusable structure assets.
 - 877 `.nbt` structure pieces under `data/dungeons_arise/structure/<theme>/`, grouped by
-  the mod's 43 structure themes (e.g. `aviary`, `foundry`, `shiraz_palace`,
+  the mod's structure themes (e.g. `aviary`, `foundry`,
   `mechanical_nest`, `bandit_village`, `coliseum`, ...).
 - 483 supporting JSONs: `worldgen/` (jigsaw `template_pool`, `processor_list`,
   `structure`, `structure_set`), `loot_table/`, `tags/`, `advancement/`, `enchantment/`,

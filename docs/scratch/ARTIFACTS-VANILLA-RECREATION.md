@@ -141,6 +141,62 @@ Iris biome to a datapack structure.
 - Rare -> bastions, strongholds, woodland mansions.
 - Epic -> end cities, ancient cities, raid drops (or boss-gated).
 
+## Structure-chest loot mapping (biome + rarity, implemented)
+
+The plugin injects artifacts into structure chests at runtime via `LootGenerateEvent`
+(no datapack; see `plugins/leaf-artifacts` `ArtifactLoot.classifyChest`). A structure
+only generates in its own biome(s), so the loot-table id already encodes the structure
+(and hence biome) - no runtime biome lookup is needed. Classification is **two axes**:
+a structure base tier (axis 1) shifted by a per-chest rarity keyword (axis 2), clamped
+to `COMMON..SPECIAL` (so `BOSS`-only artifacts never leak into chests). Tiers map onto
+the four loot buckets below; mob drops and biome-boss drops are separate channels.
+
+### Axis 1 - structure base tier (by namespace + token)
+
+| Pack (loot-table namespace) | Structure group / token | Base tier |
+|---|---|---|
+| vanilla (`minecraft`) | mineshaft, shipwreck, ocean/underwater ruin | COMMON |
+| vanilla (`minecraft`) | desert/jungle temple, igloo, pillager outpost, buried treasure, nether fortress | UNCOMMON |
+| vanilla (`minecraft`) | stronghold, woodland mansion | RARE |
+| vanilla (`minecraft`) | ancient city, trial chamber, end city, bastion | SPECIAL |
+| CTOV (`ctov`) | villages | COMMON |
+| Dungeons and Taverns (`nova_structures`) | general | UNCOMMON |
+| Dungeons and Taverns (`nova_structures`) | `illager_mansion`, `lone_citadel` | RARE |
+| When Dungeons Arise (`dungeons_arise`) | large dungeons/monuments | RARE |
+| When Dungeons Arise (`dungeons_arise`) | `mines_*` | COMMON |
+| Seven Seas (`dungeons_arise_seven_seas`) | pirate ships | UNCOMMON |
+| YUNG's Better Strongholds (`betterstrongholds`) | stronghold | RARE |
+| YUNG's Better Dungeons (`betterdungeons`) | skeleton/zombie/spider/nether dungeon | UNCOMMON |
+| Structory (`structory`) | ruins, manors, graveyards, library | UNCOMMON |
+| Structory Towers (`structory_towers`) | towers | UNCOMMON |
+| Structory Towers (`structory_towers`) | `end_tower` | RARE |
+| Towns and Towers (`kaisyn`) | village | COMMON |
+| Towns and Towers (`kaisyn`) | `outpost`, archeology/ruins | UNCOMMON |
+| Explorify (`explorify`) | settlements, caches, mausoleum | COMMON |
+| Hopo Better Mineshaft (`hopo`) | mineshaft | COMMON |
+| Stoneholm (`stoneholm`) | underground village rooms | COMMON |
+| (any other loot table containing `chest`) | catch-all | COMMON |
+
+Pack-namespace rules are matched **before** the generic vanilla tokens, so a chest whose
+name merely contains a high-tier vanilla word (e.g. `nova_structures` mansion chest
+`ancient_city_raid_chest`) is read as its real structure (RARE), not over-promoted.
+
+### Axis 2 - per-chest rarity shift (from the chest's leaf name)
+
+| Shift | Keywords |
+|---|---|
+| +1 tier | `treasure`, `treasury`, `big`, `grand`, `vault`, `boss`, `special`, `high`, `rare`, `top` |
+| -1 tier | `common`, `small`, `barrel`, `normal`, `supply`, `loot_piles`, `mess`, `food`, `low` |
+| 0 (none) | everything else |
+
+At most one step either way (up wins ties), then clamp to `COMMON..SPECIAL`. Examples:
+`betterstrongholds:chests/treasure` = RARE+1 -> SPECIAL; `.../common` = RARE-1 -> UNCOMMON;
+`dungeons_arise:chests/mines_treasure_big` = COMMON+1 -> UNCOMMON; `seven_seas:.../barrels`
+= UNCOMMON-1 -> COMMON.
+
+> First pass per the "get it working, refine later" agreement; base tiers and keyword
+> lists are easy to retune in `ArtifactLoot`. Covered by `ArtifactLootTest`.
+
 ## Tier-ordered artifact list (for loot-table placement)
 
 Artifacts grouped by their `Value` tier, mapped onto the four loot-table buckets used by the
@@ -259,7 +315,7 @@ Build order, easiest/highest-leverage first. Each phase is independently shippab
 - P4 - Remaining ticking/utility (Medium): Antidote Vessel, Cross Necklace, Thorn Pendant, Eternal Steak, Superstitious Hat, Anglers Hat. (Digging Claws shipped early as an infinite ambient Haste - declarative, no ticking needed. Charm of Sinking shipped via `SinkingController`, a per-tick downward velocity nudge while submerged. Pocket Piston shipped as an event-driven melee knockback burst in `ArtifactEventListener`. Universal Attractor shipped via `AttractorController`, a per-tick item magnet that sneaking suspends.)
 - P5 - Hard/partial-fidelity (last): Umbrella (delivered as conditional Slow Falling on an unbreakable colored shield, `UmbrellaController`; the always-on float while falling is its cost), Villager Hat (trade discounts).
 - P6 - Presentation (textures): the resource-pack scaffold ships in `plugins/leaf-artifacts/resourcepack/` - a player-optional, server-sent pack with a per-artifact item-model (`assets/leafartifacts/items/<id>.json` + `models/item/<id>.json`) wired to the item via the `minecraft:item_model` component (`leafartifacts:<id>`) in `ArtifactItem.create`. The only remaining step is dropping a 32x32 (Faithful 32x resolution) `<id>.png` per artifact into `assets/leafartifacts/textures/item/`; the id -> texture-brief list lives in that folder's `SOURCING.md`. Use original art (do not copy the ochotonida mod's sprites).
-- Loot sourcing (where artifacts drop) is **out of scope for this note** - it falls to the biome decisions: boss drops are owned by `docs/scratch/BIOME-BOSS-MOBS-PLAN.md` (each artifact ships with its biome elite's loot table) and any non-biome/structure drops are layered in alongside that work. The "Source (where to get it)" column and the boss -> artifact mapping below remain as design intent for those plans to consume.
+- Loot sourcing (where artifacts drop): **structure + mob drops are now implemented in the `leaf-artifacts` plugin** (no datapack) via a runtime hook - structure-chest loot through `LootGenerateEvent` and a curated hostile-mob set through `EntityDeathEvent` (see `ArtifactLoot` / `ArtifactLootListener` / `ArtifactLootTier` and the plugin README "Loot sourcing"). Tier buckets follow the skewed tier list above. Boss drops remain owned by `docs/scratch/BIOME-BOSS-MOBS-PLAN.md` (each artifact ships with its biome elite's loot table); the two `BOSS`-tagged artifacts (Verdant Crown, Frostward Charm) are excluded from the plugin injection so the channels never double up. The "Source (where to get it)" column and the boss -> artifact mapping below remain the design intent these consume.
 
 Open question to settle before P0: 1.21 custom-enchantment datapack registration vs. plugin-driven `custom_data` markers.
 

@@ -105,7 +105,6 @@ mobs:
     display_name: "<dark_green><bold>The Grovewarden"
     biomes:
       - leaf:dark_forest_core
-      - leaf:dark_forest_body
     attributes:
       minecraft:max_health: 300.0
       minecraft:attack_damage: 14.0
@@ -129,7 +128,7 @@ mobs:
         - ZOMBIE
       reasons:
         - NATURAL
-      chance: 0.02
+      chance: 0.005
       cooldown_s: 1200
       max_live: 1
     # Melee boss kit: lunge to close distance, then an AoE slam; enrages below half health.

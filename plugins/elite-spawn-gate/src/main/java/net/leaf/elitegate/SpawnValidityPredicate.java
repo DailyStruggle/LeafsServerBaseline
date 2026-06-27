@@ -1,7 +1,9 @@
 package net.leaf.elitegate;
 
+import org.bukkit.HeightMap;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 
 /**
@@ -31,6 +33,10 @@ public final class SpawnValidityPredicate {
             }
         }
 
+        if (config.requireSkyAccess() && !isAtSurface(at)) {
+            return "below terrain surface (underground)";
+        }
+
         if (config.rejectArtificialNearby()) {
             int found = countArtificialNearby(at);
             if (found > config.maxArtificialBlocks()) {
@@ -39,6 +45,21 @@ public final class SpawnValidityPredicate {
         }
 
         return null;
+    }
+
+    /**
+     * A spawn is "at the surface" if its Y is no more than {@code surface-tolerance} blocks
+     * below the terrain surface. The surface height is taken from the
+     * {@link HeightMap#MOTION_BLOCKING_NO_LEAVES} heightmap, which reports the topmost solid
+     * ground/log block while ignoring the leaf canopy - so a spawn on the ground under a tree
+     * still counts as surface, while cave and other underground spawns (well below the
+     * ground) are rejected. This is an O(1) heightmap lookup rather than a vertical scan.
+     */
+    private boolean isAtSurface(Location at) {
+        World world = at.getWorld();
+        int surfaceY = world.getHighestBlockYAt(at.getBlockX(), at.getBlockZ(),
+                HeightMap.MOTION_BLOCKING_NO_LEAVES);
+        return at.getBlockY() >= surfaceY - config.surfaceTolerance();
     }
 
     private int countArtificialNearby(Location at) {

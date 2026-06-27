@@ -1,0 +1,24 @@
+[
+  {
+    "name": "darkoak_edge",
+    "comment": "dark forest edge carrier - the actual placement uses the vanilla minecraft:dark_oak / birch / oak configured features via the feature-trees placement in config.yml (dense, water-safe, practically vanilla). This baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:dark_oak_log",
+    "leaves": "minecraft:dark_oak_leaves",
+    "profile": "dark_oak_flat",
+    "height_min": 7,
+    "height_max": 10,
+    "seed": 4800,
+    "roots": false,
+    "count": 4,
+    "trunk_width": 2,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 160,
+      "squish": 0.22,
+      "mode": "density",
+      "leaf_density": 1.0,
+      "leaf-vertical-scale": 0.5
+    }
+  }
+]

@@ -17,8 +17,11 @@ N = 8
 # Warm arc of the HSV hue wheel: 0.00 (red) -> ~0.13 (gold/yellow).
 HUE_START = 0.0
 HUE_END = 0.13
-SAT = 0.85
-VAL = 0.80
+# Denser, more vivid autumn palette: push saturation to near-max and drop the
+# value a touch so the canopy reads as deep, rich red/orange/amber rather than a
+# lighter pastel.
+SAT = 0.95
+VAL = 0.72
 
 OUT_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data",
                                         "leaf", "worldgen", "biome"))

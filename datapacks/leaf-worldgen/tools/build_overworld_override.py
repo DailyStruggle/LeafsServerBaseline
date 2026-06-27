@@ -15,34 +15,38 @@ OUT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data",
 with open(REPORT, "r", encoding="utf-8") as f:
     report = json.load(f)
 
-# Fraction of each vanilla flower_forest humidity span that is converted to the
-# rainbow_forest gradient. The remaining (1 - RAINBOW_FRACTION) of the span stays
-# vanilla minecraft:flower_forest, so only a SUBSET of flower forests are rainbow
-# forests (they are now genuinely rarer, not a whole-biome substitution).
-RAINBOW_FRACTION = 0.25
+# CONDITIONAL rainbow-forest swap (see the flower_forest handling in the main
+# loop). Every vanilla flower_forest parameter point shares the same humidity span
+# ([-1.0, -0.35]) but tiles the WEIRDNESS axis across many distinct bands. Weirdness
+# is therefore the natural "condition" for swapping in the rainbow variant: only the
+# portion of each flower_forest's weirdness span below the split threshold is
+# replaced by the rainbow gradient, and the rest stays vanilla minecraft:flower_forest.
+# So a flower forest becomes a rainbow forest only WHERE the weirdness noise lands in
+# that sub-band -- a genuine in-world condition, not a whole-biome substitution.
+# Issue: "might as well all be rainbow forest for what used to be flower forest".
+# Set to 1.0 so the ENTIRE weirdness span of every vanilla flower_forest point is
+# replaced by the rainbow gradient -- no vanilla minecraft:flower_forest remainder
+# is kept (the "rest" entry below is skipped when the fraction is >= 1.0).
+RAINBOW_WEIRDNESS_FRACTION = 1.0
 
-# Number of times the 12-colour rainbow gradient repeats WITHIN the rainbow
-# sub-slice of a biome's humidity span. Humidity is a low-frequency field, so a
-# higher repeat count cycles the same 12 leaf-colour biomes more times within the
-# (now narrow) slice, producing many tight bands so the colours alternate very
-# frequently and the gradient reads clearly. To tune the effect, change this value.
+# Number of times the 12-colour rainbow gradient repeats across the humidity span of
+# the rainbow (weird) portion. Humidity is a low-frequency field, so a higher repeat
+# count cycles the same 12 leaf-colour biomes more times, producing many tight bands
+# so the colours alternate frequently and the gradient reads clearly. Tune here.
 RAINBOW_REPEATS = 8
 
-# Build the rainbow tier list. The 12-colour gradient (rainbow_forest_01..12) is
-# cycled RAINBOW_REPEATS times and packed into the first RAINBOW_FRACTION of the
-# humidity span (many narrow alternating bands); the remainder of the span is kept
-# as vanilla minecraft:flower_forest so rainbow forests are only a subset.
-def _rainbow_tiers(repeats=RAINBOW_REPEATS, fraction=RAINBOW_FRACTION):
+# 12-colour rainbow gradient (rainbow_forest_01..12) banded across the FULL humidity
+# span (fractions 0.0..1.0), cycled RAINBOW_REPEATS times into many narrow alternating
+# bands. The swap CONDITION lives on the weirdness axis (handled in the main loop);
+# this helper only lays out the colour gradient over humidity.
+def _rainbow_humidity_bands(repeats=RAINBOW_REPEATS):
     bands = 12 * repeats
-    tiers = [
+    return [
         ("leaf:rainbow_forest_%02d" % ((k % 12) + 1),
-         fraction * k / float(bands),
-         fraction * (k + 1) / float(bands))
+         k / float(bands),
+         (k + 1) / float(bands))
         for k in range(bands)
     ]
-    if fraction < 1.0:
-        tiers.append(("minecraft:flower_forest", fraction, 1.0))
-    return tiers
 
 # Maple Forest is a WARM-palette cousin of the rainbow set: 8 leaf:maple_forest_NN
 # biomes whose foliage_color steps across the warm arc only (deep red -> orange ->
@@ -61,21 +65,27 @@ def _maple_tiers(repeats=MAPLE_REPEATS):
 
 SPLITS = {
     # dark_forest humidity span is the whole top vanilla humidity band
-    # ([0.3, 1.0]). Humidity noise rarely peaks high, so an even-thirds split
-    # pinned dark_forest_core (the special-item heart biome) to the rarest top
-    # third, making it almost unfindable. Instead use an UNEVEN split: body
-    # takes the wide, most-commonly-sampled low band; core takes a generous
-    # mid-to-high band so it is "relatively rare" yet reachable within a ~20k
-    # RTP scan; edge is the thin rarest top sliver.
+    # ([0.3, 1.0]). Nested-shell ordering as humidity rises spatially toward the
+    # wet interior: edge (outer ring, driest) -> body (middle) -> core (inner,
+    # wettest), so core reads as the heart of each dark-forest region. Humidity
+    # noise rarely peaks high, so to keep core from being rare we go LOOSE: edge
+    # and body are thin outer rings and core takes the entire wide upper HALF of
+    # the span. That wide core band makes dark_forest_core appear MORE often than
+    # the narrow forest_core (which is only the wettest third of its span).
     "minecraft:dark_forest": [
-        ("leaf:dark_forest_body", 0.0, 0.4),
-        ("leaf:dark_forest_core", 0.4, 0.85),
-        ("leaf:dark_forest_edge", 0.85, 1.0),
+        ("leaf:dark_forest_edge", 0.0, 0.25),
+        ("leaf:dark_forest_body", 0.25, 0.5),
+        ("leaf:dark_forest_core", 0.5, 1.0),
     ],
+    # Nested shells over the humidity span: humidity rises spatially toward a
+    # local peak, so the LOW end is the outer ring and the HIGH end is the
+    # innermost point. Make edge the WIDEST (outer ring), body MEDIUM, and core
+    # a NARROW top slice so core reads as a small centre reliably surrounded by
+    # body, and body by edge (issue: core surrounded by mid, mid by edge).
     "minecraft:taiga": [
-        ("leaf:taiga_edge", 0.0, 1.0 / 3.0),
-        ("leaf:taiga_body", 1.0 / 3.0, 2.0 / 3.0),
-        ("leaf:taiga_core", 2.0 / 3.0, 1.0),
+        ("leaf:taiga_edge", 0.0, 0.45),
+        ("leaf:taiga_body", 0.45, 0.8),
+        ("leaf:taiga_core", 0.8, 1.0),
     ],
     # Plain forest gradient: mirror the dark_forest edge/body/core humidity-thirds
     # split, but the forest stays an OPEN (non-roofed) canopy -- trees are
@@ -83,19 +93,19 @@ SPLITS = {
     # vanilla forest (vanilla trees_birch_and_oak_leaf_litter selector); edge is
     # sparse small oaks/birch, core is taller oak_large-weighted but still low
     # count so it never closes into a roof.
+    # Same nested-shell widths as taiga: wide edge ring, medium body, narrow
+    # core centre (see the taiga comment) so the open forest transitions
+    # edge -> body -> core as you move inward.
     "minecraft:forest": [
-        ("leaf:forest_edge", 0.0, 1.0 / 3.0),
-        ("leaf:forest_body", 1.0 / 3.0, 2.0 / 3.0),
-        ("leaf:forest_core", 2.0 / 3.0, 1.0),
+        ("leaf:forest_edge", 0.0, 0.45),
+        ("leaf:forest_body", 0.45, 0.8),
+        ("leaf:forest_core", 0.8, 1.0),
     ],
-    # "Rainbow flower forest": split each vanilla flower_forest parameter point's
-    # humidity span into RAINBOW_REPEATS cycles of the 12 leaf:rainbow_forest_NN
-    # biomes (each differs only in foliage_color, a gentle 12-step hue gradient).
-    # Because humidity is a continuous low-frequency field, one pass renders as
-    # wide colour strips; cycling the gradient several times yields many narrow
-    # bands so the colours alternate frequently (a tighter rainbow). See
-    # tools/build_rainbow_biomes.py.
-    "minecraft:flower_forest": _rainbow_tiers(),
+    # NOTE: minecraft:flower_forest is intentionally NOT listed here. It is handled
+    # specially in the main loop as a CONDITIONAL weirdness-axis swap (see
+    # RAINBOW_WEIRDNESS_FRACTION / _rainbow_humidity_bands) rather than as a
+    # humidity-span split, so only a weirdness sub-band becomes rainbow_forest while
+    # the remainder stays vanilla minecraft:flower_forest.
     # Fun Content Backlog Tier 1 "flavored biomes": each fully replaces its
     # vanilla derivative across the whole humidity span (single tier 0.0..1.0),
     # the same whole-biome substitution pattern used for forest/taiga. JSON-only,
@@ -195,9 +205,37 @@ NEW_BIOMES = [
 
 new_biomes = list(NEW_BIOMES)
 counts = {k: 0 for k in SPLITS}
+counts["minecraft:flower_forest"] = 0
 for entry in report["biomes"]:
     tiers = SPLITS.get(entry["biome"])
-    if tiers:
+    if entry["biome"] == "minecraft:flower_forest":
+        # Conditional rainbow swap on the WEIRDNESS axis: the low sub-band of this
+        # entry's weirdness span (width RAINBOW_WEIRDNESS_FRACTION) is replaced by the
+        # rainbow colour gradient (banded across humidity); the remaining weirdness
+        # stays vanilla minecraft:flower_forest. So rainbow forests appear only where
+        # the weirdness noise lands in that sub-band.
+        counts["minecraft:flower_forest"] += 1
+        w = entry["parameters"]["weirdness"]
+        wlo, whi = float(w[0]), float(w[1])
+        wsplit = wlo + (whi - wlo) * RAINBOW_WEIRDNESS_FRACTION
+        h = entry["parameters"]["humidity"]
+        hlo, hhi = float(h[0]), float(h[1])
+        hspan = hhi - hlo
+        for name, a, b in _rainbow_humidity_bands():
+            c = copy.deepcopy(entry)
+            c["biome"] = name
+            c["parameters"]["weirdness"] = [round(wlo, 4), round(wsplit, 4)]
+            c["parameters"]["humidity"] = [round(hlo + hspan * a, 4), round(hlo + hspan * b, 4)]
+            new_biomes.append(c)
+        # Keep the vanilla flower_forest remainder only if the rainbow swap did
+        # NOT consume the entire weirdness span. With RAINBOW_WEIRDNESS_FRACTION
+        # >= 1.0 the remainder would be a zero-width [whi, whi] range, so skip it
+        # and let the whole former flower_forest read as rainbow forest.
+        if RAINBOW_WEIRDNESS_FRACTION < 1.0:
+            rest = copy.deepcopy(entry)
+            rest["parameters"]["weirdness"] = [round(wsplit, 4), round(whi, 4)]
+            new_biomes.append(rest)
+    elif tiers:
         counts[entry["biome"]] += 1
         h = entry["parameters"]["humidity"]
         lo, hi = float(h[0]), float(h[1])
@@ -210,6 +248,47 @@ for entry in report["biomes"]:
     else:
         new_biomes.append(entry)
 
+# Make room between ocean and land for beaches and inclines. Continentalness is the
+# ocean<->inland axis; vanilla packs the coast (beach) band into [-0.19, -0.11]
+# (width 0.08) and the near-inland "incline" band into [-0.11, 0.03] (width 0.14).
+# We apply a single MONOTONIC piecewise-linear remap to every biome entry's
+# continentalness range so those two bands are stretched (and the large far-inland
+# band absorbs the compression). Ocean boundaries (<= -0.19) are kept fixed so the
+# ocean extent is unchanged; only the coastline transition gets wider.
+CONT_REMAP = [
+    (-1.2, -1.2),
+    (-1.05, -1.05),
+    (-0.455, -0.455),
+    (-0.19, -0.19),   # ocean/coast boundary fixed
+    (-0.11, -0.03),   # coast (beach) band 0.08 -> 0.16
+    (0.03, 0.15),     # near-inland (incline) band 0.14 -> 0.18
+    (0.3, 0.42),      # mid-inland width preserved
+    (0.8, 0.86),
+    (1.0, 1.0),       # far-inland absorbs the compression
+]
+
+def _remap_cont(x):
+    if x <= CONT_REMAP[0][0]:
+        return CONT_REMAP[0][1]
+    if x >= CONT_REMAP[-1][0]:
+        return CONT_REMAP[-1][1]
+    for i in range(len(CONT_REMAP) - 1):
+        x0, y0 = CONT_REMAP[i]
+        x1, y1 = CONT_REMAP[i + 1]
+        if x0 <= x <= x1:
+            t = (x - x0) / (x1 - x0) if x1 > x0 else 0.0
+            return y0 + t * (y1 - y0)
+    return x
+
+for c in new_biomes:
+    cont = c["parameters"].get("continentalness")
+    if isinstance(cont, list):
+        c["parameters"]["continentalness"] = [
+            round(_remap_cont(float(cont[0])), 4),
+            round(_remap_cont(float(cont[1])), 4),
+        ]
+
+# Use the standard "minecraft:overworld" noise settings (regular biome size).
 dim = {
     "type": "minecraft:overworld",
     "generator": {

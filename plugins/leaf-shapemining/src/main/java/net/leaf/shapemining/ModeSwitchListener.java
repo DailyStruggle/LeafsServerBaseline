@@ -24,6 +24,9 @@ public final class ModeSwitchListener implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onItemHeld(PlayerItemHeldEvent event) {
         Player player = event.getPlayer();
+        if (!ShapeMiningTool.isEnabled(player)) {
+            return; // feature is opt-in per player (/shapemine); leave normal scrolling alone.
+        }
         if (!player.isSneaking()) {
             return;
         }

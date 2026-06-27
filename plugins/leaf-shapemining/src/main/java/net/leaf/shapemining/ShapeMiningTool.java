@@ -1,24 +1,22 @@
 package net.leaf.shapemining;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Builds the shape-mining tool {@link ItemStack} and reads/writes its current
- * {@link MineShape} mode via the item's {@code PersistentDataContainer}.
+ * Helpers for the shape/vein state, now spread across all vanilla tool classes
+ * rather than a single bespoke item.
  *
- * <p>The mode lives on the item itself (not in a transient session map) so it
- * survives relog, death/grave recovery, and item transfer, per the design
- * note.</p>
+ * <ul>
+ *   <li>The current {@link MineShape} mode lives in the held tool's
+ *   {@code PersistentDataContainer} (per-item, survives relog / death / grave
+ *   recovery / transfer), and defaults to {@link MineShape#OFF}.</li>
+ *   <li>The feature is opt-in per player via a flag stored in the player's
+ *   {@code PersistentDataContainer}, toggled with {@code /shapemine}.</li>
+ * </ul>
  */
 public final class ShapeMiningTool {
 
@@ -27,32 +25,13 @@ public final class ShapeMiningTool {
     private ShapeMiningTool() {
     }
 
-    public static ItemStack create() {
-        ItemStack item = new ItemStack(Material.NETHERITE_PICKAXE);
-        ItemMeta meta = item.getItemMeta();
-        if (meta == null) {
-            return item;
-        }
-        meta.displayName(Component.text("Excavator", NamedTextColor.GOLD)
-                .decoration(TextDecoration.ITALIC, false));
-        PersistentDataContainer pdc = meta.getPersistentDataContainer();
-        pdc.set(Keys.SHAPE_TOOL, PersistentDataType.BYTE, FLAG);
-        pdc.set(Keys.MODE, PersistentDataType.INTEGER, MineShape.OFF.ordinal());
-        applyLore(meta, MineShape.OFF);
-        item.setItemMeta(meta);
-        return item;
-    }
-
+    /** A tool is mode-aware when it is one of the supported vanilla tool classes. */
     public static boolean isTool(ItemStack item) {
-        if (item == null || item.getType().isAir() || !item.hasItemMeta()) {
-            return false;
-        }
-        ItemMeta meta = item.getItemMeta();
-        return meta.getPersistentDataContainer().has(Keys.SHAPE_TOOL, PersistentDataType.BYTE);
+        return ToolClass.of(item) != null;
     }
 
     public static MineShape getMode(ItemStack item) {
-        if (!isTool(item)) {
+        if (!isTool(item) || !item.hasItemMeta()) {
             return MineShape.OFF;
         }
         Integer ordinal = item.getItemMeta().getPersistentDataContainer()
@@ -60,25 +39,34 @@ public final class ShapeMiningTool {
         return ordinal == null ? MineShape.OFF : MineShape.fromOrdinal(ordinal);
     }
 
-    /** Mutates the given item in place to record the new mode and refresh its lore. */
+    /** Mutates the given item in place to record the new mode. */
     public static void setMode(ItemStack item, MineShape shape) {
         if (!isTool(item)) {
             return;
         }
         ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return;
+        }
         meta.getPersistentDataContainer().set(Keys.MODE, PersistentDataType.INTEGER, shape.ordinal());
-        applyLore(meta, shape);
         item.setItemMeta(meta);
     }
 
-    private static void applyLore(ItemMeta meta, MineShape shape) {
-        List<Component> lore = new ArrayList<>();
-        lore.add(Component.text("Mode: " + shape.size() + " (" + shape.label() + ")", NamedTextColor.AQUA)
-                .decoration(TextDecoration.ITALIC, false));
-        lore.add(Component.text("Sneak + scroll to change shape", NamedTextColor.DARK_GRAY)
-                .decoration(TextDecoration.ITALIC, false));
-        lore.add(Component.text("Shape-Mining Tool", NamedTextColor.DARK_GREEN)
-                .decoration(TextDecoration.ITALIC, false));
-        meta.lore(lore);
+    /** Whether the player has opted in to shape/vein behaviour. */
+    public static boolean isEnabled(Player player) {
+        PersistentDataContainer pdc = player.getPersistentDataContainer();
+        Byte flag = pdc.get(Keys.ENABLED, PersistentDataType.BYTE);
+        return flag != null && flag == FLAG;
+    }
+
+    /** Sets the player's opt-in flag; returns the new state. */
+    public static boolean setEnabled(Player player, boolean enabled) {
+        PersistentDataContainer pdc = player.getPersistentDataContainer();
+        if (enabled) {
+            pdc.set(Keys.ENABLED, PersistentDataType.BYTE, FLAG);
+        } else {
+            pdc.remove(Keys.ENABLED);
+        }
+        return enabled;
     }
 }

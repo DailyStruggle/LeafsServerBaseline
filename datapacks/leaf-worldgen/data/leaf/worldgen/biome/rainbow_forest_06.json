@@ -1,4 +1,4 @@
-{
+﻿{
   "carvers": [
     "minecraft:cave",
     "minecraft:cave_extra_underground",
@@ -7,7 +7,7 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 6016147,
+    "foliage_color": 1884013,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -84,7 +84,6 @@
     [
       "minecraft:glow_lichen",
       "minecraft:flower_forest_flowers",
-      "leaf:rainbow_trees",
       "minecraft:flower_flower_forest",
       "minecraft:patch_grass_badlands",
       "minecraft:brown_mushroom_normal",

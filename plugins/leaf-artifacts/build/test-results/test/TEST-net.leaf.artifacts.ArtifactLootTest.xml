@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.leaf.artifacts.ArtifactLootTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-06-25T04:57:59.341Z" hostname="JOHN" time="0.041">
+  <properties/>
+  <testcase name="perChestRarityShiftWithinAStructure()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.017"/>
+  <testcase name="highTierMatchesAreNotOverPromoted()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.001"/>
+  <testcase name="vanillaStructuresKeepTheirTiers()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.0"/>
+  <testcase name="shiftIsClampedAndSingleStep()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.0"/>
+  <testcase name="gapPacksAreNowCovered()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.0"/>
+  <testcase name="bossTierIsNeverProducible()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.001"/>
+  <testcase name="nonStructureLootTablesAreIgnored()" classname="net.leaf.artifacts.ArtifactLootTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

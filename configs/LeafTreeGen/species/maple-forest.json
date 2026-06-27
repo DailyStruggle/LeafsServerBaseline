@@ -1,0 +1,23 @@
+[
+  {
+    "name": "maple_oak",
+    "comment": "maple forest carrier - the actual placement uses the vanilla minecraft:oak / birch / fancy_oak configured features via the feature-trees placement in config.yml (dense, water-safe, as dense as forest body). The maple_forest_NN biomes recolor the foliage to the warm autumn palette, so vanilla oak/birch read as maple. This baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:oak_log",
+    "leaves": "minecraft:oak_leaves",
+    "profile": "oak",
+    "height_min": 5,
+    "height_max": 8,
+    "seed": 4900,
+    "roots": false,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 150,
+      "squish": 0.3,
+      "mode": "density",
+      "leaf_density": 1.0
+    }
+  }
+]

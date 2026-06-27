@@ -1,0 +1,48 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spread_type": "linear",
+    "salt": 10387312,
+    "spacing": 34,
+    "separation": 8
+  },
+  "structures": [
+    { "structure": "minecraft:village_plains", "weight": 1 },
+    { "structure": "minecraft:village_desert", "weight": 1 },
+    { "structure": "minecraft:village_savanna", "weight": 1 },
+    { "structure": "minecraft:village_snowy", "weight": 1 },
+    { "structure": "minecraft:village_taiga", "weight": 1 },
+
+    { "structure": "towns_and_towers:village_badlands", "weight": 1 },
+    { "structure": "towns_and_towers:village_beach", "weight": 1 },
+    { "structure": "towns_and_towers:village_birch_forest", "weight": 1 },
+    { "structure": "towns_and_towers:village_flower_forest", "weight": 1 },
+    { "structure": "towns_and_towers:village_forest", "weight": 1 },
+    { "structure": "towns_and_towers:village_snowy_slopes", "weight": 1 },
+    { "structure": "towns_and_towers:village_jungle", "weight": 1 },
+    { "structure": "towns_and_towers:village_meadow", "weight": 1 },
+    { "structure": "towns_and_towers:village_mushroom_fields", "weight": 1 },
+    { "structure": "towns_and_towers:village_ocean", "weight": 1 },
+    { "structure": "towns_and_towers:village_old_growth_taiga", "weight": 1 },
+    { "structure": "towns_and_towers:village_grove", "weight": 1 },
+    { "structure": "towns_and_towers:village_savanna_plateau", "weight": 1 },
+    { "structure": "towns_and_towers:village_sunflower_plains", "weight": 1 },
+    { "structure": "towns_and_towers:village_snowy_taiga", "weight": 1 },
+    { "structure": "towns_and_towers:village_sparse_jungle", "weight": 1 },
+    { "structure": "towns_and_towers:village_swamp", "weight": 1 },
+    { "structure": "towns_and_towers:village_wooded_badlands", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_mediterranean", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_swedish", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_tudor", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_wandering_trader_camp", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_classic", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_rustic", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_iberian", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_nilotic", "weight": 1 },
+    { "structure": "towns_and_towers:exclusives/village_piglin", "weight": 1 },
+
+    { "structure": "nova_structures:village_birch", "weight": 1 },
+    { "structure": "nova_structures:village_jungle", "weight": 1 },
+    { "structure": "nova_structures:village_swamp", "weight": 1 }
+  ]
+}

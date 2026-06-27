@@ -17,6 +17,8 @@ public final class GateConfig {
     private final Set<EntityType> gatedTypes;
     private final boolean requireNaturalGround;
     private final Set<Material> naturalGround;
+    private final boolean requireSkyAccess;
+    private final int surfaceTolerance;
     private final boolean rejectArtificialNearby;
     private final int scanRadius;
     private final int maxArtificialBlocks;
@@ -24,12 +26,15 @@ public final class GateConfig {
     private final boolean logRejections;
 
     private GateConfig(Set<String> worlds, Set<EntityType> gatedTypes, boolean requireNaturalGround,
-                       Set<Material> naturalGround, boolean rejectArtificialNearby, int scanRadius,
-                       int maxArtificialBlocks, Set<Material> artificialBlocks, boolean logRejections) {
+                       Set<Material> naturalGround, boolean requireSkyAccess, int surfaceTolerance,
+                       boolean rejectArtificialNearby, int scanRadius, int maxArtificialBlocks,
+                       Set<Material> artificialBlocks, boolean logRejections) {
         this.worlds = worlds;
         this.gatedTypes = gatedTypes;
         this.requireNaturalGround = requireNaturalGround;
         this.naturalGround = naturalGround;
+        this.requireSkyAccess = requireSkyAccess;
+        this.surfaceTolerance = surfaceTolerance;
         this.rejectArtificialNearby = rejectArtificialNearby;
         this.scanRadius = scanRadius;
         this.maxArtificialBlocks = maxArtificialBlocks;
@@ -53,6 +58,8 @@ public final class GateConfig {
                 gated,
                 c.getBoolean("require-natural-ground", true),
                 materials(c.getStringList("natural-ground")),
+                c.getBoolean("require-sky-access", true),
+                Math.max(0, c.getInt("surface-tolerance", 3)),
                 c.getBoolean("reject-artificial-nearby", true),
                 Math.max(0, c.getInt("scan-radius", 4)),
                 Math.max(0, c.getInt("max-artificial-blocks", 0)),
@@ -98,6 +105,14 @@ public final class GateConfig {
 
     public Set<Material> naturalGround() {
         return naturalGround;
+    }
+
+    public boolean requireSkyAccess() {
+        return requireSkyAccess;
+    }
+
+    public int surfaceTolerance() {
+        return surfaceTolerance;
     }
 
     public boolean rejectArtificialNearby() {

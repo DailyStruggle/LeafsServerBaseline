@@ -47,17 +47,22 @@ tiers: the larger-tree core uses a lower per-chunk count than the body
 
 | Biome | Humidity band | Trees | Foliage tint |
 |---|---|---|---|
-| `leaf:dark_forest_edge` | `[0.10, 0.35]` | vanilla-like (`minecraft:dark_oak` default, birch/oak, few mushrooms; `count 4`) | light green |
-| `leaf:dark_forest_body` | `[0.35, 0.65]` | medium dark oak (`leaf:dark_oak_mid` default, occasional large) | vanilla dark-forest modifier |
+| `leaf:dark_forest_edge` | `[0.30, 0.475]` | vanilla-like (`minecraft:dark_oak` default, birch/oak, brown/red mushrooms; vanilla density `count 16`) | light green |
+| `leaf:dark_forest_body` | `[0.475, 0.65]` | medium dark oak (`leaf:dark_oak_mid` default, occasional large) | vanilla dark-forest modifier |
 | `leaf:dark_forest_core` | `[0.65, 1.00]` | dense `leaf:dark_oak_mid` (`count 18`) + occasional tree-gen giants | deep green |
 
 The split is applied per dark_forest parameter point, so each tier inherits the
 same temperature/continentalness/erosion/weirdness window as vanilla dark forest
 and only the humidity sub-band differs. Bands are **disjoint** (no overlap) so
 adjacent rings meet at a single clean boundary instead of dithering against each
-other; as humidity rises toward the wet interior of a dark-forest region you
-pass edge (vanilla-like) -> body (medium dark oak) -> core (tall dark oak + giant
-tree-gen spiral/titan emergents).
+other. The tiers nest as shells: as humidity rises toward the wet interior of a
+dark-forest region you pass edge (vanilla-like, driest outer ring) -> body
+(medium dark oak) -> core (tall dark oak + giant tree-gen spiral/titan
+emergents, wettest centre). Because humidity noise rarely peaks high, the split
+is deliberately **loose** so core is not rare: edge and body are thin outer
+rings and **core takes the entire wide upper half of the span**, so
+`dark_forest_core` shows up MORE often than the narrow `forest_core` (which is
+only the wettest third of its own span).
 
 The legacy `leaf:darkforest_test` custom dimension is kept for single-player
 vanilla testing only; Paper does not load custom dimensions, but it does load

@@ -88,6 +88,7 @@ Backlog of incidental findings discovered while working on other tasks. Each ent
 - **Symptom / hypothesis**: Those NBTs also bake the generator's downward root system (taproot + buttress legs) into the bottom `root_depth_for(height)` layers (verified: y=0 layers are dark_oak_log roots). Vanilla jigsaw worldgen anchors the structure floor to the surface heightmap, so the trunk base floats up by ~`depth` blocks - identical to the taiga bug just fixed.
 - **Impact**: Dark-forest landmark giants probably spawn floating on stilt-like roots; only manifests in the custom dark-forest dimension (not loaded on Paper), so it may have gone unnoticed.
 - **Suggested next step**: Apply the same fix (strip layers below the trunk base, shift down by `depth`) to the four dark_forest `.nbt`, e.g. by generalising `tools/tree-gen/_fix_roots.py`; or, better, stop baking roots into exported giant NBTs at generation time.
+- **RESOLVED 2026-06-25 (natural placement)**: User reported the float in-game for the LeafTreeGen-placed dark-forest canopy. Fixed by setting `"roots": false` on every dark-oak definition in `configs/LeafTreeGen/species/dark-forest.json`, `dark-forest-mids.json`, and `dark-forest-megas.json` (same fix already applied to the taiga mega spruces), so the plugin no longer bakes the downward root system into the heightmap-anchored NBTs and the trunk base sits on the surface. NOTE: the separate `datapacks/leaf-worldgen/data/leaf/structure/dark_forest/*.nbt` landmark giants (custom dark-forest dimension, not loaded on Paper) are pre-baked binaries and still carry roots; regenerate them via the tree-gen tooling if that dimension is ever shipped.
 
 ---
 
@@ -108,3 +109,34 @@ Backlog of incidental findings discovered while working on other tasks. Each ent
 - **Symptom / hypothesis**: Both files begin with a UTF-8 BOM; every other leaf-worldgen JSON is BOM-less. Strict UTF-8 parsers (e.g. Python `json.load` without `utf-8-sig`) reject them; Minecraft/Gson tolerate a BOM so worldgen is unaffected.
 - **Impact**: No in-game effect (Gson skips the BOM); only trips tooling/CI that reads the files as plain UTF-8.
 - **Suggested next step**: Re-save both files as UTF-8 without BOM to match the rest of the pack (no content change needed).
+
+---
+
+### 2026-06-25 - dungeons_arise foundry_passages.json declares a duplicate pool name
+
+- **Discovered-during**: fixing the "Empty or non-existent pool: dungeons_arise:underworld/foundry/foundry_corridor_gears" worldgen spam.
+- **Location**: `datapacks/dungeons-arise/data/dungeons_arise/worldgen/template_pool/underworld/foundry/foundry_passages.json` line 2.
+- **Symptom / hypothesis**: The file's `name` is `dungeons_arise:underworld/foundry/foundry_corridors`, which collides with the separate `foundry_corridors.json` pool (same `name`). Looks like a copy-paste slip; the `name` should likely be `.../foundry_passages`.
+- **Impact**: A jigsaw block targeting `foundry_passages` resolves to whichever pool registration wins; the intended passages pool may never be selected.
+- **Suggested next step**: Confirm against upstream When Dungeons Arise data whether `foundry_passages.json` should declare `name` `.../foundry_passages`; if so, correct the `name` field.
+- **RESOLVED 2026-06-25**: Set `foundry_passages.json` `name` to `dungeons_arise:underworld/foundry/foundry_passages`, removing the collision with `foundry_corridors.json`. (Registration keys derive from the file path, so this is a cosmetic correctness fix - no runtime resolution change.)
+
+### 2026-06-25 - "Unsafe terrain read" spam for nova_structures:cave_chamber_archeology_ruins
+
+- **Discovered-during**: same worldgen log triage.
+- **Location**: `datapacks/dungeons-and-taverns/data/nova_structures/worldgen/structure/cave_chamber_archeology_ruins.json` (`size: 4`, `terrain_adaptation: none`, `max_distance_from_center: 128`).
+- **Symptom / hypothesis**: Paper logs "Detected unsafe terrain read during worldgen" (distance 2, write radius 1) during the `features` step for this jigsaw. A feature in one chunk reads terrain from a chunk beyond the structure write radius - inherent to a large multi-piece jigsaw, not a malformed-data error.
+- **Impact**: Log spam and a small risk of order-dependent feature placement; generation itself proceeds (diagnostic, not a crash).
+- **Suggested next step**: If undesirable, consider reducing the structure `size`/`max_distance_from_center` or a terrain_adaptation mode - but verify in-game the structure still assembles before shipping.
+- **RESOLVED 2026-06-25**: Lowered `max_distance_from_center` from `128` (extreme max) to `80` (vanilla-village-typical) to tighten piece spread and reduce the cross-chunk `features`-step reads. No Paper config toggle exists for this diagnostic, and the pool has no `terrain_matching` pieces, so reducing spread is the only datapack lever. Needs a user-triggered boot to confirm the spam drops and the structure still fully assembles.
+- **RESOLVED 2026-06-26 (root cause of recurrence)**: The spam reappeared on the active `26.2` server because its `start.bat` already carried `-Dlog4j.configurationFile=log4j2.xml` but the `log4j2.xml` file was MISSING from the server root, so Log4j2 silently fell back to its default config and the suppression RegexFilter never loaded. Re-ran `configs/deploy-logging-config.ps1 -ServerBase ...\26.2` to copy `log4j2.xml` into place (start.bat flag left as-is). Takes effect on the next user-triggered boot. Lesson: deploying logging requires the file present on the SAME server base the flag points at; check both when a new server version dir is spun up.
+
+### 2026-06-26 - "Unsafe terrain read" spam for towns_and_towers:village_snowy_taiga
+
+- **Discovered-during**: worldgen log triage (snowy-taiga viking village).
+- **Location**: `datapacks/towns-and-towers/data/towns_and_towers/worldgen/structure/village_snowy_taiga.json` (was `max_distance_from_center: 116`, `size: 6`, `terrain_adaptation: beard_thin`).
+- **Symptom / hypothesis**: Same benign Paper diagnostic ("Detected unsafe terrain read during worldgen", distance 2, write radius 1) during the `features` step - a large multi-piece jigsaw village reads terrain from chunks beyond its write radius. Already globally suppressed by the generic RegexFilter in `configs/logging/log4j2.xml`; generation proceeds (diagnostic, not a crash).
+- **Impact**: Log spam (when the logging config is not deployed) plus a small order-dependent feature-placement risk; no crash.
+- **RESOLVED 2026-06-26**: Lowered `max_distance_from_center` from `116` to `80` (vanilla-village-typical, matching the `village_beach`/`village_grove`/`village_snowy_slopes` siblings) to tighten piece spread and reduce the cross-chunk `features`-step reads. The remaining `116`-distance towns_and_towers villages (e.g. `village_birch_forest`, `village_forest`, `village_jungle`, `village_swamp`) can emit the same benign diagnostic but stay log-suppressed; tighten them similarly only if needed. Needs a user-triggered boot to confirm the spam drops and the village still fully assembles.
+- **FOLLOW-UP 2026-06-26 (`village_swamp`)**: `village_swamp` escalated past the benign "unsafe terrain read" to the more severe "Detected setBlock in a far chunk" error (swamp boat village actually writing blocks into chunks beyond the safe write radius during the `fluid_springs`/`features` step). Applied the same lever: lowered its `max_distance_from_center` from `116` to `80`. Needs a user-triggered boot to confirm the errors stop and the swamp village still fully assembles.
+- **FOLLOW-UP 2026-06-26 (`village_snowy_taiga`, far-chunk recurrence at 80)**: After the world was regenerated, `village_snowy_taiga` STILL emitted "Detected setBlock in a far chunk" (e.g. chunk [-322,-357], pos x=-5150 y=111, during `minecraft:features` for `towns_and_towers:village_snowy_taiga`), so `80` was insufficient for this sprawling snowy-taiga viking village (size 6, beard_thin, tall longhouse/watchtower pieces on hilly snowy slopes spread past the safe write radius). Lowered `max_distance_from_center` further from `80` to `64` to clamp piece spread within the write radius. Needs a user-triggered world-reset boot to confirm the far-chunk errors stop and the village still fully assembles; if it persists, the next lever is reducing `size` (6 -> 5).

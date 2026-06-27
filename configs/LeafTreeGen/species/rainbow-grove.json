@@ -1,0 +1,124 @@
+[
+  {
+    "name": "rainbow",
+    "comment": "rainbow grove small - mixes all 7 tintable leaf blocks equally (primary oak + 6 secondaries at fraction 6/7 => each leaf type ~1/7). The biome foliage tint of each child grove recolors the whole canopy to a single hue while keeping mixed leaf textures.",
+    "filenames": ["rainbowM1", "rainbowM2"],
+    "trunk": "minecraft:birch_log",
+    "leaves": "minecraft:oak_leaves",
+    "secondary_leaves": [
+      { "block": "minecraft:spruce_leaves", "weight": 1 },
+      { "block": "minecraft:birch_leaves", "weight": 1 },
+      { "block": "minecraft:jungle_leaves", "weight": 1 },
+      { "block": "minecraft:acacia_leaves", "weight": 1 },
+      { "block": "minecraft:dark_oak_leaves", "weight": 1 },
+      { "block": "minecraft:mangrove_leaves", "weight": 1 }
+    ],
+    "secondary_leaf_fraction": 0.857,
+    "profile": "birch",
+    "height_min": 6,
+    "height_max": 9,
+    "seed": 7700,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 128,
+      "squish": 0.8,
+      "mode": "density",
+      "leaf_density": 1.0
+    }
+  },
+  {
+    "name": "rainbow",
+    "comment": "rainbow grove medium - sine trunk, branching crown",
+    "filenames": ["rainbowM3", "rainbowM4"],
+    "trunk": "minecraft:birch_log",
+    "leaves": "minecraft:oak_leaves",
+    "secondary_leaves": [
+      { "block": "minecraft:spruce_leaves", "weight": 1 },
+      { "block": "minecraft:birch_leaves", "weight": 1 },
+      { "block": "minecraft:jungle_leaves", "weight": 1 },
+      { "block": "minecraft:acacia_leaves", "weight": 1 },
+      { "block": "minecraft:dark_oak_leaves", "weight": 1 },
+      { "block": "minecraft:mangrove_leaves", "weight": 1 }
+    ],
+    "secondary_leaf_fraction": 0.857,
+    "profile": "birch",
+    "height_min": 12,
+    "height_max": 17,
+    "seed": 7701,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "sine",
+    "trunk_shape_params": { "period": 0.6, "amplitude": 0.1 },
+    "canopy": {
+      "start_angle": 126,
+      "squish": 0.8,
+      "mode": "density",
+      "leaf_density": 1.0,
+      "branches": {
+        "prob_fn": "linear",
+        "prob_params": { "base_p": 0.05, "crown_p": 0.75 },
+        "length_fn": "sigmoid",
+        "length_params": { "max_len": 5, "steepness": 5.0 },
+        "azimuth": "random",
+        "elevation": 12,
+        "leaf_start_up": true,
+        "cluster_radius": 3,
+        "cluster_mode": "density",
+        "cluster_density": 1.0
+      }
+    }
+  },
+  {
+    "name": "rainbow",
+    "comment": "rainbow grove tall - log trunk, wide branching canopy",
+    "filenames": ["rainbowM5", "rainbowM6"],
+    "trunk": "minecraft:birch_log",
+    "leaves": "minecraft:oak_leaves",
+    "secondary_leaves": [
+      { "block": "minecraft:spruce_leaves", "weight": 1 },
+      { "block": "minecraft:birch_leaves", "weight": 1 },
+      { "block": "minecraft:jungle_leaves", "weight": 1 },
+      { "block": "minecraft:acacia_leaves", "weight": 1 },
+      { "block": "minecraft:dark_oak_leaves", "weight": 1 },
+      { "block": "minecraft:mangrove_leaves", "weight": 1 }
+    ],
+    "secondary_leaf_fraction": 0.857,
+    "profile": "birch",
+    "height_min": 20,
+    "height_max": 27,
+    "seed": 7702,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "log",
+    "trunk_shape_params": { "base": 2.2 },
+    "canopy": {
+      "start_angle": 124,
+      "squish": 0.85,
+      "mode": "density",
+      "leaf_density": 1.0,
+      "branches": {
+        "prob_fn": "linear",
+        "prob_params": { "base_p": 0.04, "crown_p": 0.8 },
+        "length_fn": "sigmoid",
+        "length_params": { "max_len": 7, "steepness": 6.0 },
+        "azimuth": "random",
+        "elevation": 12,
+        "leaf_start_up": true,
+        "cluster_radius": 3,
+        "cluster_mode": "density",
+        "cluster_density": 1.0,
+        "sub_branches": {
+          "count": 3,
+          "pitch_delta": -14,
+          "yaw_delta": 70,
+          "length_scale": 0.6,
+          "cluster_radius": 2,
+          "cluster_mode": "density"
+        }
+      }
+    }
+  }
+]

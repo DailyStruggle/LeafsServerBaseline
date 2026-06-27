@@ -1,0 +1,22 @@
+[
+  {
+    "name": "huge_mushroom",
+    "comment": "dark forest huge mushroom carrier - the actual placement uses the vanilla minecraft:huge_brown_mushroom / huge_red_mushroom configured features via the feature-trees placement in config.yml; this baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:mushroom_stem",
+    "leaves": "minecraft:brown_mushroom_block",
+    "profile": "dark_oak_flat",
+    "height_min": 6,
+    "height_max": 9,
+    "seed": 4700,
+    "count": 2,
+    "trunk_width": 1,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 150,
+      "squish": 0.3,
+      "mode": "filled",
+      "leaf_density": 1.0
+    }
+  }
+]

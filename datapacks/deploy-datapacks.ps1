@@ -1,11 +1,17 @@
 param(
-    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\26.1',
+    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\26.2',
     [string]$LevelName,
     [string[]]$Only,
-    [switch]$ResetWorld,
+    # World reset is ON by default (regenerate from scratch so worldgen changes
+    # take effect everywhere, not just in new chunks). Pass -NoReset to keep the
+    # existing world. The wiped world is moved aside to a timestamped backup
+    # unless -NoBackup is given.
+    [switch]$NoReset,
     [switch]$NoBackup,
     [switch]$NoPatch
 )
+
+$ResetWorld = -not $NoReset
 
 # Deploys the repo's vanilla datapacks to the test server's world datapacks folder.
 # This is the post-Iris worldgen model (see ADR-005): worldgen now ships as
@@ -17,13 +23,14 @@ param(
 # server restart for worldgen/dimension changes) is needed for them to take
 # effect. -Only <name[,name]> restricts the deploy to specific pack folders.
 #
-# -ResetWorld wipes the target world folder so the server regenerates it FROM
-# SCRATCH on the next (user-triggered) boot - this is how stale chunk data is
-# cleared so worldgen/dimension changes actually show up everywhere instead of
-# only in newly generated chunks. The wiped world is first moved aside to a
-# timestamped backup (world_backup_<stamp>) unless -NoBackup is given. This is a
-# DESTRUCTIVE operation and is OFF by default; the datapacks are re-deployed into
-# the freshly recreated world folder afterwards.
+# World reset is ON by default: the target world folder is wiped so the server
+# regenerates it FROM SCRATCH on the next (user-triggered) boot - this is how
+# stale chunk data is cleared so worldgen/dimension changes actually show up
+# everywhere instead of only in newly generated chunks. The wiped world is first
+# moved aside to a timestamped backup (<level>_backup_<stamp>) unless -NoBackup is
+# given; the datapacks are re-deployed into the freshly recreated world folder.
+# Pass -NoReset to keep the existing world (DESTRUCTIVE op is the default, so use
+# -NoReset when you only want to update datapack files in place).
 
 # Resolve the primary level name (the world whose datapacks/ folder receives the
 # packs). Prefer an explicit -LevelName, else read level-name from
@@ -86,7 +93,20 @@ $packs = Get-ChildItem $datapacksSrc -Directory -ErrorAction SilentlyContinue |
     Where-Object { Test-Path (Join-Path $_.FullName 'pack.mcmeta') }
 
 if ($Only) {
-    $packs = $packs | Where-Object { $Only -contains $_.Name }
+    if ($ResetWorld) {
+        # A world reset wipes the ENTIRE world (all previously-deployed packs are
+        # gone). Honouring -Only here would re-stage only the named pack into the
+        # fresh world, dropping every other pack - e.g. leaf-worldgen, which
+        # DEFINES the leaf:* biomes and leaf:* features that other data still
+        # references. That produces "Unbound values in registry ... [leaf:...]"
+        # and the server refuses to load. So -Only is only valid for in-place
+        # (-NoReset) updates; during a reset we must redeploy ALL packs.
+        Write-Output "  NOTE: -Only is ignored during a world reset; redeploying ALL datapacks"
+        Write-Output "        (a fresh world needs every pack, not just '$($Only -join ", ")')."
+        Write-Output "        Use -NoReset together with -Only to update a single pack in place."
+    } else {
+        $packs = $packs | Where-Object { $Only -contains $_.Name }
+    }
 }
 
 if (-not $packs) {
@@ -111,7 +131,7 @@ if ($ResetWorld) {
     Write-Output "World was reset; boot the server to generate it FROM SCRATCH"
     Write-Output "with these datapacks active (server boots are user-triggered)."
 } else {
-    Write-Output "Reminder: run /reload (data-only changes) or restart the server"
+    Write-Output "World kept (-NoReset): run /reload (data-only changes) or restart the server"
     Write-Output "(worldgen/dimension changes regenerate only in newly generated chunks)."
-    Write-Output "Use -ResetWorld to wipe the world and regenerate from scratch."
+    Write-Output "Omit -NoReset to wipe the world and regenerate from scratch (default)."
 }

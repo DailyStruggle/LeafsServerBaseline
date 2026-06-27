@@ -23,13 +23,16 @@ by listing their types here. The common path for every other spawn is a single s
 
 ## v1 validity predicate
 
-A gated spawn is cancelled (before the entity is added to the world) if it fails either:
+A gated spawn is cancelled (before the entity is added to the world) if it fails any of:
 
 1. `require-natural-ground` - the block beneath must be a natural material.
-2. `reject-artificial-nearby` - no more than `max-artificial-blocks` artificial blocks
+2. `require-sky-access` - the spawn must be at (or within `surface-tolerance` blocks below)
+   the terrain surface, measured by the `MOTION_BLOCKING_NO_LEAVES` heightmap so the leaf
+   canopy is ignored. This keeps gated elites on the surface instead of underground caves.
+3. `reject-artificial-nearby` - no more than `max-artificial-blocks` artificial blocks
    within `scan-radius`.
 
-Both rules and their material lists are configurable in `config.yml`.
+All rules and their material lists are configurable in `config.yml`.
 
 ## Build
 

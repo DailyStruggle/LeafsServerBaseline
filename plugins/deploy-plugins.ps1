@@ -1,5 +1,5 @@
 ﻿param(
-    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\26.1',
+    [string]$ServerBase = 'C:\GameServers\Minecraft\testServer\RTP-Paper\26.2',
     [string[]]$Only,
     [switch]$NoBuild
 )
@@ -33,6 +33,44 @@ $modules = Get-ChildItem $pluginsSrc -Directory -ErrorAction SilentlyContinue |
 
 if ($Only) {
     $modules = $modules | Where-Object { $Only -contains $_.Name }
+}
+
+# leaf-treegen is EXTERNALIZED (https://modrinth.com/plugin/leaf-treegen). Its old
+# in-repo source still has a build.gradle, but it must NOT be built/deployed from
+# this repo - the externalized jar is installed separately and is driven by the
+# source-controlled config in configs/LeafTreeGen (deploy-treegen-config.ps1).
+# Exclude it from auto-discovery unless the caller explicitly asks via -Only.
+#
+# elite-spawn-gate is a premature optimization; it is disabled (not built/deployed)
+# until it is actually needed. Its source stays in-repo, but it is excluded from
+# auto-discovery unless the caller explicitly asks via -Only.
+$excluded = @('leaf-treegen', 'elite-spawn-gate')
+if (-not $Only) {
+    $modules = $modules | Where-Object { $excluded -notcontains $_.Name }
+}
+
+# Excluding a module from auto-discovery only stops us re-copying it; a jar
+# deployed before the exclusion was added would otherwise linger in the server's
+# plugins folder and keep loading (the EliteSpawnGate "it reappeared" case).
+# So for these modules, when the caller did NOT explicitly request them via
+# -Only, actively remove their jar(s) from $dest. Jar names are read from the
+# module's own build/libs so we never guess wrong / touch unrelated jars.
+# (leaf-treegen is intentionally NOT purged here: its in-repo jar name collides
+# with the separately-installed externalized plugin and it still regenerates the
+# leaf-treegen-generated datapack, so removing it is out of scope for this purge.)
+$purgeStale = @('elite-spawn-gate')
+foreach ($name in $purgeStale) {
+    if ($Only -and ($Only -contains $name)) { continue }
+    $libs = Join-Path $pluginsSrc "$name\build\libs"
+    $jarNames = Get-ChildItem $libs -Filter '*.jar' -ErrorAction SilentlyContinue |
+        Select-Object -ExpandProperty Name
+    foreach ($jarName in $jarNames) {
+        $stale = Join-Path $dest $jarName
+        if (Test-Path $stale) {
+            Remove-Item $stale -Force
+            Write-Output "  removed excluded plugin jar: $jarName"
+        }
+    }
 }
 
 if (-not $modules) {

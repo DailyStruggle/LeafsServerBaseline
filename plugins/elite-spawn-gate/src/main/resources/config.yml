@@ -49,7 +49,16 @@ natural-ground:
   - RED_TERRACOTTA
   - LIGHT_GRAY_TERRACOTTA
 
-# Rule 2: reject if too many artificial blocks are found within `scan-radius`.
+# Rule 2: the spawn must be at (or near) the terrain surface, not underground.
+# Surface height is read from the MOTION_BLOCKING_NO_LEAVES heightmap (the topmost
+# solid ground/log block), so the leaf canopy is ignored and spawns on the ground
+# under trees still pass, while cave spawns well below ground are rejected.
+# `surface-tolerance` is how many blocks below the surface a spawn may still be
+# (covers overhangs, sloped terrain, and ground-level pockets).
+require-sky-access: true
+surface-tolerance: 3
+
+# Rule 3: reject if too many artificial blocks are found within `scan-radius`.
 reject-artificial-nearby: true
 scan-radius: 4
 max-artificial-blocks: 0

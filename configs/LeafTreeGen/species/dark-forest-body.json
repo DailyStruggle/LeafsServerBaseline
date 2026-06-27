@@ -1,0 +1,24 @@
+[
+  {
+    "name": "darkoak_body",
+    "comment": "dark forest body carrier - the actual placement uses the vanilla minecraft:dark_oak / birch configured features via the feature-trees placement in config.yml (dense, water-safe, vanilla 2x2 flat-canopy dark oak; NO oak-like long branches). The tall/giant emergents and huge mushrooms remain core-only and are NOT placed here. This baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:dark_oak_log",
+    "leaves": "minecraft:dark_oak_leaves",
+    "profile": "dark_oak_flat",
+    "height_min": 7,
+    "height_max": 11,
+    "seed": 4810,
+    "roots": false,
+    "count": 4,
+    "trunk_width": 2,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 158,
+      "squish": 0.22,
+      "mode": "density",
+      "leaf_density": 1.0,
+      "leaf-vertical-scale": 0.5
+    }
+  }
+]

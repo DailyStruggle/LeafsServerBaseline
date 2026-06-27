@@ -1,0 +1,23 @@
+[
+  {
+    "name": "rainbow_oak",
+    "comment": "rainbow forest carrier - the actual placement uses the vanilla minecraft:oak / fancy_oak configured features via the feature-trees placement in config.yml (dense, water-safe, forest-tier density). ONLY oak-type features are used because oak leaves are biome-tinted: each rainbow_forest_NN biome's foliage tint recolors the oak canopy to its hue, producing the rainbow gradient. Birch/spruce leaves are NOT biome-tinted (fixed colors), so they are deliberately excluded - they would not turn rainbow. This baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:oak_log",
+    "leaves": "minecraft:oak_leaves",
+    "profile": "oak",
+    "height_min": 5,
+    "height_max": 8,
+    "seed": 7710,
+    "roots": false,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 128,
+      "squish": 0.8,
+      "mode": "density",
+      "leaf_density": 1.0
+    }
+  }
+]

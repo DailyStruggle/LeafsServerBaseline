@@ -2,56 +2,58 @@ package net.leaf.shapemining;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 /**
- * Admin/testing command: {@code /shapemine give [player]} hands out a
- * shape-mining tool so the feature can be reviewed in-game before any loot or
- * crafting integration exists.
+ * {@code /shapemine [on|off]} toggles the shape/vein feature for the calling
+ * player. The feature is opt-in (default off) and works off whatever vanilla
+ * pickaxe/axe/shovel/hoe the player holds; once on, sneak + scroll cycles the
+ * active shape on the held tool.
  */
 public final class ShapeMineCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length < 1 || !args[0].equalsIgnoreCase("give")) {
-            sender.sendMessage(Component.text("Usage: /shapemine give [player]", NamedTextColor.RED));
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(Component.text("Only players can toggle shape-mining.", NamedTextColor.RED));
             return true;
         }
-        if (!sender.hasPermission("leafshapemining.admin")) {
-            sender.sendMessage(Component.text("You don't have permission to give shape-mining tools.",
-                    NamedTextColor.RED));
+        if (!player.hasPermission("leafshapemining.use")) {
+            player.sendMessage(Component.text("You don't have permission to use shape-mining.", NamedTextColor.RED));
             return true;
         }
 
-        Player target;
-        if (args.length >= 2) {
-            target = Bukkit.getPlayerExact(args[1]);
-            if (target == null) {
-                sender.sendMessage(Component.text("Player not found: " + args[1], NamedTextColor.RED));
-                return true;
-            }
-        } else if (sender instanceof Player self) {
-            target = self;
+        boolean target;
+        if (args.length == 0) {
+            target = !ShapeMiningTool.isEnabled(player); // bare command toggles.
         } else {
-            sender.sendMessage(Component.text("Console must specify a player.", NamedTextColor.RED));
-            return true;
+            String arg = args[0].toLowerCase(Locale.ROOT);
+            switch (arg) {
+                case "on", "enable", "true" -> target = true;
+                case "off", "disable", "false" -> target = false;
+                default -> {
+                    player.sendMessage(Component.text("Usage: /shapemine [on|off]", NamedTextColor.RED));
+                    return true;
+                }
+            }
         }
 
-        ItemStack item = ShapeMiningTool.create();
-        target.getInventory().addItem(item).values()
-                .forEach(leftover -> target.getWorld().dropItemNaturally(target.getLocation(), leftover));
-        sender.sendMessage(Component.text(
-                "Gave a shape-mining tool to " + target.getName() + ".", NamedTextColor.GREEN));
+        ShapeMiningTool.setEnabled(player, target);
+        if (target) {
+            player.sendMessage(Component.text(
+                    "Shape-mining enabled. Hold a pickaxe/axe/shovel/hoe, sneak + scroll to pick a shape.",
+                    NamedTextColor.GREEN));
+        } else {
+            player.sendMessage(Component.text("Shape-mining disabled.", NamedTextColor.YELLOW));
+        }
         return true;
     }
 
@@ -59,12 +61,11 @@ public final class ShapeMineCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         List<String> out = new ArrayList<>();
         if (args.length == 1) {
-            if ("give".startsWith(args[0].toLowerCase(Locale.ROOT))) {
-                out.add("give");
-            }
-        } else if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                out.add(player.getName());
+            String prefix = args[0].toLowerCase(Locale.ROOT);
+            for (String option : new String[] {"on", "off"}) {
+                if (option.startsWith(prefix)) {
+                    out.add(option);
+                }
             }
         }
         return out;

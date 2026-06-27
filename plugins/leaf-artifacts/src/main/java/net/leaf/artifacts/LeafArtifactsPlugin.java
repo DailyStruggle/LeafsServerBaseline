@@ -57,6 +57,18 @@ public final class LeafArtifactsPlugin extends JavaPlugin {
                 new ArtifactListener(this, controller, rollerSkates, heliumFlamingo, flippers, umbrella, sinking, attractor, curios), this);
         getServer().getPluginManager().registerEvents(new ArtifactEventListener(equipment), this);
         getServer().getPluginManager().registerEvents(new CloudJumpListener(this, equipment), this);
+        // Source artifacts into structure-chest loot (LootGenerateEvent) and curated
+        // hostile-mob drops (EntityDeathEvent); see ArtifactLoot / ArtifactLootListener.
+        getServer().getPluginManager().registerEvents(new ArtifactLootListener(), this);
+
+        // Artifact -> configured-spawner crafting sink: a controlled, bounded way
+        // for players to obtain the mob they want to farm (without laggy spawn
+        // contraptions) by sacrificing a specific named artifact + a Netherite
+        // Block. Register the recipes, then the listener that PDC-verifies the
+        // artifact ingredient.
+        SpawnerCraftListener spawnerCrafting = new SpawnerCraftListener(this);
+        spawnerCrafting.registerRecipes();
+        getServer().getPluginManager().registerEvents(spawnerCrafting, this);
 
         ArtifactCommand command = new ArtifactCommand(curios);
         if (getCommand("artifact") != null) {

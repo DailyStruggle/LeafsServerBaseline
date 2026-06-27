@@ -5,7 +5,8 @@ package net.leaf.shapemining;
  *
  * <p>Cycle order (used by sneak-scroll mode switching) follows the enum
  * declaration order: {@link #OFF} -&gt; {@link #CORRIDOR} -&gt; {@link #SQUARE}
- * -&gt; {@link #TUNNEL} -&gt; (full rotation) back to {@link #OFF}.</p>
+ * -&gt; {@link #TUNNEL} -&gt; {@link #VEIN} -&gt; (full rotation) back to
+ * {@link #OFF}.</p>
  */
 public enum MineShape {
 
@@ -19,7 +20,15 @@ public enum MineShape {
     SQUARE("3x3", "Square"),
 
     /** 1x1xN: tunnel-bore along the look direction. */
-    TUNNEL("1x1xN", "Tunnel-bore");
+    TUNNEL("1x1xN", "Tunnel-bore"),
+
+    /**
+     * Ultimine-style vein miner for low-value ores only. Breaking a configured
+     * low-value ore (e.g. coal) clears the connected vein of the same ore;
+     * high-dopamine ores (diamond/gold/redstone/etc.) are intentionally excluded
+     * to preserve the "find" payoff. Filler is left to the other shapes.
+     */
+    VEIN("vein", "Ore vein");
 
     private final String size;
     private final String label;

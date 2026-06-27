@@ -1,0 +1,24 @@
+[
+  {
+    "name": "savanna_acacia",
+    "comment": "savanna acacia carrier - the actual placement uses the vanilla minecraft:acacia configured feature via the feature-trees placement in config.yml, scattered alongside the custom savanna species so the savanna has regular acacia trees mixed in (water-safe, sparse savanna density). This baked definition is only the jigsaw carrier and a fallback shape.",
+    "trunk": "minecraft:acacia_log",
+    "leaves": "minecraft:acacia_leaves",
+    "profile": "dark_oak_flat",
+    "height_min": 5,
+    "height_max": 8,
+    "seed": 8100,
+    "roots": false,
+    "count": 4,
+    "trunk_width": 1,
+    "trunk_shape": "constant",
+    "trunk_shape_params": {},
+    "canopy": {
+      "start_angle": 160,
+      "squish": 0.25,
+      "mode": "density",
+      "leaf_density": 1.0,
+      "leaf-vertical-scale": 0.5
+    }
+  }
+]
